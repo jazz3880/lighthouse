@@ -110,31 +110,19 @@ async function _navigate(navigationContext) {
  * @return {Promise<{devtoolsLog?: LH.DevtoolsLog, records?: Array<LH.Artifacts.NetworkRequest>, trace?: LH.Trace}>}
  */
 async function _collectDebugData(navigationContext, phaseState) {
-  const devtoolsLogArtifactDefn = phaseState.artifactDefinitions.find(
-    definition => definition.gatherer.instance.meta.symbol === DevtoolsLog.symbol
-  );
-  const traceArtifactDefn = phaseState.artifactDefinitions.find(
-    definition => definition.gatherer.instance.meta.symbol === Trace.symbol
-  );
+  let devtoolsLog;
+  let trace;
 
-  const artifactDefinitions = [devtoolsLogArtifactDefn, traceArtifactDefn].filter(
-    /**
-     * @param {LH.Config.AnyArtifactDefn | undefined} defn
-     * @return {defn is LH.Config.AnyArtifactDefn}
-     */
-    defn => Boolean(defn)
-  );
-  if (!artifactDefinitions.length) return {};
+  for (const definition of phaseState.artifactDefinitions) {
+    const {instance} = definition.gatherer;
+    if (instance instanceof DevtoolsLog) {
+      devtoolsLog = instance.getDebugData();
+    } else if (instance instanceof Trace) {
+      trace = instance.getDebugData();
+    }
+  }
 
-  await collectPhaseArtifacts({...phaseState, phase: 'getArtifact', artifactDefinitions});
-  const getArtifactState = phaseState.artifactState.getArtifact;
-
-  const devtoolsLogArtifactId = devtoolsLogArtifactDefn?.id;
-  const devtoolsLog = devtoolsLogArtifactId && (await getArtifactState[devtoolsLogArtifactId]);
   const records = devtoolsLog && (await NetworkRecords.request(devtoolsLog, navigationContext));
-
-  const traceArtifactId = traceArtifactDefn?.id;
-  const trace = traceArtifactId && (await getArtifactState[traceArtifactId]);
 
   return {devtoolsLog, records, trace};
 }

@@ -344,13 +344,27 @@ describe('NavigationRunner', () => {
     });
 
     it('finds page load errors in network records when available', async () => {
-      const {resolvedConfig, gatherers} = createMockConfig();
-      mocks.navigationMock.gotoURL.mockResolvedValue({mainDocumentUrl: requestedUrl, warnings: []});
+      mocks.navigationMock.gotoURL.mockReturnValue({
+        requestedUrl,
+        mainDocumentUrl: requestedUrl,
+        warnings: [],
+      });
+
+      const devtoolsLogInstance = new DevtoolsLogGatherer();
+      const traceInstance = new TraceGatherer();
+
+      // @ts-expect-error mock config
+      const resolvedConfig = /** @type {LH.Config.ResolvedConfig} */ ({
+        settings: JSON.parse(JSON.stringify(defaultSettings)),
+        artifacts: [
+          {id: 'DevtoolsLog', gatherer: {instance: devtoolsLogInstance}},
+          {id: 'Trace', gatherer: {instance: traceInstance}},
+        ],
+      });
+
       const devtoolsLog = networkRecordsToDevtoolsLog([{url: requestedUrl, failed: true}]);
-      gatherers.timespan.meta.symbol = DevtoolsLogGatherer.symbol;
-      gatherers.timespan.getArtifact = fnAny().mockResolvedValue(devtoolsLog);
-      gatherers.navigation.meta.symbol = TraceGatherer.symbol;
-      gatherers.navigation.getArtifact = fnAny().mockResolvedValue({traceEvents: []});
+      devtoolsLogInstance.getDebugData = fnAny().mockReturnValue(devtoolsLog);
+      traceInstance.getDebugData = fnAny().mockReturnValue({traceEvents: []});
 
       const artifacts = await runner._navigation({
         driver,

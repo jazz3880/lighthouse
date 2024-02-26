@@ -126,6 +126,10 @@ class Trace extends BaseGatherer {
     this._trace = await Trace.endTraceAndCollectEvents(driver.defaultSession);
   }
 
+  getDebugData() {
+    return this._trace;
+  }
+
   getArtifact() {
     return this._trace;
   }
