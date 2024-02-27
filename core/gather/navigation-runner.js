@@ -266,9 +266,11 @@ async function navigationGather(page, requestor, options = {}) {
 
   // As Driver is instantiated within gatherFn, we don't have access to `driver.fatalRejection`
   // until after the race starts. This new promise acts as a proxy for it.
-  const {promise: wrapFatalPromise, rej: wrappedRej} = Driver.getRejectionCallback();
+  /** @param {any} _ */
+  let wrappedRej = _ => {};
+  const wrappedFatalPromise = /** @type {Promise<never>} */ (new Promise((_, r) => wrappedRej = r));
 
-  const runnerOptions = {resolvedConfig, computedCache, fatalGatherPromise: wrapFatalPromise};
+  const runnerOptions = {resolvedConfig, computedCache, fatalGatherPromise: wrappedFatalPromise};
   const gatherFn = async () => {
     const normalizedRequestor = isCallback ? requestor : UrlUtils.normalizeUrl(requestor);
 
@@ -288,9 +290,7 @@ async function navigationGather(page, requestor, options = {}) {
 
 
     const driver = new Driver(page);
-    driver.fatalRejection.promise.catch(err => {
-      wrappedRej(err);
-    });
+    driver.fatalRejection.promise.catch(err => wrappedRej(err));
     const context = {
       driver,
       lhBrowser,
@@ -300,8 +300,6 @@ async function navigationGather(page, requestor, options = {}) {
       requestor: normalizedRequestor,
       computedCache,
     };
-
-
     const {baseArtifacts} = await _setup(context);
 
     const artifacts = await _navigation({...context, baseArtifacts});

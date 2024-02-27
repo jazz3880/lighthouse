@@ -47,7 +47,12 @@ class Driver {
     this._fetcher = undefined;
 
     this.defaultSession = throwingSession;
-    this.fatalRejection = Driver.getRejectionCallback();
+
+    // Poor man's Promise.withResolvers()
+    /** @param {any} _ */
+    let rej = _ => {};
+    const promise = /** @type {Promise<never>} */ (new Promise((_, theRej) => rej = theRej));
+    this.fatalRejection = {promise, rej};
   }
 
   /** @return {LH.Gatherer.Driver['executionContext']} */
@@ -91,19 +96,6 @@ class Driver {
     this._executionContext = new ExecutionContext(this.defaultSession);
     this._fetcher = new Fetcher(this.defaultSession);
     log.timeEnd(status);
-  }
-
-  /**
-   * Sometimes, assigning the rejection callback lazily leads to more readable async code.
-   */
-  static getRejectionCallback() {
-    /** @type {(reason: Error) => void} */
-    let rej;
-    const promise = new Promise((_, theRej) => {
-      rej = theRej;
-    });
-    // @ts-expect-error Used before assigned? Pshaw! ↑
-    return {promise, rej};
   }
 
   /**
