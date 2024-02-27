@@ -114,7 +114,7 @@ describe('Runner', () => {
   };
 
   const runGatherAndAudit = async (gatherFn, opts) => {
-    // TODO: will need to pop a fatalGatherPromise in these opts
+    opts.fatalGatherPromise = driverMock.fatalRejection.promise;
     const artifacts = await Runner.gather(gatherFn, opts);
     return Runner.audit(artifacts, opts);
   };
@@ -402,8 +402,9 @@ describe('Runner', () => {
         'content-width',
       ],
     });
-    const options1 = {resolvedConfig, driverMock, computedCache: new Map()};
-    const options2 = {resolvedConfig, driverMock, computedCache: new Map()};
+    const fatalGatherPromise = driverMock.fatalRejection.promise;
+    const options1 = {resolvedConfig, driverMock, computedCache: new Map(), fatalGatherPromise};
+    const options2 = {resolvedConfig, driverMock, computedCache: new Map(), fatalGatherPromise};
 
     const artifacts1 = await Runner.gather(createGatherFn('https://example.com'), options1);
     const artifacts2 = await Runner.gather(createGatherFn('https://google.com'), options2);

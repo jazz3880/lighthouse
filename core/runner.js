@@ -200,7 +200,6 @@ class Runner {
       });
 
       // /** @type {LH.Artifacts} */
-      // let artifacts;
       if (settings.auditMode && !settings.gatherMode) {
         // No browser required, just load the artifacts from disk.
         const path = this._getDataSavePath(settings);
