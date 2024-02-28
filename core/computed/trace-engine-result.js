@@ -31,14 +31,16 @@ class TraceEngineResult {
       traceEvents
     ));
     // TODO: use TraceEngine.TraceProcessor.createWithAllHandlers above.
-    return /** @type {import('@paulirish/trace_engine').Handlers.Types.TraceParseData} */(
-      engine.data);
+    const data = /** @type {import('@paulirish/trace_engine').Handlers.Types.TraceParseData} */(
+      engine.traceParsedData);
+    if (!data) throw new Error('No data');
+    if (!engine.insights) throw new Error('No insights');
+    return {data, insights: engine.insights};
   }
 
   /**
    * @param {{trace: LH.Trace}} data
    * @param {LH.Artifacts.ComputedContext} context
-   * @return {Promise<LH.Artifacts.TraceEngineResult>}
    */
   static async compute_(data, context) {
     // In CumulativeLayoutShift.getLayoutShiftEvents we handle a bug in Chrome layout shift
@@ -67,9 +69,6 @@ class TraceEngineResult {
     }
 
     const result = await TraceEngineResult.runTraceEngine(traceEvents);
-    if (!result) {
-      throw new Error('null trace engine result');
-    }
     return result;
   }
 }

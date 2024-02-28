@@ -18,6 +18,7 @@ import {ProcessedNavigation} from '../../computed/processed-navigation.js';
 import {LoadSimulator} from '../../computed/load-simulator.js';
 import {FirstContentfulPaint} from '../../computed/metrics/first-contentful-paint.js';
 import {LCPImageRecord} from '../../computed/lcp-image-record.js';
+import {TraceEngineResult} from '../../computed/trace-engine-result.js';
 
 
 /** @typedef {import('../../lib/dependency-graph/simulator/simulator').Simulator} Simulator */
@@ -44,21 +45,21 @@ const str_ = i18n.createIcuMessageFn(import.meta.url, UIStrings);
 /**
  * Given a simulation's nodeTimings, return an object with the nodes/timing keyed by network URL
  * @param {LH.Gatherer.Simulation.Result['nodeTimings']} nodeTimings
- * @return {Object<string, {node: Node, nodeTiming: LH.Gatherer.Simulation.NodeTiming}>}
+ * @return {Map<string, {node: Node, nodeTiming: LH.Gatherer.Simulation.NodeTiming}>}
  */
-function getNodesAndTimingByUrl(nodeTimings) {
-  /** @type {Object<string, {node: Node, nodeTiming: LH.Gatherer.Simulation.NodeTiming}>} */
-  const urlMap = {};
+function getNodesAndTimingByRequestId(nodeTimings) {
+  /** @type {Map<string, {node: Node, nodeTiming: LH.Gatherer.Simulation.NodeTiming}>} */
+  const requestIdToNode = new Map();
   const nodes = Array.from(nodeTimings.keys());
   nodes.forEach(node => {
     if (node.type !== 'network') return;
     const nodeTiming = nodeTimings.get(node);
     if (!nodeTiming) return;
 
-    urlMap[node.record.url] = {node, nodeTiming};
+    requestIdToNode.set(node.record.requestId, {node, nodeTiming});
   });
 
-  return urlMap;
+  return requestIdToNode;
 }
 
 /**
@@ -119,7 +120,7 @@ class RenderBlockingResources extends Audit {
       guidanceLevel: 2,
       // TODO: look into adding an `optionalArtifacts` property that captures the non-required nature
       // of CSSUsage
-      requiredArtifacts: ['URL', 'TagsBlockingFirstPaint', 'traces', 'devtoolsLogs', 'CSSUsage',
+      requiredArtifacts: ['URL', 'traces', 'devtoolsLogs', 'CSSUsage',
         'GatherContext', 'Stacks'],
     };
   }
@@ -137,6 +138,11 @@ class RenderBlockingResources extends Audit {
     const processedNavigation = await ProcessedNavigation.request(trace, context);
     const simulator = await LoadSimulator.request(simulatorData, context);
     const wastedCssBytes = await RenderBlockingResources.computeWastedCSSBytes(artifacts, context);
+    const traceEngineResults = await TraceEngineResult.request({trace}, context);
+
+    const renderBlocking = traceEngineResults.insights
+      .get(processedNavigation.navigationId)?.RenderBlocking;
+    if (!renderBlocking) throw new Error('Missing insight');
 
     /** @type {LH.Audit.Context['settings']} */
     const metricSettings = {
@@ -150,19 +156,18 @@ class RenderBlockingResources extends Audit {
     // Cast to just `LanternMetric` since we explicitly set `throttlingMethod: 'simulate'`.
     const fcpSimulation = /** @type {LH.Artifacts.LanternMetric} */
       (await FirstContentfulPaint.request(metricComputationData, context));
-    const fcpTsInMs = processedNavigation.timestamps.firstContentfulPaint / 1000;
 
-    const nodesByUrl = getNodesAndTimingByUrl(fcpSimulation.optimisticEstimate.nodeTimings);
+    const nodesByRequestId =
+      getNodesAndTimingByRequestId(fcpSimulation.optimisticEstimate.nodeTimings);
 
     const results = [];
     const deferredNodeIds = new Set();
-    for (const resource of artifacts.TagsBlockingFirstPaint) {
-      // Ignore any resources that finished after observed FCP (they're clearly not render-blocking)
-      if (resource.endTime > fcpTsInMs) continue;
+    for (const resource of renderBlocking.renderBlockingRequests) {
+      const nodeAndTiming = nodesByRequestId.get(resource.args.data.requestId);
       // TODO: beacon to Sentry, https://github.com/GoogleChrome/lighthouse/issues/7041
-      if (!nodesByUrl[resource.tag.url]) continue;
+      if (!nodeAndTiming) continue;
 
-      const {node, nodeTiming} = nodesByUrl[resource.tag.url];
+      const {node, nodeTiming} = nodeAndTiming;
 
       const stackSpecificTiming = computeStackSpecificTiming(node, nodeTiming, artifacts.Stacks);
 
@@ -174,8 +179,8 @@ class RenderBlockingResources extends Audit {
       if (wastedMs < MINIMUM_WASTED_MS) continue;
 
       results.push({
-        url: resource.tag.url,
-        totalBytes: resource.transferSize,
+        url: resource.args.data.url,
+        totalBytes: resource.args.data.encodedDataLength,
         wastedMs,
       });
     }

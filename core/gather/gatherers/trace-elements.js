@@ -310,7 +310,7 @@ class TraceElements extends BaseGatherer {
     const lcpNodeData = await TraceElements.getLcpElement(trace, context);
     const shiftElementsNodeData = await TraceElements.getTopLayoutShiftElements(trace, context);
     const shiftsData = await TraceElements.getTopLayoutShifts(
-      trace, traceEngineResult, rootCauses, context);
+      trace, traceEngineResult.data, rootCauses, context);
     const animatedElementData = await this.getAnimatedElements(mainThreadEvents);
     const responsivenessElementData = await TraceElements.getResponsivenessElement(trace, context);
 
