@@ -176,7 +176,9 @@ function createMockDriver() {
       fetchResource: fnAny(),
     },
     networkMonitor: new NetworkMonitor(targetManager.asTargetManager()),
-    listenForCrashes: fnAny(),
+    listenForCrashes: session.on('Inspector.targetCrashed', _ => {
+      rej(new Error('TARGETCRAHSZHZD'));
+    }),
     fatalRejection: {promise, rej},
 
     /** @return {Driver} */
