@@ -50,14 +50,12 @@ const str_ = i18n.createIcuMessageFn(import.meta.url, UIStrings);
 function getNodesAndTimingByRequestId(nodeTimings) {
   /** @type {Map<string, {node: Node, nodeTiming: LH.Gatherer.Simulation.NodeTiming}>} */
   const requestIdToNode = new Map();
-  const nodes = Array.from(nodeTimings.keys());
-  nodes.forEach(node => {
-    if (node.type !== 'network') return;
-    const nodeTiming = nodeTimings.get(node);
-    if (!nodeTiming) return;
+
+  for (const [node, nodeTiming] of nodeTimings) {
+    if (node.type !== 'network') continue;
 
     requestIdToNode.set(node.record.requestId, {node, nodeTiming});
-  });
+  }
 
   return requestIdToNode;
 }
@@ -120,8 +118,7 @@ class RenderBlockingResources extends Audit {
       guidanceLevel: 2,
       // TODO: look into adding an `optionalArtifacts` property that captures the non-required nature
       // of CSSUsage
-      requiredArtifacts: ['URL', 'traces', 'devtoolsLogs', 'CSSUsage',
-        'GatherContext', 'Stacks'],
+      requiredArtifacts: ['URL', 'traces', 'devtoolsLogs', 'CSSUsage', 'GatherContext', 'Stacks'],
     };
   }
 
@@ -157,13 +154,13 @@ class RenderBlockingResources extends Audit {
     const fcpSimulation = /** @type {LH.Artifacts.LanternMetric} */
       (await FirstContentfulPaint.request(metricComputationData, context));
 
-    const nodesByRequestId =
+    const nodesAndTimingsByRequestId =
       getNodesAndTimingByRequestId(fcpSimulation.optimisticEstimate.nodeTimings);
 
     const results = [];
     const deferredNodeIds = new Set();
     for (const resource of renderBlocking.renderBlockingRequests) {
-      const nodeAndTiming = nodesByRequestId.get(resource.args.data.requestId);
+      const nodeAndTiming = nodesAndTimingsByRequestId.get(resource.args.data.requestId);
       // TODO: beacon to Sentry, https://github.com/GoogleChrome/lighthouse/issues/7041
       if (!nodeAndTiming) continue;
 
