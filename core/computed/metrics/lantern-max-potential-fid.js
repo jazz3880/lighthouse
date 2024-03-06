@@ -6,10 +6,10 @@
 
 import {makeComputedArtifact} from '../computed-artifact.js';
 import {LanternMetric} from './lantern-metric.js';
-import {BaseNode} from '../../lib/dependency-graph/base-node.js';
+import {BaseNode} from '../../lib/lantern/base-node.js';
 import {LanternFirstContentfulPaint} from './lantern-first-contentful-paint.js';
 
-/** @typedef {import('../../lib/dependency-graph/base-node.js').Node} Node */
+/** @typedef {import('../../lib/lantern/base-node.js').Node<LH.Artifacts.NetworkRequest>} Node */
 
 class LanternMaxPotentialFID extends LanternMetric {
   /**

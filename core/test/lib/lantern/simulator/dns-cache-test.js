@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import {DNSCache} from '../../../../lib/dependency-graph/simulator/dns-cache.js';
+import {DNSCache} from '../../../../lib/lantern/simulator/dns-cache.js';
 
 const MULTIPLIER = DNSCache.RTT_MULTIPLIER;
 

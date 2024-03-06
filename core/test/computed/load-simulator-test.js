@@ -7,17 +7,19 @@
 import assert from 'assert/strict';
 
 import {LoadSimulator} from '../../computed/load-simulator.js';
-import {NetworkNode} from '../../lib/dependency-graph/network-node.js';
+import {NetworkNode} from '../../lib/lantern/network-node.js';
+import {NetworkRequest} from '../../lib/network-request.js';
 import {readJson} from '../test-utils.js';
 
 const devtoolsLog = readJson('../fixtures/traces/progressive-app-m60.devtools.log.json', import.meta);
 
 function createNetworkNode() {
-  return new NetworkNode({
+  const record = {
     requestId: '1',
     protocol: 'http',
     parsedURL: {scheme: 'http', securityOrigin: 'https://pwa.rocks'},
-  });
+  };
+  return new NetworkNode(NetworkRequest.asLanternNetworkRequest(record));
 }
 
 describe('Simulator artifact', () => {

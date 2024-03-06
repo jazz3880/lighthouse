@@ -287,7 +287,7 @@ function requireAudit(auditPath, coreAuditList, configDir) {
   let requirePath = `../audits/${auditPath}`;
   if (!coreAudit) {
     if (isBundledEnvironment()) {
-      // This is for pubads bundling.
+      // This is for plugin bundling.
       requirePath = auditPath;
     } else {
       // Otherwise, attempt to find it elsewhere. This throws if not found.

@@ -23,8 +23,6 @@ globalThis.Buffer = Buffer;
 /**
  * Returns a config, which runs only certain categories.
  * Varies the config to use based on device.
- * If `lighthouse-plugin-publisher-ads` is in the list of
- * `categoryIDs` the plugin will also be run.
  * Counterpart to the CDT code that sets flags.
  * @see https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/lighthouse/LighthouseController.ts;l=280
  * @param {Array<string>} categoryIDs
@@ -49,7 +47,6 @@ function createConfig(categoryIDs, device) {
 
   return {
     extends: 'lighthouse:default',
-    plugins: ['lighthouse-plugin-publisher-ads'],
     settings,
   };
 }

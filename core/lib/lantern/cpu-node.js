@@ -7,6 +7,10 @@
 import * as LH from '../../../types/lh.js';
 import {BaseNode} from './base-node.js';
 
+/**
+ * @template [T=any]
+ * @extends {BaseNode<T>}
+ */
 class CPUNode extends BaseNode {
   /**
    * @param {LH.TraceEvent} parentEvent

@@ -7,7 +7,8 @@
 /**
  * A union of all types derived from BaseNode, allowing type check discrimination
  * based on `node.type`. If a new node type is created, it should be added here.
- * @typedef {import('./cpu-node.js').CPUNode | import('./network-node.js').NetworkNode} Node
+ * @template [T=any]
+ * @typedef {import('./cpu-node.js').CPUNode<T> | import('./network-node.js').NetworkNode<T>} Node
  */
 
 /**
@@ -21,6 +22,10 @@
  *
  * This allows particular optimizations in this class so that we do no need to check for cycles as
  * these methods are called and we can always start traversal at the root node.
+ */
+
+/**
+ * @template [T=any]
  */
 class BaseNode {
   /**
@@ -256,8 +261,8 @@ class BaseNode {
    *
    * The `getNextNodes` function takes a visited node and returns which nodes to
    * visit next. It defaults to returning the node's dependents.
-   * @param {(node: Node, traversalPath: Node[]) => void} callback
-   * @param {function(Node): Node[]} [getNextNodes]
+   * @param {(node: Node<T>, traversalPath: Node<T>[]) => void} callback
+   * @param {function(Node<T>): Node<T>[]} [getNextNodes]
    */
   traverse(callback, getNextNodes) {
     for (const {node, traversalPath} of this.traverseGenerator(getNextNodes)) {

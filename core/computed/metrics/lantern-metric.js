@@ -4,15 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import {BaseNode} from '../../lib/dependency-graph/base-node.js';
+import {BaseNode} from '../../lib/lantern/base-node.js';
 import {NetworkRequest} from '../../lib/network-request.js';
 import {ProcessedNavigation} from '../processed-navigation.js';
 import {PageDependencyGraph} from '../page-dependency-graph.js';
 import {LoadSimulator} from '../load-simulator.js';
 
-/** @typedef {import('../../lib/dependency-graph/base-node.js').Node} Node */
-/** @typedef {import('../../lib/dependency-graph/network-node').NetworkNode} NetworkNode */
-/** @typedef {import('../../lib/dependency-graph/simulator/simulator').Simulator} Simulator */
+/** @typedef {import('../../lib/lantern/base-node.js').Node<LH.Artifacts.NetworkRequest>} Node */
+/** @typedef {import('../../lib/lantern/network-node.js').NetworkNode<LH.Artifacts.NetworkRequest>} NetworkNode */
+/** @typedef {import('../../lib/lantern/simulator/simulator.js').Simulator} Simulator */
 
 /**
  * @typedef Extras

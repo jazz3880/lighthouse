@@ -2893,13 +2893,13 @@
       "id": "prioritize-lcp-image",
       "title": "Preload Largest Contentful Paint image",
       "description": "If the LCP element is dynamically added to the page, you should preload the image in order to improve LCP. [Learn more about preloading LCP elements](https://web.dev/articles/optimize-lcp#optimize_when_the_resource_is_discovered).",
-      "score": 0.5,
+      "score": 0,
       "scoreDisplayMode": "metricSavings",
-      "numericValue": 0,
+      "numericValue": 317.72400000000016,
       "numericUnit": "millisecond",
-      "displayValue": "",
+      "displayValue": "Potential savings of 320 ms",
       "metricSavings": {
-        "LCP": 0
+        "LCP": 300
       },
       "details": {
         "type": "opportunity",
@@ -2939,10 +2939,10 @@
               "nodeLabel": "Do better web tester page"
             },
             "url": "http://localhost:10200/dobetterweb/lighthouse-1024x680.jpg?redirected-lcp",
-            "wastedMs": 0
+            "wastedMs": 317.72400000000016
           }
         ],
-        "overallSavingsMs": 0,
+        "overallSavingsMs": 317.72400000000016,
         "sortedBy": [
           "wastedMs"
         ],
@@ -4600,7 +4600,7 @@
       "warnings": [],
       "metricSavings": {
         "FCP": 0,
-        "LCP": 600
+        "LCP": 650
       },
       "details": {
         "type": "opportunity",
@@ -4638,7 +4638,7 @@
           "type": "debugdata",
           "metricSavings": {
             "FCP": 0,
-            "LCP": 610
+            "LCP": 630
           }
         }
       },
@@ -4687,7 +4687,7 @@
       "displayValue": "Potential savings of 63 KiB",
       "metricSavings": {
         "FCP": 0,
-        "LCP": 300
+        "LCP": 350
       },
       "details": {
         "type": "opportunity",
@@ -4741,7 +4741,7 @@
           "type": "debugdata",
           "metricSavings": {
             "FCP": 0,
-            "LCP": 300
+            "LCP": 330
           }
         }
       },
@@ -4759,7 +4759,7 @@
       "warnings": [],
       "metricSavings": {
         "FCP": 0,
-        "LCP": 450
+        "LCP": 350
       },
       "details": {
         "type": "opportunity",
@@ -4860,7 +4860,7 @@
           "type": "debugdata",
           "metricSavings": {
             "FCP": 0,
-            "LCP": 450
+            "LCP": 330
           }
         }
       },
@@ -4910,7 +4910,7 @@
       "displayValue": "Potential savings of 143 KiB",
       "metricSavings": {
         "FCP": 150,
-        "LCP": 1050
+        "LCP": 950
       },
       "details": {
         "type": "opportunity",
@@ -4952,7 +4952,7 @@
           "type": "debugdata",
           "metricSavings": {
             "FCP": 150,
-            "LCP": 1060
+            "LCP": 930
           }
         }
       },
@@ -4996,7 +4996,7 @@
       "description": "Large GIFs are inefficient for delivering animated content. Consider using MPEG4/WebM videos for animations and PNG/WebP for static images instead of GIF to save network bytes. [Learn more about efficient video formats](https://developer.chrome.com/docs/lighthouse/performance/efficient-animated-content/)",
       "score": 0.5,
       "scoreDisplayMode": "metricSavings",
-      "numericValue": 3450,
+      "numericValue": 3300,
       "numericUnit": "millisecond",
       "displayValue": "Potential savings of 666 KiB",
       "metricSavings": {
@@ -5029,7 +5029,7 @@
             "wastedBytes": 682028
           }
         ],
-        "overallSavingsMs": 3450,
+        "overallSavingsMs": 3300,
         "overallSavingsBytes": 682028,
         "sortedBy": [
           "wastedBytes"
@@ -5087,7 +5087,7 @@
       "displayValue": "Potential savings of 26 KiB",
       "metricSavings": {
         "FCP": 0,
-        "LCP": 150
+        "LCP": 300
       },
       "details": {
         "type": "opportunity",
@@ -5156,7 +5156,7 @@
           "type": "debugdata",
           "metricSavings": {
             "FCP": 0,
-            "LCP": 150
+            "LCP": 300
           }
         }
       },
@@ -10178,6 +10178,20 @@
       "core/audits/prioritize-lcp-image.js | description": [
         "audits[prioritize-lcp-image].description"
       ],
+      "core/lib/i18n/i18n.js | displayValueMsSavings": [
+        {
+          "values": {
+            "wastedMs": 317.72400000000016
+          },
+          "path": "audits[prioritize-lcp-image].displayValue"
+        },
+        {
+          "values": {
+            "wastedMs": 0
+          },
+          "path": "audits[render-blocking-resources].displayValue"
+        }
+      ],
       "core/lib/i18n/i18n.js | columnWastedBytes": [
         "audits[prioritize-lcp-image].details.headings[2].label",
         "audits[render-blocking-resources].details.headings[2].label",
@@ -10640,14 +10654,6 @@
       ],
       "core/audits/byte-efficiency/render-blocking-resources.js | description": [
         "audits[render-blocking-resources].description"
-      ],
-      "core/lib/i18n/i18n.js | displayValueMsSavings": [
-        {
-          "values": {
-            "wastedMs": 0
-          },
-          "path": "audits[render-blocking-resources].displayValue"
-        }
       ],
       "core/audits/byte-efficiency/unminified-css.js | title": [
         "audits[unminified-css].title"

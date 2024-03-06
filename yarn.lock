@@ -1287,11 +1287,6 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/quickjs-emscripten/-/quickjs-emscripten-0.23.0.tgz#db4ecfd499a9765ab24002c3b696d02e6d32a12c"
   integrity sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==
 
-"@tusbar/cache-control@^0.3.1":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@tusbar/cache-control/-/cache-control-0.3.2.tgz#6b59cd0ba8fe376fc472012cecde556f667ae4a1"
-  integrity sha512-69QNun7QkjTAXwvO4J/dvBW19M5q/mcqAnMawPseAEv7DNEAr7flhlW3I9Cp3N4MO0RY/StZYXBq+xkik6Z+VA==
-
 "@types/archiver@^2.1.2":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@types/archiver/-/archiver-2.1.2.tgz#e84960d4872570d7c826589cd57f2c076bf198c5"
@@ -4364,11 +4359,6 @@ internal-slot@^1.0.3:
     has "^1.0.3"
     side-channel "^1.0.4"
 
-intl-messageformat-parser@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-1.8.1.tgz#0eb14c5618333be4c95c409457b66c8c33ddcc01"
-  integrity sha512-IMSCKVf0USrM/959vj3xac7s8f87sc+80Y/ipBzdKy4ifBv5Gsj2tZ41EAaURVg01QU71fYr77uA8Meh6kELbg==
-
 intl-messageformat@^10.5.3:
   version "10.5.3"
   resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-10.5.3.tgz#db0779d4a1988faa2977d76574489b7a25f0d5d0"
@@ -4378,13 +4368,6 @@ intl-messageformat@^10.5.3:
     "@formatjs/fast-memoize" "2.2.0"
     "@formatjs/icu-messageformat-parser" "2.6.2"
     tslib "^2.4.0"
-
-intl-messageformat@^4.1.2:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-4.4.0.tgz#aa196a4d04b573f4090bc417f982d81de4f74fad"
-  integrity sha512-z+Bj2rS3LZSYU4+sNitdHrwnBhr0wO80ZJSW8EzKDBowwUe3Q/UsvgCGjrwa+HPzoGCLEb9HAjfJgo4j2Sac8w==
-  dependencies:
-    intl-messageformat-parser "^1.8.1"
 
 ip@^1.1.8:
   version "1.1.8"
@@ -5064,16 +5047,6 @@ lighthouse-logger@^2.0.1:
   dependencies:
     debug "^2.6.9"
     marky "^1.2.2"
-
-lighthouse-plugin-publisher-ads@1.5.7-beta:
-  version "1.5.7-beta"
-  resolved "https://registry.yarnpkg.com/lighthouse-plugin-publisher-ads/-/lighthouse-plugin-publisher-ads-1.5.7-beta.tgz#ac35b0d8f9ee01c774d45a18fee109cded6395ec"
-  integrity sha512-Wh9A0RNEPtJowJ34LflMX/g8IDtJh4/ie757UIrsBLc1swWCrKvl2bVzuXRuzmr9ErTkNlqtm8wbdXEoD6bDCw==
-  dependencies:
-    "@tusbar/cache-control" "^0.3.1"
-    esprima "^4.0.1"
-    intl-messageformat "^4.1.2"
-    yargs "^16.1.1"
 
 lighthouse-plugin-soft-navigation@^1.0.1:
   version "1.0.1"

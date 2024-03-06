@@ -366,7 +366,7 @@ describe('DuplicatedJavascript computed artifact', () => {
     const results = await DuplicatedJavascript.audit(artifacts, context);
 
     // Without the `wastedBytesByUrl` this would be zero because the items don't define a url.
-    expect(results.details.overallSavingsMs).toBe(1830);
+    expect(results.details.overallSavingsMs).toBe(1680);
   });
 
   it('_getNodeModuleName', () => {

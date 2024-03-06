@@ -44,6 +44,8 @@ const UIStrings = {
   'manifest-display-not-supported': 'Manifest `display` property must be one of `standalone`, `fullscreen`, or `minimal-ui`',
   /** Error message explaining that the manifest could not be fetched, might be empty, or could not be parsed. */
   'manifest-empty': `Manifest could not be fetched, is empty, or could not be parsed`,
+  /** Error message explaining that the manifest could not be fetched, might be empty, or could not be parsed. */
+  'manifest-parsing-or-network-error': 'Manifest could not be fetched, is empty, or could not be parsed',
   /**
    * @description Error message explaining that the manifest does not contain a suitable icon.
    * @example {192} value0

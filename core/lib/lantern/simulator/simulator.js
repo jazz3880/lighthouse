@@ -4,7 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import * as LH from '../../../../types/lh.js';
+// This could be replaced by jsdoc namespace import, when ready.
+// https://github.com/microsoft/TypeScript/issues/41825
+/** @typedef {import('../../../../types/internal/lantern.js').Lantern.NetworkRequest} NetworkRequest */
+/** @typedef {import('../../../../types/internal/lantern.js').Lantern.Simulation.Options} SimulationOptions */
+/** @typedef {import('../../../../types/internal/lantern.js').Lantern.Simulation.NodeTiming} SimulationNodeTiming */
+/** @template T @typedef {import('../../../../types/internal/lantern.js').Lantern.Simulation.Result<T>} SimulationResult */
+
 import {BaseNode} from '../base-node.js';
 import {TcpConnection} from './tcp-connection.js';
 import {ConnectionPool} from './connection-pool.js';
@@ -46,12 +52,15 @@ const PriorityStartTimePenalty = {
 /** @type {Map<string, Map<Node, CompleteNodeTiming>>} */
 const ALL_SIMULATION_NODE_TIMINGS = new Map();
 
+/**
+ * @template [T=any]
+ */
 class Simulator {
   /**
-   * @param {LH.Gatherer.Simulation.Options} [options]
+   * @param {SimulationOptions} [options]
    */
   constructor(options) {
-    /** @type {Required<LH.Gatherer.Simulation.Options>} */
+    /** @type {Required<SimulationOptions>} */
     this._options = Object.assign(
       {
         rtt: mobileSlow4G.rttMs,
@@ -101,11 +110,11 @@ class Simulator {
    * @param {Node} graph
    */
   _initializeConnectionPool(graph) {
-    /** @type {LH.Artifacts.NetworkRequest[]} */
+    /** @type {NetworkRequest[]} */
     const records = [];
     graph.getRootNode().traverse(node => {
       if (node.type === BaseNode.TYPES.NETWORK) {
-        records.push(node.record);
+        records.push(node.request);
       }
     });
 
@@ -190,7 +199,7 @@ class Simulator {
   }
 
   /**
-   * @param {LH.Artifacts.NetworkRequest} record
+   * @param {NetworkRequest} record
    * @return {?TcpConnection}
    */
   _acquireConnection(record) {
@@ -228,7 +237,7 @@ class Simulator {
       // Start a network request if we're not at max requests and a connection is available
       const numberOfActiveRequests = this._numberInProgress(node.type);
       if (numberOfActiveRequests >= this._maximumConcurrentRequests) return;
-      const connection = this._acquireConnection(node.record);
+      const connection = this._acquireConnection(node.request);
       if (!connection) return;
     }
 
@@ -286,7 +295,7 @@ class Simulator {
    * @return {number}
    */
   _estimateNetworkTimeRemaining(networkNode) {
-    const record = networkNode.record;
+    const record = networkNode.request;
     const timingData = this._nodeTimings.getNetworkStarted(networkNode);
 
     let timeElapsed = 0;
@@ -354,7 +363,7 @@ class Simulator {
     if (node.type !== BaseNode.TYPES.NETWORK) throw new Error('Unsupported');
     if (!('bytesDownloaded' in timingData)) throw new Error('Invalid timing data');
 
-    const record = node.record;
+    const record = node.request;
     const connection = this._connectionPool.acquireActiveConnectionFromRecord(record);
     const dnsResolutionTime = this._dns.getTimeUntilResolution(record, {
       requestedAt: timingData.startTime,
@@ -384,7 +393,7 @@ class Simulator {
   }
 
   /**
-   * @return {{nodeTimings: Map<Node, LH.Gatherer.Simulation.NodeTiming>, completeNodeTimings: Map<Node, CompleteNodeTiming>}}
+   * @return {{nodeTimings: Map<Node, SimulationNodeTiming>, completeNodeTimings: Map<Node, CompleteNodeTiming>}}
    */
   _computeFinalNodeTimings() {
     /** @type {Array<[Node, CompleteNodeTiming]>} */
@@ -395,8 +404,8 @@ class Simulator {
     // Most consumers will want the entries sorted by startTime, so insert them in that order
     completeNodeTimingEntries.sort((a, b) => a[1].startTime - b[1].startTime);
 
-    // Trimmed version of type `LH.Gatherer.Simulation.NodeTiming`.
-    /** @type {Array<[Node, LH.Gatherer.Simulation.NodeTiming]>} */
+    // Trimmed version of type `SimulationNodeTiming`.
+    /** @type {Array<[Node, SimulationNodeTiming]>} */
     const nodeTimingEntries = completeNodeTimingEntries.map(([node, timing]) => {
       return [node, {
         startTime: timing.startTime,
@@ -412,7 +421,7 @@ class Simulator {
   }
 
   /**
-   * @return {Required<LH.Gatherer.Simulation.Options>}
+   * @return {Required<SimulationOptions>}
    */
   getOptions() {
     return this._options;
@@ -429,7 +438,7 @@ class Simulator {
    *
    * @param {Node} graph
    * @param {{flexibleOrdering?: boolean, label?: string}=} options
-   * @return {LH.Gatherer.Simulation.Result}
+   * @return {SimulationResult<T>}
    */
   simulate(graph, options) {
     if (BaseNode.hasCycle(graph)) {
@@ -535,7 +544,7 @@ class Simulator {
    */
   static _computeNodeStartPosition(node) {
     if (node.type === 'cpu') return node.startTime;
-    return node.startTime + (PriorityStartTimePenalty[node.record.priority] * 1000 * 1000 || 0);
+    return node.startTime + (PriorityStartTimePenalty[node.request.priority] * 1000 * 1000 || 0);
   }
 }
 

@@ -9,8 +9,8 @@
  * origin are over the http/2 protocol.
  */
 
-/** @typedef {import('../../lib/dependency-graph/simulator/simulator').Simulator} Simulator */
-/** @typedef {import('../../lib/dependency-graph/base-node.js').Node} Node */
+/** @typedef {import('../../lib/lantern/simulator/simulator.js').Simulator} Simulator */
+/** @typedef {import('../../lib/lantern/base-node.js').Node<LH.Artifacts.NetworkRequest>} Node */
 
 import {Audit} from '../audit.js';
 import {EntityClassification} from '../../computed/entity-classification.js';
@@ -94,7 +94,7 @@ class UsesHTTP2Audit extends Audit {
       if (!urlsToChange.has(node.record.url)) return;
 
       originalProtocols.set(node.record.requestId, node.record.protocol);
-      node.record.protocol = 'h2';
+      node.request.protocol = 'h2';
     });
 
     const simulationAfter = simulator.simulate(graph, {label: afterLabel, flexibleOrdering});
@@ -104,7 +104,7 @@ class UsesHTTP2Audit extends Audit {
       if (node.type !== 'network') return;
       const originalProtocol = originalProtocols.get(node.record.requestId);
       if (originalProtocol === undefined) return;
-      node.record.protocol = originalProtocol;
+      node.request.protocol = originalProtocol;
     });
 
     const savings = simulationBefore.timeInMs - simulationAfter.timeInMs;

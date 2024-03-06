@@ -6,7 +6,7 @@
 
 import assert from 'assert/strict';
 
-import {NetworkAnalyzer} from '../../../../lib/dependency-graph/simulator/network-analyzer.js';
+import {NetworkAnalyzer} from '../../../../lib/lantern/simulator/network-analyzer.js';
 import {NetworkRecords} from '../../../../computed/network-records.js';
 import {readJson} from '../../../test-utils.js';
 

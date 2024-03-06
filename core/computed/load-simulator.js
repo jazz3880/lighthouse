@@ -6,8 +6,10 @@
 
 import {makeComputedArtifact} from './computed-artifact.js';
 import * as constants from '../config/constants.js';
-import {Simulator} from '../lib/dependency-graph/simulator/simulator.js';
+import {Simulator} from '../lib/lantern/simulator/simulator.js';
 import {NetworkAnalysis} from './network-analysis.js';
+
+/** @typedef {import('../../types/internal/lantern.js').Lantern.Simulation.Options} SimulationOptions */
 
 class LoadSimulator {
   /**
@@ -19,7 +21,7 @@ class LoadSimulator {
     const {throttlingMethod, throttling, precomputedLanternData} = data.settings;
     const networkAnalysis = await NetworkAnalysis.request(data.devtoolsLog, context);
 
-    /** @type {LH.Gatherer.Simulation.Options} */
+    /** @type {SimulationOptions} */
     const options = {
       additionalRttByOrigin: networkAnalysis.additionalRttByOrigin,
       serverResponseTimeByOrigin: networkAnalysis.serverResponseTimeByOrigin,

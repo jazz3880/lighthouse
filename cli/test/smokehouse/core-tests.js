@@ -44,7 +44,6 @@ import perfFonts from './test-definitions/perf-fonts.js';
 import perfFrameMetrics from './test-definitions/perf-frame-metrics.js';
 import perfPreload from './test-definitions/perf-preload.js';
 import perfTraceElements from './test-definitions/perf-trace-elements.js';
-import pubads from './test-definitions/pubads.js';
 import pwaAirhorner from './test-definitions/pwa-airhorner.js';
 import pwaCaltrain from './test-definitions/pwa-caltrain.js';
 import pwaChromestatus from './test-definitions/pwa-chromestatus.js';
@@ -109,7 +108,6 @@ const smokeTests = [
   perfFrameMetrics,
   perfPreload,
   perfTraceElements,
-  pubads,
   pwaAirhorner,
   pwaCaltrain,
   pwaChromestatus,

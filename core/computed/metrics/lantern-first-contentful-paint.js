@@ -6,11 +6,11 @@
 
 import {makeComputedArtifact} from '../computed-artifact.js';
 import {LanternMetric} from './lantern-metric.js';
-import {BaseNode} from '../../lib/dependency-graph/base-node.js';
+import {BaseNode} from '../../lib/lantern/base-node.js';
 
-/** @typedef {import('../../lib/dependency-graph/base-node.js').Node} Node */
-/** @typedef {import('../../lib/dependency-graph/cpu-node').CPUNode} CPUNode */
-/** @typedef {import('../../lib/dependency-graph/network-node').NetworkNode} NetworkNode */
+/** @typedef {import('../../lib/lantern/base-node.js').Node<LH.Artifacts.NetworkRequest>} Node */
+/** @typedef {import('../../lib/lantern/cpu-node.js').CPUNode<LH.Artifacts.NetworkRequest>} CPUNode */
+/** @typedef {import('../../lib/lantern/network-node.js').NetworkNode<LH.Artifacts.NetworkRequest>} NetworkNode */
 
 class LanternFirstContentfulPaint extends LanternMetric {
   /**

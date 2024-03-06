@@ -7,7 +7,7 @@
 import assert from 'assert/strict';
 
 import {ByteEfficiencyAudit as ByteEfficiencyAudit_} from '../../../audits/byte-efficiency/byte-efficiency-audit.js';
-import {Simulator} from '../../../lib/dependency-graph/simulator/simulator.js';
+import {Simulator} from '../../../lib/lantern/simulator/simulator.js';
 import {LoadSimulator} from '../../../computed/load-simulator.js';
 import {getURLArtifactFromDevtoolsLog, readJson} from '../../test-utils.js';
 import {networkRecordsToDevtoolsLog} from '../../network-records-to-devtools-log.js';
@@ -261,7 +261,7 @@ describe('Byte efficiency base audit', () => {
     result = await MockAudit.audit(artifacts, {settings, computedCache});
     // expect lots of savings
     expect(result.numericValue).not.toBeLessThan(5000);
-    expect(result.numericValue).toMatchInlineSnapshot(`55880`);
+    expect(result.numericValue).toMatchInlineSnapshot(`55730`);
   });
 
   it('should compute TTI savings differently from load savings', async () => {

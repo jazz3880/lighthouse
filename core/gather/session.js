@@ -6,6 +6,8 @@
 
 import EventEmitter from 'events';
 
+import log from 'lighthouse-logger';
+
 import {LighthouseError} from '../lib/lh-error.js';
 
 // Controls how long to wait for a response after sending a DevTools protocol command.
@@ -107,6 +109,9 @@ class ProtocolSession extends CrdpEventEmitter {
     const resultPromise = this._cdpSession.send(method, ...params, {
       // Add 50ms to the Puppeteer timeout to ensure the Lighthouse timeout finishes first.
       timeout: timeoutMs + PPTR_BUFFER,
+    }).catch((error) => {
+      log.formatProtocol('method <= browser ERR', {method}, 'error');
+      throw LighthouseError.fromProtocolMessage(method, error);
     });
     const resultWithTimeoutPromise = Promise.race([resultPromise, timeoutPromise]);
 

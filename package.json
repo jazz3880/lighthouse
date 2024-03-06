@@ -156,7 +156,6 @@
     "jest-mock": "^27.3.0",
     "jest-snapshot": "^28.1.0",
     "jsdom": "^12.2.0",
-    "lighthouse-plugin-publisher-ads": "1.5.7-beta",
     "lighthouse-plugin-soft-navigation": "^1.0.1",
     "magic-string": "^0.25.7",
     "mime-types": "^2.1.30",

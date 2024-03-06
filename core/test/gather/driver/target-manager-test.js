@@ -189,7 +189,8 @@ describe('TargetManager', () => {
         .mockResponse('Target.getTargetInfo', {targetInfo})
         .mockResponse('Network.enable')
         .mockResponse('Target.setAutoAttach', () => Promise.reject(fatalError));
-      await expect(targetManager.enable()).rejects.toMatchObject({message: 'Fatal error'});
+      await expect(targetManager.enable()).rejects.toThrowError(
+        'Protocol error (Target.setAutoAttach): Fatal error');
 
       // Should still attempt to resume target.
       expect(sendMock.findAllInvocations('Runtime.runIfWaitingForDebugger')).toHaveLength(1);

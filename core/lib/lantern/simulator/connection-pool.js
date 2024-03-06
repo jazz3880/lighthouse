@@ -4,7 +4,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import * as LH from '../../../../types/lh.js';
+/** @typedef {import('../../../../types/internal/lantern.js').Lantern.NetworkRequest} NetworkRequest */
+/** @typedef {import('../../../../types/internal/lantern.js').Lantern.Simulation.Options} SimulationOptions */
+
 import {NetworkAnalyzer} from './network-analyzer.js';
 import {TcpConnection} from './tcp-connection.js';
 
@@ -17,8 +19,8 @@ const CONNECTIONS_PER_ORIGIN = 6;
 
 export class ConnectionPool {
   /**
-   * @param {LH.Artifacts.NetworkRequest[]} records
-   * @param {Required<LH.Gatherer.Simulation.Options>} options
+   * @param {NetworkRequest[]} records
+   * @param {Required<SimulationOptions>} options
    */
   constructor(records, options) {
     this._options = options;
@@ -26,7 +28,7 @@ export class ConnectionPool {
     this._records = records;
     /** @type {Map<string, TcpConnection[]>} */
     this._connectionsByOrigin = new Map();
-    /** @type {Map<LH.Artifacts.NetworkRequest, TcpConnection>} */
+    /** @type {Map<NetworkRequest, TcpConnection>} */
     this._connectionsByRecord = new Map();
     this._connectionsInUse = new Set();
     this._connectionReusedByRequestId = NetworkAnalyzer.estimateIfConnectionWasReused(records, {
@@ -124,7 +126,7 @@ export class ConnectionPool {
    * If ignoreConnectionReused is true, acquire will consider all connections not in use as available.
    * Otherwise, only connections that have matching "warmth" are considered available.
    *
-   * @param {LH.Artifacts.NetworkRequest} record
+   * @param {NetworkRequest} record
    * @param {{ignoreConnectionReused?: boolean}} options
    * @return {?TcpConnection}
    */
@@ -150,7 +152,7 @@ export class ConnectionPool {
    * Return the connection currently being used to fetch a record. If no connection
    * currently being used for this record, an error will be thrown.
    *
-   * @param {LH.Artifacts.NetworkRequest} record
+   * @param {NetworkRequest} record
    * @return {TcpConnection}
    */
   acquireActiveConnectionFromRecord(record) {
@@ -161,7 +163,7 @@ export class ConnectionPool {
   }
 
   /**
-   * @param {LH.Artifacts.NetworkRequest} record
+   * @param {NetworkRequest} record
    */
   release(record) {
     const connection = this._connectionsByRecord.get(record);
