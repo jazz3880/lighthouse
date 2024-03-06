@@ -135,11 +135,13 @@ class RenderBlockingResources extends Audit {
     const processedNavigation = await ProcessedNavigation.request(trace, context);
     const simulator = await LoadSimulator.request(simulatorData, context);
     const wastedCssBytes = await RenderBlockingResources.computeWastedCSSBytes(artifacts, context);
-    const traceEngineResults = await TraceEngineResult.request({trace}, context);
+    const traceEngineResult = await TraceEngineResult.request({trace}, context);
 
-    const renderBlocking = traceEngineResults.insights
-      .get(processedNavigation.navigationId)?.RenderBlocking;
-    if (!renderBlocking) throw new Error('Missing insight');
+    const navInsights = traceEngineResult.insights.get(processedNavigation.navigationId);
+    if (!navInsights) throw new Error('No insights for navigation');
+
+    const renderBlocking = navInsights.RenderBlocking;
+    if (renderBlocking instanceof Error) throw renderBlocking;
 
     /** @type {LH.Audit.Context['settings']} */
     const metricSettings = {

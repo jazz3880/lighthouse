@@ -21,10 +21,10 @@ class RootCauses extends BaseGatherer {
 
   /**
    * @param {LH.Gatherer.Driver} driver
-   * @param {LH.Artifacts.TraceEngineResult} traceEngineResult
+   * @param {LH.Artifacts.TraceEngineResult['data']} traceParsedData
    * @return {Promise<LH.Artifacts.TraceEngineRootCauses>}
    */
-  static async runRootCauseAnalysis(driver, traceEngineResult) {
+  static async runRootCauseAnalysis(driver, traceParsedData) {
     await driver.defaultSession.sendCommand('DOM.enable');
     await driver.defaultSession.sendCommand('CSS.enable');
 
@@ -112,9 +112,10 @@ class RootCauses extends BaseGatherer {
       layoutShifts: {},
     };
     const rootCausesEngine = new TraceEngine.RootCauses(protocolInterface);
-    const layoutShiftEvents = traceEngineResult.LayoutShifts.clusters.flatMap(c => c.events);
+    const layoutShiftEvents = traceParsedData.LayoutShifts.clusters.flatMap(c => c.events);
     for (const event of layoutShiftEvents) {
-      const r = await rootCausesEngine.layoutShifts.rootCausesForEvent(traceEngineResult, event);
+      // @ts-expect-error The data we do get in the trace processor is still enough here
+      const r = await rootCausesEngine.layoutShifts.rootCausesForEvent(traceParsedData, event);
       if (!r) continue;
 
       for (const cause of r.fontChanges) {

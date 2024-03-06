@@ -109,7 +109,7 @@ class TraceElements extends BaseGatherer {
    * that may have caused the shift.
    *
    * @param {LH.Trace} trace
-   * @param {LH.Artifacts.TraceEngineResult} traceEngineResult
+   * @param {LH.Artifacts.TraceEngineResult['data']} traceEngineResult
    * @param {LH.Artifacts.TraceEngineRootCauses} rootCauses
    * @param {LH.Gatherer.Context} context
    * @return {Promise<Array<{nodeId: number}>>}

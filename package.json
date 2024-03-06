@@ -179,7 +179,7 @@
     "webtreemap-cdt": "^3.2.1"
   },
   "dependencies": {
-    "@paulirish/trace_engine": "^0.0.13",
+    "@paulirish/trace_engine": "^0.0.15",
     "@sentry/node": "^6.17.4",
     "axe-core": "^4.8.4",
     "chrome-launcher": "^1.1.0",

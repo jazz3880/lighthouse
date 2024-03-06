@@ -9,38 +9,43 @@ import {makeComputedArtifact} from './computed-artifact.js';
 import {CumulativeLayoutShift} from './metrics/cumulative-layout-shift.js';
 import {ProcessedTrace} from './processed-trace.js';
 
+/** @typedef {typeof ENABLED_HANDLERS} EnabledHandlers */
+
+const ENABLED_HANDLERS = {
+  AuctionWorklets: TraceEngine.TraceHandlers.AuctionWorklets,
+  Initiators: TraceEngine.TraceHandlers.Initiators,
+  LayoutShifts: TraceEngine.TraceHandlers.LayoutShifts,
+  NetworkRequests: TraceEngine.TraceHandlers.NetworkRequests,
+  Renderer: TraceEngine.TraceHandlers.Renderer,
+  Samples: TraceEngine.TraceHandlers.Samples,
+  Screenshots: TraceEngine.TraceHandlers.Screenshots,
+  PageLoadMetrics: TraceEngine.TraceHandlers.PageLoadMetrics,
+};
+
 /**
  * @fileoverview Processes trace with the shared trace engine.
  */
 class TraceEngineResult {
   /**
    * @param {LH.TraceEvent[]} traceEvents
+   * @return {Promise<LH.Artifacts.TraceEngineResult>}
    */
   static async runTraceEngine(traceEvents) {
-    const engine = new TraceEngine.TraceProcessor({
-      AuctionWorklets: TraceEngine.TraceHandlers.AuctionWorklets,
-      Initiators: TraceEngine.TraceHandlers.Initiators,
-      LayoutShifts: TraceEngine.TraceHandlers.LayoutShifts,
-      NetworkRequests: TraceEngine.TraceHandlers.NetworkRequests,
-      Renderer: TraceEngine.TraceHandlers.Renderer,
-      Samples: TraceEngine.TraceHandlers.Samples,
-      Screenshots: TraceEngine.TraceHandlers.Screenshots,
-    });
+    const engine = new TraceEngine.TraceProcessor(ENABLED_HANDLERS);
     // eslint-disable-next-line max-len
     await engine.parse(/** @type {import('@paulirish/trace_engine').Types.TraceEvents.TraceEventData[]} */ (
       traceEvents
     ));
     // TODO: use TraceEngine.TraceProcessor.createWithAllHandlers above.
-    const data = /** @type {import('@paulirish/trace_engine').Handlers.Types.TraceParseData} */(
-      engine.traceParsedData);
-    if (!data) throw new Error('No data');
+    if (!engine.traceParsedData) throw new Error('No data');
     if (!engine.insights) throw new Error('No insights');
-    return {data, insights: engine.insights};
+    return {data: engine.traceParsedData, insights: engine.insights};
   }
 
   /**
    * @param {{trace: LH.Trace}} data
    * @param {LH.Artifacts.ComputedContext} context
+   * @return {Promise<LH.Artifacts.TraceEngineResult>}
    */
   static async compute_(data, context) {
     // In CumulativeLayoutShift.getLayoutShiftEvents we handle a bug in Chrome layout shift
