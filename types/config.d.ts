@@ -9,6 +9,7 @@ import {Audit} from '../core/audits/audit.js';
 import {SharedFlagsSettings, ConfigSettings} from './lhr/settings.js';
 import Gatherer from './gatherer.js';
 import {IcuMessage} from './lhr/i18n.js';
+import Result from './lhr/lhr.js';
 
 interface ClassOf<T> {
   new (): T;
@@ -82,7 +83,6 @@ declare module Config {
     weight: number;
     group?: string;
     acronym?: string;
-    relevantAudits?: string[];
   }
 
   type Settings = ConfigSettings;

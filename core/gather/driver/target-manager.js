@@ -125,9 +125,11 @@ class TargetManager extends ProtocolEventEmitter {
   async _onSessionAttached(cdpSession) {
     const newSession = new ProtocolSession(cdpSession);
 
+    let targetType;
+
     try {
       const {targetInfo} = await newSession.sendCommand('Target.getTargetInfo');
-      const targetType = targetInfo.type;
+      targetType = targetInfo.type;
 
       // TODO: should detach from target in this case?
       // See pptr: https://github.com/puppeteer/puppeteer/blob/733cbecf487c71483bee8350e37030edb24bc021/src/common/Page.ts#L495-L526
@@ -167,6 +169,13 @@ class TargetManager extends ProtocolEventEmitter {
     } catch (err) {
       // Sometimes targets can be closed before we even have a chance to listen to their network activity.
       if (/Target closed/.test(err.message)) return;
+
+      // Worker targets can be a bit fickle and we only enable them for diagnostic purposes.
+      // We shouldn't throw a fatal error if there were issues attaching to them.
+      if (targetType === 'worker') {
+        log.warn('target-manager', `Issue attaching to worker target: ${err}`);
+        return;
+      }
 
       throw err;
     } finally {

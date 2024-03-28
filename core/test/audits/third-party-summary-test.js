@@ -67,16 +67,37 @@ describe('Third party summary', () => {
             },
             {
               blockingTime: 0,
+              mainThreadTime: 5.094,
               tbtImpact: 0,
-              transferSize: 8007,
-              url: expect.toBeDisplayString('Other resources'),
+              transferSize: 3161,
+              url: 'https://www.google-analytics.com/cx/api.js?experiment=qvpc5qIfRC2EMnbn6bbN5A',
+            },
+            {
+              blockingTime: 0,
+              mainThreadTime: 7.01,
+              tbtImpact: 0,
+              transferSize: 2949,
+              url: 'https://www.google-analytics.com/cx/api.js?experiment=jdCfRmudTmy-0USnJ8xPbw',
+            },
+            {
+              blockingTime: 0,
+              mainThreadTime: 27.805000000000007,
+              tbtImpact: 0,
+              transferSize: 1425,
+              url: 'https://www.google-analytics.com/plugins/ua/linkid.js',
+            },
+            {
+              blockingTime: 0,
+              mainThreadTime: 0,
+              tbtImpact: 0,
+              transferSize: 472,
+              url: 'https://www.google-analytics.com/r/collect?v=1&_v=j53&aip=1&a=749319045&t=pageview&_s=1&dl=https%3A%2F%2Fpwa.rocks%2F&ul=en-us&de=UTF-8&dt=A%20selection%20of%20Progressive%20Web%20Apps&sd=24-bit&sr=412x732&vp=412x732&je=0&_u=aGAAAAAjI~&jid=2098926753&gjid=1553792979&cid=601220267.1494017431&tid=UA-58419726-4&_gid=445409680.1494017431&_r=1&gtm=GTM-Q5SW&z=1395339825',
             },
           ],
           type: 'subitems',
         },
       },
     ]);
-    expect(results.details.items[1].subItems.items[1].url).toBeDisplayString('Other resources');
   });
 
   it('account for simulated throttling', async () => {

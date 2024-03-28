@@ -67,7 +67,7 @@ const expectations = {
     finalDisplayedUrl: 'http://localhost:10200/perf/frame-metrics.html',
     audits: {
       'metrics': {
-        score: null,
+        score: 1,
         details: {
           type: 'debugdata',
           items: [

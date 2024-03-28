@@ -57,6 +57,7 @@ describe('Performance: prioritize-lcp-image audit', () => {
         networkRequestTime: 0,
         networkEndTime: 500,
         timing: {receiveHeadersEnd: 500},
+        responseHeadersTransferSize: 400,
         transferSize: 400,
         url: requestedUrl,
         frameId: 'ROOT_FRAME',
@@ -318,6 +319,7 @@ describe('Performance: prioritize-lcp-image audit', () => {
     // Redirect image request to newly added request.
     const redirectSource = networkRecords.at(-1);
     redirectSource.networkEndTime = 2500;
+    redirectSource.responseHeadersTransferSize = 708;
     redirectSource.transferSize = 708;
     redirectSource.resourceType = undefined;
     networkRecords.push({

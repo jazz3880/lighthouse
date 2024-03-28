@@ -83,7 +83,7 @@ describe('my site', () => {
     await new Promise(resolve => server.listen(SERVER_PORT, resolve));
     browser = await puppeteer.launch({
       args: [`--remote-debugging-port=${CHROME_DEBUG_PORT}`],
-      headless: !process.env.DEBUG,
+      headless: process.env.DEBUG ? false : 'new',
       slowMo: process.env.DEBUG ? 50 : undefined,
       executablePath: getChromePath(),
     });

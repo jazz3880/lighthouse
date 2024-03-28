@@ -237,28 +237,6 @@ describe('Metric: Responsiveness', () => {
       .rejects.toThrow(`unexpected responsiveness interactionType 'brainWave'`);
   });
 
-  it('returns a fallback timing event if provided with the old trace event format', async () => {
-    const interactionEvents = [{
-      ts: 500,
-      maxDuration: 200,
-    }];
-    const trace = makeTrace(interactionEvents);
-    for (const event of trace.traceEvents) {
-      if (event.name !== 'EventTiming') continue;
-      event.args.data = {};
-    }
-
-    const metricInputData = {
-      trace,
-      settings: {throttlingMethod: 'provided'},
-    };
-    const event = await Responsiveness.request(metricInputData, {computedCache: new Map()});
-    expect(event).toEqual({
-      name: 'FallbackTiming',
-      duration: 200,
-    });
-  });
-
   it('only finds interaction events from the same frame as the responsiveness event', async () => {
     const maxDuration = 200;
     const interactionEvents = [{

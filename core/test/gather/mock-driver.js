@@ -224,7 +224,8 @@ function createMockBaseArtifacts() {
     LighthouseRunWarnings: [],
     Timing: [],
     HostFormFactor: 'desktop',
-    HostUserAgent: 'Chrome/93.0.1449.0',
+    HostUserAgent: 'Chrome/93.0.0.0',
+    HostProduct: 'Chrome/93.0.1449.0',
     GatherContext: {gatherMode: 'navigation'},
   };
 }

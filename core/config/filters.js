@@ -20,6 +20,7 @@ const baseArtifactKeySource = {
   PageLoadError: '',
   HostFormFactor: '',
   HostUserAgent: '',
+  HostProduct: '',
   GatherContext: '',
 };
 

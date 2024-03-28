@@ -8,6 +8,7 @@ import {ByteEfficiencyAudit} from './byte-efficiency-audit.js';
 import {UnusedCSS} from '../../computed/unused-css.js';
 import * as i18n from '../../lib/i18n/i18n.js';
 import {computeCSSTokenLength as computeTokenLength} from '../../lib/minification-estimator.js';
+import {estimateTransferSize} from '../../lib/script-helpers.js';
 
 const UIStrings = {
   /** Imperative title of a Lighthouse audit that tells the user to minify (remove whitespace) the page's CSS code. This is displayed in a list of audit titles that Lighthouse generates. */
@@ -65,8 +66,7 @@ class UnminifiedCSS extends ByteEfficiencyAudit {
       url = contentPreview;
     }
 
-    const totalBytes = ByteEfficiencyAudit.estimateTransferSize(networkRecord, content.length,
-      'Stylesheet');
+    const totalBytes = estimateTransferSize(networkRecord, content.length, 'Stylesheet');
     const wastedRatio = 1 - totalTokenLength / content.length;
     const wastedBytes = Math.round(totalBytes * wastedRatio);
 

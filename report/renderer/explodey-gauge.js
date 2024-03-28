@@ -296,7 +296,6 @@ function _setPerfGaugeExplodey(dom, wrapperEl, category) {
         if (parentEl !== highlightEl) {
           highlightEl.classList.remove('metric--highlight');
           parentEl.classList.add('metric--highlight');
-          console.log({highlightEl, parent: parentEl});
         }
       }
     }

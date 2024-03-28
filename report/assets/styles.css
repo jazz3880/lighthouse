@@ -131,8 +131,8 @@
   --snippet-color: #0938C2;
   --stackpack-padding-horizontal: 10px;
   --sticky-header-background-color: var(--report-background-color);
-  --sticky-header-buffer: calc(var(--topbar-height) + var(--sticky-header-height));
-  --sticky-header-height: calc(var(--gauge-circle-size-sm) + var(--score-container-padding) * 2);
+  --sticky-header-buffer: var(--topbar-height);
+  --sticky-header-height: calc(var(--gauge-circle-size-sm) + var(--score-container-padding) * 2 + 1em);
   --table-group-header-background-color: #EEF1F4;
   --table-group-header-text-color: var(--color-gray-700);
   --table-higlight-background-color: #F5F7FA;
@@ -256,10 +256,21 @@
   --section-padding-vertical: 8px;
 }
 
+.lh-container:has(.lh-sticky-header) {
+  --sticky-header-buffer: calc(var(--topbar-height) + var(--sticky-header-height));
+}
+
 .lh-container:not(.lh-topbar + .lh-container) {
   --topbar-height: 0;
   --sticky-header-height: 0;
   --sticky-header-buffer: 0;
+}
+
+.lh-max-viewport {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
 }
 
 .lh-devtools.lh-root {
@@ -273,7 +284,11 @@
   overflow-y: scroll;
   height: calc(100% - var(--topbar-height));
   /** The .lh-container is the scroll parent in DevTools so we exclude the topbar from the sticky header buffer. */
-  --sticky-header-buffer: calc(var(--sticky-header-height));
+  --sticky-header-buffer: 0;
+}
+.lh-devtools .lh-container:has(.lh-sticky-header) {
+  /** The .lh-container is the scroll parent in DevTools so we exclude the topbar from the sticky header buffer. */
+  --sticky-header-buffer: var(--sticky-header-height);
 }
 @media print {
   .lh-devtools .lh-container {
@@ -854,16 +869,16 @@
 }
 
 .lh-filmstrip {
-  display: grid;
+  display: flex;
   justify-content: space-between;
-  padding-bottom: var(--default-padding);
+  justify-items: center;
+  margin-bottom: var(--default-padding);
   width: 100%;
-  grid-template-columns: repeat(auto-fit, 90px);
 }
 
 .lh-filmstrip__frame {
-  text-align: right;
-  position: relative;
+  overflow: hidden;
+  line-height: 0;
 }
 
 .lh-filmstrip__thumbnail {
@@ -1320,7 +1335,7 @@
   max-width: var(--report-content-max-width);
   margin: 0 auto;
 
-  scroll-margin-top: var(--sticky-header-buffer);
+  scroll-margin-top: calc(var(--sticky-header-buffer) - 1em);
 }
 
 .lh-category-wrapper {
@@ -1411,7 +1426,7 @@
 
 .lh-table thead th {
   position: sticky;
-  top: calc(var(--sticky-header-buffer) + 1em);
+  top: var(--sticky-header-buffer);
   z-index: 1;
   background-color: var(--report-background-color);
   border-bottom: 1px solid var(--report-border-color-secondary);
@@ -1432,6 +1447,8 @@
 }
 
 .lh-row--group td:first-child {
+  display: block;
+  min-width: max-content;
   font-weight: normal;
 }
 
@@ -1467,11 +1484,11 @@
 }
 
 .lh-row--group .lh-report-icon--external {
-  display: none;
+  visibility: hidden;
 }
 
 .lh-row--group:hover .lh-report-icon--external {
-  display: inline-block;
+  visibility: visible;
 }
 
 .lh-dark .lh-report-icon--external::before {
@@ -1596,6 +1613,10 @@
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 20px;
+}
+
+.lh-sub-item-row .lh-element-screenshot {
+  zoom: 0.6;
 }
 
 /* Chevron
@@ -1865,7 +1886,7 @@ details[open] .lh-clump-toggletext--hide { display: block;}
   width: 225px;
   stroke-width: var(--stroke-width);
   stroke-linecap: round;
-  
+
   /* for better rendering perf */
   contain: strict;
   height: 225px;

@@ -128,7 +128,7 @@ message LighthouseResult {
   map<string, CategoryGroup> category_groups = 11;
 
   // Message containing the configuration settings for the LH run
-  // Next ID: 10
+  // Next ID: 11
   message ConfigSettings {
     // The possible form factors an audit can be run in.
     // This enum served the emulated_form_factor field, but in v7, that field
@@ -203,6 +203,9 @@ message LighthouseResult {
 
     // Screen emulation properties (width, height, dpr, mobile viewport) to apply or an object of `{disabled: true}` if Lighthouse should avoid applying screen emulation. If either emulation is applied outside of Lighthouse, or it's being run on a mobile device, it typically should be set to disabled. For desktop, we recommend applying consistent desktop screen emulation.
     ScreenEmulation screen_emulation = 9;
+
+    // Indicating whether Lighthouse should ignore status codes.
+    bool ignore_status_code = 10;
   }
 
   // The settings that were used to run this audit
@@ -668,6 +671,9 @@ message I18n {
 
     // Descriptive label that this analysis considers a snapshot of the page at a single point in time
     string runtime_analysis_window_snapshot = 66;
+
+    // Message for PWA deprecation.
+    string pwa_removal_message = 67;
   }
 
   // The message holding all formatted strings used in the renderer.

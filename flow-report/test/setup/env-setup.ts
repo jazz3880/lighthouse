@@ -37,6 +37,7 @@ const rootHooks = {
 
     // Use JSDOM types as necessary.
     global.Blob = window.Blob;
+    global.HTMLElement = window.HTMLElement;
     global.HTMLInputElement = window.HTMLInputElement;
 
     // Functions not implemented in JSDOM.

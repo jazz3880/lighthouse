@@ -59,7 +59,7 @@ class EntityClassification {
     // Make up an entity only for valid http/https URLs.
     if (!parsedUrl.protocol.startsWith('http')) return;
 
-    const rootDomain = Util.getRootDomain(url);
+    const rootDomain = UrlUtils.getRootDomain(url);
     if (!rootDomain) return;
     if (entityCache.has(rootDomain)) return entityCache.get(rootDomain);
 

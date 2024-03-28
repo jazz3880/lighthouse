@@ -9,6 +9,7 @@ import assert from 'assert/strict';
 import {NetworkRecorder} from '../../lib/network-recorder.js';
 import {networkRecordsToDevtoolsLog} from '../network-records-to-devtools-log.js';
 import {readJson} from '../test-utils.js';
+import {NetworkRequest} from '../../lib/network-request.js';
 
 const devtoolsLogItems = readJson('../fixtures/artifacts/perflog/defaultPass.devtoolslog.json', import.meta);
 const prefetchedScriptDevtoolsLog = readJson('../fixtures/prefetched-script.devtoolslog.json', import.meta);
@@ -165,20 +166,33 @@ describe('network recorder', function() {
     expect(records).toMatchObject([{url: 'http://example.com', networkRequestTime: 1, networkEndTime: 2}]);
   });
 
-  it('should use X-TotalFetchedSize in Lightrider for transferSize', () => {
-    global.isLightrider = true;
-    const records = NetworkRecorder.recordsFromLogs(lrRequestDevtoolsLog);
-    global.isLightrider = false;
-
-    expect(records.find(r => r.url === 'https://www.paulirish.com/'))
-    .toMatchObject({
-      resourceSize: 75221,
-      transferSize: 22889,
+  describe('Lightrider', () => {
+    let records;
+    before(() => {
+      global.isLightrider = true;
+      records = NetworkRecorder.recordsFromLogs(lrRequestDevtoolsLog);
     });
-    expect(records.find(r => r.url === 'https://www.paulirish.com/javascripts/modernizr-2.0.js'))
-    .toMatchObject({
-      resourceSize: 9736,
-      transferSize: 4730,
+
+    it('should use X-TotalFetchedSize in Lightrider for transferSize', () => {
+      expect(records.find(r => r.url === 'https://www.paulirish.com/'))
+      .toMatchObject({
+        resourceSize: 75221,
+        transferSize: 22889,
+      });
+      expect(records.find(r => r.url === 'https://www.paulirish.com/javascripts/modernizr-2.0.js'))
+      .toMatchObject({
+        resourceSize: 9736,
+        transferSize: 4730,
+      });
+    });
+
+    it('should use respect X-Original-Content-Encoding', () => {
+      const record = records.find(r => r.url === 'https://www.paulirish.com/javascripts/modernizr-2.0.js');
+      expect(NetworkRequest.isContentEncoded(record)).toBe(true);
+    });
+
+    after(() => {
+      global.isLightrider = false;
     });
   });
 

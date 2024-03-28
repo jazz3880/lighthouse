@@ -17,6 +17,7 @@ import formsAutoComplete from './test-definitions/forms-autocomplete.js';
 import fpsMax from './test-definitions/fps-max.js';
 import fpsMaxPassive from './test-definitions/fps-max-passive.js';
 import fpsScaled from './test-definitions/fps-scaled.js';
+import fpsOverflowX from './test-definitions/fps-overflow-x.js';
 import issuesMixedContent from './test-definitions/issues-mixed-content.js';
 import lanternFetch from './test-definitions/lantern-fetch.js';
 import lanternIdleCallbackLong from './test-definitions/lantern-idle-callback-long.js';
@@ -44,7 +45,6 @@ import perfFonts from './test-definitions/perf-fonts.js';
 import perfFrameMetrics from './test-definitions/perf-frame-metrics.js';
 import perfPreload from './test-definitions/perf-preload.js';
 import perfTraceElements from './test-definitions/perf-trace-elements.js';
-import pubads from './test-definitions/pubads.js';
 import redirectsClientPaintServer from './test-definitions/redirects-client-paint-server.js';
 import redirectsHistoryPushState from './test-definitions/redirects-history-push-state.js';
 import redirectsMultipleServer from './test-definitions/redirects-multiple-server.js';
@@ -58,6 +58,7 @@ import seoPassing from './test-definitions/seo-passing.js';
 import seoStatus403 from './test-definitions/seo-status-403.js';
 import seoTapTargets from './test-definitions/seo-tap-targets.js';
 import serviceWorkerReloaded from './test-definitions/service-worker-reloaded.js';
+import shiftAttribution from './test-definitions/shift-attribution.js';
 import sourceMaps from './test-definitions/source-maps.js';
 import timing from './test-definitions/timing.js';
 
@@ -75,6 +76,7 @@ const smokeTests = [
   formsAutoComplete,
   fpsMax,
   fpsMaxPassive,
+  fpsOverflowX,
   fpsScaled,
   issuesMixedContent,
   lanternFetch,
@@ -103,7 +105,6 @@ const smokeTests = [
   perfFrameMetrics,
   perfPreload,
   perfTraceElements,
-  pubads,
   redirectsClientPaintServer,
   redirectsHistoryPushState,
   redirectsMultipleServer,
@@ -117,6 +118,7 @@ const smokeTests = [
   seoStatus403,
   seoTapTargets,
   serviceWorkerReloaded,
+  shiftAttribution,
   sourceMaps,
   timing,
 ];

@@ -42,7 +42,7 @@ describe('Preload Fonts Audit', () => {
         },
       ];
 
-      const result = await PreloadFontsAudit.audit_(getArtifacts(), context);
+      const result = await PreloadFontsAudit.audit(getArtifacts(), context);
       expect(result.score).toEqual(0);
       expect(result.details.items).toEqual([
         {url: networkRecords[0].url},
@@ -65,7 +65,7 @@ describe('Preload Fonts Audit', () => {
         },
       ];
 
-      const result = await PreloadFontsAudit.audit_(getArtifacts(), context);
+      const result = await PreloadFontsAudit.audit(getArtifacts(), context);
       expect(result.details.items).toEqual([]);
       expect(result.score).toEqual(1);
     });
@@ -87,7 +87,7 @@ describe('Preload Fonts Audit', () => {
         },
       ];
 
-      const result = await PreloadFontsAudit.audit_(getArtifacts(), context);
+      const result = await PreloadFontsAudit.audit(getArtifacts(), context);
       expect(result.score).toEqual(1);
       expect(result.details.items).toEqual([]);
       expect(result.notApplicable).toEqual(true);
@@ -108,7 +108,7 @@ describe('Preload Fonts Audit', () => {
         },
       ];
 
-      const result = await PreloadFontsAudit.audit_(getArtifacts(), context);
+      const result = await PreloadFontsAudit.audit(getArtifacts(), context);
       expect(result.score).toEqual(1);
       expect(result.details.items).toEqual([]);
       expect(result.notApplicable).toEqual(true);
@@ -139,7 +139,7 @@ describe('Preload Fonts Audit', () => {
 
     networkRecords = [];
 
-    const result = await PreloadFontsAudit.audit_(getArtifacts(), context);
+    const result = await PreloadFontsAudit.audit(getArtifacts(), context);
     expect(result.score).toEqual(1);
     expect(result.details.items).toEqual([]);
     expect(result.notApplicable).toEqual(true);
@@ -191,7 +191,7 @@ describe('Preload Fonts Audit', () => {
       },
     ];
 
-    const result = await PreloadFontsAudit.audit_(getArtifacts(), context);
+    const result = await PreloadFontsAudit.audit(getArtifacts(), context);
     expect(result.score).toEqual(0);
     expect(result.details.items).toEqual([
       {url: networkRecords[1].url},

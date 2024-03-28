@@ -7,9 +7,6 @@
 import {Protocol as Crdp} from 'devtools-protocol/types/protocol.js';
 import {ProtocolMapping as CrdpMappings} from 'devtools-protocol/types/protocol-mapping.js';
 
-import {NetworkNode as _NetworkNode} from '../core/lib/dependency-graph/network-node.js';
-import {CPUNode as _CPUNode} from '../core/lib/dependency-graph/cpu-node.js';
-import {Simulator as _Simulator} from '../core/lib/dependency-graph/simulator/simulator.js';
 import {ExecutionContext} from '../core/gather/driver/execution-context.js';
 import {NetworkMonitor} from '../core/gather/driver/network-monitor.js';
 import {Fetcher} from '../core/gather/fetcher.js';
@@ -20,6 +17,7 @@ import Config from './config.js';
 import Result from './lhr/lhr.js';
 import Protocol from './protocol.js';
 import Puppeteer from './puppeteer.js';
+import * as Lantern from '../core/lib/lantern/types/lantern.js';
 
 type CrdpEvents = CrdpMappings.Events;
 type CrdpCommands = CrdpMappings.Commands;
@@ -133,38 +131,13 @@ declare module Gatherer {
   type AnyGathererInstance = GathererInstanceExpander<Gatherer.DependencyKey>
 
   namespace Simulation {
-    type GraphNode = import('../core/lib/dependency-graph/base-node.js').Node;
-    type GraphNetworkNode = _NetworkNode;
-    type GraphCPUNode = _CPUNode;
-    type Simulator = _Simulator;
-
-    interface MetricCoefficients {
-      intercept: number;
-      optimistic: number;
-      pessimistic: number;
-    }
-
-    interface Options {
-      rtt?: number;
-      throughput?: number;
-      observedThroughput: number;
-      maximumConcurrentRequests?: number;
-      cpuSlowdownMultiplier?: number;
-      layoutTaskMultiplier?: number;
-      additionalRttByOrigin?: Map<string, number>;
-      serverResponseTimeByOrigin?: Map<string, number>;
-    }
-
-    interface NodeTiming {
-      startTime: number;
-      endTime: number;
-      duration: number;
-    }
-
-    interface Result {
-      timeInMs: number;
-      nodeTimings: Map<GraphNode, NodeTiming>;
-    }
+    type GraphNode = Lantern.Simulation.GraphNode<Artifacts.NetworkRequest>;
+    type GraphNetworkNode = Lantern.Simulation.GraphNetworkNode<Artifacts.NetworkRequest>;
+    type GraphCPUNode = Lantern.Simulation.GraphCPUNode;
+    type Simulator = Lantern.Simulation.Simulator<Artifacts.NetworkRequest>;
+    type NodeTiming = Lantern.Simulation.NodeTiming;
+    type MetricCoefficients = Lantern.Simulation.MetricCoefficients;
+    type Result = Lantern.Simulation.Result<Artifacts.NetworkRequest>;
   }
 }
 

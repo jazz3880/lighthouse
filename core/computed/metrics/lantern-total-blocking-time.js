@@ -6,12 +6,12 @@
 
 import {makeComputedArtifact} from '../computed-artifact.js';
 import {LanternMetric} from './lantern-metric.js';
-import {BaseNode} from '../../lib/dependency-graph/base-node.js';
+import {BaseNode} from '../../lib/lantern/base-node.js';
 import {LanternFirstContentfulPaint} from './lantern-first-contentful-paint.js';
 import {LanternInteractive} from './lantern-interactive.js';
 import {BLOCKING_TIME_THRESHOLD, calculateSumOfBlockingTime} from './tbt-utils.js';
 
-/** @typedef {import('../../lib/dependency-graph/base-node.js').Node} Node */
+/** @typedef {import('../../lib/lantern/base-node.js').Node<LH.Artifacts.NetworkRequest>} Node */
 
 class LanternTotalBlockingTime extends LanternMetric {
   /**
@@ -43,7 +43,7 @@ class LanternTotalBlockingTime extends LanternMetric {
 
   /**
    * @param {LH.Gatherer.Simulation.Result} simulation
-   * @param {import('./lantern-metric.js').Extras} extras
+   * @param {import('../../lib/lantern/metric.js').Extras} extras
    * @return {LH.Gatherer.Simulation.Result}
    */
   static getEstimateFromSimulation(simulation, extras) {

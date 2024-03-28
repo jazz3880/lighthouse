@@ -63,7 +63,7 @@ function getSnapshotState(testFile) {
   const snapshotDir = path.join(path.dirname(testFile), '__snapshots__');
   const snapshotFile = path.join(snapshotDir, path.basename(testFile) + '.snap');
   snapshotState = new SnapshotState(snapshotFile, {
-    updateSnapshot: process.env.SNAPSHOT_UPDATE ? 'all' : 'new',
+    updateSnapshot: process.env.SNAPSHOT_UPDATE ? 'all' : 'none',
     prettierPath: '',
     snapshotFormat: {},
   });
@@ -98,6 +98,7 @@ expect.extend({
 
     const title = makeTestTitle(test);
     const snapshotState = getSnapshotState(test.file);
+
     const context = {snapshotState, currentTestName: title};
     // @ts-expect-error - this is enough for snapshots to work.
     const matcher = toMatchSnapshot.bind(context);
@@ -146,6 +147,17 @@ const rootHooks = {
 
     // Needed so `expect` extension method can access information about the current test.
     mochaCurrentTest = this.currentTest;
+
+    // If a test is retried the snapshot indices will start where the previous attempt left off.
+    // This can lead to several problems including the test passing where it should be failing.
+    //
+    // Jest itself clears the snapshot state on retries although they seem to execute retries after
+    // all tests finish and not immediately after the initial test failure.
+    // https://github.com/jestjs/jest/pull/8629
+    if (this.currentTest.retries() && this.currentTest.file) {
+      const snapshotState = getSnapshotState(this.currentTest.file);
+      snapshotState.clear();
+    }
   },
   /** @this {Mocha.Context} */
   afterEach() {
@@ -158,7 +170,7 @@ const rootHooks = {
       failedTests.push({
         file: path.relative(LH_ROOT, file),
         title,
-        error: this.currentTest.err?.toString(),
+        error: this.currentTest.err?.stack ?? this.currentTest.err?.toString(),
       });
     }
   },

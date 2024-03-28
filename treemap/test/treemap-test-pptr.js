@@ -50,21 +50,43 @@ describe('Lighthouse Treemap', () => {
   beforeEach(async () => {
     if (!browser) {
       browser = await puppeteer.launch({
-        headless: 'new',
+        headless: process.env.DEBUG ? false : 'new',
         executablePath: getChromePath(),
       });
     }
     page = await browser.newPage();
-    page.on('pageerror', pageError => pageErrors.push(pageError));
+    page.on('pageerror', e => pageErrors.push(`${e.message} ${e.stack}`));
+    page.on('console', (e) => {
+      if (e.type() === 'error' || e.type() === 'warning') {
+        const describe = (jsHandle) => {
+          return jsHandle.executionContext().evaluate((obj) => {
+            return JSON.stringify(obj, null, 2);
+          }, jsHandle);
+        };
+        const promise = Promise.all(e.args().map(describe)).then(args => {
+          return `${e.text()} ${args.join(' ')} ${JSON.stringify(e.location(), null, 2)}`;
+        });
+        pageErrors.push(promise);
+      }
+    });
   });
 
-  afterEach(async () => {
-    await page.close();
-
-    // Fails if any unexpected errors ocurred.
-    // If a test expects an error, it will clear this array.
-    expect(pageErrors).toMatchObject([]);
+  async function claimErrors() {
+    const theErrors = pageErrors;
     pageErrors = [];
+    return await Promise.all(theErrors);
+  }
+
+  async function ensureNoErrors() {
+    await page.bringToFront();
+    await page.evaluate(() => new Promise(window.requestAnimationFrame));
+    const errors = await claimErrors();
+    expect(errors).toHaveLength(0);
+  }
+
+  afterEach(async () => {
+    await ensureNoErrors();
+    await page.close();
   });
 
   describe('Recieves options', () => {

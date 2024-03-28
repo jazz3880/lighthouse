@@ -21,7 +21,7 @@ import esMain from 'es-main';
 
 import {LH_ROOT} from '../../../shared/root.js';
 
-const HEADER_SAFELIST = new Set(['x-robots-tag', 'link', 'content-security-policy']);
+const HEADER_SAFELIST = new Set(['x-robots-tag', 'link', 'content-security-policy', 'set-cookie']);
 const wasInvokedDirectly = esMain(import.meta);
 
 class Server {

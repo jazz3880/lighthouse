@@ -9,7 +9,7 @@ import {LanternMetric} from './lantern-metric.js';
 import {LighthouseError} from '../../lib/lh-error.js';
 import {LanternFirstContentfulPaint} from './lantern-first-contentful-paint.js';
 
-/** @typedef {import('../../lib/dependency-graph/base-node.js').Node} Node */
+/** @typedef {import('../../lib/lantern/base-node.js').Node<LH.Artifacts.NetworkRequest>} Node */
 
 class LanternFirstMeaningfulPaint extends LanternMetric {
   /**
@@ -33,14 +33,13 @@ class LanternFirstMeaningfulPaint extends LanternMetric {
     if (!fmp) {
       throw new LighthouseError(LighthouseError.errors.NO_FMP);
     }
-
-    return LanternFirstContentfulPaint.getFirstPaintBasedGraph(
-      dependencyGraph,
-      fmp,
+    return LanternFirstContentfulPaint.getFirstPaintBasedGraph(dependencyGraph, {
+      cutoffTimestamp: fmp,
       // See LanternFirstContentfulPaint's getOptimisticGraph implementation for a longer description
       // of why we exclude script initiated resources here.
-      node => node.hasRenderBlockingPriority() && node.initiatorType !== 'script'
-    );
+      treatNodeAsRenderBlocking: node =>
+        node.hasRenderBlockingPriority() && node.initiatorType !== 'script',
+    });
   }
 
   /**
@@ -54,13 +53,12 @@ class LanternFirstMeaningfulPaint extends LanternMetric {
       throw new LighthouseError(LighthouseError.errors.NO_FMP);
     }
 
-    return LanternFirstContentfulPaint.getFirstPaintBasedGraph(
-      dependencyGraph,
-      fmp,
-      node => node.hasRenderBlockingPriority(),
+    return LanternFirstContentfulPaint.getFirstPaintBasedGraph(dependencyGraph, {
+      cutoffTimestamp: fmp,
+      treatNodeAsRenderBlocking: node => node.hasRenderBlockingPriority(),
       // For pessimistic FMP we'll include *all* layout nodes
-      node => node.didPerformLayout()
-    );
+      additionalCpuNodesToTreatAsRenderBlocking: node => node.didPerformLayout(),
+    });
   }
 
   /**

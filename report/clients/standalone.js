@@ -21,6 +21,7 @@ function __initLighthouseReport__() {
   const lhr = window.__LIGHTHOUSE_JSON__;
 
   const reportRootEl = renderReport(lhr, {
+    occupyEntireViewport: true,
     getStandaloneReportHTML() {
       return document.documentElement.outerHTML;
     },

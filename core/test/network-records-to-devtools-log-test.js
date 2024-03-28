@@ -57,7 +57,12 @@ describe('networkRecordsToDevtoolsLog', () => {
     const roundTripLogs = networkRecordsToDevtoolsLog(records, {skipVerification: true});
     const roundTripRecords = NetworkRecorder.recordsFromLogs(roundTripLogs);
 
-    expect(roundTripRecords).toEqual(records);
+    // First compare element-wise, as doing all at once results in too verbose an error message.
+    const len = Math.min(roundTripRecords.length, records.length);
+    for (let i = 0; i < len; i++) {
+      expect(roundTripRecords[i]).toEqual(records[i]);
+    }
+    expect(roundTripRecords.length).toEqual(records.length);
   });
 
   it('should roundtrip fake network records multiple times', () => {

@@ -3,7 +3,7 @@
   "LighthouseRunWarnings": [],
   "HostFormFactor": "desktop",
   "HostUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4635.0 Safari/537.36",
-  "NetworkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari/537.36",
+  "NetworkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.36",
   "BenchmarkIndex": 1549,
   "WebAppManifest": null,
   "InstallabilityErrors": {
@@ -61,10 +61,15 @@
       "deviceScaleFactor": 1.75,
       "disabled": false
     },
-    "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari/537.36",
+    "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.36",
     "auditMode": false,
     "gatherMode": "core/test/results/artifacts",
-    "clearStorageTypes": ["file_systems", "shader_cache", "service_workers", "cache_storage"],
+    "clearStorageTypes": [
+      "file_systems",
+      "shader_cache",
+      "service_workers",
+      "cache_storage"
+    ],
     "disableStorageReset": false,
     "debugNavigation": false,
     "channel": "cli",
@@ -13195,5 +13200,32 @@
         "SupportPending": {}
       }
     }
-  ]
+  ],
+  "HostProduct": "Chrome/121.0.6110.0",
+  "RootCauses": {
+    "layoutShifts": {
+      "0": {
+        "unsizedMedia": [],
+        "iframes": [],
+        "fontChanges": [],
+        "renderBlockingRequests": [],
+        "scriptStackTrace": []
+      },
+      "1": {
+        "unsizedMedia": [],
+        "iframes": [],
+        "fontChanges": [],
+        "renderBlockingRequests": [],
+        "scriptStackTrace": [
+          {
+            "columnNumber": 54,
+            "functionName": "",
+            "lineNumber": 129,
+            "scriptId": "20",
+            "url": "http://localhost:10200/dobetterweb/dbw_tester.html"
+          }
+        ]
+      }
+    }
+  }
 }

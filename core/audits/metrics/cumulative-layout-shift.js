@@ -54,7 +54,11 @@ class CumulativeLayoutShift extends Audit {
    */
   static async audit(artifacts, context) {
     const trace = artifacts.traces[Audit.DEFAULT_PASS];
-    const {cumulativeLayoutShift, ...rest} = await ComputedCLS.request(trace, context);
+
+    // impactByNodeId is unused but we don't want it on debug data
+    // eslint-disable-next-line no-unused-vars
+    const {cumulativeLayoutShift, impactByNodeId, ...rest} =
+      await ComputedCLS.request(trace, context);
 
     /** @type {LH.Audit.Details.DebugData} */
     const details = {

@@ -55,15 +55,6 @@ const PASS_THRESHOLD_IN_MS = 250;
  * @property {Map<LH.Artifacts.Entity, string[]>} urls Map of URLs under each entity.
  */
 
-/**
- * Don't bother showing resources smaller than 4KiB since they're likely to be pixels, which isn't
- * too actionable.
- */
-const MIN_TRANSFER_SIZE_FOR_SUBITEMS = 4096;
-
-/** Show at most 5 sub items in the resource breakdown. */
-const MAX_SUBITEMS = 5;
-
 class ThirdPartySummary extends Audit {
   /**
    * @return {LH.Audit.Meta}
@@ -146,51 +137,15 @@ class ThirdPartySummary extends Audit {
   /**
    * @param {LH.Artifacts.Entity} entity
    * @param {SummaryMaps} summaries
-   * @param {Summary} stats
    * @return {Array<URLSummary>}
    */
-  static makeSubItems(entity, summaries, stats) {
+  static makeSubItems(entity, summaries) {
     const entityURLs = summaries.urls.get(entity) || [];
-    let items = entityURLs
+    const items = entityURLs
       .map(url => /** @type {URLSummary} */ ({url, ...summaries.byURL.get(url)}))
-      // Filter out any cases where byURL was missing entries.
-      .filter((stat) => stat.transferSize > 0)
       // Sort by blocking time first, then transfer size to break ties.
       .sort((a, b) => (b.blockingTime - a.blockingTime) || (b.transferSize - a.transferSize));
 
-    const subitemSummary = {transferSize: 0, blockingTime: 0, tbtImpact: 0};
-    const minTransferSize = Math.max(MIN_TRANSFER_SIZE_FOR_SUBITEMS, stats.transferSize / 20);
-    const maxSubItems = Math.min(MAX_SUBITEMS, items.length);
-    let numSubItems = 0;
-    while (numSubItems < maxSubItems) {
-      const nextSubItem = items[numSubItems];
-      if (nextSubItem.blockingTime === 0 && nextSubItem.transferSize < minTransferSize) {
-        // Don't include the resource in the sub-item breakdown because it didn't have a big
-        // enough impact on its own.
-        break;
-      }
-
-      numSubItems++;
-      subitemSummary.transferSize += nextSubItem.transferSize;
-      subitemSummary.blockingTime += nextSubItem.blockingTime;
-      subitemSummary.tbtImpact += nextSubItem.tbtImpact;
-    }
-    if (!subitemSummary.blockingTime && !subitemSummary.transferSize) {
-      // Don't bother breaking down if there are no large resources.
-      return [];
-    }
-    // Only show the top N entries for brevity. If there is more than one remaining entry
-    // we'll replace the tail entries with single remainder entry.
-    items = items.slice(0, numSubItems);
-    const remainder = {
-      url: str_(i18n.UIStrings.otherResourcesLabel),
-      transferSize: stats.transferSize - subitemSummary.transferSize,
-      blockingTime: stats.blockingTime - subitemSummary.blockingTime,
-      tbtImpact: stats.tbtImpact - subitemSummary.tbtImpact,
-    };
-    if (remainder.transferSize > minTransferSize) {
-      items.push(remainder);
-    }
     return items;
   }
 
@@ -231,7 +186,7 @@ class ThirdPartySummary extends Audit {
           entity: entity.name,
           subItems: {
             type: /** @type {const} */ ('subitems'),
-            items: ThirdPartySummary.makeSubItems(entity, summaries, stats),
+            items: ThirdPartySummary.makeSubItems(entity, summaries),
           },
         };
       })

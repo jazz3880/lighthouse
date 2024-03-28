@@ -19,11 +19,12 @@ import lighthouse from 'lighthouse';
 
 const url = 'https://chromestatus.com/features';
 
-// Use Puppeteer to launch headful Chrome
+// Use Puppeteer to launch headless Chrome
 // - Omit `--enable-automation` (See https://github.com/GoogleChrome/lighthouse/issues/12988)
 // - Don't use 800x600 default viewport
 const browser = await puppeteer.launch({
-  headless: false,
+  // Set to false if you want to see the script in action.
+  headless: 'new',
   defaultViewport: null,
   ignoreDefaultArgs: ['--enable-automation']
 });

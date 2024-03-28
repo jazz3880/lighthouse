@@ -109,6 +109,9 @@ class BootupTime extends Audit {
       settings.throttling.cpuSlowdownMultiplier : 1;
 
     const executionTimings = getExecutionTimingsByURL(tasks, networkRecords);
+    // Exclude our own tasks.
+    executionTimings.delete('_lighthouse-eval.js');
+
     const tbtImpact = await this.getTbtImpact(artifacts, context);
 
     let hadExcessiveChromeExtension = false;

@@ -36,6 +36,7 @@ describe('ReportRenderer', () => {
 
     const {window} = new jsdom.JSDOM();
     global.self = window;
+    global.HTMLElement = window.HTMLElement;
 
     const dom = new DOM(window.document);
     const detailsRenderer = new DetailsRenderer(dom);
@@ -182,7 +183,10 @@ describe('ReportRenderer', () => {
       const warningResults = Object.assign({}, sampleResults, {runWarnings: []});
       const container = renderer._dom.document().body;
       const output = renderer.renderReport(warningResults, container);
-      assert.strictEqual(output.querySelector('.lh-warnings--toplevel'), null);
+      const warningEls = output.querySelectorAll('.lh-warnings--toplevel');
+      // PWA deprecation warning.
+      expect(warningEls).toHaveLength(1);
+      expect(warningEls[0].textContent).toContain('deprecating the PWA category');
     });
 
     it('renders a warning section', () => {

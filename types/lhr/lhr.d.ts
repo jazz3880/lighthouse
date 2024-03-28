@@ -116,8 +116,6 @@ declare module Result {
     group?: string;
     /** The conventional acronym for the audit/metric. */
     acronym?: string;
-    /** Any audit IDs closely relevant to this one. */
-    relevantAudits?: string[];
   }
 
   interface ReportGroup {
@@ -150,7 +148,7 @@ declare module Result {
       width: number;
       height: number;
     };
-    nodes: Record<string, AuditDetails.Rect>;
+    nodes: Record<string, {id?: string} & AuditDetails.Rect>;
   }
 
   /**

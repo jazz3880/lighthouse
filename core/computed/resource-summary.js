@@ -9,7 +9,7 @@ import {makeComputedArtifact} from './computed-artifact.js';
 import {NetworkRecords} from './network-records.js';
 import {NetworkRequest} from '../lib/network-request.js';
 import {Budget} from '../config/budget.js';
-import {Util} from '../../shared/util.js';
+import UrlUtils from '../lib/url-utils.js';
 
 /** @typedef {{count: number, resourceSize: number, transferSize: number}} ResourceEntry */
 
@@ -59,7 +59,7 @@ class ResourceSummary {
       firstPartyHosts = budget.options.firstPartyHostnames;
     } else {
       firstPartyHosts = classifiedEntities.firstParty?.domains.map(domain => `*.${domain}`) ||
-        [`*.${Util.getRootDomain(URLArtifact.finalDisplayedUrl)}`];
+        [`*.${UrlUtils.getRootDomain(URLArtifact.finalDisplayedUrl)}`];
     }
 
     networkRecords.filter(record => {

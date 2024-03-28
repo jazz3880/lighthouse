@@ -26,6 +26,14 @@ describe('Metrics: CLS', () => {
       expect(result).toEqual({
         cumulativeLayoutShift: expect.toBeApproximately(2.268816, 6),
         cumulativeLayoutShiftMainFrame: expect.toBeApproximately(2.268816, 6),
+        impactByNodeId: new Map([
+          [8, 4.809793674045139],
+        ]),
+        newEngineResult: {
+          cumulativeLayoutShift: expect.toBeApproximately(2.268816, 6),
+          cumulativeLayoutShiftMainFrame: expect.toBeApproximately(2.268816, 6),
+        },
+        newEngineResultDiffered: false,
       });
     });
 
@@ -39,6 +47,15 @@ describe('Metrics: CLS', () => {
       expect(result).toEqual({
         cumulativeLayoutShift: 0.026463014612806653,
         cumulativeLayoutShiftMainFrame: 0.0011656245471340055,
+        impactByNodeId: new Map([
+          [7, 0.026463014612806653],
+          [8, 0.0011656245471340055],
+        ]),
+        newEngineResult: {
+          cumulativeLayoutShift: 0.026463014612806653,
+          cumulativeLayoutShiftMainFrame: 0.0011656245471340055,
+        },
+        newEngineResultDiffered: false,
       });
     });
 
@@ -47,6 +64,9 @@ describe('Metrics: CLS', () => {
       expect(result).toEqual({
         cumulativeLayoutShift: 0,
         cumulativeLayoutShiftMainFrame: 0,
+        impactByNodeId: new Map(),
+        newEngineResult: {cumulativeLayoutShift: 0, cumulativeLayoutShiftMainFrame: 0},
+        newEngineResultDiffered: false,
       });
     });
   });
@@ -120,10 +140,13 @@ describe('Metrics: CLS', () => {
         expect(result).toEqual({
           cumulativeLayoutShift: 4,
           cumulativeLayoutShiftMainFrame: 4,
+          impactByNodeId: new Map(),
+          newEngineResult: undefined,
+          newEngineResultDiffered: false,
         });
       });
 
-      it('should not count later shift events if input it true', async () => {
+      it('should not count later shift events if input is true', async () => {
         const context = {computedCache: new Map()};
         const trace = makeTrace([
           {score: 1, ts: 1, had_recent_input: true},
@@ -136,6 +159,9 @@ describe('Metrics: CLS', () => {
         expect(result).toEqual({
           cumulativeLayoutShift: 3,
           cumulativeLayoutShiftMainFrame: 3,
+          impactByNodeId: new Map(),
+          newEngineResult: undefined,
+          newEngineResultDiffered: false,
         });
       });
 
@@ -153,6 +179,9 @@ describe('Metrics: CLS', () => {
         expect(result).toEqual({
           cumulativeLayoutShift: 0.75,
           cumulativeLayoutShiftMainFrame: 0.75,
+          impactByNodeId: new Map(),
+          newEngineResult: {cumulativeLayoutShift: 0.75, cumulativeLayoutShiftMainFrame: 0.75},
+          newEngineResultDiffered: false,
         });
       });
 
@@ -177,6 +206,9 @@ describe('Metrics: CLS', () => {
         expect(result).toEqual({
           cumulativeLayoutShift: 1.0625,
           cumulativeLayoutShiftMainFrame: 1.0625,
+          impactByNodeId: new Map(),
+          newEngineResult: {cumulativeLayoutShift: 1.0625, cumulativeLayoutShiftMainFrame: 1.0625},
+          newEngineResultDiffered: false,
         });
       });
 
@@ -194,6 +226,9 @@ describe('Metrics: CLS', () => {
         expect(result).toEqual({
           cumulativeLayoutShift: 3.75, // 30 * 0.125
           cumulativeLayoutShiftMainFrame: 3.75,
+          impactByNodeId: new Map(),
+          newEngineResult: {cumulativeLayoutShift: 3.75, cumulativeLayoutShiftMainFrame: 3.75},
+          newEngineResultDiffered: false,
         });
       });
 
@@ -217,6 +252,9 @@ describe('Metrics: CLS', () => {
         expect(result).toEqual({
           cumulativeLayoutShift: 3,
           cumulativeLayoutShiftMainFrame: 3,
+          impactByNodeId: new Map(),
+          newEngineResult: undefined,
+          newEngineResultDiffered: false,
         });
       });
     });
@@ -237,6 +275,9 @@ describe('Metrics: CLS', () => {
         expect(result).toEqual({
           cumulativeLayoutShift: 0.75, // Same value as single-frame uniformly distributed.
           cumulativeLayoutShiftMainFrame: 0.125, // All 1s gaps, so only one event per cluster.
+          impactByNodeId: new Map(),
+          newEngineResult: {cumulativeLayoutShift: 0.75, cumulativeLayoutShiftMainFrame: 0.125},
+          newEngineResultDiffered: false,
         });
       });
 
@@ -265,6 +306,9 @@ describe('Metrics: CLS', () => {
         expect(result).toMatchObject({
           cumulativeLayoutShift: 4,
           cumulativeLayoutShiftMainFrame: 2,
+          impactByNodeId: new Map(),
+          newEngineResult: undefined,
+          newEngineResultDiffered: false,
         });
       });
 
@@ -319,6 +363,8 @@ describe('Metrics: CLS', () => {
         expect(result).toMatchObject({
           cumulativeLayoutShift: 5,
           cumulativeLayoutShiftMainFrame: 3,
+          newEngineResult: undefined,
+          newEngineResultDiffered: false,
         });
       });
 
@@ -334,6 +380,7 @@ describe('Metrics: CLS', () => {
         expect(result).toMatchObject({
           cumulativeLayoutShift: 4,
           cumulativeLayoutShiftMainFrame: 2,
+          impactByNodeId: new Map(),
         });
       });
 
@@ -362,6 +409,7 @@ describe('Metrics: CLS', () => {
         expect(result).toMatchObject({
           cumulativeLayoutShift: 3,
           cumulativeLayoutShiftMainFrame: 1,
+          impactByNodeId: new Map(),
         });
       });
     });
@@ -381,6 +429,7 @@ describe('Metrics: CLS', () => {
         expect(result).toMatchObject({
           cumulativeLayoutShift: 6,
           cumulativeLayoutShiftMainFrame: 6,
+          impactByNodeId: new Map(),
         });
       });
 
@@ -399,6 +448,7 @@ describe('Metrics: CLS', () => {
         expect(result).toMatchObject({
           cumulativeLayoutShift: 6,
           cumulativeLayoutShiftMainFrame: 1,
+          impactByNodeId: new Map(),
         });
       });
 
@@ -412,6 +462,7 @@ describe('Metrics: CLS', () => {
         expect(result).toMatchObject({
           cumulativeLayoutShift: 2,
           cumulativeLayoutShiftMainFrame: 2,
+          impactByNodeId: new Map(),
         });
       });
 
@@ -425,8 +476,125 @@ describe('Metrics: CLS', () => {
         expect(result).toMatchObject({
           cumulativeLayoutShift: 2,
           cumulativeLayoutShiftMainFrame: 1,
+          impactByNodeId: new Map(),
         });
       });
+    });
+  });
+
+  describe('getImpactByNodeId', () => {
+    it('combines scores for the same nodeId across multiple shift events', () => {
+      const layoutShiftEvents = [
+        {
+          ts: 1_000_000,
+          isMainFrame: true,
+          weightedScore: 1,
+          impactedNodes: [
+            {
+              new_rect: [0, 0, 200, 200],
+              node_id: 60,
+              old_rect: [0, 0, 200, 100],
+            },
+            {
+              new_rect: [0, 300, 200, 200],
+              node_id: 25,
+              old_rect: [0, 100, 200, 100],
+            },
+          ],
+        },
+        {
+          ts: 2_000_000,
+          isMainFrame: true,
+          weightedScore: 0.3,
+          impactedNodes: [
+            {
+              new_rect: [0, 100, 200, 200],
+              node_id: 60,
+              old_rect: [0, 0, 200, 200],
+            },
+          ],
+        },
+      ];
+
+      const impactByNodeId = CumulativeLayoutShift.getImpactByNodeId(layoutShiftEvents);
+      expect(Array.from(impactByNodeId.entries())).toEqual([
+        [60, 0.7],
+        [25, 0.6],
+      ]);
+    });
+
+    it('ignores events with no impacted nodes', () => {
+      const layoutShiftEvents = [
+        {
+          ts: 1_000_000,
+          isMainFrame: true,
+          weightedScore: 1,
+          impactedNodes: [
+            {
+              new_rect: [0, 0, 200, 200],
+              node_id: 60,
+              old_rect: [0, 0, 200, 100],
+            },
+            {
+              new_rect: [0, 300, 200, 200],
+              node_id: 25,
+              old_rect: [0, 100, 200, 100],
+            },
+          ],
+        },
+        {
+          ts: 2_000_000,
+          isMainFrame: true,
+          weightedScore: 0.3,
+        },
+      ];
+
+      const impactByNodeId = CumulativeLayoutShift.getImpactByNodeId(layoutShiftEvents);
+      expect(Array.from(impactByNodeId.entries())).toEqual([
+        [60, 0.4],
+        [25, 0.6],
+      ]);
+    });
+
+    it('ignores malformed impacted nodes', () => {
+      const layoutShiftEvents = [
+        {
+          ts: 1_000_000,
+          isMainFrame: true,
+          weightedScore: 1,
+          impactedNodes: [
+            {
+              // Malformed, no old_rect
+              // Entire weightedScore is therefore attributed to node_id 25
+              new_rect: [0, 0, 200, 200],
+              node_id: 60,
+            },
+            {
+              new_rect: [0, 300, 200, 200],
+              node_id: 25,
+              old_rect: [0, 100, 200, 100],
+            },
+          ],
+        },
+        {
+          ts: 2_000_000,
+          isMainFrame: true,
+          weightedScore: 0.3,
+          impactedNodes: [
+            {
+              new_rect: [0, 100, 200, 200],
+              node_id: 60,
+              old_rect: [0, 0, 200, 200],
+            },
+          ],
+        },
+      ];
+
+      const impactByNodeId = CumulativeLayoutShift.getImpactByNodeId(layoutShiftEvents);
+      expect(Array.from(impactByNodeId.entries())).toEqual([
+        [25, 1],
+        [60, 0.3],
+      ]);
     });
   });
 });

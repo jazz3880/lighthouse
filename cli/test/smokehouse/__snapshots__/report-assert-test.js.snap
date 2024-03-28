@@ -3,7 +3,7 @@
 exports[`getAssertionReport works (multiple failing) 1`] = `
 "X difference at cumulative-layout-shift audit.details.items.length
               expected: []
-                 found: [{\\"cumulativeLayoutShiftMainFrame\\":0.13570762803819444}]
+                 found: [{\\"cumulativeLayoutShiftMainFrame\\":0.13570762803819444,\\"newEngineResult\\":{\\"cumulativeLayoutShift\\":0.13570762803819444,\\"cumulativeLayoutShiftMainFrame\\":0.13570762803819444},\\"newEngineResultDiffered\\":false}]
 
 
   X difference at cumulative-layout-shift audit.details.blah
@@ -28,7 +28,12 @@ exports[`getAssertionReport works (multiple failing) 1`] = `
           \\"type\\": \\"debugdata\\",
           \\"items\\": [
             {
-              \\"cumulativeLayoutShiftMainFrame\\": 0.13570762803819444
+              \\"cumulativeLayoutShiftMainFrame\\": 0.13570762803819444,
+              \\"newEngineResult\\": {
+                \\"cumulativeLayoutShift\\": 0.13570762803819444,
+                \\"cumulativeLayoutShiftMainFrame\\": 0.13570762803819444
+              },
+              \\"newEngineResultDiffered\\": false
             }
           ]
         }
@@ -38,7 +43,7 @@ exports[`getAssertionReport works (multiple failing) 1`] = `
 exports[`getAssertionReport works (trivial failing) 1`] = `
 "X difference at cumulative-layout-shift audit.details.items.length
               expected: []
-                 found: [{\\"cumulativeLayoutShiftMainFrame\\":0.13570762803819444}]
+                 found: [{\\"cumulativeLayoutShiftMainFrame\\":0.13570762803819444,\\"newEngineResult\\":{\\"cumulativeLayoutShift\\":0.13570762803819444,\\"cumulativeLayoutShiftMainFrame\\":0.13570762803819444},\\"newEngineResultDiffered\\":false}]
 
           found result:
       {
@@ -58,7 +63,12 @@ exports[`getAssertionReport works (trivial failing) 1`] = `
           \\"type\\": \\"debugdata\\",
           \\"items\\": [
             {
-              \\"cumulativeLayoutShiftMainFrame\\": 0.13570762803819444
+              \\"cumulativeLayoutShiftMainFrame\\": 0.13570762803819444,
+              \\"newEngineResult\\": {
+                \\"cumulativeLayoutShift\\": 0.13570762803819444,
+                \\"cumulativeLayoutShiftMainFrame\\": 0.13570762803819444
+              },
+              \\"newEngineResultDiffered\\": false
             }
           ]
         }

@@ -19,7 +19,7 @@ import {
  */
 async function getBaseArtifacts(resolvedConfig, driver, context) {
   const BenchmarkIndex = await getBenchmarkIndex(driver.executionContext);
-  const {userAgent} = await getBrowserVersion(driver.defaultSession);
+  const {userAgent, product} = await getBrowserVersion(driver.defaultSession);
 
   return {
     // Meta artifacts.
@@ -32,6 +32,7 @@ async function getBaseArtifacts(resolvedConfig, driver, context) {
     HostUserAgent: userAgent,
     HostFormFactor: userAgent.includes('Android') || userAgent.includes('Mobile') ?
       'mobile' : 'desktop',
+    HostProduct: product,
     // Contextual artifacts whose collection changes based on gather mode.
     URL: {
       finalDisplayedUrl: '',

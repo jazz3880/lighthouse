@@ -11,6 +11,7 @@ import {
   getRectAtCenter,
   allRectsContainedWithinEachOther,
   getBoundingRectWithPadding,
+  traceRectToLHRect,
 } from '../../lib/rect-helpers.js';
 
 describe('Rect Helpers', () => {
@@ -63,6 +64,18 @@ describe('Rect Helpers', () => {
         y: 45,
         width: 10,
         height: 10,
+      })
+    );
+  });
+
+  it('traceRectToLHRect', () => {
+    const rect = traceRectToLHRect([50, 25, 100, 200]);
+    expect(rect).toEqual(
+      addRectTopAndBottom({
+        x: 50,
+        y: 25,
+        width: 100,
+        height: 200,
       })
     );
   });

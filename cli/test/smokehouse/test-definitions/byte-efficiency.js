@@ -30,7 +30,6 @@ const config = {
       // unsized-images is not a byte-efficiency audit but can easily leverage the variety of images present in
       // byte-efficiency tests & thus makes sense to test together.
       'unsized-images',
-      'script-elements-test-audit',
     ],
     throttlingMethod: 'devtools',
   },
@@ -40,7 +39,6 @@ const config = {
       // Lower the threshold so we don't need huge resources to make a test.
       unusedThreshold: 2000,
     }},
-    'script-elements-test-audit',
   ],
 };
 
@@ -50,71 +48,6 @@ const config = {
  */
 const expectations = {
   artifacts: {
-    ScriptElements: [
-      {
-        type: null,
-        src: null,
-        async: false,
-        defer: false,
-        source: 'head',
-        // Only do a single assertion for `devtoolsNodePath`: this can be flaky for elements
-        // deep in the DOM, and the sample LHR test has plenty of places that would catch
-        // a regression in `devtoolsNodePath` calculation. Keep just one for the benefit
-        // of other smoke test runners.
-        node: {
-          devtoolsNodePath: '2,HTML,0,HEAD,3,SCRIPT',
-        },
-      },
-      {
-        type: 'application/javascript',
-        src: 'http://localhost:10200/byte-efficiency/script.js',
-        async: false,
-        defer: false,
-        source: 'head',
-      },
-      {
-        type: null,
-        src: 'http://localhost:10200/byte-efficiency/bundle.js',
-        async: false,
-        defer: false,
-        source: 'head',
-      },
-      {
-        type: null,
-        src: null,
-        async: false,
-        defer: false,
-        source: 'body',
-      },
-      {
-        type: null,
-        src: null,
-        async: false,
-        defer: false,
-        source: 'body',
-      },
-      {
-        type: null,
-        src: null,
-        async: false,
-        defer: false,
-        source: 'body',
-      },
-      {
-        type: null,
-        src: null,
-        async: false,
-        defer: false,
-        source: 'body',
-      },
-      {
-        type: null,
-        src: 'http://localhost:10200/byte-efficiency/delay-complete.js?delay=8000',
-        async: true,
-        defer: false,
-        source: 'body',
-      },
-    ],
     Scripts: {
       _includes: [
         {
@@ -187,25 +120,25 @@ const expectations = {
           items: [
             {
               url: 'http://localhost:10200/byte-efficiency/script.js',
-              wastedBytes: '46039 +/- 100',
+              wastedBytes: '45816 +/- 100',
               wastedPercent: '87 +/- 5',
             },
             {
               // /some-custom-url.js,
               url: 'inline: \n  function unusedFunction() {\n    // U…',
-              wastedBytes: '6690 +/- 100',
+              wastedBytes: '6630 +/- 100',
               wastedPercent: '99.6 +/- 0.1',
             },
             {
               url: 'inline: \n  // Used block #1\n  // FILLER DATA JU…',
-              wastedBytes: '6569 +/- 100',
+              wastedBytes: '6510 +/- 100',
               wastedPercent: 100,
             },
             {
               url: 'http://localhost:10200/byte-efficiency/bundle.js',
               totalBytes: '12962 +/- 1000',
-              wastedBytes: '2349 +/- 100',
-              wastedPercent: '19 +/- 5',
+              wastedBytes: '2303 +/- 100',
+              wastedPercent: '18 +/- 5',
             },
           ],
         },
@@ -243,7 +176,7 @@ const expectations = {
               wastedBytes: '5827 +/- 200',
               subItems: {
                 items: [
-                  {source: '…./b.js', sourceBytes: '4417 +/- 50', sourceWastedBytes: '2191 +/- 50'},
+                  {source: '…./b.js', sourceBytes: '4347 +/- 50', sourceWastedBytes: '2156 +/- 50'},
                   {source: '…./c.js', sourceBytes: '2200 +/- 50', sourceWastedBytes: '2182 +/- 50'},
                   {source: '…webpack/bootstrap', sourceBytes: '2809 +/- 50', sourceWastedBytes: '1259 +/- 50'},
                 ],

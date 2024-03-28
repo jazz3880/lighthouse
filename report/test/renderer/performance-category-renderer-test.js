@@ -30,7 +30,10 @@ describe('PerfCategoryRenderer', () => {
       reportJson: null,
     });
 
-    const {document} = new jsdom.JSDOM().window;
+    const window = new jsdom.JSDOM().window;
+    const document = window.document;
+    global.HTMLElement = window.HTMLElement;
+
     const dom = new DOM(document);
     const detailsRenderer = new DetailsRenderer(dom);
     renderer = new PerformanceCategoryRenderer(dom, detailsRenderer);
@@ -396,6 +399,69 @@ Array [
         '.lh-category > .lh-audit-group.lh-audit-group--diagnostics');
       const diagnosticElementIds = [...diagnosticSection.querySelectorAll('.lh-audit')];
       expect(diagnosticElementIds.map(el => el.id)).toEqual(['audit-3', 'audit-1', 'audit-4', 'audit-2']); // eslint-disable-line max-len
+    });
+
+    it('audits in order of single metric savings when filter active', () => {
+      fakeCategory = {
+        id: 'performance',
+        title: 'Performance',
+        score: 0.5,
+        supportedModes: category.supportedModes,
+      };
+
+      fakeCategory.auditRefs = [{
+        id: 'audit-1',
+        result: {
+          id: 'audit-1',
+          metricSavings: {'LCP': 50, 'FCP': 5},
+          score: 0,
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-2',
+        result: {
+          id: 'audit-2',
+          score: 0.5,
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-3',
+        result: {
+          id: 'audit-3',
+          score: 0,
+          metricSavings: {'LCP': 50, 'FCP': 15},
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-4',
+        result: {
+          id: 'audit-4',
+          score: 0,
+          metricSavings: {'FCP': 15},
+          ...defaultAuditRef,
+        },
+      },
+      ...metricAudits];
+
+      const categoryDOM = renderer.render(fakeCategory, sampleResults.categoryGroups);
+
+      const diagnosticSection = categoryDOM.querySelector(
+        '.lh-category > .lh-audit-group.lh-audit-group--diagnostics');
+      let diagnosticElements = [...diagnosticSection.querySelectorAll('.lh-audit')];
+      expect(diagnosticElements.map(el => el.id)).toEqual(['audit-3', 'audit-1', 'audit-4', 'audit-2']); // eslint-disable-line max-len
+
+      let hiddenElements = [...diagnosticSection.querySelectorAll('.lh-audit[hidden]')];
+      expect(hiddenElements).toHaveLength(0);
+
+      const fcpFilterButton =
+        categoryDOM.querySelector('.lh-metricfilter__label[title="First Contentful Paint"]');
+      fcpFilterButton.click();
+
+      diagnosticElements = [...diagnosticSection.querySelectorAll('.lh-audit')];
+      expect(diagnosticElements.map(el => el.id)).toEqual(['audit-3', 'audit-4', 'audit-1', 'audit-2']); // eslint-disable-line max-len
+
+      hiddenElements = [...diagnosticSection.querySelectorAll('.lh-audit[hidden]')];
+      expect(hiddenElements.map(el => el.id)).toEqual(['audit-2']);
     });
 
     it('audits sorted with guidance level', () => {

@@ -9,12 +9,12 @@ import {CumulativeLayoutShift as CumulativeLayoutShiftComputed} from '../compute
 import CumulativeLayoutShift from './metrics/cumulative-layout-shift.js';
 
 const UIStrings = {
-  /** Descriptive title of a diagnostic audit that provides up to the top five elements contributing to Cumulative Layout Shift. */
+  /** Descriptive title of a diagnostic audit that provides the top elements affected by layout shifts. */
   title: 'Avoid large layout shifts',
-  /** Description of a diagnostic audit that provides up to the top five elements contributing to Cumulative Layout Shift. The last sentence starting with 'Learn' becomes link text to additional documentation. */
-  description: 'These DOM elements contribute most to the CLS of the page. [Learn how to improve CLS](https://web.dev/articles/optimize-cls)',
-  /**  Label for a column in a data table; entries in this column will be the amount that the corresponding element contributes to the total CLS metric score. */
-  columnContribution: 'CLS Contribution',
+  /** Description of a diagnostic audit that provides the top elements affected by layout shifts. "windowing" means the metric value is calculated using the subset of events in a small window of time during the run. "normalization" is a good substitute for "windowing". The last sentence starting with 'Learn' becomes link text to additional documentation. */
+  description: 'These DOM elements were most affected by layout shifts. Some layout shifts may not be included in the CLS metric value due to [windowing](https://web.dev/articles/cls#what_is_cls). [Learn how to improve CLS](https://web.dev/articles/optimize-cls)',
+  /**  Label for a column in a data table; entries in this column will be the amount that the corresponding element affected by layout shifts. */
+  columnContribution: 'Layout shift impact',
 };
 
 const str_ = i18n.createIcuMessageFn(import.meta.url, UIStrings);
@@ -40,15 +40,32 @@ class LayoutShiftElements extends Audit {
    * @return {Promise<LH.Audit.Product>}
    */
   static async audit(artifacts, context) {
-    const clsElements = artifacts.TraceElements
-      .filter(element => element.traceEventType === 'layout-shift');
+    const {cumulativeLayoutShift: clsSavings, impactByNodeId} =
+      await CumulativeLayoutShiftComputed.request(artifacts.traces[Audit.DEFAULT_PASS], context);
 
-    const clsElementData = clsElements.map(element => {
-      return {
+    /** @type {Array<{node: LH.Audit.Details.ItemValue, score: number}>} */
+    const clsElementData = artifacts.TraceElements
+      .filter(element => element.traceEventType === 'layout-shift-element')
+      .map(element => ({
         node: Audit.makeNodeItem(element.node),
-        score: element.score,
-      };
-    });
+        score: impactByNodeId.get(element.nodeId) || 0,
+      }));
+
+    if (clsElementData.length < impactByNodeId.size) {
+      const displayedNodeImpact = clsElementData.reduce((sum, {score}) => sum += score, 0);
+
+      // This is not necessarily the same as CLS due to normalization.
+      const totalNodeImpact = Array.from(impactByNodeId.values())
+        .reduce((sum, score) => sum + score);
+
+      clsElementData.push({
+        node: {
+          type: 'code',
+          value: str_(i18n.UIStrings.otherResourceType),
+        },
+        score: totalNodeImpact - displayedNodeImpact,
+      });
+    }
 
     /** @type {LH.Audit.Details.Table['headings']} */
     const headings = [
@@ -58,14 +75,12 @@ class LayoutShiftElements extends Audit {
     ];
 
     const details = Audit.makeTableDetails(headings, clsElementData);
-    let displayValue;
-    if (clsElementData.length > 0) {
-      displayValue = str_(i18n.UIStrings.displayValueElementsFound,
-        {nodeCount: clsElementData.length});
-    }
 
-    const {cumulativeLayoutShift: clsSavings} =
-      await CumulativeLayoutShiftComputed.request(artifacts.traces[Audit.DEFAULT_PASS], context);
+    let displayValue;
+    if (impactByNodeId.size > 0) {
+      displayValue = str_(i18n.UIStrings.displayValueElementsFound,
+        {nodeCount: impactByNodeId.size});
+    }
 
     const passed = clsSavings <= CumulativeLayoutShift.defaultOptions.p10;
 

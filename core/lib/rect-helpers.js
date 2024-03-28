@@ -232,6 +232,20 @@ function allRectsContainedWithinEachOther(rectListA, rectListB) {
   return true;
 }
 
+/**
+ * @param {Array<number>} rect
+ * @return {LH.Artifacts.Rect}
+ */
+function traceRectToLHRect(rect) {
+  const rectArgs = {
+    x: rect[0],
+    y: rect[1],
+    width: rect[2],
+    height: rect[3],
+  };
+  return addRectTopAndBottom(rectArgs);
+}
+
 export {
   rectContainsPoint,
   rectContains,
@@ -248,4 +262,5 @@ export {
   allRectsContainedWithinEachOther,
   filterOutRectsContainedByOthers,
   filterOutTinyRects,
+  traceRectToLHRect,
 };

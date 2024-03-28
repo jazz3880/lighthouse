@@ -17,6 +17,7 @@ declare module 'rxjs' {
   export const ignoreElements: any;
   export const map: any;
   export const mergeMap: any;
+  export const mergeScan: any;
   export const raceWith: any;
   export const retry: any;
   export const tap: any;
@@ -25,9 +26,12 @@ declare module 'rxjs' {
   export const delay: any;
   export const startWith: any;
   export const switchMap: any;
+  export const take: any;
   export const bufferCount: any;
   export const concatMap: any;
+  export const debounceTime: any;
   export const lastValueFrom: any;
   export const takeUntil: any;
+  export const delayWhen: any;
 }
 

@@ -402,21 +402,21 @@ describe('asset-saver helper', () => {
         {cause: new Error('the cause')});
 
       const artifacts = {
-        ScriptElements: lhError,
+        Scripts: lhError,
       };
 
       await assetSaver.saveArtifacts(artifacts, outputPath);
       const roundTripArtifacts = await assetSaver.loadArtifacts(outputPath);
       expect(roundTripArtifacts).toStrictEqual(artifacts);
 
-      expect(roundTripArtifacts.ScriptElements).toBeInstanceOf(LighthouseError);
-      expect(roundTripArtifacts.ScriptElements.code).toEqual('PROTOCOL_TIMEOUT');
-      expect(roundTripArtifacts.ScriptElements.protocolMethod).toEqual(protocolMethod);
-      expect(roundTripArtifacts.ScriptElements.cause).toBeInstanceOf(Error);
-      expect(roundTripArtifacts.ScriptElements.cause.message).toEqual('the cause');
-      expect(roundTripArtifacts.ScriptElements.stack).toMatch(
+      expect(roundTripArtifacts.Scripts).toBeInstanceOf(LighthouseError);
+      expect(roundTripArtifacts.Scripts.code).toEqual('PROTOCOL_TIMEOUT');
+      expect(roundTripArtifacts.Scripts.protocolMethod).toEqual(protocolMethod);
+      expect(roundTripArtifacts.Scripts.cause).toBeInstanceOf(Error);
+      expect(roundTripArtifacts.Scripts.cause.message).toEqual('the cause');
+      expect(roundTripArtifacts.Scripts.stack).toMatch(
           /^LighthouseError: PROTOCOL_TIMEOUT.*test[\\/]lib[\\/]asset-saver-test\.js/s);
-      expect(roundTripArtifacts.ScriptElements.friendlyMessage)
+      expect(roundTripArtifacts.Scripts.friendlyMessage)
         .toBeDisplayString(/\(Method: Page\.getFastness\)/);
     });
 

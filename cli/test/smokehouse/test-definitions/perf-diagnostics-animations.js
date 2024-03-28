@@ -21,7 +21,7 @@ const expectations = {
     finalDisplayedUrl: 'http://localhost:10200/perf/animations.html',
     audits: {
       'non-composited-animations': {
-        score: null,
+        score: 1,
         displayValue: '1 animated element found',
         details: {
           items: [

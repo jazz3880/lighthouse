@@ -66,7 +66,7 @@ async function waitForImagesToLoad(page) {
     assert.deepStrictEqual(completeImages, firstRunImages);
 
     // Next check we haven't added any new images in the quiet window.
-    await page.waitForTimeout(QUIET_WINDOW);
+    await new Promise(r => setTimeout(r, QUIET_WINDOW));
     const secondRunImages = await getImageLoadingStates();
     assert.deepStrictEqual(secondRunImages, firstRunImages);
   }, TIMEOUT);

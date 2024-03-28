@@ -265,4 +265,58 @@ describe('Resources are fetched over http/2', () => {
     expect(result.score).toEqual(0);
     expect(result.metricSavings).toBeUndefined();
   });
+
+  it('should identify multiplexable assets when run on recognizable 3p origins', async () => {
+    const networkRecords = [
+      {
+        url: 'https://www.twitter.com/',
+        priority: 'High',
+        protocol: 'HTTP/1.1',
+      },
+      {
+        url: 'https://www.twitter.com/2',
+        priority: 'High',
+        protocol: 'HTTP/1.1',
+      },
+      {
+        url: 'https://www.twitter.com/3',
+        priority: 'High',
+        protocol: 'HTTP/1.1',
+      },
+      {
+        url: 'https://www.twitter.com/4',
+        priority: 'High',
+        protocol: 'HTTP/1.1',
+      },
+      {
+        url: 'https://www.twitter.com/5',
+        priority: 'High',
+        protocol: 'HTTP/1.1',
+      },
+      {
+        url: 'https://www.twitter.com/embed/foo',
+        priority: 'High',
+        protocol: 'HTTP/1.1',
+      },
+      {
+        url: 'https://www.facebook.com/embed',
+        protocol: 'HTTP/1.1',
+        priority: 'High',
+      },
+    ];
+    const artifacts = buildArtifacts(networkRecords);
+    artifacts.devtoolsLogs.defaultPass = networkRecordsToDevtoolsLog(networkRecords);
+
+    const result = await UsesHTTP2Audit.audit(artifacts, context);
+    const urls = new Set(result.details.items.map(item => item.url));
+    const hosts = new Set(result.details.items.map(item => new URL(item.url).host));
+
+    // Make sure we don't pull in actual 3p domains.
+    expect(hosts).toEqual(new Set(['www.twitter.com']));
+
+    // Make sure we dont flag the 3rd party request for multiplexing.
+    expect(urls).not.toContain('https://www.facebook.com/embed');
+
+    expect(result.details.items).toHaveLength(6);
+  });
 });

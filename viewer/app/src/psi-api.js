@@ -44,7 +44,11 @@ class PSIApi {
       apiUrl.searchParams.append('category', singleCategory);
     }
     apiUrl.searchParams.append('key', PSI_KEY);
-    return fetch(apiUrl.href).then(res => res.json());
+    return fetch(apiUrl.href, {
+      headers: {
+        referer: 'googlechrome.github.io',
+      },
+    }).then(res => res.json());
   }
 }
 

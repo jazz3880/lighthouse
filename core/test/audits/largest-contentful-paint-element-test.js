@@ -23,6 +23,7 @@ function mockNetworkRecords() {
     networkRequestTime: 0,
     networkEndTime: 500,
     timing: {sendEnd: 0, receiveHeadersEnd: 500},
+    responseHeadersTransferSize: 400,
     transferSize: 400,
     url: requestedUrl,
     frameId: 'ROOT_FRAME',

@@ -38,7 +38,7 @@ describe('Interaction to Next Paint', () => {
     });
   });
 
-  it('falls back Responsiveness timing if no m103 EventTiming events', async () => {
+  it('throw error if no m103 EventTiming events', async () => {
     const {artifacts, context} = getTestData();
     const clonedTrace = JSON.parse(JSON.stringify(artifacts.traces.defaultPass));
     for (let i = 0; i < clonedTrace.traceEvents.length; i++) {
@@ -47,15 +47,8 @@ describe('Interaction to Next Paint', () => {
     }
     artifacts.traces.defaultPass = clonedTrace;
 
-    const result = await InteractionToNextPaint.audit(artifacts, context);
-    // Conveniently, the matching responsiveness event has slightly different
-    // duration than the matching interaction event so can be tested against.
-    expect(result).toEqual({
-      score: 0.67,
-      numericValue: 364,
-      numericUnit: 'millisecond',
-      displayValue: expect.toBeDisplayString('360 ms'),
-    });
+    const promise = InteractionToNextPaint.audit(artifacts, context);
+    await expect(promise).rejects.toThrow('UNSUPPORTED_OLD_CHROME');
   });
 
   it('is not applicable if using simulated throttling', async () => {

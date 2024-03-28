@@ -262,5 +262,11 @@ describe('minification estimator', () => {
       const outerBraces = '{  foo:{bar:`baz ${bam.get({}    )}`}}';
       expect(computeJSTokenLength(outerBraces)).toEqual(outerBraces.length - 6);
     });
+
+    it('should handle else keyword followed by a regex pattern in scripts', () => {
+      const script = '} else/^hello!/.test(n)?(d=element.parseFromString("Hi/Hello there!")';
+      const minified = '}else/^hello!/.test(n)?(d=element.parseFromString("Hi/Hello there!")';
+      expect(computeJSTokenLength(script)).toEqual(minified.length);
+    });
   });
 });

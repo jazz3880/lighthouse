@@ -9,7 +9,6 @@
 import * as LH from '../../types/lh.js';
 import * as constants from './constants.js';
 import * as i18n from '../lib/i18n/i18n.js';
-import {metricsToAudits} from './metrics-to-audits.js';
 
 const UIStrings = {
   /** Title of the Performance category of audits. Equivalent to 'Web performance', this term is inclusive of all web page speed and loading optimization topics. Also used as a label of a score gauge; try to limit to 20 characters. */
@@ -129,6 +128,7 @@ const defaultConfig = {
     // Artifacts which can be depended on come first.
     {id: 'DevtoolsLog', gatherer: 'devtools-log'},
     {id: 'Trace', gatherer: 'trace'},
+    {id: 'RootCauses', gatherer: 'root-causes'},
 
     {id: 'Accessibility', gatherer: 'accessibility'},
     {id: 'AnchorElements', gatherer: 'anchor-elements'},
@@ -140,7 +140,6 @@ const defaultConfig = {
     {id: 'EmbeddedContent', gatherer: 'seo/embedded-content'},
     {id: 'FontSize', gatherer: 'seo/font-size'},
     {id: 'Inputs', gatherer: 'inputs'},
-    {id: 'GlobalListeners', gatherer: 'global-listeners'},
     {id: 'IFrameElements', gatherer: 'iframe-elements'},
     {id: 'ImageElements', gatherer: 'image-elements'},
     {id: 'InstallabilityErrors', gatherer: 'installability-errors'},
@@ -154,7 +153,6 @@ const defaultConfig = {
     {id: 'ResponseCompression', gatherer: 'dobetterweb/response-compression'},
     {id: 'RobotsTxt', gatherer: 'seo/robots-txt'},
     {id: 'ServiceWorker', gatherer: 'service-worker'},
-    {id: 'ScriptElements', gatherer: 'script-elements'},
     {id: 'Scripts', gatherer: 'scripts'},
     {id: 'SourceMaps', gatherer: 'source-maps'},
     {id: 'Stacks', gatherer: 'stacks'},
@@ -196,11 +194,10 @@ const defaultConfig = {
     'themed-omnibox',
     'image-aspect-ratio',
     'image-size-responsive',
-    'preload-fonts',
     'deprecations',
+    'third-party-cookies',
     'mainthread-work-breakdown',
     'bootup-time',
-    'uses-rel-preload',
     'uses-rel-preconnect',
     'font-display',
     'diagnostics',
@@ -211,13 +208,14 @@ const defaultConfig = {
     'metrics',
     'performance-budget',
     'timing-budget',
+    'resource-summary',
     'third-party-summary',
     'third-party-facades',
     'largest-contentful-paint-element',
     'lcp-lazy-loaded',
     'layout-shift-elements',
+    'layout-shifts',
     'long-tasks',
-    'no-unload-listeners',
     'non-composited-animations',
     'unsized-images',
     'valid-source-maps',
@@ -423,12 +421,12 @@ const defaultConfig = {
       title: str_(UIStrings.performanceCategoryTitle),
       supportedModes: ['navigation', 'timespan', 'snapshot'],
       auditRefs: [
-        {id: 'first-contentful-paint', weight: 10, group: 'metrics', acronym: 'FCP', relevantAudits: metricsToAudits.fcpRelevantAudits},
-        {id: 'largest-contentful-paint', weight: 25, group: 'metrics', acronym: 'LCP', relevantAudits: metricsToAudits.lcpRelevantAudits},
-        {id: 'total-blocking-time', weight: 30, group: 'metrics', acronym: 'TBT', relevantAudits: metricsToAudits.tbtRelevantAudits},
-        {id: 'cumulative-layout-shift', weight: 25, group: 'metrics', acronym: 'CLS', relevantAudits: metricsToAudits.clsRelevantAudits},
+        {id: 'first-contentful-paint', weight: 10, group: 'metrics', acronym: 'FCP'},
+        {id: 'largest-contentful-paint', weight: 25, group: 'metrics', acronym: 'LCP'},
+        {id: 'total-blocking-time', weight: 30, group: 'metrics', acronym: 'TBT'},
+        {id: 'cumulative-layout-shift', weight: 25, group: 'metrics', acronym: 'CLS'},
         {id: 'speed-index', weight: 10, group: 'metrics', acronym: 'SI'},
-        {id: 'interaction-to-next-paint', weight: 0, group: 'metrics', acronym: 'INP', relevantAudits: metricsToAudits.inpRelevantAudits},
+        {id: 'interaction-to-next-paint', weight: 0, group: 'metrics', acronym: 'INP'},
 
         // These are our "invisible" metrics. Not displayed, but still in the LHR.
         {id: 'interactive', weight: 0, group: 'hidden', acronym: 'TTI'},
@@ -449,7 +447,6 @@ const defaultConfig = {
         {id: 'uses-rel-preconnect', weight: 0},
         {id: 'server-response-time', weight: 0},
         {id: 'redirects', weight: 0},
-        {id: 'uses-rel-preload', weight: 0},
         {id: 'uses-http2', weight: 0},
         {id: 'efficient-animated-content', weight: 0},
         {id: 'duplicated-javascript', weight: 0},
@@ -467,7 +464,7 @@ const defaultConfig = {
         {id: 'third-party-facades', weight: 0},
         {id: 'largest-contentful-paint-element', weight: 0},
         {id: 'lcp-lazy-loaded', weight: 0},
-        {id: 'layout-shift-elements', weight: 0},
+        {id: 'layout-shifts', weight: 0},
         {id: 'uses-passive-event-listeners', weight: 0},
         {id: 'no-document-write', weight: 0},
         {id: 'long-tasks', weight: 0},
@@ -491,6 +488,8 @@ const defaultConfig = {
         {id: 'screenshot-thumbnails', weight: 0, group: 'hidden'},
         {id: 'final-screenshot', weight: 0, group: 'hidden'},
         {id: 'script-treemap-data', weight: 0, group: 'hidden'},
+        {id: 'resource-summary', weight: 0, group: 'hidden'},
+        {id: 'layout-shift-elements', weight: 0, group: 'hidden'},
       ],
     },
     'accessibility': {
@@ -591,14 +590,13 @@ const defaultConfig = {
         {id: 'paste-preventing-inputs', weight: 3, group: 'best-practices-ux'},
         {id: 'image-aspect-ratio', weight: 1, group: 'best-practices-ux'},
         {id: 'image-size-responsive', weight: 1, group: 'best-practices-ux'},
-        {id: 'preload-fonts', weight: 1, group: 'best-practices-ux'},
         // Browser Compatibility
         {id: 'doctype', weight: 1, group: 'best-practices-browser-compat'},
         {id: 'charset', weight: 1, group: 'best-practices-browser-compat'},
         // General Group
-        {id: 'no-unload-listeners', weight: 1, group: 'best-practices-general'},
         {id: 'js-libraries', weight: 0, group: 'best-practices-general'},
         {id: 'deprecations', weight: 5, group: 'best-practices-general'},
+        {id: 'third-party-cookies', weight: 5, group: 'best-practices-general'},
         {id: 'errors-in-console', weight: 1, group: 'best-practices-general'},
         {id: 'valid-source-maps', weight: 0, group: 'best-practices-general'},
         {id: 'inspector-issues', weight: 1, group: 'best-practices-general'},

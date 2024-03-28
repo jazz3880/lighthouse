@@ -288,12 +288,32 @@ function getResponseReceivedEvent(networkRecord, index, normalizedTiming) {
         connectionId: networkRecord.connectionId || 140,
         fromDiskCache: networkRecord.fromDiskCache || false,
         fromServiceWorker: networkRecord.fetchedViaServiceWorker || false,
-        encodedDataLength: networkRecord.transferSize === undefined ?
-          0 : networkRecord.transferSize,
+        encodedDataLength: networkRecord.responseHeadersTransferSize || 0,
         timing: {...normalizedTiming.timing},
         protocol: networkRecord.protocol || 'http/1.1',
       },
       frameId: networkRecord.frameId || `${idBase}.1`,
+    },
+    targetType: 'sessionTargetType' in networkRecord ? networkRecord.sessionTargetType : 'page',
+    sessionId: networkRecord.sessionId,
+  };
+}
+
+/**
+ * @param {Partial<NetworkRequest>} networkRecord
+ * @param {number} index
+ * @return {LH.Protocol.RawEventMessage}
+ */
+function getResponseReceivedExtraInfoEvent(networkRecord, index) {
+  const headers = headersArrayToHeadersDict(networkRecord.responseHeaders);
+
+  return {
+    method: 'Network.responseReceivedExtraInfo',
+    params: {
+      requestId: getBaseRequestId(networkRecord) || `${idBase}.${index}`,
+      statusCode: networkRecord.statusCode || 200,
+      headers,
+      headersText: networkRecord.responseHeadersText,
     },
     targetType: 'sessionTargetType' in networkRecord ? networkRecord.sessionTargetType : 'page',
     sessionId: networkRecord.sessionId,
@@ -440,6 +460,9 @@ function networkRecordsToDevtoolsLog(networkRecords, options = {}) {
     }
 
     devtoolsLog.push(getResponseReceivedEvent(networkRecord, index, normalizedTiming));
+    if (networkRecord.responseHeadersText) {
+      devtoolsLog.push(getResponseReceivedExtraInfoEvent(networkRecord, index));
+    }
     devtoolsLog.push(getDataReceivedEvent(networkRecord, index));
 
     if (networkRecord.finished !== false) {

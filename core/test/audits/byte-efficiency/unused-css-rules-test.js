@@ -106,6 +106,7 @@ describe('Best Practices: unused css rules audit', () => {
           transferSize: 100 * 1024 * 0.5, // compression ratio of 0.5
           resourceSize: 100 * 1024,
           resourceType: 'Document', // this is a document so it'll use the compressionRatio but not the raw size
+          responseHeaders: [{name: 'Content-Encoding', value: 'gzip'}],
         },
         {
           url: 'file://a.html',

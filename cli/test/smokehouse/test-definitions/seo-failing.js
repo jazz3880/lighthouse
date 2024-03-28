@@ -46,6 +46,10 @@ const expectations = {
     audits: {
       'viewport': {
         score: 0,
+        details: {
+          type: 'debugdata',
+          viewportContent: 'invalid-content=should_have_looked_it_up',
+        },
       },
       'document-title': {
         score: 0,

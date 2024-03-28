@@ -11,6 +11,8 @@ import {createTestState, getAuditsBreakdown} from './pptr-test-utils.js';
 import {LH_ROOT} from '../../../shared/root.js';
 import {TargetManager} from '../../gather/driver/target-manager.js';
 
+const doubleRaf = 'new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)))';
+
 describe('Individual modes API', function() {
   // eslint-disable-next-line no-invalid-this
   this.timeout(120_000);
@@ -64,12 +66,19 @@ describe('Individual modes API', function() {
     });
 
     it('should compute ConsoleMessage results across a span of time', async () => {
-      const run = await api.startTimespan(state.page);
+      const run = await api.startTimespan(state.page, {
+        config: {
+          extends: 'lighthouse:default',
+          audits: [
+            {path: 'bootup-time', options: {thresholdInMs: 10}},
+          ],
+        },
+      });
 
       await setupTestPage();
 
       // Wait long enough to ensure a paint after button interaction.
-      await state.page.waitForTimeout(200);
+      await state.page.evaluate(doubleRaf);
 
       const result = await run.endTimespan();
       if (!result) throw new Error('Lighthouse failed to produce a result');
@@ -132,7 +141,7 @@ describe('Individual modes API', function() {
       await page.waitForSelector('input');
 
       // Wait long enough to ensure a paint after button interaction.
-      await page.waitForTimeout(200);
+      await page.evaluate(doubleRaf);
 
       const result = await run.endTimespan();
 
@@ -153,8 +162,9 @@ describe('Individual modes API', function() {
       expect(erroredAudits).toHaveLength(0);
     });
 
+    // TODO: unskip https://github.com/GoogleChrome/lighthouse/issues/15654
     // eslint-disable-next-line max-len
-    it('should know target type of network requests from frames created before timespan', async () => {
+    it.skip('should know target type of network requests from frames created before timespan', async () => {
       const spy = jestMock.spyOn(TargetManager.prototype, '_onExecutionContextCreated');
       state.server.baseDir = `${LH_ROOT}/cli/test/fixtures`;
       const {page, serverBaseUrl} = state;

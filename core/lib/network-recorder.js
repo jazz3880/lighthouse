@@ -10,7 +10,7 @@ import log from 'lighthouse-logger';
 
 import * as LH from '../../types/lh.js';
 import {NetworkRequest} from './network-request.js';
-import {PageDependencyGraph} from '../computed/page-dependency-graph.js';
+import {PageDependencyGraph} from '../lib/lantern/page-dependency-graph.js';
 
 /**
  * @typedef {{
@@ -139,6 +139,18 @@ class NetworkRecorder extends RequestEventEmitter {
   }
 
   /**
+   * @param {{params: LH.Crdp.Network.ResponseReceivedExtraInfoEvent, targetType: LH.Protocol.TargetType, sessionId?: string}} event
+   */
+  onResponseReceivedExtraInfo(event) {
+    const data = event.params;
+    const request = this._findRealRequestAndSetSession(
+      data.requestId, event.targetType, event.sessionId);
+    if (!request) return;
+    log.verbose('network', `${request.url} response received extra info`);
+    request.onResponseReceivedExtraInfo(data);
+  }
+
+  /**
    * @param {{params: LH.Crdp.Network.DataReceivedEvent, targetType: LH.Protocol.TargetType, sessionId?: string}} event
    */
   onDataReceived(event) {
@@ -196,6 +208,7 @@ class NetworkRecorder extends RequestEventEmitter {
       case 'Network.requestWillBeSent': return this.onRequestWillBeSent(event);
       case 'Network.requestServedFromCache': return this.onRequestServedFromCache(event);
       case 'Network.responseReceived': return this.onResponseReceived(event);
+      case 'Network.responseReceivedExtraInfo': return this.onResponseReceivedExtraInfo(event);
       case 'Network.dataReceived': return this.onDataReceived(event);
       case 'Network.loadingFinished': return this.onLoadingFinished(event);
       case 'Network.loadingFailed': return this.onLoadingFailed(event);
@@ -244,7 +257,7 @@ class NetworkRecorder extends RequestEventEmitter {
     let candidates = recordsByURL.get(initiatorURL) || [];
     // The (valid) initiator must come before the initiated request.
     candidates = candidates.filter(c => {
-      return c.responseHeadersEndTime <= record.networkRequestTime &&
+      return c.responseHeadersEndTime <= record.rendererStartTime &&
           c.finished && !c.failed;
     });
     if (candidates.length > 1) {

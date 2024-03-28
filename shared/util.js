@@ -78,6 +78,23 @@ class Util {
   }
 
   /**
+   * Given the entity classification dataset and a URL, identify the entity.
+   * @param {string} url
+   * @param {LH.Result.Entities=} entities
+   * @return {LH.Result.LhrEntity|string}
+   */
+  static getEntityFromUrl(url, entities) {
+    // If it's a pre-v10 LHR, we don't have entities, so match against the root-ish domain
+    if (!entities) {
+      return Util.getPseudoRootDomain(url);
+    }
+
+    const entity = entities.find(e => e.origins.find(origin => url.startsWith(origin)));
+    // This fallback case would be unexpected, but leaving for safety.
+    return entity || Util.getPseudoRootDomain(url);
+  }
+
+  /**
    * Split a string by markdown code spans (enclosed in `backticks`), splitting
    * into segments that were enclosed in backticks (marked as `isCode === true`)
    * and those that outside the backticks (`isCode === false`).
@@ -292,11 +309,12 @@ class Util {
 
   /**
    * Gets the tld of a domain
+   * This function is used only while rendering pre-10.0 LHRs.
    *
    * @param {string} hostname
    * @return {string} tld
    */
-  static getTld(hostname) {
+  static getPseudoTld(hostname) {
     const tlds = hostname.split('.').slice(-2);
 
     if (!listOfTlds.includes(tlds[0])) {
@@ -308,12 +326,16 @@ class Util {
 
   /**
    * Returns a primary domain for provided hostname (e.g. www.example.com -> example.com).
+   * As it doesn't consult the Public Suffix List, it can sometimes lose detail.
+   * See the `listOfTlds` comment above for more.
+   * This function is used only while rendering pre-10.0 LHRs. See UrlUtils.getRootDomain
+   * for the current method that makes use of PSL.
    * @param {string|URL} url hostname or URL object
    * @return {string}
    */
-  static getRootDomain(url) {
+  static getPseudoRootDomain(url) {
     const hostname = Util.createOrReturnURL(url).hostname;
-    const tld = Util.getTld(hostname);
+    const tld = Util.getPseudoTld(hostname);
 
     // tld is .com or .co.uk which means we means that length is 1 to big
     // .com => 2 & .co.uk => 3

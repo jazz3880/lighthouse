@@ -389,4 +389,22 @@ describe('NetworkRequest', () => {
       })).toBe(false);
     });
   });
+
+  describe('#isContentEncoded', () => {
+    const isContentEncoded = NetworkRequest.isContentEncoded;
+
+    it('correctly identifies no compression', () => {
+      expect(isContentEncoded({responseHeaders: []})).toBe(false);
+    });
+    it('correctly identifies brotli', () => {
+      expect(isContentEncoded({
+        responseHeaders: [{name: 'content-encoding', value: 'br'}],
+      })).toBe(true);
+    });
+    it('correctly identifies zstd', () => {
+      expect(isContentEncoded({
+        responseHeaders: [{name: 'content-encoding', value: 'zstd'}],
+      })).toBe(true);
+    });
+  });
 });

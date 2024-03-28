@@ -101,6 +101,19 @@ describe('lightrider-entry', () => {
       runStub.mockRestore();
     });
 
+    it('disables 404 with flag', async () => {
+      const runStub = jestMock.spyOn(Runner, 'gather');
+
+      const url = 'https://example.com';
+
+      const ignoreStatusCode = true;
+      await runLighthouseInLR(mockConnection, url, {}, {ignoreStatusCode});
+      const resolvedConfig = runStub.mock.calls[0][1].resolvedConfig;
+      assert.equal(resolvedConfig.settings.ignoreStatusCode, true);
+
+      runStub.mockRestore();
+    });
+
     it('overrides the default config when one is provided', async () => {
       const runStub = jestMock.spyOn(Runner, 'gather');
 

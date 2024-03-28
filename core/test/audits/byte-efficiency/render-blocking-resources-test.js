@@ -8,9 +8,9 @@ import assert from 'assert/strict';
 
 import RenderBlockingResourcesAudit from '../../../audits/byte-efficiency/render-blocking-resources.js'; // eslint-disable-line max-len
 import * as constants from '../../../config/constants.js';
-import {NetworkNode} from '../../../lib/dependency-graph/network-node.js';
-import {CPUNode} from '../../../lib/dependency-graph/cpu-node.js';
-import {Simulator} from '../../../lib/dependency-graph/simulator/simulator.js';
+import {NetworkNode} from '../../../lib/lantern/network-node.js';
+import {CPUNode} from '../../../lib/lantern/cpu-node.js';
+import {Simulator} from '../../../lib/lantern/simulator/simulator.js';
 import {NetworkRequest} from '../../../lib/network-request.js';
 import {getURLArtifactFromDevtoolsLog, readJson} from '../../test-utils.js';
 
@@ -18,6 +18,8 @@ const trace = readJson('../../fixtures/traces/progressive-app-m60.json', import.
 const devtoolsLog = readJson('../../fixtures/traces/progressive-app-m60.devtools.log.json', import.meta);
 const ampTrace = readJson('../../fixtures/traces/amp-m86.trace.json', import.meta);
 const ampDevtoolsLog = readJson('../../fixtures/traces/amp-m86.devtoolslog.json', import.meta);
+const textLcpTrace = readJson('../../fixtures/traces/frame-metrics-m90.json', import.meta);
+const textLcpDevtoolsLog = readJson('../../fixtures/traces/frame-metrics-m90.devtools.log.json', import.meta);
 
 const mobileSlow4G = constants.throttling.mobileSlow4G;
 
@@ -42,6 +44,29 @@ describe('Render blocking resources audit', () => {
     assert.equal(result.score, 1);
     assert.equal(result.numericValue, 0);
     assert.deepStrictEqual(result.metricSavings, {FCP: 0, LCP: 0});
+  });
+
+  it('evaluates correct wastedMs when LCP is text', async () => {
+    const artifacts = {
+      URL: getURLArtifactFromDevtoolsLog(textLcpDevtoolsLog),
+      GatherContext: {gatherMode: 'navigation'},
+      traces: {defaultPass: textLcpTrace},
+      devtoolsLogs: {defaultPass: textLcpDevtoolsLog},
+      TagsBlockingFirstPaint: [
+        {
+          tag: {url: 'http://localhost:10200/perf/frame-metrics-inner.html'},
+        },
+        {
+          tag: {url: 'http://localhost:10200/favicon.ico'},
+        },
+      ],
+      Stacks: [],
+    };
+
+    const settings = {throttlingMethod: 'simulate', throttling: mobileSlow4G};
+    const computedCache = new Map();
+    const result = await RenderBlockingResourcesAudit.audit(artifacts, {settings, computedCache});
+    assert.deepStrictEqual(result.metricSavings, {FCP: 783, LCP: 783});
   });
 
   it('evaluates amp page correctly', async () => {
@@ -88,7 +113,7 @@ describe('Render blocking resources audit', () => {
       // it look like Montserrat starts after Fira Sans finishes. It would be preferred
       // if eventual simulation improvements list Montserrat here as well.
     ]);
-    expect(result.metricSavings).toEqual({FCP: 469, LCP: 469});
+    expect(result.metricSavings).toEqual({FCP: 469, LCP: 0});
   });
 
   describe('#estimateSavingsWithGraphs', () => {
@@ -104,11 +129,13 @@ describe('Render blocking resources audit', () => {
       const protocol = 'http';
       record = props => {
         const parsedURL = {host: 'example.com', scheme, securityOrigin: 'http://example.com'};
-        return Object.assign({parsedURL, requestId: requestId++}, props, {protocol});
+        const record = Object.assign({parsedURL, requestId: requestId++}, props, {protocol});
+        return NetworkRequest.asLanternNetworkRequest(record);
       };
       recordSlow = props => {
         const parsedURL = {host: 'slow.com', scheme, securityOrigin: 'http://slow.com'};
-        return Object.assign({parsedURL, requestId: requestId++}, props, {protocol});
+        const record = Object.assign({parsedURL, requestId: requestId++}, props, {protocol});
+        return NetworkRequest.asLanternNetworkRequest(record);
       };
     });
 

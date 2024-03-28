@@ -137,9 +137,11 @@ function getLegacyJavascriptResults(code, map, {sourceMaps}) {
   const documentUrl = 'http://localhost/index.html'; // These URLs don't matter.
   const scriptUrl = 'https://localhost/main.bundle.min.js';
   const scriptId = '10001';
+  const responseHeaders = [{name: 'Content-Encoding', value: 'gzip'}];
   const networkRecords = [
-    {url: documentUrl, requestId: '1000.1', resourceType: /** @type {const} */ ('Document')},
-    {url: scriptUrl, requestId: '1000.2'},
+    {url: documentUrl, requestId: '1000.1', resourceType: /** @type {const} */ ('Document'),
+      responseHeaders},
+    {url: scriptUrl, requestId: '1000.2', responseHeaders},
   ];
   const devtoolsLogs = networkRecordsToDevtoolsLog(networkRecords);
 

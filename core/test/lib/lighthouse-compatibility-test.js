@@ -197,4 +197,34 @@ describe('backward compatibility', () => {
     assert.deepStrictEqual(preparedResult.audits, sampleResult.audits);
     assert.strictEqual(preparedResult.audits['third-party-summary'].details.isEntityGrouped, true);
   });
+
+  it('uses old metric relevance lists to backfill metric savings', () => {
+    const clonedSampleResult = cloneLhr(sampleResult);
+
+    clonedSampleResult.lighthouseVersion = '11.7.0';
+
+    for (const audit of Object.values(clonedSampleResult.audits)) {
+      // Keep metric savings explicit on this audit
+      if (audit.id === 'server-response-time') continue;
+
+      if (audit.metricSavings) {
+        delete audit.metricSavings;
+      }
+    }
+
+    const lcpAuditRef = clonedSampleResult.categories['performance'].auditRefs
+      .find(a => a.id === 'largest-contentful-paint');
+    lcpAuditRef.relevantAudits = ['render-blocking-resources'];
+
+    // Original audit results should be restored.
+    const preparedResult = upgradeLhr(clonedSampleResult);
+    assert.deepStrictEqual(
+      preparedResult.audits['render-blocking-resources'].metricSavings,
+      {LCP: 0}
+    );
+    assert.deepStrictEqual(
+      preparedResult.audits['server-response-time'].metricSavings,
+      {LCP: 450, FCP: 450}
+    );
+  });
 });

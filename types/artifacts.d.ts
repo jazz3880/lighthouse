@@ -5,9 +5,11 @@
  */
 
 import {Protocol as Crdp} from 'devtools-protocol/types/protocol.js';
+import * as TraceEngine from '@paulirish/trace_engine';
+import {LayoutShiftRootCausesData} from '@paulirish/trace_engine/models/trace/root-causes/LayoutShift.js';
 
 import {parseManifest} from '../core/lib/manifest-parser.js';
-import {Simulator} from '../core/lib/dependency-graph/simulator/simulator.js';
+import {Simulator} from '../core/lib/lantern/simulator/simulator.js';
 import {LighthouseError} from '../core/lib/lh-error.js';
 import {NetworkRequest as _NetworkRequest} from '../core/lib/network-request.js';
 import speedline from 'speedline-core';
@@ -53,6 +55,8 @@ interface UniversalBaseArtifacts {
   HostFormFactor: 'desktop'|'mobile';
   /** The user agent string of the version of Chrome used. */
   HostUserAgent: string;
+  /** The product string of the version of Chrome used. Example: HeadlessChrome/123.2.2.0 would be from old headless. */
+  HostProduct: string;
   /** Information about how Lighthouse artifacts were gathered. */
   GatherContext: {gatherMode: Gatherer.GatherMode};
 }
@@ -85,8 +89,8 @@ interface PublicGathererArtifacts {
   LinkElements: Artifacts.LinkElement[];
   /** The values of the <meta> elements in the head. */
   MetaElements: Array<{name?: string, content?: string, property?: string, httpEquiv?: string, charset?: string, node: Artifacts.NodeDetails}>;
-  /** Information on all script elements in the page. Also contains the content of all requested scripts and the networkRecord requestId that contained their content. Note, HTML documents will have one entry per script tag, all with the same requestId. */
-  ScriptElements: Array<Artifacts.ScriptElement>;
+  /** Information on all scripts in the page. */
+  Scripts: Artifacts.Script[];
   /** The dimensions and devicePixelRatio of the loaded viewport. */
   ViewportDimensions: Artifacts.ViewportDimensions;
 }
@@ -140,8 +144,8 @@ export interface GathererArtifacts extends PublicGathererArtifacts {
   ResponseCompression: {requestId: string, url: string, mimeType: string, transferSize: number, resourceSize: number, gzipSize?: number}[];
   /** Information on fetching and the content of the /robots.txt file. */
   RobotsTxt: {status: number|null, content: string|null, errorMessage?: string};
-  /** Information on all scripts in the page. */
-  Scripts: Artifacts.Script[];
+  /** The result of calling the shared trace engine root cause analysis. */
+  RootCauses: Artifacts.TraceEngineRootCauses;
   /** Version information for all ServiceWorkers active after the first page load. */
   ServiceWorker: {versions: Crdp.ServiceWorker.ServiceWorkerVersion[], registrations: Crdp.ServiceWorker.ServiceWorkerRegistration[]};
   /** Source maps of scripts executed in the page. */
@@ -557,12 +561,17 @@ declare module Artifacts {
   }
 
   interface TraceElement {
-    traceEventType: 'largest-contentful-paint'|'layout-shift'|'animation'|'responsiveness';
-    score?: number;
+    traceEventType: 'largest-contentful-paint'|'layout-shift'|'layout-shift-element'|'animation'|'responsiveness';
     node: NodeDetails;
-    nodeId?: number;
+    nodeId: number;
     animations?: {name?: string, failureReasonsMask?: number, unsupportedProperties?: string[]}[];
     type?: string;
+  }
+
+  type TraceEngineResult = TraceEngine.Handlers.Types.TraceParseData;
+
+  interface TraceEngineRootCauses {
+    layoutShifts: Record<number, LayoutShiftRootCausesData>;
   }
 
   interface ViewportDimensions {
@@ -1016,6 +1025,8 @@ export interface TraceEvent {
       type?: string;
       functionName?: string;
       name?: string;
+      duration?: number;
+      blockingDuration?: number;
     };
     frame?: string;
     name?: string;

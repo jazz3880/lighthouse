@@ -20,6 +20,14 @@ declare module Audit {
   export type ScoreDisplayModes = AuditResult.ScoreDisplayModes;
   export type MetricSavings = AuditResult.MetricSavings;
 
+  export type ProductMetricSavings = {
+    FCP?: number;
+    LCP?: number;
+    TBT?: number;
+    CLS?: number;
+    INP?: number;
+  };
+
   type Context = Util.Immutable<{
     /** audit options */
     options: Record<string, any>;
@@ -87,7 +95,7 @@ declare module Audit {
     /** If an audit encounters unusual execution circumstances, strings can be put in this optional array to add top-level warnings to the LHR. */
     runWarnings?: Array<IcuMessage>;
     /** Estimates of how much this audit affects various performance metrics. Values will be in the unit of the respective metrics. */
-    metricSavings?: MetricSavings;
+    metricSavings?: ProductMetricSavings;
     /** Score details including p10 and median for calculating an audit's log-normal score. */
     scoringOptions?: ScoreOptions;
     /** A string identifying how the score should be interpreted for display. Overrides audit meta `scoreDisplayMode` if defined. */

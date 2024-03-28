@@ -43,6 +43,17 @@ const expectations = {
               height: 2000,
             },
           ],
+          [
+            /-H1$/,
+            {
+              top: 0,
+              bottom: 37,
+              left: 0,
+              right: 824,
+              width: 824,
+              height: 37,
+            },
+          ],
         ],
       },
       screenshot: {

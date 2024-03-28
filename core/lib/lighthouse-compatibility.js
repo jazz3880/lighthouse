@@ -36,6 +36,10 @@ function upgradeLhrForCompatibility(lhr) {
       audit.scoreDisplayMode = 'notApplicable';
     }
 
+    if (audit.scoreDisplayMode === 'informative') {
+      audit.score = 1;
+    }
+
     if (audit.details) {
       // Turn `auditDetails.type` of undefined (LHR <4.2) and 'diagnostic' (LHR <5.0)
       // into 'debugdata' (LHR ≥5.0).
@@ -117,6 +121,39 @@ function upgradeLhrForCompatibility(lhr) {
         auditRef.group = 'hidden';
       } else if (['load-opportunities', 'diagnostics'].includes(auditRef.group)) {
         delete auditRef.group;
+      }
+    }
+  }
+
+  if (majorVersion < 12 && perfCategory) {
+    /** @type {Map<string, string[]>} */
+    const metricRelevanceMap = new Map();
+
+    for (const auditRef of perfCategory.auditRefs) {
+      /** @type {string[]|undefined} */
+      // @ts-expect-error Removed in v12
+      const relevantAudits = auditRef.relevantAudits;
+      if (!relevantAudits || !auditRef.acronym) continue;
+
+      for (const auditId of relevantAudits) {
+        const acronyms = metricRelevanceMap.get(auditId) || [];
+        acronyms.push(auditRef.acronym);
+        metricRelevanceMap.set(auditId, acronyms);
+      }
+    }
+
+    for (const [auditId, acronyms] of metricRelevanceMap) {
+      if (!acronyms.length) continue;
+
+      const audit = lhr.audits[auditId];
+      if (!audit) continue;
+
+      // Old versions can still define metric savings, let's not mess with it.
+      if (audit.metricSavings) continue;
+
+      audit.metricSavings = {};
+      for (const acronym of acronyms) {
+        audit.metricSavings[acronym] = 0;
       }
     }
   }

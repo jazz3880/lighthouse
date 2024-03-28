@@ -43,8 +43,8 @@ async function logout(page, origin) {
 async function main() {
   // Direct Puppeteer to open Chrome with a specific debugging port.
   const browser = await puppeteer.launch({
-    // Optional, if you want to see the tests in action.
-    headless: false,
+    // Set DEBUG environment variable if you want to see the tests in action.
+    headless: process.env.DEBUG ? false : 'new',
     slowMo: 50,
   });
   const page = await browser.newPage();

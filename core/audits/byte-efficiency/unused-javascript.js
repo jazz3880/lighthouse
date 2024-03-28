@@ -8,7 +8,7 @@ import {ByteEfficiencyAudit} from './byte-efficiency-audit.js';
 import {UnusedJavascriptSummary} from '../../computed/unused-javascript-summary.js';
 import {JSBundles} from '../../computed/js-bundles.js';
 import * as i18n from '../../lib/i18n/i18n.js';
-import {getRequestForScript} from '../../lib/script-helpers.js';
+import {estimateCompressionRatioForContent} from '../../lib/script-helpers.js';
 
 const UIStrings = {
   /** Imperative title of a Lighthouse audit that tells the user to reduce JavaScript that is never evaluated during page load. This is displayed in a list of audit titles that Lighthouse generates. */
@@ -67,7 +67,7 @@ class UnusedJavaScript extends ByteEfficiencyAudit {
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.METRIC_SAVINGS,
-      guidanceLevel: 2,
+      guidanceLevel: 1,
       requiredArtifacts: ['JsUsage', 'Scripts', 'SourceMaps', 'GatherContext',
         'devtoolsLogs', 'traces', 'URL'],
     };
@@ -86,27 +86,26 @@ class UnusedJavaScript extends ByteEfficiencyAudit {
       bundleSourceUnusedThreshold = UNUSED_BYTES_IGNORE_BUNDLE_SOURCE_THRESHOLD,
     } = context.options || {};
 
+    /** @type {Map<string, number>} */
+    const compressionRatioByUrl = new Map();
+
     const items = [];
     for (const [scriptId, scriptCoverage] of Object.entries(artifacts.JsUsage)) {
       const script = artifacts.Scripts.find(s => s.scriptId === scriptId);
       if (!script) continue; // This should never happen.
-
-      const networkRecord = getRequestForScript(networkRecords, script);
-      if (!networkRecord) continue;
 
       const bundle = bundles.find(b => b.script.scriptId === scriptId);
       const unusedJsSummary =
         await UnusedJavascriptSummary.request({scriptId, scriptCoverage, bundle}, context);
       if (unusedJsSummary.wastedBytes === 0 || unusedJsSummary.totalBytes === 0) continue;
 
-      const transfer = ByteEfficiencyAudit
-        .estimateTransferSize(networkRecord, unusedJsSummary.totalBytes, 'Script');
-      const transferRatio = transfer / unusedJsSummary.totalBytes;
+      const compressionRatio = estimateCompressionRatioForContent(
+        compressionRatioByUrl, script.url, artifacts, networkRecords);
       /** @type {LH.Audit.ByteEfficiencyItem} */
       const item = {
         url: script.url,
-        totalBytes: Math.round(transferRatio * unusedJsSummary.totalBytes),
-        wastedBytes: Math.round(transferRatio * unusedJsSummary.wastedBytes),
+        totalBytes: Math.round(compressionRatio * unusedJsSummary.totalBytes),
+        wastedBytes: Math.round(compressionRatio * unusedJsSummary.wastedBytes),
         wastedPercent: unusedJsSummary.wastedPercent,
       };
 
@@ -127,8 +126,8 @@ class UnusedJavaScript extends ByteEfficiencyAudit {
             const total = source === '(unmapped)' ? sizes.unmappedBytes : sizes.files[source];
             return {
               source,
-              unused: Math.round(unused * transferRatio),
-              total: Math.round(total * transferRatio),
+              unused: Math.round(unused * compressionRatio),
+              total: Math.round(total * compressionRatio),
             };
           })
           .filter(d => d.unused >= bundleSourceUnusedThreshold);

@@ -9,7 +9,7 @@ import {LanternMetric} from './lantern-metric.js';
 import {LighthouseError} from '../../lib/lh-error.js';
 import {LanternFirstContentfulPaint} from './lantern-first-contentful-paint.js';
 
-/** @typedef {import('../../lib/dependency-graph/base-node.js').Node} Node */
+/** @typedef {import('../../lib/lantern/base-node.js').Node<LH.Artifacts.NetworkRequest>} Node */
 
 class LanternLargestContentfulPaint extends LanternMetric {
   /**
@@ -32,7 +32,6 @@ class LanternLargestContentfulPaint extends LanternMetric {
    */
   static isNotLowPriorityImageNode(node) {
     if (node.type !== 'network') return true;
-
     const isImage = node.record.resourceType === 'Image';
     const isLowPriority = node.record.priority === 'Low' || node.record.priority === 'VeryLow';
     return !isImage || !isLowPriority;
@@ -49,11 +48,10 @@ class LanternLargestContentfulPaint extends LanternMetric {
       throw new LighthouseError(LighthouseError.errors.NO_LCP);
     }
 
-    return LanternFirstContentfulPaint.getFirstPaintBasedGraph(
-      dependencyGraph,
-      lcp,
-      LanternLargestContentfulPaint.isNotLowPriorityImageNode
-    );
+    return LanternFirstContentfulPaint.getFirstPaintBasedGraph(dependencyGraph, {
+      cutoffTimestamp: lcp,
+      treatNodeAsRenderBlocking: LanternLargestContentfulPaint.isNotLowPriorityImageNode,
+    });
   }
 
   /**
@@ -67,13 +65,12 @@ class LanternLargestContentfulPaint extends LanternMetric {
       throw new LighthouseError(LighthouseError.errors.NO_LCP);
     }
 
-    return LanternFirstContentfulPaint.getFirstPaintBasedGraph(
-      dependencyGraph,
-      lcp,
-      _ => true,
+    return LanternFirstContentfulPaint.getFirstPaintBasedGraph(dependencyGraph, {
+      cutoffTimestamp: lcp,
+      treatNodeAsRenderBlocking: _ => true,
       // For pessimistic LCP we'll include *all* layout nodes
-      node => node.didPerformLayout()
-    );
+      additionalCpuNodesToTreatAsRenderBlocking: node => node.didPerformLayout(),
+    });
   }
 
   /**

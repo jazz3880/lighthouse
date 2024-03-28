@@ -17,6 +17,7 @@ import {LH_ROOT} from '../../../shared/root.js';
 import {isIcuMessage, formatMessage, DEFAULT_LOCALE} from '../../../shared/localization/format.js';
 import {getModulePath} from '../../../shared/esm-utils.js';
 
+/* eslint-disable max-len */
 const UIStrings = {
   /** Used to show the duration in milliseconds that something lasted. The `{timeInMs}` placeholder will be replaced with the time duration, shown in milliseconds (e.g. 63 ms) */
   ms: '{timeInMs, number, milliseconds}\xa0ms',
@@ -113,6 +114,7 @@ const UIStrings = {
   /** Table item value for the severity of a high impact, or dangerous vulnerability. Part of a ranking scale in the form: low, medium, high. */
   itemSeverityHigh: 'High',
 };
+/* eslint-enable max-len */
 
 /**
  * Look up the best available locale for the requested language through these fall backs:
@@ -168,9 +170,9 @@ function lookupLocale(locales, possibleLocales) {
  * Returns a function that generates `LH.IcuMessage` objects to localize the
  * messages in `fileStrings` and the shared `i18n.UIStrings`.
  * @param {string} filename
- * @param {Record<string, string>} fileStrings
+ * @param {Record<string, string>=} fileStrings
  */
-function createIcuMessageFn(filename, fileStrings) {
+function createIcuMessageFn(filename, fileStrings = {}) {
   if (filename.startsWith('file://')) filename = url.fileURLToPath(filename);
 
   // In the common case, `filename` is an absolute path that needs to be transformed

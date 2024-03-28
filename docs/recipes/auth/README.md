@@ -45,8 +45,8 @@ Puppeteer - a browser automation tool - can be used to programmatically setup a 
 First, launch Chrome and create a new page:
 ```js
 const browser = await puppeteer.launch({
-  // Optional, if you want to see the tests in action.
-  headless: false,
+  // Set to false if you want to see the script in action.
+  headless: 'new',
   slowMo: 50,
 });
 const page = await browser.newPage();

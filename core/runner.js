@@ -317,7 +317,11 @@ class Runner {
       for (const k of keys) {
         if (!isDeepEqual(normalizedGatherSettings[k], normalizedAuditSettings[k])) {
           throw new Error(
-            `Cannot change settings between gathering and auditing. Difference found at: ${k}`);
+            `Cannot change settings between gathering and auditing…
+Difference found at: \`${k}\`
+    ${normalizedGatherSettings[k]}
+vs
+    ${normalizedAuditSettings[k]}`);
         }
       }
 

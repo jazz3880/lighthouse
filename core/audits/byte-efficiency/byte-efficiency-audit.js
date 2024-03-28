@@ -16,8 +16,8 @@ import {LCPImageRecord} from '../../computed/lcp-image-record.js';
 
 const str_ = i18n.createIcuMessageFn(import.meta.url, {});
 
-/** @typedef {import('../../lib/dependency-graph/simulator/simulator').Simulator} Simulator */
-/** @typedef {import('../../lib/dependency-graph/base-node.js').Node} Node */
+/** @typedef {import('../../lib/lantern/simulator/simulator.js').Simulator} Simulator */
+/** @typedef {import('../../lib/lantern/base-node.js').Node<LH.Artifacts.NetworkRequest>} Node */
 
 // Parameters for log-normal distribution scoring. These values were determined by fitting the
 // log-normal cumulative distribution function curve to the former method of linear interpolation
@@ -56,48 +56,6 @@ class ByteEfficiencyAudit extends Audit {
       {p10: WASTED_MS_P10, median: WASTED_MS_MEDIAN},
       wastedMs
     );
-  }
-
-  /**
-   * Estimates the number of bytes this network record would have consumed on the network based on the
-   * uncompressed size (totalBytes). Uses the actual transfer size from the network record if applicable.
-   *
-   * @param {LH.Artifacts.NetworkRequest|undefined} networkRecord
-   * @param {number} totalBytes Uncompressed size of the resource
-   * @param {LH.Crdp.Network.ResourceType=} resourceType
-   * @return {number}
-   */
-  static estimateTransferSize(networkRecord, totalBytes, resourceType) {
-    if (!networkRecord) {
-      // We don't know how many bytes this asset used on the network, but we can guess it was
-      // roughly the size of the content gzipped.
-      // See https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer for specific CSS/Script examples
-      // See https://discuss.httparchive.org/t/file-size-and-compression-savings/145 for fallback multipliers
-      switch (resourceType) {
-        case 'Stylesheet':
-          // Stylesheets tend to compress extremely well.
-          return Math.round(totalBytes * 0.2);
-        case 'Script':
-        case 'Document':
-          // Scripts and HTML compress fairly well too.
-          return Math.round(totalBytes * 0.33);
-        default:
-          // Otherwise we'll just fallback to the average savings in HTTPArchive
-          return Math.round(totalBytes * 0.5);
-      }
-    } else if (networkRecord.resourceType === resourceType) {
-      // This was a regular standalone asset, just use the transfer size.
-      return networkRecord.transferSize || 0;
-    } else {
-      // This was an asset that was inlined in a different resource type (e.g. HTML document).
-      // Use the compression ratio of the resource to estimate the total transferred bytes.
-      const transferSize = networkRecord.transferSize || 0;
-      const resourceSize = networkRecord.resourceSize || 0;
-      // Get the compression ratio, if it's an invalid number, assume no compression.
-      const compressionRatio = Number.isFinite(resourceSize) && resourceSize > 0 ?
-        (transferSize / resourceSize) : 1;
-      return Math.round(totalBytes * compressionRatio);
-    }
   }
 
   /**
@@ -167,10 +125,10 @@ class ByteEfficiencyAudit extends Audit {
       const wastedBytes = wastedBytesByUrl.get(node.record.url);
       if (!wastedBytes) return;
 
-      const original = node.record.transferSize;
-      originalTransferSizes.set(node.record.requestId, original);
+      const original = node.request.transferSize;
+      originalTransferSizes.set(node.request.requestId, original);
 
-      node.record.transferSize = Math.max(original - wastedBytes, 0);
+      node.request.transferSize = Math.max(original - wastedBytes, 0);
     });
 
     const simulationAfterChanges = simulator.simulate(graph, {label: afterLabel});
@@ -178,9 +136,9 @@ class ByteEfficiencyAudit extends Audit {
     // Restore the original transfer size after we've done our simulation
     graph.traverse(node => {
       if (node.type !== 'network') return;
-      const originalTransferSize = originalTransferSizes.get(node.record.requestId);
+      const originalTransferSize = originalTransferSizes.get(node.request.requestId);
       if (originalTransferSize === undefined) return;
-      node.record.transferSize = originalTransferSize;
+      node.request.transferSize = originalTransferSize;
     });
 
     const savings = simulationBeforeChanges.timeInMs - simulationAfterChanges.timeInMs;
@@ -236,7 +194,7 @@ class ByteEfficiencyAudit extends Audit {
 
     const wastedBytes = results.reduce((sum, item) => sum + item.wastedBytes, 0);
 
-    /** @type {LH.Audit.MetricSavings} */
+    /** @type {LH.Audit.ProductMetricSavings} */
     const metricSavings = {
       FCP: 0,
       LCP: 0,
@@ -248,10 +206,10 @@ class ByteEfficiencyAudit extends Audit {
     if (metricComputationInput.gatherContext.gatherMode === 'navigation') {
       const graph = await PageDependencyGraph.request(metricComputationInput, context);
       const {
-        pessimisticGraph: pessimisticFCPGraph,
+        optimisticGraph: optimisticFCPGraph,
       } = await LanternFirstContentfulPaint.request(metricComputationInput, context);
       const {
-        pessimisticGraph: pessimisticLCPGraph,
+        optimisticGraph: optimisticLCPGraph,
       } = await LanternLargestContentfulPaint.request(metricComputationInput, context);
 
       wastedMs = this.computeWasteWithTTIGraph(results, graph, simulator, {
@@ -260,16 +218,18 @@ class ByteEfficiencyAudit extends Audit {
 
       const {savings: fcpSavings} = this.computeWasteWithGraph(
         results,
-        pessimisticFCPGraph,
+        optimisticFCPGraph,
         simulator,
         {providedWastedBytesByUrl: result.wastedBytesByUrl, label: 'fcp'}
       );
+      // Note: LCP's optimistic graph sometimes unexpectedly yields higher savings than the pessimistic graph.
       const {savings: lcpGraphSavings} = this.computeWasteWithGraph(
         results,
-        pessimisticLCPGraph,
+        optimisticLCPGraph,
         simulator,
         {providedWastedBytesByUrl: result.wastedBytesByUrl, label: 'lcp'}
       );
+
 
       // The LCP graph can underestimate the LCP savings if there is potential savings on the LCP record itself.
       let lcpRecordSavings = 0;

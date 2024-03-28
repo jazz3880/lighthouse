@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import {getDomain} from 'tldts-icann';
+
 import {Util} from '../../shared/util.js';
 import {LighthouseError} from './lh-error.js';
 
@@ -100,6 +102,16 @@ class UrlUtils {
   }
 
   /**
+   * Returns a primary domain for provided hostname (e.g. www.example.com -> example.com).
+   * @param {string|URL} url hostname or URL object
+   * @return {string}
+   */
+  static getRootDomain(url) {
+    const parsedUrl = Util.createOrReturnURL(url);
+    return getDomain(parsedUrl.href) || parsedUrl.hostname;
+  }
+
+  /**
    * Check if rootDomains matches
    *
    * @param {string|URL} urlA
@@ -120,8 +132,8 @@ class UrlUtils {
     }
 
     // get the string before the tld
-    const urlARootDomain = Util.getRootDomain(urlAInfo);
-    const urlBRootDomain = Util.getRootDomain(urlBInfo);
+    const urlARootDomain = UrlUtils.getRootDomain(urlAInfo);
+    const urlBRootDomain = UrlUtils.getRootDomain(urlBInfo);
 
     return urlARootDomain === urlBRootDomain;
   }

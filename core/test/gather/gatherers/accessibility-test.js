@@ -43,7 +43,6 @@ describe('a11y audits + aXe', () => {
 
   before(async () => {
     browser = await puppeteer.launch({
-      headless: 'new',
       executablePath: getChromePath(),
     });
   });
@@ -72,6 +71,8 @@ describe('a11y audits + aXe', () => {
     // Note: audit ids match their filenames, thx to the getAuditList test in runner-test.js
     const filenames = fs.readdirSync(`${LH_ROOT}/core/audits/accessibility/`)
         .map(f => f.replace('.js', ''))
+        // TODO: https://github.com/GoogleChrome/lighthouse/issues/15824
+        .filter(f => f !== 'target-size')
         .filter(f => f !== 'axe-audit' && f !== 'manual');
 
     // 4. Compare. (Received from aXe, Expected is LH audits)

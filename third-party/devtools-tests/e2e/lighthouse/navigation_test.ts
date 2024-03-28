@@ -32,7 +32,7 @@ import {
 // This test will fail (by default) in headful mode, as the target page never gets painted.
 // To resolve this when debugging, just make sure the target page is visible during the lighthouse run.
 
-describe('Navigation', async function() {
+describe('Navigation', function() {
   // The tests in this suite are particularly slow
   if (this.timeout() !== 0) {
     this.timeout(60_000);
@@ -77,7 +77,6 @@ describe('Navigation', async function() {
       'accessibility',
       'best-practices',
       'seo',
-      'lighthouse-plugin-publisher-ads',
     ]);
 
     let numNavigations = 0;
@@ -96,7 +95,7 @@ describe('Navigation', async function() {
     // 1 refresh after auditing to reset state
     assert.strictEqual(numNavigations, 5);
 
-    assert.strictEqual(lhr.lighthouseVersion, '11.3.0');
+    assert.strictEqual(lhr.lighthouseVersion, '11.7.0');
     assert.match(lhr.finalUrl, /^https:\/\/localhost:[0-9]+\/test\/e2e\/resources\/lighthouse\/hello.html/);
 
     assert.strictEqual(lhr.configSettings.throttlingMethod, 'simulate');
@@ -107,6 +106,12 @@ describe('Navigation', async function() {
     assert.include(lhr.configSettings.emulatedUserAgent, 'Mobile');
     assert.include(lhr.environment.networkUserAgent, 'Mobile');
 
+    const trace = artifacts.Trace;
+    assert.notOk(
+        trace.traceEvents.some((e: Record<string, unknown>) => e.cat === 'disabled-by-default-v8.cpu_profiler'),
+        'Trace contained v8 profiler events',
+    );
+
     assert.deepStrictEqual(artifacts.ViewportDimensions, {
       innerHeight: 823,
       innerWidth: 412,
@@ -116,7 +121,7 @@ describe('Navigation', async function() {
     });
 
     const {auditResults, erroredAudits, failedAudits} = getAuditsBreakdown(lhr, ['max-potential-fid']);
-    assert.strictEqual(auditResults.length, 181);
+    assert.strictEqual(auditResults.length, 158);
     assert.deepStrictEqual(erroredAudits, []);
     assert.deepStrictEqual(failedAudits.map(audit => audit.id), [
       'themed-omnibox',
@@ -156,8 +161,7 @@ describe('Navigation', async function() {
     const waitForJson = await interceptNextFileSave();
 
     // For some reason the CDP click command doesn't work here even if the tools menu is open.
-    await reportEl.$eval(
-        'a[data-action="save-json"]:not(.hidden)', saveJsonEl => (saveJsonEl as HTMLElement).click());
+    await reportEl.$eval('a[data-action="save-json"]:not(.hidden)', saveJsonEl => (saveJsonEl as HTMLElement).click());
 
     const jsonContent = await waitForJson();
     assert.strictEqual(jsonContent, JSON.stringify(lhr, null, 2));
@@ -165,8 +169,7 @@ describe('Navigation', async function() {
     const waitForHtml = await interceptNextFileSave();
 
     // For some reason the CDP click command doesn't work here even if the tools menu is open.
-    await reportEl.$eval(
-        'a[data-action="save-html"]:not(.hidden)', saveHtmlEl => (saveHtmlEl as HTMLElement).click());
+    await reportEl.$eval('a[data-action="save-html"]:not(.hidden)', saveHtmlEl => (saveHtmlEl as HTMLElement).click());
 
     const htmlContent = await waitForHtml();
     const iframeHandle = await renderHtmlInIframe(htmlContent);
@@ -215,6 +218,7 @@ describe('Navigation', async function() {
     await navigateToLighthouseTab('lighthouse/hello.html');
     await registerServiceWorker();
 
+    await setToolbarCheckboxWithText(true, 'Enable JS sampling');  // TODO: Use translated string once it's added
     await setToolbarCheckboxWithText(false, 'Borrar almacenamiento');
     await selectCategories(['performance', 'best-practices']);
     await selectDevice('desktop');
@@ -222,6 +226,12 @@ describe('Navigation', async function() {
     await clickStartButton();
 
     const {reportEl, lhr, artifacts} = await waitForResult();
+
+    const trace = artifacts.Trace;
+    assert.ok(
+        trace.traceEvents.some((e: Record<string, unknown>) => e.cat === 'disabled-by-default-v8.cpu_profiler'),
+        'Trace did not contain any v8 profiler events',
+    );
 
     const {innerWidth, innerHeight, devicePixelRatio} = artifacts.ViewportDimensions;
     // TODO: Figure out why outerHeight can be different depending on OS

@@ -320,6 +320,9 @@ describe('DuplicatedJavascript computed artifact', () => {
 
   it('.audit', async () => {
     // Use a real trace fixture, but the bundle stuff.
+    // Note: this mixing of data from different sources makes the exact results
+    // of this audit pretty meaningless. The important part of this test is that
+    // `wastedBytesByUrl` is functioning.
     const bundleData1 = loadSourceMapFixture('coursehero-bundle-1');
     const bundleData2 = loadSourceMapFixture('coursehero-bundle-2');
     const artifacts = {
@@ -363,7 +366,7 @@ describe('DuplicatedJavascript computed artifact', () => {
     const results = await DuplicatedJavascript.audit(artifacts, context);
 
     // Without the `wastedBytesByUrl` this would be zero because the items don't define a url.
-    expect(results.details.overallSavingsMs).toBe(300);
+    expect(results.details.overallSavingsMs).toBe(1680);
   });
 
   it('_getNodeModuleName', () => {

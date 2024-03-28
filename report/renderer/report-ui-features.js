@@ -322,7 +322,7 @@ export class ReportUIFeatures {
    * @return {Array<HTMLElement>}
    */
   _getThirdPartyRows(rowEls, finalDisplayedUrl) {
-    const finalDisplayedUrlRootDomain = Util.getRootDomain(finalDisplayedUrl);
+    const finalDisplayedUrlEntity = Util.getEntityFromUrl(finalDisplayedUrl, this.json.entities);
     const firstPartyEntityName = this.json.entities?.find(e => e.isFirstParty === true)?.name;
 
     /** @type {Array<HTMLElement>} */
@@ -337,7 +337,8 @@ export class ReportUIFeatures {
         if (!urlItem) continue;
         const datasetUrl = urlItem.dataset.url;
         if (!datasetUrl) continue;
-        const isThirdParty = Util.getRootDomain(datasetUrl) !== finalDisplayedUrlRootDomain;
+        const isThirdParty =
+          Util.getEntityFromUrl(datasetUrl, this.json.entities) !== finalDisplayedUrlEntity;
         if (!isThirdParty) continue;
       }
 

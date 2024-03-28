@@ -60,6 +60,10 @@ export class ReportRenderer {
     this._dom.rootEl.textContent = ''; // Remove previous report.
     this._dom.rootEl.append(this._renderReport(report));
 
+    if (this._opts.occupyEntireViewport) {
+      this._dom.rootEl.classList.add('lh-max-viewport');
+    }
+
     return this._dom.rootEl;
   }
 

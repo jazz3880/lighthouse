@@ -232,7 +232,9 @@ export class LighthouseReportViewer {
     const dom = new DOM(document);
     const renderer = new ReportRenderer(dom);
 
-    renderer.renderReport(json, rootEl);
+    renderer.renderReport(json, rootEl, {
+      occupyEntireViewport: true,
+    });
 
     const features = new ViewerUIFeatures(dom, {
       saveGist: saveGistCallback,

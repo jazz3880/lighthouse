@@ -9,8 +9,8 @@
  * origin are over the http/2 protocol.
  */
 
-/** @typedef {import('../../lib/dependency-graph/simulator/simulator').Simulator} Simulator */
-/** @typedef {import('../../lib/dependency-graph/base-node.js').Node} Node */
+/** @typedef {import('../../lib/lantern/simulator/simulator.js').Simulator} Simulator */
+/** @typedef {import('../../lib/lantern/base-node.js').Node<LH.Artifacts.NetworkRequest>} Node */
 
 import {Audit} from '../audit.js';
 import {EntityClassification} from '../../computed/entity-classification.js';
@@ -94,7 +94,7 @@ class UsesHTTP2Audit extends Audit {
       if (!urlsToChange.has(node.record.url)) return;
 
       originalProtocols.set(node.record.requestId, node.record.protocol);
-      node.record.protocol = 'h2';
+      node.request.protocol = 'h2';
     });
 
     const simulationAfter = simulator.simulate(graph, {label: afterLabel, flexibleOrdering});
@@ -104,7 +104,7 @@ class UsesHTTP2Audit extends Audit {
       if (node.type !== 'network') return;
       const originalProtocol = originalProtocols.get(node.record.requestId);
       if (originalProtocol === undefined) return;
-      node.record.protocol = originalProtocol;
+      node.request.protocol = originalProtocol;
     });
 
     const savings = simulationBefore.timeInMs - simulationAfter.timeInMs;
@@ -152,16 +152,19 @@ class UsesHTTP2Audit extends Audit {
    * @param {LH.Artifacts.EntityClassification} classifiedEntities
    * @return {boolean}
    */
-  static isStaticAsset(networkRequest, classifiedEntities) {
+  static isMultiplexableStaticAsset(networkRequest, classifiedEntities) {
     if (!STATIC_RESOURCE_TYPES.has(networkRequest.resourceType)) return false;
 
     // Resources from third-parties that are less than 100 bytes are usually tracking pixels, not actual resources.
     // They can masquerade as static types though (gifs, documents, etc)
     if (networkRequest.resourceSize < 100) {
-      // This logic needs to be revisited.
-      // See https://github.com/GoogleChrome/lighthouse/issues/14661
       const entity = classifiedEntities.entityByUrl.get(networkRequest.url);
-      if (entity && !entity.isUnrecognized) return false;
+      if (entity) {
+        // Third-party assets are multiplexable in their first-party context.
+        if (classifiedEntities.firstParty?.name === entity.name) return true;
+        // Skip recognizable third-parties' requests.
+        if (!entity.isUnrecognized) return false;
+      }
     }
 
     return true;
@@ -199,7 +202,7 @@ class UsesHTTP2Audit extends Audit {
     /** @type {Map<string, Array<LH.Artifacts.NetworkRequest>>} */
     const groupedByOrigin = new Map();
     for (const record of networkRecords) {
-      if (!UsesHTTP2Audit.isStaticAsset(record, classifiedEntities)) continue;
+      if (!UsesHTTP2Audit.isMultiplexableStaticAsset(record, classifiedEntities)) continue;
       if (UrlUtils.isLikeLocalhost(record.parsedURL.host)) continue;
       const existing = groupedByOrigin.get(record.parsedURL.securityOrigin) || [];
       existing.push(record);

@@ -41,7 +41,7 @@ You can also craft your own config (e.g. [experimental-config.js](https://github
 
 ### Differences from CLI flags
 
-Note that some flag functionality is only available to the CLI. The set of shared flags that work in both node and CLI can be found [in our typedefs](https://github.com/GoogleChrome/lighthouse/blob/888bd6dc9d927a734a8e20ea8a0248baa5b425ed/typings/externs.d.ts#L82-L119). In most cases, the functionality is not offered in the node module simply because it is easier and more flexible to do it yourself.
+Note that some flag functionality is only available to the CLI. The set of shared flags that work in both node and CLI can be found [in our typedefs](https://github.com/GoogleChrome/lighthouse/blob/main/types/lhr/settings.d.ts#:~:text=interface%20SharedFlagsSettings). In most cases, the functionality is not offered in the node module simply because it is easier and more flexible to do it yourself.
 
 | CLI Flag | Differences in Node |
 | - | - |
