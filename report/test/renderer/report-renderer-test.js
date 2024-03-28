@@ -183,10 +183,7 @@ describe('ReportRenderer', () => {
       const warningResults = Object.assign({}, sampleResults, {runWarnings: []});
       const container = renderer._dom.document().body;
       const output = renderer.renderReport(warningResults, container);
-      const warningEls = output.querySelectorAll('.lh-warnings--toplevel');
-      // PWA deprecation warning.
-      expect(warningEls).toHaveLength(1);
-      expect(warningEls[0].textContent).toContain('deprecating the PWA category');
+      assert.strictEqual(output.querySelector('.lh-warnings--toplevel'), null);
     });
 
     it('renders a warning section', () => {
@@ -283,7 +280,7 @@ describe('ReportRenderer', () => {
       .filter(url => DOCS_ORIGINS.includes(url.origin))
       .map(url => url.searchParams.get('utm_medium'));
 
-    assert.ok(utmChannels.length >= 99);
+    assert.ok(utmChannels.length >= 94);
     for (const utmChannel of utmChannels) {
       assert.strictEqual(utmChannel, lhrChannel);
     }
