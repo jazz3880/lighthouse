@@ -124,7 +124,6 @@ describe('Navigation', function() {
     assert.strictEqual(auditResults.length, 158);
     assert.deepStrictEqual(erroredAudits, []);
     assert.deepStrictEqual(failedAudits.map(audit => audit.id), [
-      'themed-omnibox',
       'document-title',
       'html-has-lang',
       'render-blocking-resources',
@@ -203,7 +202,6 @@ describe('Navigation', function() {
     assert.strictEqual(auditResults.length, 158);
     assert.deepStrictEqual(erroredAudits, []);
     assert.deepStrictEqual(failedAudits.map(audit => audit.id), [
-      'themed-omnibox',
       'document-title',
       'html-has-lang',
       'meta-description',

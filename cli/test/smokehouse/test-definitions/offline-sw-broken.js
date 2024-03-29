@@ -17,7 +17,6 @@ const config = {
       'user-timings',
       'critical-request-chains',
       'render-blocking-resources',
-      'themed-omnibox',
       'aria-valid-attr',
       'aria-allowed-attr',
       'color-contrast',

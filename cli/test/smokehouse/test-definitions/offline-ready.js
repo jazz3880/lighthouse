@@ -17,7 +17,6 @@ const config = {
       'user-timings',
       'critical-request-chains',
       'render-blocking-resources',
-      'themed-omnibox',
       'aria-valid-attr',
       'aria-allowed-attr',
       'color-contrast',
@@ -78,9 +77,6 @@ const expectations = {
       },
       'critical-request-chains': {
         scoreDisplayMode: 'notApplicable',
-      },
-      'themed-omnibox': {
-        score: 0,
       },
       'aria-valid-attr': {
         scoreDisplayMode: 'notApplicable',

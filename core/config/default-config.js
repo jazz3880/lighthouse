@@ -187,7 +187,6 @@ const defaultConfig = {
     'user-timings',
     'critical-request-chains',
     'redirects',
-    'themed-omnibox',
     'image-aspect-ratio',
     'image-size-responsive',
     'deprecations',
@@ -592,7 +591,6 @@ const defaultConfig = {
         {id: 'errors-in-console', weight: 1, group: 'best-practices-general'},
         {id: 'valid-source-maps', weight: 0, group: 'best-practices-general'},
         {id: 'inspector-issues', weight: 1, group: 'best-practices-general'},
-        {id: 'themed-omnibox', weight: 1, group: 'best-practices-general'},
       ],
     },
     'seo': {

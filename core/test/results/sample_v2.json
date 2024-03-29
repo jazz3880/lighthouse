@@ -859,28 +859,6 @@
       },
       "guidanceLevel": 2
     },
-    "themed-omnibox": {
-      "id": "themed-omnibox",
-      "title": "Does not set a theme color for the address bar.",
-      "description": "The browser address bar can be themed to match your site. [Learn more about theming the address bar](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/).",
-      "score": 0,
-      "scoreDisplayMode": "binary",
-      "explanation": "Failures: No manifest was fetched,\nNo `<meta name=\"theme-color\">` tag found.",
-      "details": {
-        "type": "debugdata",
-        "items": [
-          {
-            "failures": [
-              "No manifest was fetched",
-              "No `<meta name=\"theme-color\">` tag found"
-            ],
-            "themeColor": null,
-            "isParseFailure": true,
-            "parseFailureReason": "No manifest was fetched"
-          }
-        ]
-      }
-    },
     "image-aspect-ratio": {
       "id": "image-aspect-ratio",
       "title": "Displays images with incorrect aspect ratio",
@@ -6627,15 +6605,10 @@
           "id": "inspector-issues",
           "weight": 1,
           "group": "best-practices-general"
-        },
-        {
-          "id": "themed-omnibox",
-          "weight": 1,
-          "group": "best-practices-general"
         }
       ],
       "id": "best-practices",
-      "score": 0.33
+      "score": 0.35
     },
     "seo": {
       "title": "SEO",
@@ -8103,18 +8076,6 @@
       },
       {
         "startTime": 0,
-        "name": "lh:audit:themed-omnibox",
-        "duration": 100,
-        "entryType": "measure"
-      },
-      {
-        "startTime": 0,
-        "name": "lh:computed:ManifestValues",
-        "duration": 100,
-        "entryType": "measure"
-      },
-      {
-        "startTime": 0,
         "name": "lh:audit:image-aspect-ratio",
         "duration": 100,
         "entryType": "measure"
@@ -9493,12 +9454,6 @@
       ],
       "core/audits/redirects.js | description": [
         "audits.redirects.description"
-      ],
-      "core/audits/themed-omnibox.js | failureTitle": [
-        "audits[themed-omnibox].title"
-      ],
-      "core/audits/themed-omnibox.js | description": [
-        "audits[themed-omnibox].description"
       ],
       "core/audits/image-aspect-ratio.js | failureTitle": [
         "audits[image-aspect-ratio].title"
