@@ -139,8 +139,8 @@ describe('backward compatibility', () => {
     for (const auditRef of clonedSampleResult.categories['performance'].auditRefs) {
       if (auditRef.group === 'hidden') {
         delete auditRef.group;
-      } else if (!auditRef.group) {
-        auditRef.group = 'diagnostics';
+      } else if (auditRef.id === 'render-blocking-resources') {
+        auditRef.group = 'load-opportunities';
       }
     }
     assert.notDeepStrictEqual(clonedSampleResult.categories, sampleResult.categories);
@@ -151,6 +151,23 @@ describe('backward compatibility', () => {
     const preparedResult = upgradeLhr(sampleResult);
     assert.deepStrictEqual(clonedPreparedResult.categories, preparedResult.categories);
     assert.deepStrictEqual(clonedPreparedResult.categoryGroups, preparedResult.categoryGroups);
+  });
+
+  it('corrects performance category without consolidated diagnostics group', () => {
+    const clonedSampleResult = cloneLhr(sampleResult);
+
+    clonedSampleResult.lighthouseVersion = '11.0.0';
+    for (const auditRef of clonedSampleResult.categories['performance'].auditRefs) {
+      if (auditRef.group === 'diagnostics') {
+        delete auditRef.group;
+      }
+    }
+    assert.notDeepStrictEqual(clonedSampleResult.categories, sampleResult.categories);
+
+    // Original audit results should be restored.
+    const clonedPreparedResult = upgradeLhr(clonedSampleResult);
+    const preparedResult = upgradeLhr(sampleResult);
+    assert.deepStrictEqual(clonedPreparedResult.categories, preparedResult.categories);
   });
 
   it('converts old opportunity table column headings to consolidated table headings', () => {

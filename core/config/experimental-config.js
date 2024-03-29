@@ -23,7 +23,7 @@ const config = {
     // config is awkward - easier to omit the property here. Will defer to default config.
     'performance': {
       auditRefs: [
-        {id: 'uses-rel-preload', weight: 0},
+        {id: 'uses-rel-preload', weight: 0, group: 'diagnostics'},
       ],
     },
     // @ts-ignore: `title` is required in CategoryJson. setting to the same value as the default
