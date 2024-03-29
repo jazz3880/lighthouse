@@ -697,25 +697,6 @@ describe('ReportUIFeatures', () => {
       assert.ok(container.querySelector('.lh-score100'), 'has fireworks treatment');
     });
 
-    it('should show fireworks for all 100s except PWA', () => {
-      const lhr = JSON.parse(JSON.stringify(sampleResults));
-      Object.values(lhr.categories).forEach(element => {
-        element.score = 1;
-      });
-
-      lhr.categories = {
-        ...lhr.categories,
-        pwa: {
-          id: 'pwa',
-          score: 0,
-          auditRefs: [],
-        },
-      };
-
-      const container = render(lhr);
-      assert.ok(container.querySelector('.lh-score100'), 'has fireworks treatment');
-    });
-
     it('should not render fireworks if all core categories are not present', () => {
       const lhr = JSON.parse(JSON.stringify(sampleResults));
       delete lhr.categories.performance;
