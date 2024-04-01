@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2019 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2019 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 import {TimingSummary} from '../../../computed/metrics/timing-summary.js';
@@ -66,7 +66,6 @@ describe('Timing summary', () => {
         "observedSpeedIndexTs": 10328522489.12,
         "observedTimeOrigin": 0,
         "observedTimeOriginTs": 10327187909,
-        "observedTotalCumulativeLayoutShift": 0.0011656245471340055,
         "observedTraceEnd": 14214.313,
         "observedTraceEndTs": 10341402222,
         "speedIndex": 1335,
@@ -74,7 +73,6 @@ describe('Timing summary', () => {
         "timeToFirstByte": 570.329,
         "timeToFirstByteTs": 10327758238,
         "totalBlockingTime": 2.7429999999994834,
-        "totalCumulativeLayoutShift": 0.0011656245471340055,
       }
     `);
     // Includes performance metrics

@@ -1,17 +1,19 @@
 /**
- * @license Copyright 2018 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2018 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 import {Protocol as Crdp} from 'devtools-protocol/types/protocol.js';
+import * as TraceEngine from '@paulirish/trace_engine';
+import {LayoutShiftRootCausesData} from '@paulirish/trace_engine/models/trace/root-causes/LayoutShift.js';
 
 import {parseManifest} from '../core/lib/manifest-parser.js';
-import {Simulator} from '../core/lib/dependency-graph/simulator/simulator.js';
+import {Simulator} from '../core/lib/lantern/simulator/simulator.js';
 import {LighthouseError} from '../core/lib/lh-error.js';
 import {NetworkRequest as _NetworkRequest} from '../core/lib/network-request.js';
 import speedline from 'speedline-core';
-import * as TextSourceMap from '../core/lib/cdt/generated/SourceMap.js';
+import * as CDTSourceMap from '../core/lib/cdt/generated/SourceMap.js';
 import {ArbitraryEqualityMap} from '../core/lib/arbitrary-equality-map.js';
 import type { TaskNode as _TaskNode } from '../core/lib/tracehouse/main-thread-tasks.js';
 import AuditDetails from './lhr/audit-details.js'
@@ -24,23 +26,14 @@ import Protocol from './protocol.js';
 import Util from './utility-types.js';
 import Audit from './audit.js';
 
-export interface Artifacts extends BaseArtifacts, GathererArtifacts {}
-
-export type FRArtifacts = Util.StrictOmit<Artifacts,
-  | 'Fonts'
-  | 'Manifest'
-  | 'MixedContent'
-  | keyof FRBaseArtifacts
->;
+export type Artifacts = BaseArtifacts & GathererArtifacts;
 
 /**
  * Artifacts always created by gathering. These artifacts are available to Lighthouse plugins.
  * NOTE: any breaking changes here are considered breaking Lighthouse changes that must be done
  * on a major version bump.
  */
-export type BaseArtifacts = UniversalBaseArtifacts & ContextualBaseArtifacts & LegacyBaseArtifacts
-
-export type FRBaseArtifacts = UniversalBaseArtifacts & ContextualBaseArtifacts;
+export type BaseArtifacts = UniversalBaseArtifacts & ContextualBaseArtifacts;
 
 /**
  * The set of base artifacts that are available in every mode of Lighthouse operation.
@@ -62,6 +55,8 @@ interface UniversalBaseArtifacts {
   HostFormFactor: 'desktop'|'mobile';
   /** The user agent string of the version of Chrome used. */
   HostUserAgent: string;
+  /** The product string of the version of Chrome used. Example: HeadlessChrome/123.2.2.0 would be from old headless. */
+  HostProduct: string;
   /** Information about how Lighthouse artifacts were gathered. */
   GatherContext: {gatherMode: Gatherer.GatherMode};
 }
@@ -74,18 +69,6 @@ interface ContextualBaseArtifacts {
   URL: Artifacts.URL;
   /** If loading the page failed, value is the error that caused it. Otherwise null. */
   PageLoadError: LighthouseError | null;
-}
-
-/**
- * The set of base artifacts that were replaced by standard gatherers in Fraggle Rock.
- */
-interface LegacyBaseArtifacts {
-  /** The user agent string that Lighthouse used to load the page. Set to the empty string if unknown. */
-  NetworkUserAgent: string;
-  /** A set of page-load traces, keyed by passName. */
-  traces: {[passName: string]: Trace};
-  /** A set of DevTools debugger protocol records, keyed by passName. */
-  devtoolsLogs: {[passName: string]: DevtoolsLog};
 }
 
 /**
@@ -106,8 +89,8 @@ interface PublicGathererArtifacts {
   LinkElements: Artifacts.LinkElement[];
   /** The values of the <meta> elements in the head. */
   MetaElements: Array<{name?: string, content?: string, property?: string, httpEquiv?: string, charset?: string, node: Artifacts.NodeDetails}>;
-  /** Information on all script elements in the page. Also contains the content of all requested scripts and the networkRecord requestId that contained their content. Note, HTML documents will have one entry per script tag, all with the same requestId. */
-  ScriptElements: Array<Artifacts.ScriptElement>;
+  /** Information on all scripts in the page. */
+  Scripts: Artifacts.Script[];
   /** The dimensions and devicePixelRatio of the loaded viewport. */
   ViewportDimensions: Artifacts.ViewportDimensions;
 }
@@ -116,7 +99,7 @@ interface PublicGathererArtifacts {
  * Artifacts provided by the default gatherers. Augment this interface when adding additional
  * gatherers. Changes to these artifacts are not considered a breaking Lighthouse change.
  */
-export interface GathererArtifacts extends PublicGathererArtifacts,LegacyBaseArtifacts {
+export interface GathererArtifacts extends PublicGathererArtifacts {
   /** The results of running the aXe accessibility tests on the page. */
   Accessibility: Artifacts.Accessibility;
   /** Array of all anchors on the page. */
@@ -127,8 +110,10 @@ export interface GathererArtifacts extends PublicGathererArtifacts,LegacyBaseArt
   CacheContents: string[];
   /** CSS coverage information for styles used by page's final state. */
   CSSUsage: {rules: Crdp.CSS.RuleUsage[], stylesheets: Artifacts.CSSStyleSheetInfo[]};
-  /** The primary log of devtools protocol activity. Used in Fraggle Rock gathering. */
+  /** The primary log of devtools protocol activity. */
   DevtoolsLog: DevtoolsLog;
+  /** The log of devtools protocol activity if there was a page load error and Chrome navigated to a `chrome-error://` page. */
+  DevtoolsLogError: DevtoolsLog;
   /** Information on the document's doctype(or null if not present), specifically the name, publicId, and systemId.
       All properties default to an empty string if not present */
   Doctype: Artifacts.Doctype | null;
@@ -136,8 +121,6 @@ export interface GathererArtifacts extends PublicGathererArtifacts,LegacyBaseArt
   DOMStats: Artifacts.DOMStats;
   /** Relevant attributes and child properties of all <object>s, <embed>s and <applet>s in the page. */
   EmbeddedContent: Artifacts.EmbeddedContentInfo[];
-  /** Information for font faces used in the page. */
-  Fonts: Artifacts.Font[];
   /** Information on poorly sized font usage and the text affected by it. */
   FontSize: Artifacts.FontSize;
   /** All the input elements, including associated form and label elements. */
@@ -153,18 +136,16 @@ export interface GathererArtifacts extends PublicGathererArtifacts,LegacyBaseArt
   /** JS coverage information for code used during audit. Keyed by script id. */
   // 'url' is excluded because it can be overridden by a magic sourceURL= comment, which makes keeping it a dangerous footgun!
   JsUsage: Record<string, Omit<Crdp.Profiler.ScriptCoverage, 'url'>>;
-  /** Parsed version of the page's Web App Manifest, or null if none found. */
-  Manifest: Artifacts.Manifest | null;
-  /** The URL loaded with interception */
-  MixedContent: {url: string};
+  /** The user agent string that Lighthouse used to load the page. Set to the empty string if unknown. */
+  NetworkUserAgent: string;
   /** Size and compression opportunity information for all the images in the page. */
   OptimizedImages: Array<Artifacts.OptimizedImage | Artifacts.OptimizedImageError>;
   /** Size info of all network records sent without compression and their size after gzipping. */
   ResponseCompression: {requestId: string, url: string, mimeType: string, transferSize: number, resourceSize: number, gzipSize?: number}[];
   /** Information on fetching and the content of the /robots.txt file. */
   RobotsTxt: {status: number|null, content: string|null, errorMessage?: string};
-  /** Information on all scripts in the page. */
-  Scripts: Artifacts.Script[];
+  /** The result of calling the shared trace engine root cause analysis. */
+  RootCauses: Artifacts.TraceEngineRootCauses;
   /** Version information for all ServiceWorkers active after the first page load. */
   ServiceWorker: {versions: Crdp.ServiceWorker.ServiceWorkerVersion[], registrations: Crdp.ServiceWorker.ServiceWorkerRegistration[]};
   /** Source maps of scripts executed in the page. */
@@ -175,12 +156,18 @@ export interface GathererArtifacts extends PublicGathererArtifacts,LegacyBaseArt
   TagsBlockingFirstPaint: Artifacts.TagBlockingFirstPaint[];
   /** Information about tap targets including their position and size. */
   TapTargets: Artifacts.TapTarget[];
-  /** The primary log of devtools protocol activity. Used in Fraggle Rock gathering. */
+  /** The primary trace taken over the entire run. */
   Trace: Trace;
+  /** The trace if there was a page load error and Chrome navigated to a `chrome-error://` page. */
+  TraceError: Trace;
   /** Elements associated with metrics (ie: Largest Contentful Paint element). */
   TraceElements: Artifacts.TraceElement[];
   /** Parsed version of the page's Web App Manifest, or null if none found. */
   WebAppManifest: Artifacts.Manifest | null;
+  /** COMPAT: A set of traces, keyed by passName. */
+  traces: {[passName: string]: Trace};
+  /** COMPAT: A set of DevTools debugger protocol records, keyed by passName. */
+  devtoolsLogs: {[passName: string]: DevtoolsLog};
 }
 
 declare module Artifacts {
@@ -190,6 +177,7 @@ declare module Artifacts {
 
   type NetworkRequest = _NetworkRequest;
   type TaskNode = _TaskNode;
+  type TBTImpactTask = TaskNode & {tbtImpact: number, selfTbtImpact: number};
   type MetaElement = Artifacts['MetaElements'][0];
 
   interface URL {
@@ -226,7 +214,7 @@ declare module Artifacts {
     impact?: string;
     tags: Array<string>;
     nodes: Array<{
-      target: Array<string>;
+      target: Array<string|string[]>;
       failureSummary?: string;
       node: NodeDetails;
       relatedNodes: NodeDetails[];
@@ -388,7 +376,7 @@ declare module Artifacts {
   interface Bundle {
     rawMap: RawSourceMap;
     script: Artifacts.Script;
-    map: TextSourceMap;
+    map: CDTSourceMap;
     sizes: {
       // TODO(cjamcl): Rename to `sources`.
       files: Record<string, number>;
@@ -410,6 +398,7 @@ declare module Artifacts {
     target: string
     node: NodeDetails
     onclick: string
+    id: string
     listeners?: Array<{
       type: Crdp.DOMDebugger.EventListener['type']
     }>
@@ -423,18 +412,6 @@ declare module Artifacts {
 
   interface BFCacheFailure {
     notRestoredReasonsTree: BFCacheNotRestoredReasonsTree;
-  }
-
-  interface Font {
-    display: string;
-    family: string;
-    featureSettings: string;
-    stretch: string;
-    style: string;
-    unicodeRange: string;
-    variant: string;
-    weight: string;
-    src?: string[];
   }
 
   interface FontSize {
@@ -584,12 +561,17 @@ declare module Artifacts {
   }
 
   interface TraceElement {
-    traceEventType: 'largest-contentful-paint'|'layout-shift'|'animation'|'responsiveness';
-    score?: number;
+    traceEventType: 'largest-contentful-paint'|'layout-shift'|'layout-shift-element'|'animation'|'responsiveness';
     node: NodeDetails;
-    nodeId?: number;
+    nodeId: number;
     animations?: {name?: string, failureReasonsMask?: number, unsupportedProperties?: string[]}[];
     type?: string;
+  }
+
+  type TraceEngineResult = TraceEngine.Handlers.Types.TraceParseData;
+
+  interface TraceEngineRootCauses {
+    layoutShifts: Record<number, LayoutShiftRootCausesData>;
   }
 
   interface ViewportDimensions {
@@ -606,6 +588,7 @@ declare module Artifacts {
     bounceTrackingIssue: Crdp.Audits.BounceTrackingIssueDetails[];
     clientHintIssue: Crdp.Audits.ClientHintIssueDetails[];
     contentSecurityPolicyIssue: Crdp.Audits.ContentSecurityPolicyIssueDetails[];
+    cookieDeprecationMetadataIssue: Crdp.Audits.CookieDeprecationMetadataIssueDetails[],
     corsIssue: Crdp.Audits.CorsIssueDetails[];
     deprecationIssue: Crdp.Audits.DeprecationIssueDetails[];
     federatedAuthRequestIssue: Crdp.Audits.FederatedAuthRequestIssueDetails[],
@@ -614,9 +597,12 @@ declare module Artifacts {
     lowTextContrastIssue: Crdp.Audits.LowTextContrastIssueDetails[];
     mixedContentIssue: Crdp.Audits.MixedContentIssueDetails[];
     navigatorUserAgentIssue: Crdp.Audits.NavigatorUserAgentIssueDetails[];
+    propertyRuleIssue: Crdp.Audits.PropertyRuleIssueDetails[],
     quirksModeIssue: Crdp.Audits.QuirksModeIssueDetails[];
     cookieIssue: Crdp.Audits.CookieIssueDetails[];
     sharedArrayBufferIssue: Crdp.Audits.SharedArrayBufferIssueDetails[];
+    stylesheetLoadingIssue: Crdp.Audits.StylesheetLoadingIssueDetails[];
+    federatedAuthUserInfoRequestIssue: Crdp.Audits.FederatedAuthUserInfoRequestIssueDetails[];
   }
 
   // Computed artifact types below.
@@ -725,7 +711,7 @@ declare module Artifacts {
     mainFrameInfo: {startingPid: number, frameId: string};
     /** The list of frames committed in the trace. */
     frames: Array<{id: string, url: string}>;
-    /** The trace event marking the time at which the run should consider to have begun. Typically the same as the navigationStart but might differ due to SPA navigations, client-side redirects, etc. In the FR timespan case, this event is injected by Lighthouse itself. */
+    /** The trace event marking the time at which the run should consider to have begun. Typically the same as the navigationStart but might differ due to SPA navigations, client-side redirects, etc. In the timespan case, this event is injected by Lighthouse itself. */
     timeOriginEvt: TraceEvent;
     /** All received trace events subsetted to important categories. */
     _keyEvents: Array<TraceEvent>;
@@ -799,7 +785,6 @@ declare module Artifacts {
     maxPotentialFID: number | undefined;
     cumulativeLayoutShift: number | undefined;
     cumulativeLayoutShiftMainFrame: number | undefined;
-    totalCumulativeLayoutShift: number | undefined;
     totalBlockingTime: number | undefined;
     observedTimeOrigin: number;
     observedTimeOriginTs: number;
@@ -807,7 +792,6 @@ declare module Artifacts {
     observedNavigationStartTs: number | undefined;
     observedCumulativeLayoutShift: number | undefined;
     observedCumulativeLayoutShiftMainFrame: number | undefined;
-    observedTotalCumulativeLayoutShift: number | undefined;
     observedFirstPaint: number | undefined;
     observedFirstPaintTs: number | undefined;
     observedFirstContentfulPaint: number | undefined;
@@ -948,6 +932,12 @@ declare module Artifacts {
     // Convenience methods.
     isFirstParty: (url: string) => boolean;
   }
+
+  interface TraceImpactedNode {
+    node_id: number;
+    old_rect?: Array<number>;
+    new_rect?: Array<number>;
+  }
 }
 
 export interface Trace {
@@ -982,7 +972,11 @@ export interface TraceEvent {
     };
     data?: {
       frame?: string;
+      parent?: string;
       frameID?: string;
+      frameTreeNodeId?: number;
+      isMainFrame?: boolean;
+      persistentIds?: boolean,
       processId?: number;
       isLoadingMainFrame?: boolean;
       documentLoaderURL?: string;
@@ -992,6 +986,7 @@ export interface TraceEvent {
         url: string;
         parent?: string;
         processId?: number;
+        name?: string;
       }[];
       page?: string;
       readyState?: number;
@@ -1017,11 +1012,7 @@ export interface TraceEvent {
       nodeId?: number;
       DOMNodeId?: number;
       imageUrl?: string;
-      impacted_nodes?: Array<{
-        node_id: number,
-        old_rect?: Array<number>,
-        new_rect?: Array<number>,
-      }>;
+      impacted_nodes?: Artifacts.TraceImpactedNode[];
       score?: number;
       weighted_score_delta?: number;
       had_recent_input?: boolean;
@@ -1032,6 +1023,10 @@ export interface TraceEvent {
       interactionType?: 'drag'|'keyboard'|'tapOrClick';
       maxDuration?: number;
       type?: string;
+      functionName?: string;
+      name?: string;
+      duration?: number;
+      blockingDuration?: number;
     };
     frame?: string;
     name?: string;

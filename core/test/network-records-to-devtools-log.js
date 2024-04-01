@@ -1,8 +1,8 @@
 // @ts-nocheck
 /**
- * @license Copyright 2018 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2018 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 import assert from 'assert/strict';
@@ -288,12 +288,32 @@ function getResponseReceivedEvent(networkRecord, index, normalizedTiming) {
         connectionId: networkRecord.connectionId || 140,
         fromDiskCache: networkRecord.fromDiskCache || false,
         fromServiceWorker: networkRecord.fetchedViaServiceWorker || false,
-        encodedDataLength: networkRecord.transferSize === undefined ?
-          0 : networkRecord.transferSize,
+        encodedDataLength: networkRecord.responseHeadersTransferSize || 0,
         timing: {...normalizedTiming.timing},
         protocol: networkRecord.protocol || 'http/1.1',
       },
       frameId: networkRecord.frameId || `${idBase}.1`,
+    },
+    targetType: 'sessionTargetType' in networkRecord ? networkRecord.sessionTargetType : 'page',
+    sessionId: networkRecord.sessionId,
+  };
+}
+
+/**
+ * @param {Partial<NetworkRequest>} networkRecord
+ * @param {number} index
+ * @return {LH.Protocol.RawEventMessage}
+ */
+function getResponseReceivedExtraInfoEvent(networkRecord, index) {
+  const headers = headersArrayToHeadersDict(networkRecord.responseHeaders);
+
+  return {
+    method: 'Network.responseReceivedExtraInfo',
+    params: {
+      requestId: getBaseRequestId(networkRecord) || `${idBase}.${index}`,
+      statusCode: networkRecord.statusCode || 200,
+      headers,
+      headersText: networkRecord.responseHeadersText,
     },
     targetType: 'sessionTargetType' in networkRecord ? networkRecord.sessionTargetType : 'page',
     sessionId: networkRecord.sessionId,
@@ -416,6 +436,10 @@ function addRedirectResponseIfNeeded(networkRecords, record) {
 function networkRecordsToDevtoolsLog(networkRecords, options = {}) {
   const devtoolsLog = [];
   networkRecords.forEach((networkRecord, index) => {
+    if (networkRecord.url && new URL(networkRecord.url).hash) {
+      throw new Error(`Network records should not have hashes: ${networkRecord.url}`);
+    }
+
     networkRecord = addRedirectResponseIfNeeded(networkRecords, networkRecord);
 
     const normalizedTiming = getNormalizedRequestTiming(networkRecord);
@@ -436,8 +460,14 @@ function networkRecordsToDevtoolsLog(networkRecords, options = {}) {
     }
 
     devtoolsLog.push(getResponseReceivedEvent(networkRecord, index, normalizedTiming));
+    if (networkRecord.responseHeadersText) {
+      devtoolsLog.push(getResponseReceivedExtraInfoEvent(networkRecord, index));
+    }
     devtoolsLog.push(getDataReceivedEvent(networkRecord, index));
-    devtoolsLog.push(getLoadingFinishedEvent(networkRecord, index, normalizedTiming));
+
+    if (networkRecord.finished !== false) {
+      devtoolsLog.push(getLoadingFinishedEvent(networkRecord, index, normalizedTiming));
+    }
   });
 
   // If in a test, assert that the log will turn into an equivalent networkRecords.

@@ -36,22 +36,16 @@ Note: some good URLs will 4xx b/c the site blocks such usages of `curl`.
 ## Run
 
 ```sh
-DEBUG=1 WPT_KEY=... SAMPLES=3 node --max-old-space-size=4096 collect.js
+DEBUG=1 WPT_KEY=... node --max-old-space-size=4096 collect.js
 ```
 
 Output will be in `dist/collect-lantern-traces`, and zipped at `dist/collect-lantern-traces.zip`.
 
-```sh
-node golden.js
-```
-
-Output will be in `dist/golden-lantern-traces`, and zipped at `dist/golden-lantern-traces.zip`.
-
-Update the zips on Google Drive and `download-traces.sh`.
+Update the zip on Google Drive and `download-traces.sh`.
 
 
 ## Run in GCP
 
 ```sh
-WPT_KEY=... /usr/local/google/home/cjamcl/code/lighthouse/core/scripts/lantern/collect/gcp-create-and-run.sh
+WPT_KEY=... core/scripts/lantern/collect/gcp-create-and-run.sh
 ```

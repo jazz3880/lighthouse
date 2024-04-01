@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2017 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2017 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 /**
@@ -10,13 +10,13 @@
 
 import log from 'lighthouse-logger';
 
-import FRGatherer from '../base-gatherer.js';
+import BaseGatherer from '../base-gatherer.js';
 import {Sentry} from '../../lib/sentry.js';
 
-class CSSUsage extends FRGatherer {
+class CSSUsage extends BaseGatherer {
   constructor() {
     super();
-    /** @type {LH.Gatherer.FRProtocolSession|undefined} */
+    /** @type {LH.Gatherer.ProtocolSession|undefined} */
     this._session = undefined;
     /** @type {Map<string, Promise<LH.Artifacts.CSSStyleSheetInfo|Error>>} */
     this._sheetPromises = new Map();
@@ -36,7 +36,7 @@ class CSSUsage extends FRGatherer {
   /**
    * @param {LH.Crdp.CSS.StyleSheetAddedEvent} event
    */
-  async _onStylesheetAdded(event) {
+  _onStylesheetAdded(event) {
     if (!this._session) throw new Error('Session not initialized');
     const styleSheetId = event.header.styleSheetId;
     const sheetPromise = this._session.sendCommand('CSS.getStyleSheetText', {styleSheetId})
@@ -51,7 +51,7 @@ class CSSUsage extends FRGatherer {
         );
         Sentry.captureException(err, {
           tags: {
-            gatherer: this.name,
+            gatherer: 'CSSUsage',
           },
           extra: {
             url: event.header.sourceURL,
@@ -64,61 +64,62 @@ class CSSUsage extends FRGatherer {
   }
 
   /**
-   * @param {LH.Gatherer.FRTransitionalContext} context
+   * @param {LH.Gatherer.Context} context
    */
-  async startCSSUsageTracking(context) {
+  async startInstrumentation(context) {
     const session = context.driver.defaultSession;
     this._session = session;
-    session.on('CSS.styleSheetAdded', this._onStylesheetAdded);
+
+    // Calling `CSS.enable` will emit events for stylesheets currently on the page.
+    // We want to ignore these events in navigation mode because they are not relevant to the
+    // navigation that is about to happen. Adding the event listener *after* calling `CSS.enable`
+    // ensures that the events for pre-existing stylesheets are ignored.
+    const isNavigation = context.gatherMode === 'navigation';
+    if (!isNavigation) {
+      session.on('CSS.styleSheetAdded', this._onStylesheetAdded);
+    }
 
     await session.sendCommand('DOM.enable');
     await session.sendCommand('CSS.enable');
     await session.sendCommand('CSS.startRuleUsageTracking');
+
+    if (isNavigation) {
+      session.on('CSS.styleSheetAdded', this._onStylesheetAdded);
+    }
   }
 
 
   /**
-   * @param {LH.Gatherer.FRTransitionalContext} context
+   * @param {LH.Gatherer.Context} context
    */
-  async stopCSSUsageTracking(context) {
+  async stopInstrumentation(context) {
     const session = context.driver.defaultSession;
     const coverageResponse = await session.sendCommand('CSS.stopRuleUsageTracking');
     this._ruleUsage = coverageResponse.ruleUsage;
     session.off('CSS.styleSheetAdded', this._onStylesheetAdded);
+
+    // Ensure we finish fetching all stylesheet contents before disabling the CSS domain
+    await Promise.all(this._sheetPromises.values());
+
+    await session.sendCommand('CSS.disable');
+    await session.sendCommand('DOM.disable');
   }
 
   /**
-   * @param {LH.Gatherer.FRTransitionalContext} context
-   */
-  async startInstrumentation(context) {
-    if (context.gatherMode !== 'timespan') return;
-    await this.startCSSUsageTracking(context);
-  }
-
-  /**
-   * @param {LH.Gatherer.FRTransitionalContext} context
-   */
-  async stopInstrumentation(context) {
-    if (context.gatherMode !== 'timespan') return;
-    await this.stopCSSUsageTracking(context);
-  }
-
-  /**
-   * @param {LH.Gatherer.FRTransitionalContext} context
+   * @param {LH.Gatherer.Context} context
    * @return {Promise<LH.Artifacts['CSSUsage']>}
    */
   async getArtifact(context) {
-    const session = context.driver.defaultSession;
     const executionContext = context.driver.executionContext;
 
-    if (context.gatherMode !== 'timespan') {
-      await this.startCSSUsageTracking(context);
+    if (context.gatherMode === 'snapshot') {
+      await this.startInstrumentation(context);
 
       // Force style to recompute.
       // Doesn't appear to be necessary in newer versions of Chrome.
       await executionContext.evaluateAsync('getComputedStyle(document.body)');
 
-      await this.stopCSSUsageTracking(context);
+      await this.stopInstrumentation(context);
     }
 
     /** @type {Map<string, LH.Artifacts.CSSStyleSheetInfo>} */
@@ -132,11 +133,13 @@ class CSSUsage extends FRGatherer {
         continue;
       }
 
+      // Exclude empty stylesheets.
+      if (sheet.header.length === 0) {
+        continue;
+      }
+
       dedupedStylesheets.set(sheet.content, sheet);
     }
-
-    await session.sendCommand('CSS.disable');
-    await session.sendCommand('DOM.disable');
 
     if (!this._ruleUsage) throw new Error('Issue collecting rule usages');
 

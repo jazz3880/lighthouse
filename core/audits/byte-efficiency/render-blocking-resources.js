@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2018 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2018 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 /**
@@ -11,17 +11,18 @@
 
 import {Audit} from '../audit.js';
 import * as i18n from '../../lib/i18n/i18n.js';
-import {BaseNode} from '../../lib/dependency-graph/base-node.js';
-import {ByteEfficiencyAudit} from './byte-efficiency-audit.js';
+import {BaseNode} from '../../lib/lantern/base-node.js';
 import {UnusedCSS} from '../../computed/unused-css.js';
 import {NetworkRequest} from '../../lib/network-request.js';
 import {ProcessedNavigation} from '../../computed/processed-navigation.js';
 import {LoadSimulator} from '../../computed/load-simulator.js';
 import {FirstContentfulPaint} from '../../computed/metrics/first-contentful-paint.js';
+import {LCPImageRecord} from '../../computed/lcp-image-record.js';
 
-/** @typedef {import('../../lib/dependency-graph/simulator/simulator').Simulator} Simulator */
-/** @typedef {import('../../lib/dependency-graph/base-node.js').Node} Node */
-/** @typedef {import('../../lib/dependency-graph/network-node.js')} NetworkNode */
+
+/** @typedef {import('../../lib/lantern/simulator/simulator.js').Simulator} Simulator */
+/** @typedef {import('../../lib/lantern/base-node.js').Node<LH.Artifacts.NetworkRequest>} Node */
+/** @typedef {import('../../lib/lantern/network-node.js').NetworkNode<LH.Artifacts.NetworkRequest>} NetworkNode */
 
 // Because of the way we detect blocking stylesheets, asynchronously loaded
 // CSS with link[rel=preload] and an onload handler (see https://github.com/filamentgroup/loadCSS)
@@ -113,8 +114,9 @@ class RenderBlockingResources extends Audit {
       id: 'render-blocking-resources',
       title: str_(UIStrings.title),
       supportedModes: ['navigation'],
-      scoreDisplayMode: Audit.SCORING_MODES.NUMERIC,
+      scoreDisplayMode: Audit.SCORING_MODES.METRIC_SAVINGS,
       description: str_(UIStrings.description),
+      guidanceLevel: 2,
       // TODO: look into adding an `optionalArtifacts` property that captures the non-required nature
       // of CSSUsage
       requiredArtifacts: ['URL', 'TagsBlockingFirstPaint', 'traces', 'devtoolsLogs', 'CSSUsage',
@@ -125,7 +127,7 @@ class RenderBlockingResources extends Audit {
   /**
    * @param {LH.Artifacts} artifacts
    * @param {LH.Audit.Context} context
-   * @return {Promise<{wastedMs: number, results: Array<{url: string, totalBytes: number, wastedMs: number}>}>}
+   * @return {Promise<{fcpWastedMs: number, lcpWastedMs: number, results: Array<{url: string, totalBytes: number, wastedMs: number}>}>}
    */
   static async computeResults(artifacts, context) {
     const gatherContext = artifacts.GatherContext;
@@ -179,10 +181,10 @@ class RenderBlockingResources extends Audit {
     }
 
     if (!results.length) {
-      return {results, wastedMs: 0};
+      return {results, fcpWastedMs: 0, lcpWastedMs: 0};
     }
 
-    const wastedMs = RenderBlockingResources.estimateSavingsWithGraphs(
+    const fcpWastedMs = RenderBlockingResources.estimateSavingsWithGraphs(
       simulator,
       fcpSimulation.optimisticGraph,
       deferredNodeIds,
@@ -190,7 +192,10 @@ class RenderBlockingResources extends Audit {
       artifacts.Stacks
     );
 
-    return {results, wastedMs};
+    const lcpRecord = await LCPImageRecord.request(metricComputationData, context);
+
+    // In most cases if the LCP is an image, render blocking resources don't affect LCP. For these cases we should reduce its impact.
+    return {results, fcpWastedMs, lcpWastedMs: lcpRecord ? 0 : fcpWastedMs};
   }
 
   /**
@@ -244,9 +249,9 @@ class RenderBlockingResources extends Audit {
     // Add the inlined bytes to the HTML response
     const originalTransferSize = minimalFCPGraph.record.transferSize;
     const safeTransferSize = originalTransferSize || 0;
-    minimalFCPGraph.record.transferSize = safeTransferSize + totalChildNetworkBytes;
+    minimalFCPGraph.request.transferSize = safeTransferSize + totalChildNetworkBytes;
     const estimateAfterInline = simulator.simulate(minimalFCPGraph).timeInMs;
-    minimalFCPGraph.record.transferSize = originalTransferSize;
+    minimalFCPGraph.request.transferSize = originalTransferSize;
     return Math.round(Math.max(estimateBeforeInline - estimateAfterInline, 0));
   }
 
@@ -276,11 +281,12 @@ class RenderBlockingResources extends Audit {
    * @return {Promise<LH.Audit.Product>}
    */
   static async audit(artifacts, context) {
-    const {results, wastedMs} = await RenderBlockingResources.computeResults(artifacts, context);
+    const {results, fcpWastedMs, lcpWastedMs} =
+      await RenderBlockingResources.computeResults(artifacts, context);
 
     let displayValue;
     if (results.length > 0) {
-      displayValue = str_(i18n.UIStrings.displayValueMsSavings, {wastedMs});
+      displayValue = str_(i18n.UIStrings.displayValueMsSavings, {wastedMs: fcpWastedMs});
     }
 
     /** @type {LH.Audit.Details.Opportunity['headings']} */
@@ -291,14 +297,15 @@ class RenderBlockingResources extends Audit {
     ];
 
     const details = Audit.makeOpportunityDetails(headings, results,
-      {overallSavingsMs: wastedMs});
+      {overallSavingsMs: fcpWastedMs});
 
     return {
       displayValue,
-      score: ByteEfficiencyAudit.scoreForWastedMs(wastedMs),
-      numericValue: wastedMs,
+      score: results.length ? 0 : 1,
+      numericValue: fcpWastedMs,
       numericUnit: 'millisecond',
       details,
+      metricSavings: {FCP: fcpWastedMs, LCP: lcpWastedMs},
     };
   }
 }

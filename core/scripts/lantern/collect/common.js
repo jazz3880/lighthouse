@@ -1,13 +1,14 @@
 /**
- * @license Copyright 2019 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2019 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 /** @typedef {{devtoolsLog?: string, lhr: string, trace: string}} Result */
-/** @typedef {{url: string, wpt: Result[], unthrottled: Result[]}} ResultsForUrl */
+/** @typedef {{url: string, wpt: Result|null, wptRetries: number, unthrottled: Result|null, unthrottledRetries: number, errors?: string[]}} ResultsForUrl */
 /** @typedef {Result & {metrics: LH.Artifacts.TimingSummary}} ResultWithMetrics */
-/** @typedef {{results: ResultsForUrl[], warnings: string[]}} Summary */
+/** @typedef {{results: ResultsForUrl[]}} Summary */
+/** @typedef {import('../run-on-all-assets.js').Golden} Golden */
 
 import fs from 'fs';
 import readline from 'readline';
@@ -16,13 +17,13 @@ import stream from 'stream';
 
 import archiver from 'archiver';
 
-import {LH_ROOT} from '../../../../root.js';
+import {LH_ROOT} from '../../../../shared/root.js';
 
 const streamFinished = promisify(stream.finished);
 
 const collectFolder = `${LH_ROOT}/dist/collect-lantern-traces`;
 const summaryPath = `${collectFolder}/summary.json`;
-const goldenFolder = `${LH_ROOT}/dist/golden-lantern-traces`;
+const goldenPath = `${collectFolder}/site-index-plus-golden-expectations.json`;
 
 const IS_INTERACTIVE = !!process.stdout.isTTY && !process.env.GCP_COLLECT;
 
@@ -94,7 +95,7 @@ function loadSummary() {
   if (fs.existsSync(summaryPath)) {
     return JSON.parse(fs.readFileSync(summaryPath, 'utf-8'));
   } else {
-    return {results: [], warnings: []};
+    return {results: []};
   }
 }
 
@@ -103,6 +104,13 @@ function loadSummary() {
  */
 function saveSummary(summary) {
   fs.writeFileSync(summaryPath, JSON.stringify(summary, null, 2));
+}
+
+/**
+ * @param {Golden} golden
+ */
+function saveGolden(golden) {
+  fs.writeFileSync(goldenPath, JSON.stringify(golden, null, 2));
 }
 
 /**
@@ -130,9 +138,9 @@ function getMetrics(lhr) {
 export {
   ProgressLogger,
   collectFolder,
-  goldenFolder,
   archive,
   loadSummary,
   saveSummary,
+  saveGolden,
   getMetrics,
 };

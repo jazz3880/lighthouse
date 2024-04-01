@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2023 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2023 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 import {TimeToFirstByte} from '../../../computed/metrics/time-to-first-byte.js';
@@ -41,9 +41,11 @@ function mockNetworkRecords() {
     networkRequestTime: 0,
     networkEndTime: 300,
     timing: {sendEnd: 0},
+    responseHeadersTransferSize: 300,
     transferSize: 300,
     url: requestedUrl,
     frameId: 'ROOT_FRAME',
+    responseHeaders: [{name: 'Content-Encoding', value: 'gzip'}],
   },
   {
     requestId: '2:redirect',
@@ -53,10 +55,11 @@ function mockNetworkRecords() {
     networkRequestTime: 300,
     responseHeadersEndTime: 400,
     networkEndTime: 500,
-    timing: {sendEnd: 0, receiveHeadersEnd: 100},
+    timing: {sendEnd: 0, receiveHeadersStart: 100},
     transferSize: 16_000,
     url: mainDocumentUrl,
     frameId: 'ROOT_FRAME',
+    responseHeaders: [{name: 'Content-Encoding', value: 'gzip'}],
   }];
 }
 

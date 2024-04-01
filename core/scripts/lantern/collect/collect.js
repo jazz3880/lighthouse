@@ -1,10 +1,11 @@
 /**
- * @license Copyright 2019 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2019 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 /** @typedef {import('./common.js').Result} Result */
+/** @typedef {import('./common.js').ResultsForUrl} ResultsForUrl */
 /** @typedef {import('./common.js').Summary} Summary */
 
 import fs from 'fs';
@@ -15,15 +16,14 @@ import fetch from 'node-fetch';
 
 import defaultTestUrls from './urls.js';
 import * as common from './common.js';
-import {LH_ROOT} from '../../../../root.js';
+import {LH_ROOT} from '../../../../shared/root.js';
+import {makeGolden} from './golden.js';
 
 const execFileAsync = promisify(execFile);
 
-const SAMPLES = process.env.SAMPLES ? Number(process.env.SAMPLES) : 9;
 const WPT_URL = process.env.WPT_URL || 'https://www.webpagetest.org';
 const TEST_URLS = process.env.TEST_URLS ? process.env.TEST_URLS.split(' ') : defaultTestUrls;
 
-if (!process.env.WPT_KEY) throw new Error('missing WPT_KEY');
 const WPT_KEY = process.env.WPT_KEY;
 const DEBUG = process.env.DEBUG;
 
@@ -31,14 +31,6 @@ const log = new common.ProgressLogger();
 
 /** @type {Summary} */
 let summary;
-
-/**
- * @param {string} message
- */
-function warn(message) {
-  summary.warnings.push(message);
-  log.log(message);
-}
 
 /**
  * @param {string} filename
@@ -64,6 +56,8 @@ async function fetchString(url) {
  * @param {string} url
  */
 async function startWptTest(url) {
+  if (!WPT_KEY) throw new Error('missing WPT_KEY');
+
   const apiUrl = new URL('/runtest.php', WPT_URL);
   apiUrl.search = new URLSearchParams({
     k: WPT_KEY,
@@ -171,21 +165,23 @@ async function runForWpt(url) {
 
 /**
  * Repeats the ascyn function a maximum of maxAttempts times until it passes.
- * The empty object ({}) is returned when maxAttempts is reached.
  * @param {() => Promise<Result>} asyncFn
  * @param {number} [maxAttempts]
- * @return {Promise<Result|null>}
+ * @return {Promise<{result: Result|null, retries: number, errors: string[]}>}
  */
 async function repeatUntilPassOrNull(asyncFn, maxAttempts = 3) {
+  const errors = [];
+
   for (let i = 0; i < maxAttempts; i++) {
     try {
-      return await asyncFn();
+      return {result: await asyncFn(), retries: i, errors};
     } catch (err) {
-      warn('Error: ' + err.toString());
+      log.log('Error: ' + err.toString());
+      errors.push(err.toString());
     }
   }
 
-  return null;
+  return {result: null, retries: maxAttempts - 1, errors};
 }
 
 /**
@@ -227,96 +223,79 @@ async function main() {
     log.log(`collecting traces for ${url}`);
 
     const sanitizedUrl = url.replace(/[^a-z0-9]/gi, '-');
-    /** @type {Result[]} */
-    const wptResults = [];
-    /** @type {Result[]} */
-    const unthrottledResults = [];
 
-    let wptResultsDone = 0;
-    let unthrottledResultsDone = 0;
+    let wptDone = false;
+    let unthrottledDone = false;
 
     // The closure this makes is too convenient to decompose.
     // eslint-disable-next-line no-inner-declarations
     function updateProgress() {
       const index = TEST_URLS.indexOf(url);
-      const wptDone = wptResultsDone === SAMPLES;
-      const unthrottledDone = unthrottledResultsDone === SAMPLES;
       log.progress([
         `${url} (${index + 1} / ${TEST_URLS.length})`,
         'wpt',
-        '(' + (wptDone ? 'DONE' : `${wptResultsDone + 1} / ${SAMPLES}`) + ')',
+        '(' + (wptDone ? 'DONE' : 'pending...') + ')',
         'unthrottledResults',
-        '(' + (unthrottledDone ? 'DONE' : `${unthrottledResultsDone + 1} / ${SAMPLES}`) + ')',
+        '(' + (unthrottledDone ? 'DONE' : 'pending...') + ')',
       ].join(' '));
     }
 
     updateProgress();
-
-    // Can run in parallel.
-    const wptResultsPromises = [];
-    for (let i = 0; i < SAMPLES; i++) {
-      const resultPromise = repeatUntilPassOrNull(() => runForWpt(url));
-      // Push to results array as they finish, so the progress indicator can track progress.
-      resultPromise.then((result) => result && wptResults.push(result)).finally(() => {
-        wptResultsDone += 1;
+    const wptPromise = repeatUntilPassOrNull(() => runForWpt(url))
+      .finally(() => {
+        wptDone = true;
         updateProgress();
       });
-      wptResultsPromises.push(resultPromise);
+    const unthrottledPromise = repeatUntilPassOrNull(() => runUnthrottledLocally(url))
+      .finally(() => {
+        unthrottledDone = true;
+        updateProgress();
+      });
+    const repeatingResults = await Promise.all([wptPromise, unthrottledPromise]);
+    const wptResult = repeatingResults[0].result;
+    const unthrottledResult = repeatingResults[1].result;
+    if (!wptResult) log.log('failed to get wpt result');
+    if (!unthrottledResult) log.log('failed to get unthrottled result');
+
+    let errors;
+    if (repeatingResults[0].errors || repeatingResults[1].errors) {
+      errors = [...repeatingResults[0].errors, ...repeatingResults[1].errors];
     }
 
-    // Wait for the first WPT result to finish because we can sit in the queue for a while before we start
-    // and we want to avoid seeing totally different content locally.
-    await Promise.race(wptResultsPromises);
-
-    // Must run in series.
-    for (let i = 0; i < SAMPLES; i++) {
-      const result = await repeatUntilPassOrNull(() => runUnthrottledLocally(url));
-      if (result) {
-        unthrottledResults.push(result);
-      }
-      unthrottledResultsDone += 1;
-      updateProgress();
-    }
-
-    // Wait for *all* WPT runs to finish since we just waited on the first one earlier.
-    await Promise.all(wptResultsPromises);
-
+    const wptPrefix = `${sanitizedUrl}-mobile-wpt`;
+    const unthrottledPrefix = `${sanitizedUrl}-mobile-unthrottled`;
+    /** @type {ResultsForUrl} */
     const urlResultSet = {
       url,
-      wpt: wptResults
-        .map((result, i) => {
-          const prefix = `${sanitizedUrl}-mobile-wpt-${i + 1}`;
-          return {
-            lhr: saveData(`${prefix}-lhr.json`, result.lhr),
-            trace: saveData(`${prefix}-trace.json`, result.trace),
-          };
-        }),
-      unthrottled: unthrottledResults
-        .filter(result => result.lhr && result.trace && result.devtoolsLog)
-        .map((result, i) => {
-          // Unthrottled runs will have devtools logs, so this should never happen.
-          if (!result.devtoolsLog) throw new Error('expected devtools log');
-
-          const prefix = `${sanitizedUrl}-mobile-unthrottled-${i + 1}`;
-          return {
-            devtoolsLog: saveData(`${prefix}-devtoolsLog.json`, result.devtoolsLog),
-            lhr: saveData(`${prefix}-lhr.json`, result.lhr),
-            trace: saveData(`${prefix}-trace.json`, result.trace),
-          };
-        }),
+      wpt: wptResult ? {
+        lhr: saveData(`${wptPrefix}-lhr.json`, wptResult.lhr),
+        trace: saveData(`${wptPrefix}-trace.json`, wptResult.trace),
+      } : null,
+      wptRetries: repeatingResults[0].retries,
+      // Unthrottled runs will always have devtools logs.
+      unthrottled: unthrottledResult && unthrottledResult.devtoolsLog ? {
+        devtoolsLog:
+          saveData(`${unthrottledPrefix}-devtoolsLog.json`, unthrottledResult.devtoolsLog),
+        lhr: saveData(`${unthrottledPrefix}-lhr.json`, unthrottledResult.lhr),
+        trace: saveData(`${unthrottledPrefix}-trace.json`, unthrottledResult.trace),
+      } : null,
+      unthrottledRetries: repeatingResults[1].retries,
+      errors,
     };
 
-    // Too many attempts (with 3 retries) failed, so don't both saving results for this URL.
-    if (urlResultSet.wpt.length < SAMPLES / 2 || urlResultSet.unthrottled.length < SAMPLES / 2) {
-      warn(`too many results for ${url} failed, skipping.`);
-      continue;
-    }
-
-    // We just collected NUM_SAMPLES * 2 traces, so let's save our progress.
-    log.log(`collected results for ${url}, saving progress.`);
+    log.log(`collected results for ${url}`);
     summary.results.push(urlResultSet);
-    common.saveSummary(summary);
+    if (summary.results.length % 10 === 0) {
+      log.log('saving progress');
+      common.saveSummary(summary);
+    }
   }
+
+  log.log('saving progress');
+  common.saveSummary(summary);
+
+  log.log('making golden ...');
+  makeGolden(log, summary);
 
   log.progress('archiving ...');
   await common.archive(common.collectFolder);

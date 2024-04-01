@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * @license Copyright 2018 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2018 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 /* eslint-disable no-console */
@@ -100,7 +100,7 @@ function evaluateAndPrintAccuracy(metric, lanternMetric) {
   const baselineOptions = {alwaysGray: !lanternMetric.includes('roughEstimate')};
 
   const strings = [
-    lanternMetric.padEnd(25),
+    lanternMetric.padEnd(28),
     `${toPercentString(actualAccuracy.p50)} ${toBaselineDiffString(
       actualAccuracy.p50,
       baselineAccuracy.p50,
@@ -216,7 +216,7 @@ function findAndPrintFixesRegressions() {
 
 console.log(
   chalk.bold(
-    'Metric'.padEnd(25),
+    'Metric'.padEnd(28),
     'p50 (% Error)'.padEnd(20),
     'p90 (% Error)'.padEnd(20),
     'p95 (% Error)'.padEnd(20)
@@ -242,6 +242,11 @@ evaluateAndPrintAccuracy('speedIndex', 'roughEstimateOfSI');
 evaluateAndPrintAccuracy('largestContentfulPaint', 'optimisticLCP');
 evaluateAndPrintAccuracy('largestContentfulPaint', 'pessimisticLCP');
 evaluateAndPrintAccuracy('largestContentfulPaint', 'roughEstimateOfLCP');
+
+// TODO: enable when new traces are collected (also, do calls to findAndPrintWorst10Sites)
+// evaluateAndPrintAccuracy('timeToFirstByte', 'roughEstimateOfTTFB');
+// evaluateAndPrintAccuracy('largestContentfulPaintLoadStart', 'roughEstimateOfLCPLoadStart');
+// evaluateAndPrintAccuracy('largestContentfulPaintLoadEnd', 'roughEstimateOfLCPLoadEnd');
 
 const estimates = allEvaluations.filter(entry => entry.lanternMetric.includes('roughEstimate'));
 const baselineEstimates = baselineEvaluations.filter(entry =>

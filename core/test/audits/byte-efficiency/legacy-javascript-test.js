@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2020 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2020 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 import LegacyJavascript from '../../../audits/byte-efficiency/legacy-javascript.js';
@@ -19,6 +19,7 @@ const getResult = scripts => {
     ...scripts.map(({url}, index) => ({
       requestId: String(index),
       url,
+      responseHeaders: [],
     })),
   ];
   const artifacts = {
@@ -175,6 +176,9 @@ describe('LegacyJavaScript audit', () => {
       'Object.defineProperty(String.prototype, "repeat", function() {})',
       '$export($export.S,"Object",{values:function values(t){return i(t)}})',
       'String.raw = function() {}',
+      // es-shims (object.entries)
+      'no(Object,{entries:r},{entries:function',
+      'no(Array.prototype,{find:r},{find:function',
       // Currently are no polyfills that declare a class. Maybe in the future.
       // 'Object.defineProperty(window, \'WeakMap\', function() {})',
       // 'WeakMap = function() {}',
@@ -254,7 +258,11 @@ describe('LegacyJavaScript audit', () => {
 
   it('detects non-corejs modules from source maps', async () => {
     const map = {
-      sources: ['node_modules/focus-visible/dist/focus-visible.js'],
+      sources: [
+        'node_modules/focus-visible/dist/focus-visible.js',
+        'node_modules/array.prototype.find/index.js',
+        'node_modules/object.entries/index.js',
+      ],
       mappings: 'blah',
     };
     const script = {
@@ -265,13 +273,22 @@ describe('LegacyJavaScript audit', () => {
     const result = await getResult([script]);
 
     expect(result.items).toHaveLength(1);
+    expect(result.items[0].subItems.items).toHaveLength(3);
     expect(result.items[0].subItems.items).toMatchObject([
       {
         signal: 'focus-visible',
         location: {line: 0, column: 0},
       },
+      {
+        signal: 'Array.prototype.find',
+        location: {line: 0, column: 0},
+      },
+      {
+        signal: 'Object.entries',
+        location: {line: 0, column: 0},
+      },
     ]);
-    expect(result.items[0].wastedBytes).toBe(3000);
+    expect(result.items[0].wastedBytes).toBe(38062);
   });
 });
 

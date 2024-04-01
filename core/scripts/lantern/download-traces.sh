@@ -4,7 +4,7 @@
 
 set -e
 
-VERSION="2019-12-17"
+VERSION="2019-12-17-v2"
 
 DIRNAME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 LH_ROOT_PATH="$DIRNAME/../../.."

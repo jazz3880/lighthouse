@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2019 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2019 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 import jestMock from 'jest-mock';
@@ -40,7 +40,7 @@ describe('Link Elements gatherer', () => {
     };
   }
 
-  function getPassData({linkElementsInDOM = [], headers = []}) {
+  function getContext({linkElementsInDOM = [], headers = []}) {
     const url = 'https://example.com';
     mockMainResource.mockReturnValue({url, responseHeaders: headers, resourceType: 'Document'});
     const driver = {
@@ -54,8 +54,7 @@ describe('Link Elements gatherer', () => {
       },
       LighthouseRunWarnings: [],
     };
-    const passContext = {driver, url, baseArtifacts, computedCache: new Map()};
-    return [passContext, {}];
+    return {driver, url, baseArtifacts, dependencies: {}, computedCache: new Map()};
   }
 
   it('returns elements from DOM', async () => {
@@ -65,7 +64,7 @@ describe('Link Elements gatherer', () => {
       link({source: 'body', rel: 'ICON', href: 'https://example.com/a.png'}),
     ];
 
-    const result = await new LinkElements().afterPass(...getPassData({linkElementsInDOM}));
+    const result = await new LinkElements().getArtifact(getContext({linkElementsInDOM}));
     expect(result).toEqual([
       link({source: 'head', rel: 'preconnect', href: 'https://cdn.example.com'}),
       link({source: 'head', rel: 'stylesheet', href: 'https://example.com/a.css'}),
@@ -81,7 +80,7 @@ describe('Link Elements gatherer', () => {
       {name: 'LINK', value: '<https://example.com/>; rel=alternate; hreflang=xx'},
     ];
 
-    const result = await new LinkElements().afterPass(...getPassData({headers}));
+    const result = await new LinkElements().getArtifact(getContext({headers}));
     expect(result).toEqual([
       link({source: 'headers', rel: 'prefetch', href: 'https://example.com/', as: 'image'}),
       link({source: 'headers', rel: 'preconnect', href: 'https://example.com/', crossOrigin: 'anonymous'}), // eslint-disable-line max-len
@@ -101,7 +100,7 @@ describe('Link Elements gatherer', () => {
       {name: 'Link', value: '<https://example.com/>; rel=prefetch; as=image'},
     ];
 
-    const result = await new LinkElements().afterPass(...getPassData({linkElementsInDOM, headers}));
+    const result = await new LinkElements().getArtifact(getContext({linkElementsInDOM, headers}));
     expect(result).toEqual([
       link({source: 'head', rel: 'stylesheet', href: 'https://example.com/a.css'}),
       link({source: 'body', rel: 'icon', href: 'https://example.com/a.png'}),
@@ -115,11 +114,11 @@ describe('Link Elements gatherer', () => {
       {name: 'Link', value: '<https://example.com/>a'},
     ];
 
-    const passData = getPassData({linkElementsInDOM, headers});
-    const result = await new LinkElements().afterPass(...passData);
+    const context = getContext({linkElementsInDOM, headers});
+    const result = await new LinkElements().getArtifact(context);
     expect(result).toEqual([]);
-    expect(passData[0].baseArtifacts.LighthouseRunWarnings).toHaveLength(1);
-    expect(passData[0].baseArtifacts.LighthouseRunWarnings[0]).toBeDisplayString(
+    expect(context.baseArtifacts.LighthouseRunWarnings).toHaveLength(1);
+    expect(context.baseArtifacts.LighthouseRunWarnings[0]).toBeDisplayString(
       'Error parsing `link` header (Unexpected character "a" at offset 22): `<https://example.com/>a`'
     );
   });

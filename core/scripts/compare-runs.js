@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2019 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2019 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 /* eslint-disable no-console */
@@ -22,7 +22,7 @@ import glob from 'glob';
 import yargs from 'yargs';
 import * as yargsHelpers from 'yargs/helpers';
 
-import {LH_ROOT} from '../../root.js';
+import {LH_ROOT} from '../../shared/root.js';
 import {ProgressLogger} from './lantern/collect/common.js';
 
 const mkdir = fs.promises.mkdir;
@@ -143,8 +143,15 @@ async function gather() {
   const outputDir = dir(argv.name);
   if (fs.existsSync(outputDir)) {
     console.log('Collection already started - resuming.');
+  } else {
+    await mkdir(outputDir, {recursive: true});
+    fs.writeFileSync(`${outputDir}/meta.json`, JSON.stringify({
+      name: argv.name,
+      lhFlags: argv.lhFlags.split(' '),
+      urls: argv.urls,
+      n: argv.n,
+    }, null, 2));
   }
-  await mkdir(outputDir, {recursive: true});
 
   const progress = new ProgressLogger();
   progress.log('Gathering…');
@@ -167,7 +174,7 @@ async function gather() {
         `${LH_ROOT}/cli`,
         url,
         `--gather-mode=${gatherDir}`,
-        argv.lhFlags,
+        ...argv.lhFlags.split(' '),
       ]);
     }
   }
@@ -202,8 +209,8 @@ async function audit() {
           `--audit-mode=${gatherDir}`,
           `--output-path=${outputPath}`,
           '--output=json',
+          ...argv.lhFlags.split(' '),
         ];
-        if (argv.lhFlags) args.push(argv.lhFlags);
         await execFile('node', args);
       } catch (e) {
         console.error('audit error:', e);

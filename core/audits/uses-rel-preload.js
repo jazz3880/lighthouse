@@ -1,13 +1,12 @@
 /**
- * @license Copyright 2017 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2017 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 import UrlUtils from '../lib/url-utils.js';
 import {NetworkRequest} from '../lib/network-request.js';
 import {Audit} from './audit.js';
-import {ByteEfficiencyAudit} from './byte-efficiency/byte-efficiency-audit.js';
 import {CriticalRequestChains} from '../computed/critical-request-chains.js';
 import * as i18n from '../lib/i18n/i18n.js';
 import {MainResource} from '../computed/main-resource.js';
@@ -43,8 +42,9 @@ class UsesRelPreloadAudit extends Audit {
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
       supportedModes: ['navigation'],
+      guidanceLevel: 3,
       requiredArtifacts: ['devtoolsLogs', 'traces', 'URL'],
-      scoreDisplayMode: Audit.SCORING_MODES.NUMERIC,
+      scoreDisplayMode: Audit.SCORING_MODES.METRIC_SAVINGS,
     };
   }
 
@@ -209,7 +209,7 @@ class UsesRelPreloadAudit extends Audit {
    * @param {LH.Audit.Context} context
    * @return {Promise<LH.Audit.Product>}
    */
-  static async audit_(artifacts, context) {
+  static async audit(artifacts, context) {
     const trace = artifacts.traces[UsesRelPreloadAudit.DEFAULT_PASS];
     const devtoolsLog = artifacts.devtoolsLogs[UsesRelPreloadAudit.DEFAULT_PASS];
     const URL = artifacts.URL;
@@ -243,7 +243,7 @@ class UsesRelPreloadAudit extends Audit {
       {overallSavingsMs: wastedMs, sortedBy: ['wastedMs']});
 
     return {
-      score: ByteEfficiencyAudit.scoreForWastedMs(wastedMs),
+      score: results.length ? 0 : 1,
       numericValue: wastedMs,
       numericUnit: 'millisecond',
       displayValue: wastedMs ?
@@ -252,16 +252,6 @@ class UsesRelPreloadAudit extends Audit {
       details,
       warnings,
     };
-  }
-
-  /**
-   * @return {Promise<LH.Audit.Product>}
-   */
-  static async audit() {
-    // Preload advice is on hold until https://github.com/GoogleChrome/lighthouse/issues/11960
-    // is resolved.
-    return {score: 1, notApplicable: true,
-      details: Audit.makeOpportunityDetails([], [], {overallSavingsMs: 0})};
   }
 }
 

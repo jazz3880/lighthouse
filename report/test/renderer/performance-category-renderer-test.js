@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2017 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2017 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 import assert from 'assert/strict';
@@ -30,7 +30,10 @@ describe('PerfCategoryRenderer', () => {
       reportJson: null,
     });
 
-    const {document} = new jsdom.JSDOM().window;
+    const window = new jsdom.JSDOM().window;
+    const document = window.document;
+    global.HTMLElement = window.HTMLElement;
+
     const dom = new DOM(document);
     const detailsRenderer = new DetailsRenderer(dom);
     renderer = new PerformanceCategoryRenderer(dom, detailsRenderer);
@@ -47,8 +50,8 @@ describe('PerfCategoryRenderer', () => {
   it('renders the category header', () => {
     const categoryDOM = renderer.render(category, sampleResults.categoryGroups);
     const score = categoryDOM.querySelector('.lh-category-header');
-    const value = categoryDOM.querySelector('.lh-category-header  .lh-gauge__percentage');
-    const title = score.querySelector('.lh-gauge__label');
+    const value = categoryDOM.querySelector('.lh-category-header .lh-exp-gauge__percentage');
+    const title = score.querySelector('.lh-exp-gauge__label');
 
     assert.deepEqual(score, score.firstElementChild, 'first child is a score');
     const scoreInDom = Number(value.textContent);
@@ -59,7 +62,7 @@ describe('PerfCategoryRenderer', () => {
   it('renders the sections', () => {
     const categoryDOM = renderer.render(category, sampleResults.categoryGroups);
     const sections = categoryDOM.querySelectorAll('.lh-category > .lh-audit-group');
-    assert.equal(sections.length, 5);
+    assert.equal(sections.length, 4);
   });
 
   it('renders the metrics', () => {
@@ -111,7 +114,7 @@ describe('PerfCategoryRenderer', () => {
     const sections = categoryDOM.querySelectorAll('.lh-category > .lh-audit-group');
     const metricSection = categoryDOM.querySelector('.lh-audit-group--metrics');
     assert.ok(!metricSection);
-    assert.equal(sections.length, 4);
+    assert.equal(sections.length, 3);
   });
 
   it('renders the metrics variance disclaimer as markdown', () => {
@@ -150,104 +153,13 @@ describe('PerfCategoryRenderer', () => {
     expect(matchingElements).toHaveLength(0);
   });
 
-  it('renders an audit as an opportunity if overallSavingMs is present', () => {
-    // Make a non-opportunity into an opportunity.
-    const cloneCategory = JSON.parse(JSON.stringify(category));
-    const crcAudit = cloneCategory.auditRefs.find(a => a.id === 'critical-request-chains');
-    expect(crcAudit.result.details.overallSavingsMs).toBe(undefined);
-    crcAudit.result.details.overallSavingsMs = 5555;
-    crcAudit.result.details.score = 0.5;
-
-    const categoryDOM = renderer.render(cloneCategory, sampleResults.categoryGroups);
-
-    const crcElem = categoryDOM.querySelector('.lh-audit-group--load-opportunities #critical-request-chains.lh-audit--load-opportunity'); // eslint-disable-line max-len
-
-    const crcSparklineBarElem = crcElem.querySelector('.lh-sparkline__bar');
-    expect(crcSparklineBarElem).toBeTruthy();
-
-    const crcWastedElem = crcElem.querySelector('.lh-audit__display-text');
-    expect(crcWastedElem.textContent).toBe('5.56s');
-    expect(crcWastedElem.title).toMatch(/\d+ chains found/);
-
-    const crcDetailsElem = crcElem.querySelector('.lh-crc-container.lh-details');
-    expect(crcDetailsElem.textContent).toMatch('Maximum critical path latency');
-  });
-
-  it('renders the failing performance opportunities', () => {
-    const categoryDOM = renderer.render(category, sampleResults.categoryGroups);
-
-    const oppAudits = category.auditRefs.filter(audit =>
-      audit.result.details &&
-      audit.result.details.overallSavingsMs !== undefined &&
-      !ReportUtils.showAsPassed(audit.result));
-    const oppElements = [...categoryDOM.querySelectorAll('.lh-audit--load-opportunity')];
-    expect(oppElements.map(e => e.id).sort()).toEqual(oppAudits.map(a => a.id).sort());
-    expect(oppElements.length).toBeGreaterThan(0);
-    expect(oppElements.length).toMatchInlineSnapshot('6');
-
-    const oppElement = oppElements[0];
-    const oppSparklineBarElement = oppElement.querySelector('.lh-sparkline__bar');
-    const oppSparklineElement = oppElement.querySelector('.lh-load-opportunity__sparkline');
-    const oppTitleElement = oppElement.querySelector('.lh-audit__title');
-    const oppWastedElement = oppElement.querySelector('.lh-audit__display-text');
-    assert.ok(oppTitleElement.textContent, 'did not render title');
-    assert.ok(oppSparklineBarElement.style.width, 'did not set sparkline width');
-    assert.ok(oppWastedElement.textContent, 'did not render stats');
-    assert.ok(oppSparklineElement.title, 'did not set tooltip on sparkline');
-  });
-
-  it('renders performance opportunities with an errorMessage', () => {
-    const auditWithError = {
-      score: 0,
-      result: {
-        score: null, scoreDisplayMode: 'error', errorMessage: 'Yikes!!', title: 'Bug #2',
-        description: '',
-        details: {
-          overallSavingsMs: 0,
-          items: [],
-          type: 'opportunity',
-        },
-      },
-    };
-
-    const fakeCategory = Object.assign({}, category, {auditRefs: [auditWithError]});
-    const categoryDOM = renderer.render(fakeCategory, sampleResults.categoryGroups);
-    const tooltipEl = categoryDOM.querySelector('.lh-audit--load-opportunity .lh-tooltip--error');
-    assert.ok(tooltipEl, 'did not render error message');
-    assert.ok(/Yikes!!/.test(tooltipEl.textContent));
-  });
-
-  it('renders performance opportunities\' explanation', () => {
-    const auditWithExplanation = {
-      score: 0,
-      result: {
-        score: 0, scoreDisplayMode: 'numeric',
-        numericValue: 100, explanation: 'Yikes!!', title: 'Bug #2', description: '',
-        details: {
-          overallSavingsMs: 0,
-          items: [],
-          type: 'opportunity',
-        },
-      },
-    };
-
-    const fakeCategory = Object.assign({}, category, {auditRefs: [auditWithExplanation]});
-    const categoryDOM = renderer.render(fakeCategory, sampleResults.categoryGroups);
-
-    const selector = '.lh-audit--load-opportunity .lh-audit-explanation';
-    const tooltipEl = categoryDOM.querySelector(selector);
-    assert.ok(tooltipEl, 'did not render explanation text');
-    assert.ok(/Yikes!!/.test(tooltipEl.textContent));
-  });
-
   it('renders the failing diagnostics', () => {
     const categoryDOM = renderer.render(category, sampleResults.categoryGroups);
     const diagnosticSection = categoryDOM.querySelector(
         '.lh-category > .lh-audit-group.lh-audit-group--diagnostics');
 
     const diagnosticAuditIds = category.auditRefs.filter(audit => {
-      return !audit.group &&
-        !(audit.result.details?.overallSavingsMs !== undefined) &&
+      return audit.group === 'diagnostics' &&
         !ReportUtils.showAsPassed(audit.result);
     }).map(audit => audit.id).sort();
     assert.ok(diagnosticAuditIds.length > 0);
@@ -262,7 +174,7 @@ describe('PerfCategoryRenderer', () => {
     const passedSection = categoryDOM.querySelector('.lh-clump--passed');
 
     const passedAudits = category.auditRefs.filter(audit =>
-      !audit.group &&
+      audit.group === 'diagnostics' &&
       ReportUtils.showAsPassed(audit.result));
     const passedElements = passedSection.querySelectorAll('.lh-audit');
     assert.equal(passedElements.length, passedAudits.length);
@@ -270,25 +182,6 @@ describe('PerfCategoryRenderer', () => {
 
   // Unsupported by perf cat renderer right now.
   it.skip('renders any manual audits', () => {
-  });
-
-  describe('getWastedMs', () => {
-    it('handles erroring opportunities', () => {
-      const auditWithDebug = {
-        score: 0,
-        result: {
-          error: true, score: 0,
-          numericValue: 100, explanation: 'Yikes!!', title: 'Bug #2',
-          details: {
-            overallSavingsMs: 0,
-            items: [],
-            type: 'opportunity',
-          },
-        },
-      };
-      const wastedMs = renderer._getWastedMs(auditWithDebug);
-      assert.ok(Number.isFinite(wastedMs), 'Finite number not returned by wastedMs');
-    });
   });
 
   describe('budgets', () => {
@@ -435,6 +328,250 @@ Array [
         toggle.click();
         assert.ok(getDescriptionsAfterCheckedToggle().length === 0);
       });
+    });
+  });
+
+  describe('prioritize audits by metricSavings', () => {
+    let metricAudits;
+    let defaultAuditRef;
+    let fakeCategory;
+
+    before(() => {
+      metricAudits = category.auditRefs.filter(audit => audit.group === 'metrics');
+      defaultAuditRef = {
+        title: '',
+        description: '',
+        scoreDisplayMode: 'numeric',
+        warnings: [],
+      };
+      fakeCategory = {
+        id: 'performance',
+        title: 'Performance',
+        score: 0.5,
+        supportedModes: category.supportedModes,
+      };
+    });
+
+    it('audits in order of most impact metric savings first', () => {
+      fakeCategory = {
+        id: 'performance',
+        title: 'Performance',
+        score: 0.5,
+        supportedModes: category.supportedModes,
+      };
+
+      fakeCategory.auditRefs = [{
+        id: 'audit-1',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-1',
+          metricSavings: {'LCP': 50, 'FCP': 5},
+          score: 0,
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-2',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-2',
+          score: 0.5,
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-3',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-3',
+          score: 0,
+          metricSavings: {'LCP': 50, 'FCP': 15},
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-4',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-4',
+          score: 0,
+          metricSavings: {'FCP': 15},
+          ...defaultAuditRef,
+        },
+      },
+      ...metricAudits];
+
+      const categoryDOM = renderer.render(fakeCategory, sampleResults.categoryGroups);
+      const diagnosticSection = categoryDOM.querySelector(
+        '.lh-category > .lh-audit-group.lh-audit-group--diagnostics');
+      const diagnosticElementIds = [...diagnosticSection.querySelectorAll('.lh-audit')];
+      expect(diagnosticElementIds.map(el => el.id)).toEqual(['audit-3', 'audit-1', 'audit-4', 'audit-2']); // eslint-disable-line max-len
+    });
+
+    it('audits in order of single metric savings when filter active', () => {
+      fakeCategory = {
+        id: 'performance',
+        title: 'Performance',
+        score: 0.5,
+        supportedModes: category.supportedModes,
+      };
+
+      fakeCategory.auditRefs = [{
+        id: 'audit-1',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-1',
+          metricSavings: {'LCP': 50, 'FCP': 5},
+          score: 0,
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-2',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-2',
+          score: 0.5,
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-3',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-3',
+          score: 0,
+          metricSavings: {'LCP': 50, 'FCP': 15},
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-4',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-4',
+          score: 0,
+          metricSavings: {'FCP': 15},
+          ...defaultAuditRef,
+        },
+      },
+      ...metricAudits];
+
+      const categoryDOM = renderer.render(fakeCategory, sampleResults.categoryGroups);
+
+      const diagnosticSection = categoryDOM.querySelector(
+        '.lh-category > .lh-audit-group.lh-audit-group--diagnostics');
+      let diagnosticElements = [...diagnosticSection.querySelectorAll('.lh-audit')];
+      expect(diagnosticElements.map(el => el.id)).toEqual(['audit-3', 'audit-1', 'audit-4', 'audit-2']); // eslint-disable-line max-len
+
+      let hiddenElements = [...diagnosticSection.querySelectorAll('.lh-audit[hidden]')];
+      expect(hiddenElements).toHaveLength(0);
+
+      const fcpFilterButton =
+        categoryDOM.querySelector('.lh-metricfilter__label[title="First Contentful Paint"]');
+      fcpFilterButton.click();
+
+      diagnosticElements = [...diagnosticSection.querySelectorAll('.lh-audit')];
+      expect(diagnosticElements.map(el => el.id)).toEqual(['audit-3', 'audit-4', 'audit-1', 'audit-2']); // eslint-disable-line max-len
+
+      hiddenElements = [...diagnosticSection.querySelectorAll('.lh-audit[hidden]')];
+      expect(hiddenElements.map(el => el.id)).toEqual(['audit-2']);
+    });
+
+    it('audits sorted with guidance level', () => {
+      fakeCategory.auditRefs = [{
+        id: 'audit-1',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-1',
+          metricSavings: {'LCP': 50, 'FCP': 5},
+          score: 0,
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-2',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-2',
+          score: 0.5,
+          guidanceLevel: 3,
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-3',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-3',
+          score: 0,
+          metricSavings: {'LCP': 50, 'FCP': 5},
+          guidanceLevel: 3,
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-4',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-4',
+          score: 0.5,
+          guidanceLevel: 2,
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-5',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-5',
+          score: 0.5,
+          ...defaultAuditRef,
+        },
+      },
+      ...metricAudits];
+
+      const categoryDOM = renderer.render(fakeCategory, sampleResults.categoryGroups);
+      const diagnosticSection = categoryDOM.querySelector(
+        '.lh-category > .lh-audit-group.lh-audit-group--diagnostics');
+      const diagnosticElementIds = [...diagnosticSection.querySelectorAll('.lh-audit')];
+      expect(diagnosticElementIds.map(el => el.id)).toEqual(['audit-3', 'audit-1', 'audit-2', 'audit-4', 'audit-5']); // eslint-disable-line max-len
+    });
+
+    it('audits without impact and guidance level sorted', () => {
+      fakeCategory.auditRefs = [{
+        id: 'audit-1',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-1',
+          metricSavings: {'LCP': 50, 'FCP': 5},
+          score: 0,
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-2',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-2',
+          score: 0,
+          weight: 10,
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-3',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-3',
+          score: 0,
+          guidanceLevel: 2,
+          ...defaultAuditRef,
+        },
+      }, {
+        id: 'audit-4',
+        group: 'diagnostics',
+        result: {
+          id: 'audit-4',
+          score: 0.5,
+          ...defaultAuditRef,
+        },
+      },
+      ...metricAudits];
+
+      const categoryDOM = renderer.render(fakeCategory, sampleResults.categoryGroups);
+      const diagnosticSection = categoryDOM.querySelector(
+        '.lh-category > .lh-audit-group.lh-audit-group--diagnostics');
+      const diagnosticElementIds = [...diagnosticSection.querySelectorAll('.lh-audit')];
+      expect(diagnosticElementIds.map(el => el.id)).toEqual(['audit-1', 'audit-3', 'audit-2', 'audit-4']); // eslint-disable-line max-len
     });
   });
 });

@@ -33,12 +33,7 @@ describe('Performance: Resource summary audit', () => {
 
   it('has the correct score', async () => {
     const result = await ResourceSummaryAudit.audit(artifacts, context);
-    expect(result.score).toBe(1);
-  });
-
-  it('has the correct display value', async () => {
-    const result = await ResourceSummaryAudit.audit(artifacts, context);
-    expect(result.displayValue).toBeDisplayString('5 requests • 0 KiB');
+    expect(result.score).toBe(null);
   });
 
   it('includes the correct properties for each table item', async () => {

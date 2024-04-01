@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2017 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2017 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 /** @type {LH.Config} */
@@ -81,7 +81,7 @@ const expectations = {
         type: 'image',
       },
       {
-        traceEventType: 'layout-shift',
+        traceEventType: 'layout-shift-element',
         node: {
           selector: 'body > h1',
           nodeLabel: 'Please don\'t move me',
@@ -95,10 +95,9 @@ const expectations = {
             height: 37,
           },
         },
-        score: '0.035 +/- 0.01',
       },
       {
-        traceEventType: 'layout-shift',
+        traceEventType: 'layout-shift-element',
         node: {
           nodeLabel: 'Sorry!',
           snippet: '<div style="height: 18px;">',
@@ -111,7 +110,24 @@ const expectations = {
             height: 18,
           },
         },
-        score: '0.017 +/- 0.01',
+      },
+      {
+        traceEventType: 'layout-shift',
+        node: {
+          nodeLabel: `Please don't move me`,
+        },
+      },
+      {
+        traceEventType: 'layout-shift',
+        node: {
+          nodeLabel: `Please don't move me`,
+        },
+      },
+      {
+        traceEventType: 'layout-shift',
+        node: {
+          nodeLabel: 'section > img',
+        },
       },
       {
         traceEventType: 'animation',
@@ -143,8 +159,8 @@ const expectations = {
     finalDisplayedUrl: 'http://localhost:10200/perf/trace-elements.html',
     audits: {
       'largest-contentful-paint-element': {
-        score: null,
-        displayValue: '1 element found',
+        score: 0,
+        displayValue: /\d+\xa0ms/,
         details: {
           items: {
             0: {
@@ -173,16 +189,46 @@ const expectations = {
         },
       },
       'layout-shift-elements': {
-        score: null,
+        score: 1,
         displayValue: '2 elements found',
         details: {
-          items: {
-            length: 2,
-          },
+          items: [
+            {
+              node: {
+                selector: 'body > h1',
+                nodeLabel: 'Please don\'t move me',
+                snippet: '<h1>',
+                boundingRect: {
+                  top: 465,
+                  bottom: 502,
+                  left: 8,
+                  right: 404,
+                  width: 396,
+                  height: 37,
+                },
+              },
+              score: '0.035 +/- 0.01',
+            },
+            {
+              node: {
+                nodeLabel: 'Sorry!',
+                snippet: '<div style="height: 18px;">',
+                boundingRect: {
+                  top: 426,
+                  bottom: 444,
+                  left: 8,
+                  right: 404,
+                  width: 396,
+                  height: 18,
+                },
+              },
+              score: '0.017 +/- 0.01',
+            },
+          ],
         },
       },
       'long-tasks': {
-        score: null,
+        score: 1,
         details: {
           items: {
             0: {

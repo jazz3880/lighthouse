@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * @license Copyright 2018 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2018 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 /* eslint-disable no-console, max-len */
@@ -14,7 +14,7 @@ import {pathToFileURL} from 'url';
 import glob from 'glob';
 import {expect} from 'expect';
 import tsc from 'typescript';
-import MessageParser from 'intl-messageformat-parser';
+import MessageParser from '@formatjs/icu-messageformat-parser';
 import esMain from 'es-main';
 import isDeepEqual from 'lodash/isEqual.js';
 
@@ -22,8 +22,9 @@ import {Util} from '../../../shared/util.js';
 import {collectAndBakeCtcStrings} from './bake-ctc-to-lhl.js';
 import {pruneObsoleteLhlMessages} from './prune-obsolete-lhl-messages.js';
 import {countTranslatedMessages} from './count-translated.js';
-import {LH_ROOT} from '../../../root.js';
-import {resolveModulePath} from '../../../esm-utils.js';
+import {LH_ROOT} from '../../../shared/root.js';
+import {resolveModulePath} from '../../../shared/esm-utils.js';
+import {escapeIcuMessage} from '../../../shared/localization/format.js';
 
 // Match declarations of UIStrings, terminating in either a `};\n` (very likely to always be right)
 // or `}\n\n` (allowing semicolon to be optional, but insisting on a double newline so that an
@@ -189,36 +190,35 @@ function convertMessageToCtc(lhlMessage, examples = {}) {
  * @param {string} lhlMessage
  */
 function _lhlValidityChecks(lhlMessage) {
-  let parsedMessage;
+  let parsedMessageElements;
   try {
-    parsedMessage = MessageParser.parse(lhlMessage);
+    parsedMessageElements = MessageParser.parse(escapeIcuMessage(lhlMessage), {ignoreTag: true});
   } catch (err) {
     if (err.name !== 'SyntaxError') throw err;
-    // Improve the intl-messageformat-parser syntax error output.
-    /** @type {Array<{text: string}>} */
-    const expected = err.expected;
-    const expectedStr = expected.map(exp => `'${exp.text}'`).join(', ');
-    throw new Error(`Did not find the expected syntax (one of ${expectedStr}) in message "${lhlMessage}"`);
+    throw new Error(`[${err.message}] Did not find the expected syntax in message: ${err.originalMessage}`);
   }
 
-  for (const element of parsedMessage.elements) {
-    if (element.type !== 'argumentElement' || !element.format) continue;
+  /**
+   * @param {MessageParser.MessageFormatElement[]} elements
+   */
+  function validate(elements) {
+    for (const element of elements) {
+      if (element.type === MessageParser.TYPE.plural || element.type === MessageParser.TYPE.select) {
+        // `plural`/`select` arguments can't have content before or after them.
+        // See http://userguide.icu-project.org/formatparse/messages#TOC-Complex-Argument-Types
+        // e.g. https://github.com/GoogleChrome/lighthouse/pull/11068#discussion_r451682796
+        if (elements.length > 1) {
+          throw new Error(`Content cannot appear outside plural or select ICU messages. Instead, repeat that content in each option (message: '${lhlMessage}')`);
+        }
 
-    if (element.format.type === 'pluralFormat' || element.format.type === 'selectFormat') {
-      // `plural`/`select` arguments can't have content before or after them.
-      // See http://userguide.icu-project.org/formatparse/messages#TOC-Complex-Argument-Types
-      // e.g. https://github.com/GoogleChrome/lighthouse/pull/11068#discussion_r451682796
-      if (parsedMessage.elements.length > 1) {
-        throw new Error(`Content cannot appear outside plural or select ICU messages. Instead, repeat that content in each option (message: '${lhlMessage}')`);
-      }
-
-      // Each option value must also be a valid lhlMessage.
-      for (const option of element.format.options) {
-        const optionStr = lhlMessage.slice(option.value.location.start.offset, option.value.location.end.offset);
-        _lhlValidityChecks(optionStr);
+        for (const option of Object.values(element.options)) {
+          validate(option.value);
+        }
       }
     }
   }
+
+  validate(parsedMessageElements);
 }
 
 /**
@@ -389,7 +389,7 @@ function _processPlaceholderDirectIcu(icu, examples) {
   for (const [key, value] of Object.entries(examples)) {
     // Make sure all examples have ICU vars
     if (!icu.message.includes(`{${key}}`)) {
-      throw Error(`Example '${key}' provided, but has not corresponding ICU replacement in message "${icu.message}"`);
+      throw Error(`Example '${key}' provided, but has no corresponding ICU replacement in message "${icu.message}"`);
     }
     const eName = `ICU_${idx++}`;
     tempMessage = tempMessage.replace(`{${key}}`, `$${eName}$`);
@@ -517,7 +517,7 @@ function parseUIStrings(sourceStr, liveUIStrings) {
     const key = getIdentifier(property);
 
     // Use live message to avoid having to e.g. concat strings broken into parts.
-    const message = liveUIStrings[key];
+    const message = (liveUIStrings[key]);
 
     // @ts-expect-error - Not part of the public tsc interface yet.
     const jsDocComments = tsc.getJSDocCommentsAndTags(property);
@@ -701,8 +701,6 @@ function checkKnownFixedCollisions(strings) {
 
   try {
     expect(collidingMessages).toEqual([
-      '$MARKDOWN_SNIPPET_0$ is deprecated. Please use standardized $MARKDOWN_SNIPPET_1$ instead.',
-      '$MARKDOWN_SNIPPET_0$ is deprecated. Please use standardized $MARKDOWN_SNIPPET_1$ instead.',
       'ARIA $MARKDOWN_SNIPPET_0$ elements do not have accessible names.',
       'ARIA $MARKDOWN_SNIPPET_0$ elements do not have accessible names.',
       'ARIA $MARKDOWN_SNIPPET_0$ elements do not have accessible names.',
@@ -711,6 +709,8 @@ function checkKnownFixedCollisions(strings) {
       'ARIA $MARKDOWN_SNIPPET_0$ elements have accessible names',
       'ARIA $MARKDOWN_SNIPPET_0$ elements have accessible names',
       'ARIA $MARKDOWN_SNIPPET_0$ elements have accessible names',
+      'Back/forward cache is disabled due to a keepalive request.',
+      'Back/forward cache is disabled due to a keepalive request.',
       'Consider uploading your GIF to a service which will make it available to embed as an HTML5 video.',
       'Consider uploading your GIF to a service which will make it available to embed as an HTML5 video.',
       'Consider uploading your GIF to a service which will make it available to embed as an HTML5 video.',
@@ -720,6 +720,8 @@ function checkKnownFixedCollisions(strings) {
       'Document has a valid $MARKDOWN_SNIPPET_0$',
       'Failing Elements',
       'Failing Elements',
+      'Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: $ICU_0$)',
+      'Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: $ICU_0$)',
       'Name',
       'Name',
       'Pages that use portals are not currently eligible for back/forward cache.',

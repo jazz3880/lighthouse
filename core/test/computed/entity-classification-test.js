@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2022 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2022 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 import {EntityClassification} from '../../computed/entity-classification.js';
@@ -123,8 +123,58 @@ describe('Entity Classification computed artifact', () => {
     // Make sure only valid network urls with a domain is recognized.
     expect(entities).toEqual(['third-party.com']);
     expect(result.entityByUrl.size).toBe(1);
+    // First party check returns false for non-DT-log URLs.
+    expect(result.isFirstParty('chrome://version')).toEqual(false);
+  });
+
+  it('classifies chrome-extension URLs and resolves their names', async () => {
+    artifacts.URL = {
+      mainDocumentUrl: 'http://third-party.com',
+    };
+    artifacts.devtoolsLog = networkRecordsToDevtoolsLog([
+      {url: 'http://third-party.com'},
+      {url: 'data:foobar'},
+      {'url': 'chrome-extension://abcdefghijklmnopqrstuvwxyz/foo/bar.js'},
+      {'url': 'chrome-extension://nonresolvablechromextension/bar/baz.js'},
+    ]);
+
+    // Inject an executionContextCreated entry to resolve extension names
+    artifacts.devtoolsLog.push({
+      method: 'Runtime.executionContextCreated',
+      params: {
+        context: {
+          origin: 'chrome-extension://abcdefghijklmnopqrstuvwxyz',
+          name: 'Sample Chrome Extension',
+        },
+      },
+    });
+
+    const result = await EntityClassification.request(artifacts, context);
+    const entities = Array.from(result.urlsByEntity.keys()).map(e => e.name);
+    // Make sure first party is identified.
+    expect(result.firstParty.name).toBe('third-party.com');
+    // Make sure only valid network urls with a domain is recognized.
+    expect(entities).toEqual(['third-party.com', 'Sample Chrome Extension',
+      'nonresolvablechromextension']);
+
+    const extensionEntity = result.entityByUrl
+      .get('chrome-extension://abcdefghijklmnopqrstuvwxyz/foo/bar.js');
+    expect(extensionEntity).toHaveProperty('category', 'Chrome Extension');
+    expect(extensionEntity).toHaveProperty('name', 'Sample Chrome Extension');
+    expect(extensionEntity).toHaveProperty('homepage',
+      'https://chromewebstore.google.com/detail/abcdefghijklmnopqrstuvwxyz');
+
+    const extensionUnknownEntity = result.entityByUrl
+      .get('chrome-extension://nonresolvablechromextension/bar/baz.js');
+    expect(extensionUnknownEntity).toHaveProperty('category', 'Chrome Extension');
+    expect(extensionUnknownEntity).toHaveProperty('name', 'nonresolvablechromextension');
+    expect(extensionUnknownEntity).toHaveProperty('homepage',
+      'https://chromewebstore.google.com/detail/nonresolvablechromextension');
+
+    expect(result.entityByUrl.size).toBe(3);
     // First party check fails for non-DT-log URLs.
-    expect(result.isFirstParty('chrome-extension://abcdefghijklmnopqrstuvwxyz/foo/bar.js')).toEqual(false);
+    expect(result.isFirstParty('chrome-extension://abcdefghijklmnopqrstuvwxyz/foo/bar.js'))
+      .toEqual(false);
     expect(result.isFirstParty('chrome://new-tab-page')).toEqual(false);
   });
 });

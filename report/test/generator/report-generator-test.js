@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2017 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2017 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 'use strict';
 
@@ -16,7 +16,7 @@ import {ReportGenerator} from '../../generator/report-generator.js';
 import {readJson} from '../../../core/test/test-utils.js';
 
 const sampleResults = readJson('core/test/results/sample_v2.json');
-const sampleFlowResult = readJson('core/test/fixtures/fraggle-rock/reports/sample-flow-result.json');
+const sampleFlowResult = readJson('core/test/fixtures/user-flows/reports/sample-flow-result.json');
 
 describe('ReportGenerator', () => {
   describe('#replaceStrings', () => {
@@ -108,15 +108,15 @@ describe('ReportGenerator', () => {
 category,score
 \\"performance\\",\\"0.28\\"
 \\"accessibility\\",\\"0.77\\"
-\\"best-practices\\",\\"0.33\\"
-\\"seo\\",\\"0.67\\"
-\\"pwa\\",\\"0.33\\"
+\\"best-practices\\",\\"0.35\\"
+\\"seo\\",\\"0.73\\"
+\\"pwa\\",\\"0.38\\"
 
 category,audit,score,displayValue,description
 \\"performance\\",\\"first-contentful-paint\\",\\"0.01\\",\\"6.8 s\\",\\"First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/).\\"
 \\"performance\\",\\"largest-contentful-paint\\",\\"0\\",\\"13.3 s\\",\\"Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)\\"
 \\"performance\\",\\"total-blocking-time\\",\\"0.2\\",\\"1,220 ms\\",\\"Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/).\\"
-\\"performance\\",\\"cumulative-layout-shift\\",\\"0.8\\",\\"0.136\\",\\"Cumulative Layout Shift measures the movement of visible elements within the viewport. [Learn more about the Cumulative Layout Shift metric](https://web.dev/cls/).\\"
+\\"performance\\",\\"cumulative-layout-shift\\",\\"0.8\\",\\"0.136\\",\\"Cumulative Layout Shift measures the movement of visible elements within the viewport. [Learn more about the Cumulative Layout Shift metric](https://web.dev/articles/cls).\\"
 "
 `);
 

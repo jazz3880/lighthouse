@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2017 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2017 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 /** @type {LH.Config} */
@@ -92,8 +92,8 @@ const expectations = {
         score: '>=0.90', // primarily just making sure it didn't fail/go crazy, specific value isn't that important
       },
       'server-response-time': {
-        // Can be flaky, so test float numericValue instead of binary score
-        numericValue: '<1000',
+        // Assert greater than 0 but not more than 1000.
+        numericValue: '500 +/- 499.99',
       },
       'network-requests': {
         details: {
@@ -107,21 +107,21 @@ const expectations = {
           },
         },
       },
-      'uses-rel-preload': {
-        scoreDisplayMode: 'notApplicable',
-        // Disabled for now, see https://github.com/GoogleChrome/lighthouse/issues/11960
-        // score: '<1',
-        // numericValue: '>500',
-        // warnings: {
-        //   0: /level-2.*warning/,
-        //   length: 1,
-        // },
-        // details: {
-        //   items: {
-        //     length: 1,
-        //   },
-        // },
-      },
+      // Disabled for now, see https://github.com/GoogleChrome/lighthouse/issues/11960
+      // 'uses-rel-preload': {
+      //   scoreDisplayMode: 'notApplicable',
+      //   score: '<1',
+      //   numericValue: '>500',
+      //   warnings: {
+      //     0: /level-2.*warning/,
+      //     length: 1,
+      //   },
+      //   details: {
+      //     items: {
+      //       length: 1,
+      //     },
+      //   },
+      // },
       'uses-rel-preconnect': {
         score: 1,
         warnings: [/localhost:10503/],

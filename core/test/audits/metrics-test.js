@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2018 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2018 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 import jestMock from 'jest-mock';
@@ -150,15 +150,11 @@ describe('Performance: metrics', () => {
     const {details} = await MetricsAudit.audit(artifacts, context);
     expect(details.items[0]).toMatchObject({
       cumulativeLayoutShift: undefined,
-      cumulativeLayoutShiftMainFrame: undefined,
-      totalCumulativeLayoutShift: undefined,
       observedCumulativeLayoutShift: undefined,
-      observedCumulativeLayoutShiftMainFrame: undefined,
-      observedTotalCumulativeLayoutShift: undefined,
     });
   });
 
-  it('evaluates new CLS correctly across all frames', async () => {
+  it('evaluates CLS correctly across all frames', async () => {
     const URL = getURLArtifactFromDevtoolsLog(clsAllFramesDevtoolsLog);
     const artifacts = {
       URL,
@@ -177,15 +173,9 @@ describe('Performance: metrics', () => {
     };
     const {details} = await MetricsAudit.audit(artifacts, context);
 
-    // Only a single main-frame shift event, so mfCls and oldCls are equal.
     expect(details.items[0]).toMatchObject({
       cumulativeLayoutShift: expect.toBeApproximately(0.026463, 6),
-      cumulativeLayoutShiftMainFrame: expect.toBeApproximately(0.001166, 6),
-      totalCumulativeLayoutShift: expect.toBeApproximately(0.001166, 6),
-
       observedCumulativeLayoutShift: expect.toBeApproximately(0.026463, 6),
-      observedCumulativeLayoutShiftMainFrame: expect.toBeApproximately(0.001166, 6),
-      observedTotalCumulativeLayoutShift: expect.toBeApproximately(0.001166, 6),
     });
   });
 
@@ -232,12 +222,7 @@ describe('Performance: metrics', () => {
     const {details} = await MetricsAudit.audit(artifacts, context);
     expect(details.items[0]).toMatchObject({
       cumulativeLayoutShift: expect.toBeApproximately(2.268816, 6),
-      cumulativeLayoutShiftMainFrame: expect.toBeApproximately(2.268816, 6),
-      totalCumulativeLayoutShift: expect.toBeApproximately(4.809794, 6),
-
       observedCumulativeLayoutShift: expect.toBeApproximately(2.268816, 6),
-      observedCumulativeLayoutShiftMainFrame: expect.toBeApproximately(2.268816, 6),
-      observedTotalCumulativeLayoutShift: expect.toBeApproximately(4.809794, 6),
     });
   });
 });

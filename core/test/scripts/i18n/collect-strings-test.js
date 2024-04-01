@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2019 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2019 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 import * as collect from '../../../scripts/i18n/collect-strings.js';
@@ -337,7 +337,7 @@ describe('#_lhlValidityChecks', () => {
   it('errors when using non-supported custom-formatted ICU format', () => {
     const message = 'Hello World took {var, badFormat, milliseconds}.';
     expect(() => collect.convertMessageToCtc(message)).toThrow(
-      /Did not find the expected syntax \(one of 'number', 'date', 'time', 'plural', 'selectordinal', 'select'\) in message "Hello World took {var, badFormat, milliseconds}."$/);
+      /\[INVALID_ARGUMENT_TYPE\] Did not find the expected syntax in message: Hello World took {var, badFormat, milliseconds}.$/);
   });
 
   it('errors when there is content outside of a plural argument', () => {
@@ -370,14 +370,14 @@ describe('#_lhlValidityChecks', () => {
       /Content cannot appear outside plural or select ICU messages.*=1 {1 request} other {# requests}}'\)$/);
   });
 
-  it('errors when there is content outside of nested plural aguments', () => {
+  it('errors when there is content outside of nested plural arguments', () => {
     const message = `{user_gender, select,
       female {Ms. {name} received {count, plural, =1 {one award.} other {# awards.}}}
       male {Mr. {name} received {count, plural, =1 {one award.} other {# awards.}}}
       other {{name} received {count, plural, =1 {one award.} other {# awards.}}}
     }`;
     expect(() => collect.convertMessageToCtc(message, {name: 'Elbert'})).toThrow(
-      /Content cannot appear outside plural or select ICU messages.*\(message: 'Ms. {name} received {count, plural, =1 {one award.} other {# awards.}}'\)$/);
+      /Content cannot appear outside plural or select ICU messages.*\(message: '{user_gender, select/);
   });
   /* eslint-enable max-len */
 });
@@ -562,7 +562,7 @@ describe('Convert Message to Placeholder', () => {
     const message = 'Hello name.';
     expect(() => collect.convertMessageToCtc(message, {name: 'Mary'}))
       // eslint-disable-next-line max-len
-      .toThrow(/Example 'name' provided, but has not corresponding ICU replacement in message "Hello name."/);
+      .toThrow(/Example 'name' provided, but has no corresponding ICU replacement in message "Hello name."/);
   });
 
   it('errors when direct ICU has no examples', () => {

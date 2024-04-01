@@ -1,7 +1,7 @@
 /**
- * @license Copyright 2017 The Lighthouse Authors. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ * @license
+ * Copyright 2017 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 import assert from 'assert/strict';
@@ -522,6 +522,8 @@ describe('DetailsRenderer', () => {
             entities: [
               {name: 'example.com', category: 'Cat', isFirstParty: true},
               {name: 'cdn.com', category: 'CDN'},
+              {name: 'Sample Chrome Extension', category: 'Chrome Extension',
+                origins: ['chrome-extension://abcdefghijklmnopqrstuvwxyz']},
             ],
           });
 
@@ -583,7 +585,7 @@ describe('DetailsRenderer', () => {
               {url: 'https://example.com/1', totalBytes: 100, wastedBytes: 500, entity: 'example.com'},
               {url: 'https://cdn.com/1', totalBytes: 300, wastedBytes: 700, entity: 'cdn.com'},
               {url: 'https://cdn.com/2', totalBytes: 400, wastedBytes: 800, entity: 'cdn.com'},
-              {url: 'chrome-extension://abcdefghijklmnopqrstuvwxyz/foo/bar.js', totalBytes: 300, wastedBytes: 700},
+              {url: 'chrome-extension://abcdefghijklmnopqrstuvwxyz/foo/bar.js', totalBytes: 300, wastedBytes: 700, entity: 'Sample Chrome Extension'},
               {url: 'chrome://new-tab-page', totalBytes: 300, wastedBytes: 700},
               {url: 'Unattributable', totalBytes: 500, wastedBytes: 500}, // entity not marked.
             ],
@@ -601,10 +603,15 @@ describe('DetailsRenderer', () => {
           );
           assert.deepStrictEqual(
             [...el.querySelectorAll('.lh-row--group')[2].children].map(td => td.textContent),
-            ['Unattributable', '1.1 KiB', '1.9 KiB'],
+            ['Sample Chrome Extension Chrome Extension', '0.3 KiB', '0.7 KiB'],
+            'did not render Chrome Extensions row'
+          );
+          assert.deepStrictEqual(
+            [...el.querySelectorAll('.lh-row--group')[3].children].map(td => td.textContent),
+            ['Unattributable', '0.8 KiB', '1.2 KiB'],
             'did not render all Unattributable row'
           );
-          assert.equal(el.querySelectorAll('tr').length, 10, `did not render ${tableType} rows`);
+          assert.equal(el.querySelectorAll('tr').length, 11, `did not render ${tableType} rows`);
         });
 
         it('does not group if entity classification is absent', () => {
