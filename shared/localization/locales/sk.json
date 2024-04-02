@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Povoľte kompresiu textu"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Ak šírka obsahu vašej aplikácie nezodpovedá šírke oblasti zobrazenia, aplikácia nemusí byť optimalizovaná pre obrazovky mobilných zariadení. [Ako zmeniť veľkosť obsahu v oblasti zobrazenia](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)"
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Veľkosť oblasti zobrazenia {innerWidth} px nezodpovedá veľkosti okna {outerWidth} px."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Obsah nemá správnu veľkosť pre oblasť zobrazenia"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Obsah má správnu veľkosť pre oblasť zobrazenia"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Reťazce podstatných žiadostí uvedené nižšie znázorňujú, ktoré zdroje sú načítané s vysokou prioritou. Zvážte skrátenie dĺžky reťazcov, aby ste znížili veľkosť sťahovaných zdrojov, alebo odložte sťahovanie nepotrebných zdrojov, čím zlepšíte načítanie stránky. [Ako sa vyhnúť reťazeniu kľúčových žiadostí](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)"
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Zobrazuje obrázky v príslušnom rozlíšení"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Aplikácia je už nainštalovaná"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Z manifestu sa nepodarilo stiahnuť požadovanú ikonu"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Dôvod neúspechu"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Obsluha je technológia, ktorá umožňuje vašej aplikácii používať mnoho funkcií progresívnej webovej aplikácie, napríklad offline režim, pridanie na plochu a upozornenia aplikácie. So správnou implementáciou obsluhy a manifestu môžu prehliadače proaktívne vyzývať používateľov, aby si pridali vašu aplikáciu na plochu, čo môže viesť k ich lepšiemu zapojeniu. [Ďalšie informácie o požiadavkách inštalovateľnosti manifestu](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 dôvod}few{# dôvody}many{# reasons}other{# dôvodov}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Manifest webovej aplikácie alebo obsluha nespĺňajú požiadavky na inštaláciu"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Webová adresa aplikácie a jej identifikátor v Obchode Play sa nezhodujú"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Stránka je načítaná v okne inkognito"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Vlastníctvo manifestu `display` musí byť `standalone`, `fullscreen` alebo `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Manifest obsahuje pole „display_override“ a prvý podporovaný režim obrazovky musí mať hodnotu „standalone“, „fullscreen“ alebo „minimal-ui“"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Manifest sa nepodarilo načítať alebo analyzovať, prípadne je prázdny"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "Počas načítavania manifestu sa zmenila jeho webová adresa."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Manifest neobsahuje pole `name` alebo `short_name`"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Manifest neobsahuje vhodnú ikonu. Vyžaduje sa formát PNG, SVG alebo WebP s minimálnou veľkosťou {value0} px, musí byť nastavený atribút Veľkosti a ak je nastavený atribút Účel, musí obsahovať hodnotu „všetko“."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Žiadna dodaná ikona nie je štvorec s minimálnou veľkosťou {value0} px vo formáte PNG, SVG alebo WebP s atribútom účelu nastaveným na hodnotu „všetko“, prípadne vôbec nenastaveným"
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Stiahnutá ikona bola prázdna alebo poškodená"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Nie je uvedený identifikátor Obchodu Play"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Stránka nemá webovú adresu <link> manifestu"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Nepodarilo sa skontrolovať obsluhu bez poľa „start_url“ v manifeste"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Identifikátor chyby inštalácie {errorId} nebol rozpoznaný"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Stránka sa nenačíta z bezpečného zdroja"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Stránka nie je načítaná v hlavnom rámci"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Stránka nefunguje offline"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "Progresívna webová aplikácia bola odinštalovaná a resetujú sa kontroly inštalovateľnosti."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Špecifikovaná platforma aplikácie nie je v Androide podporovaná"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Manifest špecifikuje parameter prefer_related_applications: pravda"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "Parameter prefer_related_applications je podporovaný iba v beta verzii a stabilných verziách Chromu v Androide."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Nástroj Lighthouse nedokázal určiť, či je stránka inštalovateľná. Skúste to s novou verziou Chromu."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Začiatočná webová adresa manifestu nie je platná"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Manifest webovej aplikácie a obsluha spĺňajú požiadavky na inštaláciu"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "Webová adresa v manifeste obsahuje používateľské meno, heslo alebo port"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Stránka nefunguje offline. Od stabilnej verzie Chromu 93 (august 2021) už stránku nebude možné inštalovať."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Povolené"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Minimalizuje prácu hlavného vlákna"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Ak chcete osloviť maximálny počet používateľov, weby by mali fungovať vo všetkých hlavných prehliadačoch. [Ďalšie informácie o kompatibilite s rôznymi prehliadačmi](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)"
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Web funguje v rôznych prehliadačoch"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Zaistite, aby jednotlivé stránky podporovali priame odkazovanie prostredníctvom webovej adresy a aby dané webové adresy boli jedinečné na účely zdieľania v sociálnych médiách. [Ďalšie informácie o poskytnutí priamych odkazov](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Každá stránka má webovú adresu"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Prechody by pri klepaní mali pôsobiť plynulo, dokonca aj v pomalej sieti. Ide o kľúčový faktor ovplyvňujúci vnímanú výkonnosť. [Ďalšie informácie o prechodoch stránok](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)"
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Prechody stránok zrejme nie sú blokované sieťou"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Maskovateľná ikona zaisťuje, že obrázok pri inštalácii aplikácie v zariadení zaplní celý tvar bez čiernych okrajov hore a dole. [Ďalšie informácie o maskovateľných ikonách manifestov](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)"
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Manifest nemá maskovateľnú ikonu"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Manifest má maskovateľnú ikonu"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Kumulatívna zmena rozloženia meria pohyb viditeľných prvkov v rámci oblasti zobrazenia. [Ďalšie informácie o metrike Kumulatívna zmena rozloženia](https://web.dev/articles/cls)"
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Počiatočný čas odpovede servera bol krátky"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Úvodná obrazovka s motívom zaistí skvelý dojem používateľa, keď si spustí vašu aplikáciu z plochy. [Ďalšie informácie o úvodných obrazovkách](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)"
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Nie je nakonfigurovaný pre vlastnú úvodnú obrazovku"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Nakonfigurované pre vlastnú úvodnú obrazovku"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Panel s adresou prehliadača je možné upraviť motívom, aby zodpovedal vášmu webu. [Ďalšie informácie o pridaní motívu panela s adresou](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)"
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Nenastavuje farbu motívu pre panel s adresou."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Nastavuje farbu motívu pre panel s adresou."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Podpora súborov cookie tretej strany bude v budúcej verzii Chromu odstránená. [Ďalšie informácie o ukončení používania súborov cookie tretej strany](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)"

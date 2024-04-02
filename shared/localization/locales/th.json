@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "เปิดใช้การบีบอัดข้อความ"
   },
-  "core/audits/content-width.js | description": {
-    "message": "หากความกว้างของเนื้อหาในแอปไม่ตรงกับความกว้างของวิวพอร์ต แอปอาจไม่ได้รับการเพิ่มประสิทธิภาพสำหรับหน้าจออุปกรณ์เคลื่อนที่ [ดูวิธีปรับขนาดเนื้อหาของวิวพอร์ต](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)"
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "ขนาดวิวพอร์ต {innerWidth} พิกเซลไม่ตรงกับขนาดหน้าต่าง {outerWidth} พิกเซล"
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "ไม่ได้ปรับขนาดเนื้อหาอย่างถูกต้องสำหรับวิวพอร์ต"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "มีการปรับขนาดเนื้อหาอย่างถูกต้องสำหรับวิวพอร์ต"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "ห่วงโซ่คำขอที่สำคัญด้านล่างแสดงให้เห็นทรัพยากรที่โหลดโดยมีลำดับความสำคัญสูง พิจารณาลดความยาวของห่วงโซ่ ลดขนาดการดาวน์โหลดของทรัพยากร หรือเลื่อนเวลาการดาวน์โหลดทรัพยากรที่ไม่จำเป็นเพื่อปรับปรุงการโหลดหน้าเว็บ [ดูวิธีหลีกเลี่ยงการเชนคำขอที่สำคัญ](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)"
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "แสดงรูปภาพที่มีความละเอียดเหมาะสม"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "มีการติดตั้งแอปนี้ไว้แล้ว"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "ดาวน์โหลดไอคอนที่จำเป็นจากไฟล์ Manifest ไม่ได้"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "เหตุผลที่ไม่สำเร็จ"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Service Worker เป็นเทคโนโลยีที่ช่วยให้แอปของคุณใช้ฟีเจอร์ของ Progressive Web App ได้หลายฟีเจอร์ เช่น ออฟไลน์ เพิ่มไปยังหน้าจอหลัก และข้อความ Push เมื่อใช้ Service Worker และไฟล์ Manifest อย่างเหมาะสม เบราว์เซอร์จะแจ้งผู้ใช้อย่างชัดแจ้งให้เพิ่มแอปของคุณในหน้าจอหลัก ซึ่งจะทำให้ผู้ใช้มีส่วนร่วมเพิ่มขึ้นได้ [ดูข้อมูลเพิ่มเติมเกี่ยวกับข้อกำหนดความสามารถในการติดตั้งไฟล์ Manifest](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)"
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{เหตุผล 1 ข้อ}other{เหตุผล # ข้อ}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "ไฟล์ Manifest ของเว็บแอปหรือ Service Worker ไม่ตรงตามข้อกำหนดด้านความสามารถในการติดตั้ง"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "URL ของแอปใน Play Store และรหัส Play Store ไม่ตรงกัน"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "หน้าโหลดในหน้าต่างที่ไม่ระบุตัวตน"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "พร็อพเพอร์ตี้ `display` ของไฟล์ Manifest ต้องเป็นอย่างใดอย่างหนึ่งระหว่าง `standalone`, `fullscreen` หรือ `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "ไฟล์ Manifest มีช่อง \"display_override\" และโหมดการแสดงผลโหมดแรกที่รองรับต้องเป็นอย่างใดอย่างหนึ่งระหว่าง \"standalone\", \"fullscreen\" หรือ \"minimal-ui\""
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "ดึงข้อมูลไฟล์ Manifest ไม่ได้ ไฟล์ดังกล่าวว่างเปล่า หรือแยกวิเคราะห์ไม่ได้"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "URL ของไฟล์ Manifest เปลี่ยนไปขณะดึงข้อมูลไฟล์ Manifest"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "ไฟล์ Manifest ไม่มีช่อง `name` หรือ `short_name`"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "ไฟล์ Manifest ไม่มีไอคอนที่เหมาะสม ซึ่งต้องอยู่ในรูปแบบ PNG, SVG หรือ WebP และมีขนาดอย่างน้อย {value0} พิกเซล ต้องตั้งค่าแอตทริบิวต์ขนาด และหากมีการตั้งค่าแอตทริบิวต์จุดประสงค์ แอตทริบิวต์นั้นต้องมี \"any\""
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "ไม่ได้ให้ไอคอนที่เป็นรูปสี่เหลี่ยมจัตุรัสและมีขนาดอย่างน้อย {value0} พิกเซลในรูปแบบ PNG, SVG หรือ WebP ซึ่งไม่ได้ตั้งค่าแอตทริบิวต์วัตถุประสงค์เอาไว้หรือตั้งค่าเป็น \"any\""
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "ไอคอนที่ดาวน์โหลดว่างเปล่าหรือเกิดความเสียหาย"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "ไม่ได้ระบุรหัส Play Store"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "หน้านี้ไม่มี <link> URL ของไฟล์ Manifest"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "ตรวจสอบ Service Worker โดยไม่มีช่อง \"start_url\" ในไฟล์ Manifest ไม่ได้"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "ไม่รู้จักรหัสข้อผิดพลาดด้านความสามารถในการติดตั้ง \"{errorId}\""
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "หน้าไม่ได้แสดงผลจากต้นทางที่ปลอดภัย"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "หน้าไม่ได้โหลดในเฟรมหลัก"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "หน้าใช้งานแบบออฟไลน์ไม่ได้"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "ถอนการติดตั้ง PWA แล้วและกำลังรีเซ็ตการตรวจสอบความสามารถในการติดตั้ง"
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "แพลตฟอร์มแอปพลิเคชันที่ระบุไว้ใช้ไม่ได้ใน Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "ไฟล์ Manifest ระบุ prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications ใช้ได้เฉพาะใน Chrome เบต้า และเวอร์ชันเสถียรใน Android เท่านั้น"
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse ไม่สามารถระบุว่าติดตั้งหน้าเว็บได้หรือไม่ โปรดลองใช้ Chrome เวอร์ชันใหม่กว่านี้"
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "URL เริ่มต้นของไฟล์ Manifest ไม่ถูกต้อง"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "ไฟล์ Manifest ของเว็บแอปและ Service Worker ตรงตามข้อกำหนดด้านความสามารถในการติดตั้ง"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "URL ในไฟล์ Manifest มีชื่อผู้ใช้ รหัสผ่าน หรือพอร์ต"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "หน้าใช้งานแบบออฟไลน์ไม่ได้ หน้านี้จะไม่ถือว่าติดตั้งได้หลังจาก Chrome 93 ซึ่งเป็นรุ่นที่เสถียรและเปิดตัวในเดือนสิงหาคม 2021"
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "อนุญาต"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "ลดการทำงานของเธรดหลัก"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "เว็บไซต์ควรทำงานในเบราว์เซอร์หลักๆ ทั้งหมดได้เพื่อให้เข้าถึงผู้ใช้จำนวนมากที่สุด [ดูข้อมูลเกี่ยวกับความเข้ากันได้ในเบราว์เซอร์ต่างๆ](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)"
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "เว็บไซต์ทำงานในเบราว์เซอร์ต่างๆ ได้"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "ตรวจดูว่าแต่ละหน้าทำ Deep Link ผ่าน URL ได้และ URL ต่างๆ ไม่ซ้ำกันเพื่อให้แชร์ได้ในโซเชียลมีเดีย [ดูข้อมูลเพิ่มเติมเกี่ยวกับการระบุ Deep Link](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "แต่ละหน้ามี URL ที่ไม่ซ้ำกัน"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "การเปลี่ยนควรจะดำเนินไปอย่างรวดเร็วขณะที่คุณแตะไปรอบๆ แม้ในเครือข่ายที่ช้า ซึ่งเป็นสิ่งสำคัญที่ทำให้ผู้ใช้รับรู้ได้ถึงประสิทธิภาพ [ดูข้อมูลเพิ่มเติมเกี่ยวกับการเปลี่ยนหน้า](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)"
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "เปลี่ยนหน้าได้รวดเร็วแม้ว่าเครือข่ายจะช้า"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "ไอคอนที่มาสก์ได้ช่วยให้รูปภาพแสดงขึ้นเต็มกรอบโดยไม่มีแถบปรากฏอยู่ตามขอบเมื่อติดตั้งแอปในอุปกรณ์ [ดูข้อมูลเกี่ยวกับไอคอนไฟล์ Manifest ที่มาสก์ได้](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)"
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "ไฟล์ Manifest ไม่มีไอคอนที่มาสก์ได้"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "ไฟล์ Manifest มีไอคอนที่มาสก์ได้"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "การเปลี่ยนเลย์เอาต์สะสมจะวัดการเคลื่อนไหวขององค์ประกอบที่มองเห็นได้ภายในวิวพอร์ต [ดูข้อมูลเพิ่มเติมเกี่ยวกับเมตริก Cumulative Layout Shift](https://web.dev/articles/cls)"
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "การตอบกลับของเซิร์ฟเวอร์ขณะเริ่มแรกใช้เวลาน้อย"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "หน้าจอแนะนำที่มีธีมช่วยให้ผู้ใช้ได้รับประสบการณ์ที่มีคุณภาพสูงเมื่อเปิดแอปของคุณจากหน้าจอหลัก [ดูข้อมูลเพิ่มเติมเกี่ยวกับหน้าจอแนะนำ](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)"
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "ไม่ได้กำหนดค่าให้ใช้หน้าจอแนะนำที่กำหนดเอง"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "มีการกำหนดค่าให้ใช้หน้าจอแนะนำที่กำหนดเอง"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "คุณกำหนดธีมของแถบที่อยู่เบราว์เซอร์ให้เข้ากับเว็บไซต์ได้ [ดูข้อมูลเพิ่มเติมเกี่ยวกับการกำหนดธีมแถบที่อยู่](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)"
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "ไม่ได้กำหนดสีธีมสำหรับแถบที่อยู่"
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "กำหนดสีธีมของแถบที่อยู่"
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "เราจะหยุดรองรับคุกกี้ของบุคคลที่สามใน Chrome เวอร์ชันถัดไป [ดูข้อมูลเพิ่มเติมเกี่ยวกับการเลิกใช้คุกกี้ของบุคคลที่สาม](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)"

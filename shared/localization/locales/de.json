@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Textkomprimierung aktivieren"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Wenn die Breite deiner App-Inhalte nicht mit der des Darstellungsbereichs übereinstimmt, ist deine App möglicherweise nicht für Bildschirme von Mobilgeräten optimiert. [Informationen zum Anpassen der Größe von Inhalten an den Darstellungsbereich.](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)"
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Die Größe des Darstellungsbereichs von {innerWidth} Pixeln stimmt nicht mit der Fenstergröße von {outerWidth} Pixeln überein."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Inhalt hat nicht die richtige Größe für den Darstellungsbereich"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Inhalt hat die richtige Größe für den Darstellungsbereich"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "In den unten aufgeführten Ketten kritischer Anfragen kannst du sehen, welche Ressourcen mit einer hohen Priorität geladen werden. Versuche, die Ketten zu kürzen, die Downloadgröße von Ressourcen zu reduzieren oder das Herunterladen unnötiger Ressourcen zurückzustellen, um den Seitenaufbau zu beschleunigen. [Informationen dazu, wie sich das Verketten kritischer Anfragen vermeiden lässt.](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)"
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Stellt Bilder mit angemessener Auflösung bereit"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Die App ist bereits installiert"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Ein erforderliches Symbol konnte nicht aus dem Manifest heruntergeladen werden"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Grund für den Fehler"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Der Service Worker ermöglicht es deiner App, viele Funktionen von progressiven Web-Apps zu nutzen, beispielsweise den Offlinemodus, das Hinzufügen zum Startbildschirm und Push-Benachrichtigungen. Bei ordnungsgemäßen Service Worker- und Manifestimplementierungen können Browser Nutzer direkt auffordern, deine Web-App zum Startbildschirm hinzuzufügen. Das kann zu mehr Interaktionen führen. [Weitere Informationen zu Anforderungen an die Installierbarkeit für Manifeste](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)"
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 Grund}other{# Gründe}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Das Manifest der Web-App oder der Service Worker erfüllt die Anforderungen an die Installierbarkeit nicht"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Die Play Store App-URL und die Play Store-ID stimmen nicht überein"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Seite wird in einem Inkognitofenster geladen"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Die Property „`display`“ des Manifests muss entweder „`standalone`“, „`fullscreen`“ oder „`minimal-ui`“ sein"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Das Manifest enthält das Feld „display_override“ und der erste unterstützte Anzeigemodus muss entweder „standalone“, „fullscreen“ oder „minimal-ui“ sein"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Manifest konnte nicht abgerufen oder geparst werden oder ist leer"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "Die Manifest-URL hat sich geändert, während das Manifest abgerufen wurde."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Das Manifest enthält kein Feld „`name`“ oder „`short_name`“"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Das Manifest enthält kein passendes Symbol – das Format PNG, SVG oder WebP mit mindestens {value0} px ist erforderlich, das Attribut „sizes“ muss festgelegt werden und das Attribut „purpose“ muss „any“ enthalten."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Keines der bereitgestellten Symbole weist das Format PNG, SVG oder WebP mit mindestens {value0} px Square und nicht festgelegtem oder auf „any“ gesetztem Attribut „purpose“ auf"
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Heruntergeladenes Symbol war leer oder fehlerhaft"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Play Store-ID fehlt"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Die Seite hat keine Manifest-URL <link>"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Service Worker konnte ohne das Feld „start_url“ im Manifest nicht geprüft werden"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "ID des Installierbarkeitsfehlers „{errorId}“ wurde nicht erkannt"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Seite wird nicht von einer sicheren Quelle geladen"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Seite wird nicht im Hauptframe geladen"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Seite kann offline nicht geladen werden"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA wurde installiert und die Überprüfungen zur Installierbarkeit wurden zurückgesetzt."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Die angegebene Anwendungsplattform wird nicht von Android unterstützt"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Das Manifest gibt an: prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "„prefer_related_applications“ wird nur in Chrome Beta und stabilen Versionen von Android unterstützt."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse konnte nicht feststellen, ob die Seite installierbar ist. Bitte versuch es mit einer neueren Version von Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Start-URL des Manifests ist nicht gültig"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Das Manifest der Web-App und der Service Worker erfüllen die Anforderungen an die Installierbarkeit"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "Eine URL im Manifest enthält Nutzernamen, Passwort oder Port"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Die Seite kann offline nicht geladen werden. Die Seite gilt nach der stabilen Version von Chrome 93 ab August 2021 als nicht installierbar."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Zugelassen"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Minimiert den Aufwand für den Hauptthread"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Damit du möglichst viele Nutzer erreichen kannst, sollte deine Website mit allen gängigen Browsern kompatibel sein. [Weitere Informationen.](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)"
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Website funktioniert auf verschiedenen Browsern"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Für die einzelnen Seiten sollten Deeplinks erstellt werden können. Achte darauf, dass die entsprechenden URLs eindeutig sind, sodass sich die Seiten in sozialen Netzwerken leichter teilen lassen. [Weitere Informationen zum Angeben von Deeplinks.](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Jede Seite hat eine URL"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Übergänge sollten sich auch bei einer langsamen Netzwerkverbindung schnell anfühlen. Dies ist entscheidend dafür, wie der Nutzer die Leistung wahrnimmt. [Weitere Informationen zu Seitenübergängen.](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)"
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Seitenübergänge vermitteln nicht das Gefühl von übermäßigen Ladezeiten"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Mit einem maskierbaren Symbol wird die Bildform beim Installieren der App auf einem Gerät vollständig gefüllt, ohne dass es zu einem Letterbox-Effekt kommt. [Informationen zu maskierbaren Manifestsymbolen.](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)"
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Das Manifest hat kein maskierbares Symbol"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Das Manifest hat ein maskierbares Symbol"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "„Cumulative Layout Shift“ misst die Bewegung sichtbarer Elemente innerhalb des Darstellungsbereichs. [Weitere Informationen zum Messwert „Cumulative Layout Shift“.](https://web.dev/articles/cls)"
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Kurze Erstreaktionszeit des Servers"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Wenn du deinen Ladebildschirm passend zum Design deiner App gestaltest, vermittelst du den Nutzern schon beim Ladevorgang einen hochwertigen Eindruck. [Weitere Informationen zu Ladebildschirmen.](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)"
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Nicht für einen benutzerdefinierten Ladebildschirm konfiguriert"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Konfiguriert für einen benutzerdefinierten Ladebildschirm"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Die Adressleiste des Browsers kann an das Design deiner Website angepasst werden. [Weitere Informationen zum Gestalten der Adressleiste.](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)"
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Legt keine Designfarbe für die Adressleiste fest."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Legt eine Designfarbe für die Adressleiste fest."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "In einer zukünftigen Version von Chrome werden Cookies von Drittanbietern nicht mehr unterstützt. [Weitere Informationen zur schrittweisen Einstellung von Drittanbieter-Cookies.](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)"

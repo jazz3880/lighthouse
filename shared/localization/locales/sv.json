@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Aktivera textkomprimering"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Om bredden på appens innehåll inte stämmer överens med bredden på visningsområdet kanske inte appen är optimerad för mobilskärmar. [Läs mer om hur du anpassar innehållet för visningsområdet](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Visningsområdets storlek på {innerWidth} pixlar stämmer inte överens med fönsterstorleken på {outerWidth} pixlar."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Innehållet har inte rätt storlek för visningsområdet"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Innehållet har rätt storlek för visningsområdet"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Kedjorna av kritiska förfrågningar nedan visar vilka resurser som läses in med hög prioritet. Se om du kan förbättra sidhämtningstiden genom att göra kedjorna kortare, minska storleken på resurser som laddas ned eller skjuta upp nedladdningen av onödiga resurser. [Läs mer om hur du undviker att kedja kritiska förfrågningar](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Bilder visas med lämplig upplösning"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Appen har redan installerats"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Det gick inte att ladda ned en obligatorisk ikon från manifestet"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Felorsak"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Tjänstefunktioner är en teknik som gör det möjligt att använda flera progressiva webbappsfunktioner i appen, till exempel offlineanvändning, pushmeddelanden och att lägga till den på startskärmen. Med rätt tjänstefunktion och manifestimplementeringar kan webbläsare i förväg uppmana användare att lägga till appen på startskärmen, vilket kan leda till större engagemang. [Läs mer om kraven för manifestinstallation](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 anledning}other{# anledningar}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Webbappens manifest eller tjänstefunktion uppfyller inte kraven för installation"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Appadressen för Play Butik matchar inte id för Play Butik"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Sidan läses in i ett inkognitofönster"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Egenskapen `display` i manifestet måste använda `standalone`, `fullscreen` eller `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Manifestet innehåller fältet display_override och det första visningsläget som stöds måste vara antingen standalone, fullscreen eller minimal-ui."
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Manifestet kunde inte hämtas, är tomt eller kunde inte analyseras"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "Manifestets webbadress ändrades under tiden som manifestet hämtades."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Manifestet innehåller inte fälten `name` eller `short_name`"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Manifestet innehåller ingen lämplig ikon – PNG-, SVG- eller WebP-format på minst {value0} px krävs, sizes-attributet måste anges och purpose-attributet, om det anges, måste innehålla any."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Ingen av de ikoner som tillhandahålls är minst {value0} px och i PNG-, SVG- eller WebP-format med purpose-attributet utan inställning eller inställt på any"
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Ikonen som laddades ned var tom eller skadad"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Inget Play Butik-id har tillhandahållits"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Sidan har ingen webbadress för <link> i manifestet"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Det går inte att kontrollera tjänstefunktionen utan fältet start_url i manifestet."
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Installationens fel-id {errorId} känns inte igen"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Sidan visas inte från en säker källa"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Sidan läses inte in i huvudramen"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Sidan fungerar inte offline"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA har avinstallerats. Kontrollen av om PWA kan installeras återställs."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Applattformen som anges stöds inte på Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Manifestet anger prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications stöds bara i Chrome Beta och Chrome Stable på Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse kunde inte avgöra om sidan kan installeras. Testa med en senare version av Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Startwebbadressen i manifestet är ogiltig"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Webbappens manifest och tjänstefunktion uppfyller kraven för installation"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "En webbadress i manifestet innehåller ett användarnamn, ett lösenord eller en port"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Sidan fungerar inte offline. Sidan kommer inte att anses vara installerbar efter Chrome 93, den stabila version som lanseras i augusti 2021."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Tillåts"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Minskar arbetsbelastningen på modertråden"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Webbplatser ska fungera i alla stora webbläsare för att nå så många användare som möjligt. [Läs om kompatibilitet över flera webbläsare](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Webbläsaren fungerar i olika webbläsare"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Kontrollera att enskilda sidor går att djuplänka via en webbadress och att webbadresserna är unika för syftet att dela sidorna på sociala medier. [Läs mer om djuplänkar](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Varje sida har en webbadress"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Övergångar ska gå snabbt när du trycker i appen, även på långsamma nätverk. Detta är avgörande för vad användarna uppfattar som prestanda. [Läs mer om sidövergångar](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Det ska inte kännas som om övergångar mellan sidor blockeras på nätverket"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "En maskerbar ikon gör att bilden fyller ut hela formen utan att vara avskärmad upptill och nedtill när appen installeras på en enhet. [Läs mer om maskerbara manifestikoner](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Manifestet har ingen maskerbar ikon"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Manifest har en maskerbar ikon"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Kumulativ layoutförskjutning mäter rörelsen hos synliga element inom visningsområdet. [Läs mer om mätvärdet Kumulativ layoutförskjutning](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Serverns första svarstid var kort"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Med hjälp av en välkomstskärm med ett tema som visas när användarna startar appen på startskärmen kan du se till att de får en bra upplevelse. [Läs mer om välkomstskärmar](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Har inte konfigurerats för en anpassad välkomstskärm"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Konfigurerad för en anpassad välkomstskärm"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Det går att ändra temat för webbläsarens adressfält så att det matchar din webbplats. [Läs mer om att ändra temat för adressfältet](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Anger inte ett färgtema för adressfältet."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Anger ett färgtema för adressfältet."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Stödet för tredjepartscookies tas bort i en framtida version av Chrome. [Läs mer om utfasning av tredjepartscookies](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

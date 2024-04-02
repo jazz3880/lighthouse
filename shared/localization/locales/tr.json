@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Metin sıkıştırmayı etkinleştirin"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Uygulamanızın içeriğinin genişliği, görüntü alanının genişliğiyle eşleşmiyorsa uygulamanız mobil ekranlar için optimize edilmemiş olabilir. [İçerikleri görüntü alanına göre nasıl boyutlandıracağınızı öğrenin](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "{innerWidth} piksel görüntü alanı boyutu, {outerWidth} piksel pencere boyutuyla eşleşmiyor."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "İçerik, görüntü alanı için doğru boyutlandırılmadı"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "İçerik görüntü alanı için doğru boyutlandırıldı"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Aşağıdaki Kritik İstek Zincirleri, hangi kaynakların yüksek öncelikle yüklendiğini göstermektedir. Sayfa yüklemesini iyileştirmek için zincir uzunluğunu azaltma, kaynakların indirme boyutunu küçültme veya gereksiz kaynakların indirilmesini erteleme seçeneğini değerlendirin. [Birbirini takip eden kritik istekleri nasıl önleyeceğinizi öğrenin](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Çözünürlüğü uygun olan resimleri sunar"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Uygulama zaten yüklenmiş"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Gereken bir simge manifest'ten indirilemedi"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Hata nedeni"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Servis çalışanı, uygulamanızın çevrimdışı çalışma, ana ekrana ekleme ve push bildirimleri gibi pek çok Progresif Web Uygulaması (PWA) özelliğini kullanmasını sağlayan teknolojidir. Doğru hizmet çalışanı ve manifest uygulamalarıyla tarayıcılar proaktif olarak kullanıcılardan uygulamanızı ana ekranlarına eklemelerini isteyebilir, böylece daha yüksek etkileşim sağlanabilir. [Manifest yüklenebilirlik koşulları hakkında daha fazla bilgi edinin](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 neden}other{# neden}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Web uygulaması manifest dosyası veya hizmet çalışanı, yüklenebilir olma gerekliliklerini karşılamıyor"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Play Store uygulama URL'si ve Play Store kimliği eşleşmiyor"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Sayfa, gizli pencerede yüklenmiş"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Manifest dosyasındaki `display` özelliği, `standalone`, `fullscreen` veya `minimal-ui` değerlerinden biri olmalıdır"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Manifest dosyası \"display_override\" alanını içeriyor ve desteklenen ilk görüntü modunun \"standalone\", \"fullscreen\" veya \"minimal-ui\"den biri olması gerekiyor"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Manifest dosyası getirilemedi, boş veya ayrıştırılamadı"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "Manifest dosyası getirilirken manifest URL'si değiştirildi."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Manifest dosyası bir `name` veya `short_name` alanı içermiyor"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Manifest dosyası uygun bir simge içermiyor. En az {value0} piksel değerinde bir PNG, SVG veya WebP biçimi gerekli olup sizes özelliği ayarlanmalıdır. Ayrıca purpose özelliği ayarlanacaksa \"any\" ifadesini içermelidir."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Sağlananlar arasında PNG, SVG veya WebP biçiminde, en az {value0} piksel ölçüsünde bir kare şeklinde, amaç özelliği ayarlanmamış ya da \"any\" olarak ayarlanmış bir simge yok"
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "İndirilen simge boş veya bozuktu"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Play Store kimliği sağlanmamış"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Sayfada hiç manifest <link> URL'si yok"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Manifest dosyasında \"start_url\" alanı olmadığından hizmet çalışanı kontrol edilemedi"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Yüklenebilirlik hata kimliği \"{errorId}\" tanınmıyor"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Sayfa, güvenli bir kaynaktan yayınlanmıyor"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Sayfa, ana çerçeveye yüklenmiyor"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Sayfa çevrimdışı çalışmıyor"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA (Progresif Web Uygulaması) kaldırıldı ve yüklenebilirlik kontrolleri sıfırlanıyor."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Belirtilen uygulama platformu, Android'de desteklenmiyor"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Manifest dosyasında prefer_related_applications: true değeri belirtilmiş"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications, Android'de yalnızca Chrome Beta ve Mevcut ürün kanallarında desteklenir."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse, sayfanın yüklenebilir olup olmadığını belirleyemedi. Lütfen Chrome'un daha yeni bir sürümüyle deneyin."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Manifest başlangıç URL'si geçerli değil"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Web uygulaması manifest dosyası ve hizmet çalışanı, yüklenebilir olma gerekliliklerini karşılıyor"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "Manifest dosyasındaki bir URL; kullanıcı adı, şifre veya bağlantı noktası içeriyor"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Sayfa çevrimdışı çalışmıyor. Sayfa, Ağustos 2021'de çıkacak Chrome 93 kararlı sürümünden sonra yüklenebilir olarak değerlendirilmeyecek."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "İzin verildi"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Ana iş parçacığının çalışmasını en aza indirir"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Mümkün olduğunca fazla sayıda kullanıcıya ulaşmak için sitelerin belli başlı her tarayıcıda çalışması gerekir. [Tarayıcılar arası uyumluluk hakkında bilgi edinin](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Site farklı tarayıcılarda çalışıyor"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Her bir sayfaya URL aracılığıyla derin bağlantı verilebildiğinden ve URL'lerin sosyal medyada paylaşılabilmesi için benzersiz olduğundan emin olun. [Derin bağlantı sağlama hakkında daha fazla bilgi edinin](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Her sayfa bir URL'ye sahip"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Yavaş ağlarda bile sağa sola dokundukça geçişlerin hızlı gerçekleştiği hissedilmelidir. Bu deneyim, kullanıcının performans algısının temelinde yatar. [Sayfa geçişleri hakkında daha fazla bilgi edinin](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Sayfa geçişleri ağda takılıyorlarmış gibi hissedilmiyor"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Maskelenebilir simge, uygulama bir cihaza yüklenirken resmin sinemaskop hale gelmeden tüm şekli doldurmasını sağlar. [Maskelenebilir manifest simgeleri hakkında bilgi edinin](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Manifest dosyası maskelenebilir bir simge içermiyor"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Manifest dosyası maskelenebilir simge içeriyor"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Cumulative Layout Shift, görüntü alanı içindeki görünür öğelerin hareketini ölçer. [Cumulative Layout Shift metriği hakkında daha fazla bilgi edinin](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "İlk sunucu yanıt süresi kısaydı"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Temalı başlangıç ekranı, kullanıcılar uygulamanızı ana ekranlarında başlattığında yüksek kaliteli bir deneyim sağlar. [Başlangıç ekranları hakkında daha fazla bilgi edinin](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Özel başlangıç ekranı için yapılandırılmadı"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Özel başlangıç ekranı için yapılandırıldı"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Sitenizle eşleşmesi için tarayıcı adres çubuğu temalı yapılabilir. [Adres çubuğuna tema uygulama hakkında daha fazla bilgi edinin](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Adres çubuğu için tema rengi ayarlamıyor."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Adres çubuğu için tema rengi ayarlar."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Chrome'un gelecekteki bir sürümünde üçüncü taraf çerezlerine yönelik destek kaldırılacaktır. [Üçüncü taraf çerezlerinin kullanımdan kaldırılması hakkında daha fazla bilgi edinin](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

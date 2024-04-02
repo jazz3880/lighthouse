@@ -241,7 +241,7 @@ describe('backward compatibility', () => {
     );
     assert.deepStrictEqual(
       preparedResult.audits['server-response-time'].metricSavings,
-      {LCP: 450, FCP: 450}
+      {LCP: 0, FCP: 0}
     );
   });
 });

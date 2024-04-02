@@ -130,9 +130,9 @@ describe('Runner', () => {
     const url = 'https://example.com';
     const generateConfig = settings => initializeConfig('navigation', {
       artifacts: [
-        {id: 'ViewportDimensions', gatherer: 'viewport-dimensions'},
+        {id: 'MetaElements', gatherer: 'meta-elements'},
       ],
-      audits: ['content-width'],
+      audits: ['viewport'],
       settings,
     }).then(r => r.resolvedConfig);
     const artifactsPath = '.tmp/test_artifacts';
@@ -149,7 +149,7 @@ describe('Runner', () => {
         expect(saveArtifactsSpy).toHaveBeenCalled();
 
         const saveArtifactArg = saveArtifactsSpy.mock.calls[0][0];
-        assert.ok(saveArtifactArg.ViewportDimensions);
+        assert.ok(saveArtifactArg.MetaElements);
 
         expect(mockGatherImpl).toHaveBeenCalled();
         expect(runAuditSpy).not.toHaveBeenCalled();
@@ -195,7 +195,7 @@ describe('Runner', () => {
           auditMode: moduleDir + '/fixtures/artifacts/perflog/',
         },
         audits: [
-          'content-width',
+          'viewport',
         ],
       });
 
@@ -315,11 +315,11 @@ describe('Runner', () => {
     const url = 'https://example.com';
     const {resolvedConfig} = await initializeConfig('navigation', {
       artifacts: [{
-        id: 'ViewportDimensions',
-        gatherer: 'viewport-dimensions',
+        id: 'MetaElements',
+        gatherer: 'meta-elements',
       }],
       audits: [
-        'content-width',
+        'viewport',
       ],
     });
 
@@ -394,11 +394,11 @@ describe('Runner', () => {
   it('finds correct timings for multiple gather/audit pairs run separately', async () => {
     const {resolvedConfig} = await initializeConfig('navigation', {
       artifacts: [{
-        id: 'ViewportDimensions',
-        gatherer: 'viewport-dimensions',
+        id: 'MetaElements',
+        gatherer: 'meta-elements',
       }],
       audits: [
-        'content-width',
+        'viewport',
       ],
     });
     const options1 = {resolvedConfig, driverMock, computedCache: new Map()};
@@ -472,19 +472,19 @@ describe('Runner', () => {
           auditMode: moduleDir + '/fixtures/artifacts/empty-artifacts/',
         },
         audits: [
-          // requires the ViewportDimensions artifact
-          'content-width',
+          // requires the MetaElements artifact
+          'viewport',
         ],
         artifacts: [
-          {id: 'ViewportDimensions', gatherer: 'viewport-dimensions'},
+          {id: 'MetaElements', gatherer: 'meta-elements'},
         ],
       });
 
       return runGatherAndAudit({}, {resolvedConfig}).then(results => {
-        const auditResult = results.lhr.audits['content-width'];
+        const auditResult = results.lhr.audits['viewport'];
         assert.strictEqual(auditResult.score, null);
         assert.strictEqual(auditResult.scoreDisplayMode, 'error');
-        assert.ok(auditResult.errorMessage.includes('ViewportDimensions'));
+        assert.ok(auditResult.errorMessage.includes('MetaElements'));
       });
     });
 
@@ -497,7 +497,7 @@ describe('Runner', () => {
       const errorMessage = 'blurst of times';
       const artifacts = {
         ...baseArtifacts,
-        ViewportDimensions: new Error(errorMessage),
+        MetaElements: new Error(errorMessage),
       };
       const artifactsPath = '.tmp/test_artifacts';
       const resolvedPath = path.resolve(process.cwd(), artifactsPath);
@@ -509,16 +509,16 @@ describe('Runner', () => {
           auditMode: resolvedPath,
         },
         audits: [
-          // requires ViewportDimensions artifact
-          'content-width',
+          // requires MetaElements artifact
+          'viewport',
         ],
         artifacts: [
-          {id: 'ViewportDimensions', gatherer: 'viewport-dimensions'},
+          {id: 'MetaElements', gatherer: 'meta-elements'},
         ],
       });
 
       const results = await runGatherAndAudit({}, {resolvedConfig});
-      const auditResult = results.lhr.audits['content-width'];
+      const auditResult = results.lhr.audits['viewport'];
       assert.strictEqual(auditResult.score, null);
       assert.strictEqual(auditResult.scoreDisplayMode, 'error');
       assert.ok(auditResult.errorMessage.includes(errorMessage));
@@ -730,10 +730,10 @@ describe('Runner', () => {
     const url = 'https://example.com/';
     const {resolvedConfig} = await initializeConfig('navigation', {
       audits: [
-        'content-width',
+        'viewport',
       ],
       artifacts: [
-        {id: 'ViewportDimensions', gatherer: 'viewport-dimensions'},
+        {id: 'MetaElements', gatherer: 'meta-elements'},
       ],
     });
 
@@ -742,7 +742,7 @@ describe('Runner', () => {
       assert.ok(results.lhr.lighthouseVersion);
       assert.ok(results.lhr.fetchTime);
       assert.equal(results.lhr.requestedUrl, url);
-      assert.equal(results.lhr.audits['content-width'].id, 'content-width');
+      assert.equal(results.lhr.audits['viewport'].id, 'viewport');
       expect(mockGatherImpl).toHaveBeenCalled();
     });
   });
@@ -751,18 +751,18 @@ describe('Runner', () => {
     const url = 'https://example.com/';
     const {resolvedConfig} = await initializeConfig('navigation', {
       artifacts: [{
-        id: 'ViewportDimensions',
-        gatherer: 'viewport-dimensions',
+        id: 'MetaElements',
+        gatherer: 'meta-elements',
       }],
       audits: [
-        'content-width',
+        'viewport',
       ],
       categories: {
         category: {
           title: 'Category',
           description: '',
           auditRefs: [
-            {id: 'content-width', weight: 1},
+            {id: 'viewport', weight: 1},
           ],
         },
       },
@@ -774,10 +774,8 @@ describe('Runner', () => {
       assert.ok(results.lhr.lighthouseVersion);
       assert.ok(results.lhr.fetchTime);
       assert.equal(results.lhr.requestedUrl, url);
-      assert.equal(results.lhr.audits['content-width'].id, 'content-width');
-      assert.equal(results.lhr.audits['content-width'].score, 1);
-      assert.equal(results.lhr.categories.category.score, 1);
-      assert.equal(results.lhr.categories.category.auditRefs[0].id, 'content-width');
+      assert.equal(results.lhr.audits['viewport'].id, 'viewport');
+      assert.equal(results.lhr.categories.category.auditRefs[0].id, 'viewport');
     });
   });
 
@@ -797,7 +795,7 @@ describe('Runner', () => {
         auditMode: moduleDir + '/fixtures/artifacts/perflog/',
       },
       audits: [
-        'content-width',
+        'viewport',
       ],
     });
 
@@ -812,18 +810,17 @@ describe('Runner', () => {
     const {resolvedConfig} = await initializeConfig('navigation', {
       artifacts: [
         {id: 'MetaElements', gatherer: 'meta-elements'},
-        {id: 'ViewportDimensions', gatherer: 'viewport-dimensions'},
       ],
 
       audits: [
-        'content-width',
+        'viewport',
       ],
     });
 
     const options = {resolvedConfig, driverMock, computedCache: new Map()};
     return runGatherAndAudit(createGatherFn(url), options).then(results => {
       // User-specified artifact.
-      assert.ok(results.artifacts.ViewportDimensions);
+      assert.ok(results.artifacts.MetaElements);
     });
   });
 

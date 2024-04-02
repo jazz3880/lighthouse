@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "I-enable ang compression ng text"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Kung hindi tumutugma ang lapad ng content ng iyong app sa lapad ng viewport, puwedeng hindi ma-optimize ang app mo para sa mga screen ng mobile. [Alamin kung paano baguhin ang laki ng content para sa viewport](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Hindi tumutugma ang laki ng viewport na {innerWidth}px sa laki ng window na {outerWidth}px."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Hindi tama ang laki ng content para sa viewport"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Tama ang laki ng content para sa viewport"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Ipinapakita sa iyo ng Mga Chain ng Mahahalagang Kahilingan kung anong mga resource ang nilo-load nang may mataas na priyoridad. Pag-isipang paikliin ang mga chain, paliitin ang mga dina-download na resource, o ipagpaliban ang pag-download ng mga hindi kinakailangang resource para mapabilis ang pag-load ng page. [Alamin kung paano iwasan ang pagsusunod-sunod ng mahahalagang kahilingan](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Nagpapakita ng mga larawang may naaangkop na resolution"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Naka-install na ang app"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Hindi ma-download ang kinakailangang icon mula sa manifest"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Dahilan ng pagpalya"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Ang service worker ang teknolohiyang nagbibigay-daan sa iyong app na gumamit ng maraming feature ng Progressive Web App, tulad ng offline, pagdaragdag sa homescreen, at mga push notification. Gamit ang naaangkop na service worker at mga pagpapatupad ng manifest, puwedeng proactive na i-prompt ng mga browser ang mga user na idagdag ang iyong app sa kanilang homescreen, na puwedeng magresulta sa mas maraming engagement. [Matuto pa tungkol sa mga requirement sa installability ng manifest](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 dahilan}one{# dahilan}other{# na dahilan}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Hindi natutugunan ng manifest ng web app o service worker ang mga kinakailangan sa installability"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Hindi magkatugma ang URL ng app sa Play Store at Play Store ID"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Na-load ang page sa incognito window"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "ng property ng manifest na `display` ay dapat na isa sa `standalone`, `fullscreen`, o `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Naglalaman ang manifest ng field na 'display_override,' at ang unang sinusuportahang display mode ay dapat isa sa 'standalone,' 'fullscreen,' o 'minimal-ui'"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Hindi ma-fetch, walang laman, o hindi ma-parse ang manifest"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "Nagbago ang manifest URL habang fine-fetch ang manifest."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Walang lamang field na `name` o `short_name` ang manifest"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Walang lamang naaangkop na icon ang manifest - kinakailangang nasa format na PNG, SVG, o WebP at hindi bababa sa {value0} px dapat nakatakda ang attribute ng mga laki, at kung nakatakda ang attribute ng layunin, may \"any.\""
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Walang ibinigay na icon na may sukat na kahit {value0} px square at nasa format na PNG, SVG, o WebP, na may attribute ng layunin na naka-unset o nakatakda sa \"any\""
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Walang laman o sira ang na-download na icon"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Walang ibinigay na Play store ID"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Walang URL ng manifest <link> ang page"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Hindi masusuri ang service worker kapag walang field na 'start_url' sa manifest"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Hindi natutukoy ang installability error id na '{errorId}'"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Hindi inihahatid ang page mula sa isang secure na pinagmulan"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Hindi na-load ang page sa pangunahing frame"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Hindi gumagana offline ang page"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "Na-uninstall ang PWA, at nire-reset ang mga pagsusuri sa installability."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Hindi sinusuportahan ang tinukoy na platform ng application sa Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Itinatakda ng manifest ang prefer_related_applications sa: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "Sinusuportahan lang ang prefer_related_applications sa Chrome Beta at mga Stable na channel sa Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Hindi matukoy ng Lighthouse kung nai-install ang page. Pakisubukan sa mas bagong bersyon ng Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Hindi valid ang start URL ng manifest"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Natutugunan ng manifest ng web app at service worker ang mga kinakailangan sa installability"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "Naglalaman ang URL sa manifest ng username, password, o port"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Hindi gumagana offline ang page. Hindi ituturing na nai-install ang page kapag nailunsad na ang stable release ng Chrome 93 sa Agosto 2021."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Pinapayagan"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Binabawasan ang gawain sa pangunahing thread"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Para maabot ang pinakamaraming user, dapat gumana ang mga site sa lahat ng pangunahing browser. [Matuto pa tungkol sa cross-browser na compatibility](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Gumagana ang site sa iba't ibang browser"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Tiyaking puwedeng i-deep link ang mga indibidwal na page sa pamamagitan ng URL at natatangi ang mga URL para sa pagbabahagi sa social media. [Matuto pa tungkol sa pagbibigay ng mga deep link](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "May URL ang bawat page"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Mabilis dapat ang mga transition habang nagta-tap ka, kahit sa mabagal na network. Ang experience na ito ay susi sa pananaw ng user sa performance. [Matuto pa tungkol sa mga transition ng page](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Mukhang hindi nagba-block sa network ang mga transition ng page"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Tinitiyak ng nama-mask na icon na nasasakop ng larawan ang buong hugis nang hindi nagiging naka-letterbox kapag ini-install ang app sa isang device. [Matuto pa tungkol sa mga nama-mask na icon ng manifest](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Walang nama-mask na icon ang manifest"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "May nama-mask na icon ang manifest"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Sinusukat ng Cumulative Layout Shift ang paggalaw ng mga nakikitang element sa loob ng viewport. [Matuto pa tungkol sa sukatang Cumulative Layout Shift](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Mabilis ang unang pagtugon ng server"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Tinitiyak ng splash screen na may tema na magkakaroon ng experience na may mataas na kalidad kapag inilulunsad ng mga user ang iyong app sa kanilang mga homescreen. [Matuto pa tungkol sa mga splash screen](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Hindi naka-configure para sa custom na splash screen"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Naka-configure para sa custom na splash screen"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Puwedeng lagyan ng tema ang address bar ng browser para tumugma sa iyong site. [Matuto pa tungkol sa pagtatakda ng tema ng address bar](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Hindi nagtatakda ng kulay ng tema para sa address bar."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Nagtatakda ng kulay ng tema para sa address bar."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Aalisin ang suporta para sa third-party na cookies sa bersyon ng Chrome sa hinaharap. [Alamin pa ang tungkol sa pag-phase out ng third-party na cookies](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

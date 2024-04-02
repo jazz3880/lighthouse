@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "تفعيل ضغط النص"
   },
-  "core/audits/content-width.js | description": {
-    "message": "إذا كان عرض محتوى التطبيق لا يتطابق مع عرض إطار العرض، قد لا يتم تحسين تطبيقك ليتوافق مع شاشات الأجهزة الجوّالة. تعرّف على [كيفية تحديد حجم المحتوى بما يتناسب مع إطار العرض](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "لا يتطابق حجم إطار العرض {innerWidth} بكسل مع حجم النافذة {outerWidth} بكسل."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "عدم تحديد حجم المحتوى بشكلٍ صحيح لإطار العرض"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "تحديد حجم المحتوى بشكلٍ صحيح لإطار العرض"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "توضّح لك \"سلاسل الطلبات المُهمّة\" أدناه الموارد التي تم تحميلها بأولوية عالية. ويمكنك تقليل طول السلاسل أو تقليل حجم تنزيل الموارد أو تأجيل تنزيل الموارد غير الضرورية لتحسين تحميل الصفحة. تعرَّف على [كيفية تجنُّب تسلسل الطلبات المُهمّة](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "يتم عرض الصور بدقة مناسبة"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "سبق وتم تثبيت هذا التطبيق."
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "تعذَّر تنزيل رمز مطلوب من ملف البيان."
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "سبب الإخفاق"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "مشغّل الخدمات هو التكنولوجيا التي تمكّن تطبيقك من استخدام ميزات عديدة في \"تطبيق الويب التقدّمي\"، مثل الاستجابة عند عدم الاتصال بالإنترنت والإضافة إلى الشاشة الرئيسية والإشعارات الفورية. من خلال مشغّل الخدمات المناسب وعمليات تنفيذ ملفات البيان، يمكن للمتصفِّحات أن تطلب من المستخدمين بشكل مسبَق إضافة تطبيقك إلى الشاشة الرئيسية، ويمكن بذلك زيادة التفاعل. [مزيد من المعلومات حول متطلبات تثبيت البيان](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)"
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{سبب واحد}zero{# أسباب}two{سببان}few{# أسباب}many{# سببًا}other{# سبب}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "عدم استيفاء ملف بيان تطبيق الويب أو مشغّل الخدمات لمتطلبات التثبيت"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "لا يتطابق عنوان URL الخاص بالتطبيق في \"متجر Play\" مع رقم تعريف التطبيق في \"متجر Play\"."
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "تم تحميل الصفحة في نافذة تصفُّح متخفٍ."
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "يجب أن تكون الخاصية \"`display`\" في ملف البيان بوضع عرض متاح بالقيمة \"`standalone`\" أو \"`fullscreen`\" أو \"`minimal-ui`\"."
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "يتضمن ملف البيان حقل \"display_override\"، لذا يجب أن يكون وضع العرض الأول المتاح بالقيمة \"standalone\" أو \"fullscreen\" أو \"minimal-ui\"."
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "البيان فارغ أو تعذّر استرجاعه أو لم يتم تحليله."
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "تم تغيير عنوان URL لملف البيان أثناء استرجاع الملف."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "لا يتضمّن ملف البيان حقل \"`name`\" أو \"`short_name`\"."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "لا يتضمّن ملف البيان رمزًا مناسبًا. يجب استخدام رمز بتنسيق PNG أو SVG أو WebP بحجم {value0} بكسل على الأقل، ويجب ضبط السمة \"sizes\"، وأن تتضمّن السمة \"purpose\" القيمة \"any\"."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "لا يتوفّر رمز بحجم {value0} بكسل مربّع على الأقل بتنسيق PNG أو SVG أو WebP، بغرض عدم ضبط السمة أو ضبطها على \"أي تنسيق\"."
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "الرمز الذي تم تحميله فارغ أو تالف."
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "لم يتم توفير رقم تعريف \"متجر Play\"."
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "لا تتضمّن الصفحة عنوان URL <link> لملف البيان."
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "تعذّر التحقّق من مشغّل الخدمات بدون توفّر حقل \"start_url\" في ملف البيان."
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "لم يتم التعرّف على رقم تعريف خطأ قابلية التثبيت \"{errorId}\"."
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "لا يتم عرض الصفحة من مصدر آمن."
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "لا يتم تحميل الصفحة في الإطار الرئيسي."
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "لا تعمل هذه الصفحة بلا إنترنت."
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "تم إلغاء تثبيت تطبيق الويب التقدّمي (PWA) وتتم حاليًا إعادة ضبط عمليات التحقّق من قابلية التثبيت."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "لا تتوفّر منصة التطبيقات المحدّدة على Android."
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "يضبط ملف البيان قيمة prefer_related_applications على true."
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "لا يتوافق حقل الإدخال prefer_related_applications إلا مع الإصدار التجريبي من متصفِّح Chrome والقنوات الثابتة على Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "تعذَّر على أداة Lighthouse تحديد ما إذا كانت الصفحة قابلة للتثبيت. يُرجى إعادة المحاولة باستخدام إصدار أحدث من متصفّح Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "عنوان URL البداية لملف البيان غير صالح."
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "استيفاء ملف بيان تطبيق الويب ومشغّل الخدمات لمتطلبات التثبيت"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "يحتوي عنوان URL في ملف البيان على اسم مستخدم أو كلمة مرور أو منفذ."
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "لا تعمل هذه الصفحة بلا إنترنت. وستصبح هذه الصفحة غير قابلة للتثبيت بعد إطلاق الإصدار الثابت من Chrome 93 في آب (أغسطس) 2021."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "مسموح به"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "تقليل سلسلة العمل الرئيسية"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "للوصول إلى أكبر عدد من المستخدمين، يجب إتاحة استخدام المواقع الإلكترونية على كل متصفِّح رئيسي. تعرَّف على [كيفية توافق المواقع الإلكترونية مع جميع المتصفِّحات](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "الموقع الإلكتروني يعمل عبر المتصفح"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "يُرجى التأكّد من إمكانية إنشاء روابط تؤدي إلى الصفحات الفردية من خلال عناوين URL، ويجب أن تكون عناوين URL هذه فريدة لتوفير إمكانية المشاركة على وسائل التواصل الاجتماعي. [مزيد من المعلومات عن كيفية توفير روابط لصفحات معيّنة](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "كل صفحة تحتوي على عنوان URL"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "يجب أن تكون عمليات الانتقال بين الصفحات سريعة، حتى عند استخدام شبكة بطيئة، وذلك لأنّ سرعة استجابة التطبيق تُعدّ من العناصر الأساسية التي يستند إليها المستخدم في تقييم أداء التطبيق. [مزيد من المعلومات حول عمليات الانتقال بين الصفحات](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)"
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "عمليات نقل الصفحة لا تبدو أنها محظورة على الشبكة"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "يضمن الرمز التكيُّفي تعبئة الصورة للشكل بالكامل بدون أن تصبح مُعدَّة للعرض على شاشة عريضة أفقيًا أثناء تثبيت التطبيق على أحد الأجهزة. [مزيد من المعلومات حول رموز البيانات التكيُّفية](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)"
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "البيان لا يحتوي على رمز قابل للإخفاء"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "البيان يحتوي على رمز قابل للإخفاء"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "يحدِّد مقياس \"متغيّرات التصميم التراكمية\" مقدار حركة العناصر المرئية في إطار العرض. [مزيد من المعلومات حول مقياس \"متغيّرات التصميم التراكمية\"](https://web.dev/articles/cls)"
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "وقت استجابة الخادم الأوّلي قصير"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "تضمن شاشة البداية المميَّزة توفير تجربة عالية الجودة عند تشغيل المستخدمين لتطبيقك من الشاشات الرئيسية. [مزيد من المعلومات حول شاشات البداية](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)"
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "عدم الضبط لشاشة بداية مخصّصة"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "تم الضبط لشاشة البداية المخصّصة"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "يمكن تصميم ألوان شريط العناوين للمتصفِّح بما يتطابق مع موقعك الإلكتروني. [مزيد من المعلومات حول تصميم ألوان شريط العناوين](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)"
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "عدم ضبط لون تصميم لشريط العناوين"
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "ضبط لون تصميم لشريط العناوين"
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "ستتم إزالة إمكانية استخدام ملفات تعريف الارتباط التابعة لجهات خارجية في إصدار مستقبلي من Chrome. [معلومات أكثر حول الإيقاف التدريجي لملفات تعريف الارتباط التابعة لجهات خارجية](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)"

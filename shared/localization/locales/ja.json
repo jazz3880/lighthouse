@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "テキスト圧縮の有効化"
   },
-  "core/audits/content-width.js | description": {
-    "message": "アプリのコンテンツの幅がビューポートの幅と一致しない場合、アプリがモバイル画面に合わせて最適化されない可能性があります。[ビューポートのコンテンツのサイズ変更方法の詳細](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)"
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "ビューポートのサイズ（{innerWidth} ピクセル）がウィンドウのサイズ（{outerWidth} ピクセル）と一致していません。"
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "コンテンツのサイズとビューポートのサイズが一致していません"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "コンテンツのサイズとビューポートのサイズが一致しています"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "下のクリティカル リクエスト チェーンでは、高い優先度で読み込まれたリソースを確認できます。チェーンの長さを縮小する、リソースのダウンロード サイズを抑える、不要なリソースのダウンロードを遅らせるなどの手段を行って、ページの読み込み速度を改善することをご検討ください。[重要なリクエストのチェーンを回避する方法の詳細](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)"
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "画像が適切な解像度で表示されています"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "このアプリはすでにインストールされています"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "マ二フェストから必要なアイコンをダウンロードできませんでした"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "失敗の理由"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Service Worker は、多くのプログレッシブ ウェブアプリ機能（オフライン、ホーム画面への追加、プッシュ通知など）をアプリで使用できるようにするための技術です。適切な Service Worker とマニフェストの実装により、ホーム画面にアプリを追加するようユーザーに促すメッセージをブラウザに自動的に表示でき、これによりエンゲージメントを高めることができます。[マニフェストのインストール要件の詳細](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)"
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{理由: 1 件}other{理由: # 件}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "ウェブアプリ マニフェストまたは Service Worker がインストール可能となる要件を満たしていません"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Play ストア アプリの URL と Play ストアの ID が一致しません"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "ページがシークレット ウィンドウで読み込まれます"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "マニフェストの `display` プロパティは、`standalone`、`fullscreen`、`minimal-ui` のいずれかにする必要があります。"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "マニフェストの「display_override」フィールドで、最初のサポート表示モードを「standalone」、「fullscreen」、「minimal-ui」のいずれかに設定する必要があります"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "マニフェストを取得または解析できなかったか、マニフェストが空です"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "マニフェストの取得中にマニフェストの URL が変更されました。"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "マニフェストに `name` または `short_name` フィールドがありません"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "マニフェストに適切なアイコンが含まれていません。{value0} ピクセル以上の PNG、SVG、または WebP 形式のアイコンが必要です。また、そのアイコンには sizes 属性を設定し、purpose 属性が設定されている場合は「any」を含める必要があります。"
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "purpose 属性を設定しないか、「any」に設定した状態で、PNG、SVG、または WebP 形式の {value0} ピクセル以上の正方形のアイコンが提供されていません"
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "ダウンロードしたアイコンが空か、破損しています"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Play ストアの ID が提供されていません"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "ページにマニフェストの <link> URL がありません"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "マニフェストに「start_url」フィールドがないため Service Worker をチェックできませんでした"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "インストール可能エラー ID「{errorId}」は認識されません"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "ページが安全な提供元から配信されていません"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "ページがメインフレームに読み込まれません"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "ページがオフラインに対応していません"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA のアンインストールを完了し、インストール可能チェックマークをリセットしています。"
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "指定されたアプリ プラットフォームは Android でサポートされていません"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "マニフェストの prefer_related_applications が true に指定されています"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "Android の Chrome の Beta チャンネルと Stable チャンネルでサポートされるのは、prefer_related_applications のみです。"
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse では、ページがインストール可能かどうかを判断できませんでした。新しいバージョンの Chrome でお試しください。"
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "マニフェストの開始 URL が無効です"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "ウェブアプリ マニフェストと Service Worker はインストール可能となる要件を満たしています"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "マニフェストの URL にユーザー名、パスワード、またはポートが含まれています"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "ページがオフラインに対応していません。このページは、Chrome 93（2021 年 8 月の安定版リリース）以後はインストール可能と見なされません。"
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "許可"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "メインスレッド処理の最小化"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "多くのユーザーに見てもらえるようにするには、サイトがすべての主要ブラウザで機能するようにします。[クロスブラウザの互換性の詳細](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)"
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "サイトがクロスブラウザに対応している"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "ソーシャル メディアで共有できるように、個々のページが URL によるディープリンクに対応していることと、それらの URL が固有であることを確認してください。[ディープリンクの提供についての詳細](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "ページごとに 1 つの URL を使用している"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "遅いネットワークであってもタップしたときに画面がすばやく切り替われば、ユーザーはパフォーマンスの遅さを感じにくくなります。[ページの切り替えの詳細](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)"
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "ページの切り替え時、ネットワークが遅いという印象を与えない"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "マスク可能なアイコンでは、アプリをデバイスにインストールする際に、画像がレターボックス化されることなく図形全体を埋められます。[マスク可能なマニフェストのアイコンの詳細](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)"
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "マニフェストにマスク可能なアイコンは含まれていません"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "マニフェストにマスク可能なアイコンが含まれています"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Cumulative Layout Shift はビューポート内の視覚要素がどのくらい移動しているかを測定する指標です。[Cumulative Layout Shift 指標の詳細](https://web.dev/articles/cls)"
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "最初のサーバー応答時間は問題ない速さです"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "テーマのあるスプラッシュ画面を設定すると、ホーム画面からのアプリの起動時に、質の良いアプリであることをユーザーにアピールできます。[スプラッシュ画面の詳細](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)"
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "カスタムのスプラッシュ画面が設定されていません"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "カスタムのスプラッシュ画面が設定されています"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "ブラウザのアドレスバーにサイトに合わせたテーマを設定できます。[アドレスバーのテーマ設定の詳細](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)"
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "アドレスバーにテーマの色が設定されていません。"
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "アドレスバーにテーマの色が設定されています。"
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Chrome の今後のバージョンでは、サードパーティ Cookie のサポートを終了する予定です。[サードパーティ Cookie の段階的廃止に関する詳細](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)"

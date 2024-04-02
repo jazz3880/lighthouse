@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Zet tekstcompressie aan"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Als de breedte van de content van je app niet overeenkomt met de breedte van de viewport, is je app mogelijk niet geoptimaliseerd voor mobiele schermen. [Meer informatie over hoe je het formaat instelt van content voor de viewport](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)"
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Het kijkvensterformaat van {innerWidth}px komt niet overeen met het vensterformaat van {outerWidth}px."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "De content heeft niet het juiste formaat voor het kijkvenster"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "De content heeft het juiste formaat voor het kijkvenster"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "De onderstaande ketens met kritieke verzoeken laten zien welke bronnen met een hoge prioriteit worden geladen. Overweeg de lengte van ketens te verkleinen, de downloadgrootte van bronnen te beperken of het downloaden van onnodige bronnen uit te stellen om de laadtijd van de pagina te verbeteren. [Meer informatie over hoe je ketens van kritieke verzoeken voorkomt](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)"
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Levert afbeeldingen met de juiste resolutie"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "De app is al geïnstalleerd"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Kan een vereist icoon niet downloaden uit het manifest"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Oorzaak van fout"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "De service worker is de technologie waarmee je app veel functies van progressive web-apps kan gebruiken, zoals offline functionaliteit, toevoegen aan het startscherm en pushmeldingen. Met goede implementaties van de service worker en het manifest kunnen browsers gebruikers proactief vragen je app aan hun startscherm toe te voegen. Dit kan leiden tot grotere betrokkenheid. [Meer informatie over de vereisten voor installeerbaarheid van manifesten](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)"
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 reden}other{# redenen}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Het manifest van de web-app of de service worker voldoet niet aan de vereisten voor installeerbaarheid"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "De app-URL en de ID van de Play Store komen niet overeen"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Je laadt de pagina in een incognitovenster"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "De eigenschap `display` van het manifest moet `standalone`, `fullscreen` of `minimal-ui` zijn"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Het manifest bevat het veld 'display_override'. De eerste ondersteunde weergavemodus moet 'standalone', 'fullscreen' of 'minimal-ui' zijn."
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Het manifest kan niet worden opgehaald, is leeg of kan niet worden geparseerd"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "De manifest-URL is gewijzigd tijdens het ophalen van het manifest."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Manifest bevat geen veld `name` of `short_name`"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Het manifest bevat geen geschikt icoon. Een png-, svg- of webp-indeling van ten minste {value0} pixels is vereist, het formaatkenmerk moet zijn ingesteld en het doelkenmerk (indien ingesteld) moet 'any' bevatten."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Geen enkel geleverd icoon is een vierkant van minstens {value0} pixels in png-, svg- of webp-indeling met het doelkenmerk niet ingesteld of ingesteld op 'any'."
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Het gedownloade icoon is leeg of beschadigd"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Geen Play Store-ID opgegeven"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "De pagina heeft geen manifest-URL <link>"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Kan de service worker niet checken zonder een veld 'start_url' in het manifest"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "De ID van de installeerbaarheidsfout '{errorId}' wordt niet herkend"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "De pagina wordt niet weergegeven via een beveiligde bron"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "De pagina wordt niet in het hoofdframe geladen"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "De pagina werkt niet offline"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA is verwijderd en de installeerbaarheidschecks worden gereset."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Het opgegeven app-platform wordt niet ondersteund op Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Het manifest specificeert prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications wordt alleen ondersteund op bèta- en stabiele kanalen van Chrome op Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse kan niet bepalen of de pagina installeerbaar is. Probeer het met een nieuwere versie van Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "De start-URL voor het manifest is ongeldig"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Het manifest van de web-app en de service worker voldoen aan de vereisten voor installeerbaarheid"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "Een URL in het manifest bevat een gebruikersnaam, wachtwoord of poort"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "De pagina werkt niet offline. Vanaf de stabiele release van Chrome 93 in augustus 2021 wordt deze pagina niet meer als installeerbaar beschouwd."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Toegestaan"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Primaire threadbewerkingen minimaliseren"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Sites moeten in alle grote browsers werken om zoveel mogelijk gebruikers te bereiken. [Meer informatie over compatibiliteit met verschillende browsers](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)"
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "De site werkt in verschillende browsers"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Zorg ervoor dat deep links voor afzonderlijke pagina's via een URL kunnen worden opgenomen en dat URL's uniek zijn zodat ze op social media kunnen worden gedeeld. [Meer informatie over het opgeven van deep links](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Elke pagina heeft een URL"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Overgangen moeten snel aanvoelen als je op een pagina tikt, zelfs bij gebruik van een langzaam netwerk. Dit is essentieel voor hoe de prestaties bij de gebruiker overkomen. [Meer informatie over paginaovergangen](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)"
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Paginaovergangen voelen niet alsof ze vastlopen op het netwerk"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Een maskeerbaar icoon zorgt ervoor dat de afbeelding de hele vorm zonder horizontale zwarte balken uitvult als een app wordt geïnstalleerd op het apparaat. [Meer informatie over maskeerbare manifesticonen](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)"
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Manifest heeft geen maskeerbaar icoon"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Manifest heeft een maskeerbaar icoon"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Cumulatieve indelingsverschuiving (CLS) meet de beweging van zichtbare elementen binnen de viewport. [Meer informatie over de statistiek Cumulatieve indelingsverschuiving (CLS)](https://web.dev/articles/cls)"
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Eerste reactietijd van server was kort"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Een startscherm met een thema zorgt voor een gebruikerservaring van hoge kwaliteit als gebruikers je app starten vanaf hun startscherm. [Meer informatie over startschermen](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)"
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Is niet geconfigureerd voor een aangepast startscherm"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Is geconfigureerd voor een aangepast startscherm"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Het thema van de adresbalk van de browser kan worden aangepast aan je site. [Meer informatie over thema's voor de adresbalk](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)"
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Hiermee wordt geen themakleur voor de adresbalk ingesteld."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Hiermee wordt een themakleur voor de adresbalk ingesteld."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Cookies van derden worden in een toekomstige versie van Chrome niet meer ondersteund. [Meer informatie over de uitfasering van cookies van derden](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)"

@@ -4536,12 +4536,6 @@
             "title": "Diagnostics",
             "description": "More information about the performance of your application. These numbers don't [directly affect](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) the Performance score."
           },
-          "pwa-installable": {
-            "title": "Installable"
-          },
-          "pwa-optimized": {
-            "title": "PWA Optimized"
-          },
           "a11y-best-practices": {
             "title": "Best practices",
             "description": "These items highlight common accessibility best practices."
@@ -8002,12 +7996,6 @@
             "core/config/default-config.js | diagnosticsGroupDescription": [
               "categoryGroups.diagnostics.description"
             ],
-            "core/config/default-config.js | pwaInstallableGroupTitle": [
-              "categoryGroups[pwa-installable].title"
-            ],
-            "core/config/default-config.js | pwaOptimizedGroupTitle": [
-              "categoryGroups[pwa-optimized].title"
-            ],
             "core/config/default-config.js | a11yBestPracticesGroupTitle": [
               "categoryGroups[a11y-best-practices].title"
             ],
@@ -10819,12 +10807,6 @@
             "title": "Diagnostics",
             "description": "More information about the performance of your application. These numbers don't [directly affect](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) the Performance score."
           },
-          "pwa-installable": {
-            "title": "Installable"
-          },
-          "pwa-optimized": {
-            "title": "PWA Optimized"
-          },
           "a11y-best-practices": {
             "title": "Best practices",
             "description": "These items highlight common accessibility best practices."
@@ -12230,12 +12212,6 @@
             ],
             "core/config/default-config.js | diagnosticsGroupDescription": [
               "categoryGroups.diagnostics.description"
-            ],
-            "core/config/default-config.js | pwaInstallableGroupTitle": [
-              "categoryGroups[pwa-installable].title"
-            ],
-            "core/config/default-config.js | pwaOptimizedGroupTitle": [
-              "categoryGroups[pwa-optimized].title"
             ],
             "core/config/default-config.js | a11yBestPracticesGroupTitle": [
               "categoryGroups[a11y-best-practices].title"
@@ -15175,12 +15151,6 @@
             "title": "Diagnostics",
             "description": "More information about the performance of your application. These numbers don't [directly affect](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) the Performance score."
           },
-          "pwa-installable": {
-            "title": "Installable"
-          },
-          "pwa-optimized": {
-            "title": "PWA Optimized"
-          },
           "a11y-best-practices": {
             "title": "Best practices",
             "description": "These items highlight common accessibility best practices."
@@ -17266,12 +17236,6 @@
             ],
             "core/config/default-config.js | diagnosticsGroupDescription": [
               "categoryGroups.diagnostics.description"
-            ],
-            "core/config/default-config.js | pwaInstallableGroupTitle": [
-              "categoryGroups[pwa-installable].title"
-            ],
-            "core/config/default-config.js | pwaOptimizedGroupTitle": [
-              "categoryGroups[pwa-optimized].title"
             ],
             "core/config/default-config.js | a11yBestPracticesGroupTitle": [
               "categoryGroups[a11y-best-practices].title"
@@ -21965,12 +21929,6 @@
             "title": "Diagnostics",
             "description": "More information about the performance of your application. These numbers don't [directly affect](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) the Performance score."
           },
-          "pwa-installable": {
-            "title": "Installable"
-          },
-          "pwa-optimized": {
-            "title": "PWA Optimized"
-          },
           "a11y-best-practices": {
             "title": "Best practices",
             "description": "These items highlight common accessibility best practices."
@@ -25404,12 +25362,6 @@
             ],
             "core/config/default-config.js | diagnosticsGroupDescription": [
               "categoryGroups.diagnostics.description"
-            ],
-            "core/config/default-config.js | pwaInstallableGroupTitle": [
-              "categoryGroups[pwa-installable].title"
-            ],
-            "core/config/default-config.js | pwaOptimizedGroupTitle": [
-              "categoryGroups[pwa-optimized].title"
             ],
             "core/config/default-config.js | a11yBestPracticesGroupTitle": [
               "categoryGroups[a11y-best-practices].title"

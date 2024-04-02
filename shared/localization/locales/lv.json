@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Iespējojiet teksta saspiešanu"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Ja lietotnes satura platums neatbilst skatvietas platumam, lietotne var nebūt optimizēta mobilo ierīču ekrāniem. [Uzziniet, kā pielāgot skatvietas satura izmērus](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Skatvietas izmērs ({innerWidth} px) neatbilst loga izmēram ({outerWidth} px)."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Satura izmērs nav pareizs, salīdzinot ar skatvietu"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Satura izmērs ir pareizs, salīdzinot ar skatvietu"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Rādītājs “Kritisko pieprasījumu ķēdes” tālāk parāda, kuri resursi ir ielādēti ar augstāko prioritāti. Lai uzlabotu lapas ielādi, ieteicams samazināt ķēžu garumu, samazināt resursu lejupielādes apjomu vai atlikt nevajadzīgo resursu lejupielādi. [Uzziniet, kā izvairīties no kritisku pieprasījumu ķēdēm](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Attēli tiek rādīti piemērotā izšķirtspējā"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Lietotne jau ir instalēta"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Nevarēja ielādēt obligātu ikonu no manifesta."
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Atteices iemesls"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Pakalpojumu skripts ir tehnoloģija, kas palīdz nodrošināt daudzas progresīvo tīmekļa lietotņu funkcijas, piemēram, lietotnes izmantošanu bezsaistē, pievienošanu sākuma ekrānam un informatīvos paziņojumus. Atbilstoši ieviešot pakalpojumu skriptu un manifestu, pārlūkprogrammās var aktīvi rādīt lietotājiem uzvednes ar aicinājumu pievienot jūsu lietotni sākuma ekrānam. Tādējādi var izdoties palielināt iesaisti. [Uzziniet vairāk par manifesta instalējamības prasībām](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{Viens iemesls}zero{# iemeslu}one{# iemesls}other{# iemesli}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Tīmekļa lietotnes manifests vai pakalpojumu skripts neatbilst instalējamības prasībām"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Play veikala ID neatbilst Play veikala lietotnes vietrādim URL"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Lapa ir ielādēta inkognito logā"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Manifesta “`display`” rekvizīta vērtībai ir jābūt “`standalone`”, “`fullscreen`” vai “`minimal-ui`”."
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Manifestā ir ietverts lauks “display_override”, un pirmajam atbalstītajam attēlošanas režīmam jābūt “standalone”, “fullscreen” vai “minimal-ui”"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Manifestu nevarēja ienest, tas ir tukšs, vai to nevarēja parsēt"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "Manifesta ienešanas laikā mainījās manifesta URL."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Manifestā nav lauka “`name`” vai “`short_name`”."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Manifestā nav piemērotas ikonas. Nepieciešams PNG, SVG vai WebP formāta fails, kura izmēriem jābūt vismaz {value0} piks. un atribūtam “sizes” jābūt iestatītam. Ja ir iestatīts atribūts “purpose”, tā vērtībai jāietver “any”."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Nav nodrošināta neviena PNG, SVG vai WebP formāta ikona, kura ir vismaz {value0} piks. liels kvadrāts un kuras atribūts “purpose” nav iestatīts vai tam iestatīta vērtība “any”."
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Lejupielādētā ikona bija tukša vai bojāta."
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Nav norādīts Play veikala ID"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Lapā nav <link> taga ar manifesta vietrādi URL"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Nevarēja pārbaudīt pakalpojumu skriptu, jo manifestā nav lauka “start_url”"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Instalējamības kļūdas ID {errorId} netika atpazīts"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Lapas rādīšanai vajadzīgie dati netiek ienesti no droša sākotnējā servera"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Lapa nav ielādēta galvenajā ietvarā"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Lapa nedarbojas bezsaistē"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PTL ir atinstalēta, un notiek instalējamības pārbaužu atiestatīšana."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Norādītā lietojumprogrammu platforma netiek atbalstīta operētājsistēmā Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Rekvizītam “prefer_related_applications” manifestā ir norādīta vērtība “true”"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "Rekvizīts “prefer_related_applications” tiek atbalstīts tikai pārlūkprogrammas Chrome beta un stabilās versijās operētājsistēmā Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse nevarēja noteikt, vai lapa ir instalējama. Pamēģiniet izmantot jaunāku pārlūka Chrome versiju."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Manifesta sākuma URL nav derīgs"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Tīmekļa lietotnes manifests un pakalpojumu skripts atbilst instalējamības prasībām"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "Manifestā ir norādīts URL, kas satur lietotājvārdu, paroli vai portu"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Lapa nedarbojas bezsaistē. Lapa vairs netiks uzskatīta par instalējamu, kad 2021. gada augustā būs izlaista Chrome 93 stabilā versija."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Atļauts"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Galvenā pavediena darba samazināšana"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Lai sasniegtu pēc iespējas vairāk lietotāju, ieteicams izstrādāt vietnes, kas darbojas visos lielākajos pārlūkos. [Uzziniet vairāk par saderību dažādos pārlūkos](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Vietne darbojas dažādās pārlūkprogrammās"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Nodrošiniet, lai lietotāji varētu veidot un atvērt dziļās saites uz atsevišķām lapām, izmantojot URL. Turklāt URL jābūt unikāliem, lai varētu kopīgot lapas sociālajos saziņas līdzekļos. [Uzziniet vairāk par dziļo saišu nodrošināšanu](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Katrai lapai ir URL"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Ieteicams, lai, pieskaroties lietotnes elementiem, pārejas būtu ātras pat tad, ja tīkla darbība ir lēna. Šis ir galvenais faktors, kas nosaka to, kā lietotājs uztver veiktspēju. [Uzziniet vairāk par lapu pārejām](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Tīklā nerodas sajūta, ka lēna ielāde bloķētu pārejas starp lapām"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Maskējama ikona nodrošina, ka attēls aizpilda visu formu, nepielāgojot to standarta platumam, kad lietotne tiek instalēta ierīcē. [Uzziniet par maskējamām manifesta ikonām](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Manifestam nav maskējamas ikonas"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Manifestā ir maskējama ikona"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Cumulative Layout Shift norāda redzamo elementu kustību skatvietā. [Uzziniet vairāk par rādītāju “Cumulative Layout Shift”](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Sākotnējās servera atbildes laika bija īss"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Uzplaiksnījuma ekrāns ar piemērotu motīvu nodrošina labu pieredzi, lietotājiem palaižot lietotni no sākuma ekrāna. [Uzziniet vairāk par uzplaiksnījuma ekrāniem](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Nav konfigurēta ar pielāgotu uzplaiksnījuma ekrānu"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Konfigurēta ar pielāgotu uzplaiksnījuma ekrānu"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Pārlūka adreses joslu var noformēt atbilstoši jūsu vietnes motīvam. [Uzziniet vairāk par adreses joslas motīva pielāgošanu](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Lapa neiestata adreses joslas motīva krāsu."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Lapa iestata adreses joslas motīva krāsu."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Chrome nākotnes versijā vairs netiks atbalstīti trešo pušu sīkfaili. [Uzziniet vairāk par trešo pušu sīkfailu lietošanas pārtraukšanu](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

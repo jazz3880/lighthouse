@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Omogućite sažimanje teksta"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Ako se širina sadržaja vaše aplikacije ne podudara sa širinom vidljivog dijela, vaša aplikacija možda neće biti optimizirana za mobilne zaslone. [Saznajte kako promijeniti veličinu sadržaja za vidljivi dio](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Veličina vidljivog dijela od {innerWidth} px ne podudara se s veličinom prozora od {outerWidth} px."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Sadržaj nije ispravne veličine za vidljivi dio."
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Sadržaj je ispravne veličine za vidljivi dio"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Lanci kritičkih zahtjeva u nastavku prikazuju koji se resursi učitavaju s visokim prioritetom. Savjetujemo vam da skratite duljinu lanaca, smanjite veličinu resursa za preuzimanje ili odgodite preuzimanje resursa koji nisu nužni kako biste poboljšali učitavanje stranice. [Saznajte kako izbjeći lančano povezivanje kritičnih zahtjeva](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Poslužuje slike s odgovarajućom razlučivošću"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Aplikacija je već instalirana"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Preuzimanje obavezne ikone iz manifesta nije uspjelo"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Razlog neuspjeha"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Uslužni je alat tehnologija koja aplikaciji omogućuje korištenje brojnih značajki progresivnih web-aplikacija, kao što su izvanmrežni rad, dodavanje na početni zaslon i push obavijesti. Uz odgovarajuće implementacije uslužnog alata i manifesta preglednici mogu proaktivno zatražiti od korisnika da dodaju vašu aplikaciju na početni zaslon, što može dovesti do veće angažiranosti. [Saznajte više o zahtjevima za instalabilnost za manifest](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 razlog}one{# razlog}few{# razloga}other{# razloga}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Manifest web-aplikacije ili uslužni alat ne udovoljavaju zahtjevima za instalaciju"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "URL aplikacije u Trgovini Play i ID u Trgovini Play ne podudaraju se"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Stranica je učitana u anonimnom prozoru"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Svojstvo manifesta `display` mora glasiti `standalone`, `fullscreen` ili `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Manifest sadrži polje \"display_override\", pa prvi podržani način prikaza mora biti \"standalone\", \"fullscreen\" ili \"minimal-ui\""
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Manifest se ne može dohvatiti, prazan je ili se ne može raščlaniti"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "URL manifesta promijenio se tijekom dohvaćanja manifesta."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Manifest ne sadrži polje `name` ili `short_name`"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Manifest ne sadrži odgovarajuću ikonu – potreban je PNG, SVG ili WebP format od najmanje {value0} px, mora biti postavljen atribut veličina, a atribut svrhe, ako je postavljen, mora sadržavati \"any\"."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Nijedna priložena ikona nije kvadrat od najmanje {value0} px u PNG, SVG ili WebP formatu te s atributom svrhe koji je poništen ili postavljen na \"any\""
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Preuzeta ikona bila je prazna ili oštećena"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Nije naveden ID u Trgovini Play"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Stranica nema URL manifesta <link>"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Uslužni alat ne može se provjeriti bez polja \"start_url\" u manifestu"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "ID pogreške instalacije \"{errorId}\" nije prepoznat"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Stranica se ne poslužuje iz sigurnog izvora"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Stranica se ne učitava u glavnom okviru"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Stranica ne radi izvanmrežno"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA je deinstaliran i provjere instalabilnosti vraćaju se na zadano."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Navedena platforma za aplikacije nije podržana na Androidu"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Manifest navodi prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications podržan je samo na beta i stabilnom kanalu Chromea na Androidu."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse nije mogao odrediti može li se stranica instalirati. Pokušajte s novijom verzijom Chromea."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Početni URL manifesta nije važeći"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Manifest web-aplikacije i uslužni alat udovoljavaju zahtjevima za instalaciju"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "URL u manifestu sadrži korisničko ime, zaporku ili priključak"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Stranica ne radi izvanmrežno. Nakon Chromea 93, stabilnog izdanja u kolovozu 2021., smatrat će se da se stranica ne može instalirati."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Dopušteno"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Minimizira rad glavne niti"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Da bi dosegle najveći broj korisnika, web-lokacije bi trebale funkcionirati u svakom značajnijem pregledniku. [Saznajte više o kompatibilnosti s različitim preglednicima](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Web-lokacija funkcionira na različitim preglednicima"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Pobrinite se da se sve individualne stranice mogu dubinski povezivati putem URL-a i da su URL-ovi jedinstveni radi dijeljenja na društvenim mrežama. [Saznajte više o navođenju dubinskih veza](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Svaka stranica ima URL"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Pri dodirivanju stavki prijelazi bi trebali biti brzi, čak i na sporoj mreži. To je ključno za korisnikovu percepciju izvedbe. [Saznajte više o prijelazima stranica](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Ne čini se da se prijelazi stranica blokiraju na mreži"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Ikona koja se može maskirati osigurava da slika ispunjava cjelokupan oblik, a da nije u letterbox formatu pri instaliranju aplikacije na uređaj. [Saznajte više o ikonama manifesta koje se mogu maskirati](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Manifest nema ikonu koju je moguće maskirati"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Manifest ima ikonu koju je moguće maskirati"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Kumulativni pomak izgleda mjeri kretanje vidljivih elemenata u vidljivom dijelu. [Saznajte više o mjernom podatku Kumulativni pomak izgleda](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Inicijalno vrijeme odgovora poslužitelja bilo je kratko"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Tematski pozdravni zaslon pruža bolji doživljaj korisnicima koji pokreću vašu aplikaciju na početnom zaslonu. [Saznajte više o pozdravnim zaslonima](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Nije konfigurirano za prilagođeni pozdravni zaslon"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Konfiguriran za prilagođeni pozdravni zaslon"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Adresna traka preglednika može se tematski podudarati s vašom web-lokacijom. [Saznajte više o tematskom povezivanju adresne trake](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Ne postavlja boju teme za adresnu traku."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Postavlja boju teme za adresnu traku."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Podrška za kolačiće trećih strana uklonit će se u budućoj verziji Chromea. [Saznajte više o ukidanju kolačića trećih strana](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

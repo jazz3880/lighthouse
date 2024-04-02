@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Bật tính năng nén văn bản"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Nếu chiều rộng của nội dung trong ứng dụng không khớp với chiều rộng của khung nhìn, thì ứng dụng có thể không được tối ưu hoá cho màn hình thiết bị di động. [Tìm hiểu cách xác định kích thước nội dung cho khung nhìn](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Kích thước khung nhìn {innerWidth}px không khớp với kích thước cửa sổ {outerWidth}px."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Kích thước của nội dung không phù hợp với khung nhìn"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Kích thước của nội dung phù hợp với khung nhìn"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Các Chuỗi yêu cầu quan trọng dưới đây cho bạn biết những tài nguyên được tải ở mức độ ưu tiên cao. Hãy cân nhắc giảm độ dài chuỗi, giảm kích thước tài nguyên tải xuống hoặc trì hoãn tải xuống các tài nguyên không cần thiết để cải thiện tốc độ tải trang. [Tìm hiểu cách tránh tạo chuỗi yêu cầu quan trọng](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Phân phối hình ảnh có độ phân giải phù hợp"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Ứng dụng này đã được cài đặt"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Không thể tải một biểu tượng bắt buộc từ tệp kê khai"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Lý do xảy ra lỗi"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Trình chạy dịch vụ là công nghệ cho phép ứng dụng của bạn dùng nhiều tính năng của Ứng dụng web tiến bộ, chẳng hạn như hoạt động khi không có mạng, thêm vào màn hình chính và thông báo đẩy. Khi triển khai trình chạy dịch vụ và tệp kê khai đúng cách, trình duyệt có thể chủ động nhắc người dùng thêm ứng dụng của bạn vào màn hình chính của họ, nhờ đó có thể tăng mức độ tương tác. [Tìm hiểu thêm về yêu cầu liên quan đến khả năng cài đặt tệp kê khai](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 lý do}other{# lý do}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Tệp kê khai ứng dụng web hoặc trình chạy dịch vụ không đáp ứng các yêu cầu về khả năng cài đặt"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "URL ứng dụng trong Cửa hàng Play và mã nhận dạng trong Cửa hàng Play không khớp"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Trang được tải trong cửa sổ ẩn danh"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Thuộc tính `display` của tệp kê khai phải là `standalone`, `fullscreen` hoặc `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Tệp kê khai chứa trường \"display_override\" và chế độ hiển thị được hỗ trợ đầu tiên phải là một trong các chế độ \"standalone\", \"fullscreen\" hoặc \"minimal-ui\""
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Không thể tìm nạp/phân tích cú pháp tệp kê khai hoặc tệp kê khai bị trống"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "URL của tệp kê khai đã thay đổi khi đang tìm nạp tệp kê khai đó."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Tệp kê khai không chứa trường `name` hoặc `short_name`"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Tệp kê khai chứa biểu tượng không phù hợp. Yêu cầu tệp phải ở định dạng PNG, SVG hoặc WebP có kích thước tối thiểu là {value0} px, thuộc tính \"sizes\" phải được đặt, còn thuộc tính \"purpose\" (nếu được đặt) phải bao gồm \"any\"."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Không có biểu tượng nào được cung cấp ở định dạng PNG, SVG hoặc WebP với kích thước tối thiểu là {value0} px vuông, còn thuộc tính \"purpose\" không được đặt hoặc được đặt thành \"any\""
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Biểu tượng đã tải xuống bị trống hoặc hỏng"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Chưa cung cấp mã nhận dạng trong Cửa hàng Play"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Trang không có URL <link> của tệp kê khai"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Không thể kiểm tra trình chạy dịch vụ nếu không có trường \"start_url\" trong tệp kê khai"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Không nhận ra mã lỗi liên quan đến khả năng cài đặt \"{errorId}\""
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Trang không được phân phối từ một nguồn gốc an toàn"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Trang không được tải trong khung chính"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Trang không hoạt động khi không có mạng"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "Đã gỡ cài đặt PWA và đang đặt lại quá trình kiểm tra khả năng cài đặt."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Nền tảng ứng dụng đã chỉ định chưa được hỗ trợ trên Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Tệp kê khai chỉ định prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "Chỉ hỗ trợ prefer_related_applications cho các kênh Chính thức và Thử nghiệm của Chrome trên Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse không thể xác định khả năng cài đặt trang. Vui lòng thử lại bằng một phiên bản Chrome mới hơn."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "URL bắt đầu của tệp kê khai là không hợp lệ"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Tệp kê khai ứng dụng web và trình chạy dịch vụ đáp ứng các yêu cầu về khả năng cài đặt"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "Một URL trong tệp kê khai chứa tên người dùng, mật khẩu hoặc cổng"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Trang không hoạt động khi không có mạng. Trang này sẽ không được xem là có thể cài đặt sau khi Chrome 93 chính thức phát hành vào tháng 8 năm 2021."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Được phép"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Giảm thiểu công việc theo chuỗi chính"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Để tiếp cận nhiều người dùng nhất, các trang web phải hoạt động trên mọi trình duyệt chính. [Tìm hiểu về khả năng tương thích trên nhiều trình duyệt](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Trang web hoạt động trên nhiều trình duyệt"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Đảm bảo từng trang có thể liên kết sâu qua URL và URL là duy nhất để có thể chia sẻ trên mạng xã hội. [Tìm hiểu thêm về cách cung cấp liên kết sâu](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Mỗi trang có một URL"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Quá trình chuyển tiếp phải diễn ra ngay khi bạn nhấn vào, kể cả khi mạng chậm. Trải nghiệm này là một yếu tố quan trọng quyết định cảm nhận của người dùng về hiệu suất. [Tìm hiểu thêm về quá trình chuyển tiếp trang](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Người dùng không cảm thấy mạng chậm khi chuyển trang"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Một biểu tượng có thể chỉnh sửa sẽ đảm bảo rằng hình ảnh lấp đầy toàn bộ hình dạng mà không bị hiệu ứng hòm thư khi cài đặt ứng dụng trên một thiết bị. [Tìm hiểu về biểu tượng có thể chỉnh sửa của tệp kê khai](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Tệp kê khai không có biểu tượng che mờ được"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Tệp kê khai có một biểu tượng che mờ được"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Điểm số tổng hợp về mức thay đổi bố cục đo lường mức độ dịch chuyển của các phần tử hiển thị trong khung nhìn. [Tìm hiểu thêm về chỉ số Điểm số tổng hợp về mức thay đổi bố cục](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Thời gian phản hồi ban đầu của máy chủ là ngắn"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Màn hình chờ có giao diện giúp đảm bảo người dùng có trải nghiệm chất lượng cao khi chạy ứng dụng từ màn hình chính. [Tìm hiểu thêm về màn hình chờ](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Chưa được định cấu hình cho màn hình chờ tùy chỉnh"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Đã định cấu hình cho màn hình chờ tùy chỉnh"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Bạn có thể đặt giao diện cho thanh địa chỉ trên trình duyệt để phù hợp với trang web của mình. [Tìm hiểu thêm về cách đặt giao diện cho thanh địa chỉ](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Không đặt màu giao diện cho thanh địa chỉ."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Đặt màu giao diện cho thanh địa chỉ."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Các phiên bản Chrome sau này sẽ không hỗ trợ cookie của bên thứ ba nữa. [Tìm hiểu thêm về việc Chrome ngừng hỗ trợ cookie của bên thứ ba](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

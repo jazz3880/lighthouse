@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Activează comprimarea textului"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Dacă lățimea conținutului aplicației nu se potrivește cu lățimea ariei vizibile, este posibil ca aplicația să nu fie optimizată pentru ecrane mobile. [Află cum să adaptezi dimensiunile conținutului pentru aria vizibilă](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Aria vizibilă de {innerWidth} px nu corespunde cu dimensiunea ferestrei, de {outerWidth} px."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Conținutul nu este dimensionat corect pentru aria vizibilă"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Conținutul este dimensionat corect pentru aria vizibilă"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Lanțurile de solicitări esențiale de mai jos îți arată ce resurse sunt încărcate cu prioritate ridicată. Poți să reduci lungimea lanțurilor, să reduci dimensiunea de descărcare a resurselor sau să amâni descărcarea de resurse inutile pentru a îmbunătăți încărcarea paginilor. [Află cum să eviți legarea solicitărilor critice](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Difuzează imagini cu rezoluția corectă"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Aplicația este deja instalată"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Nu s-a putut descărca o pictogramă necesară din manifest"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Motivul erorii"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Service worker este tehnologia care îi dă aplicației posibilitatea să folosească mai multe funcții de aplicații web progresive, cum ar fi cele offline, adăugarea în ecranul de pornire și notificările push. În urma implementării corecte a service workerului și a manifestului, browserele le pot solicita proactiv utilizatorilor să adauge aplicația pe ecranele de pornire, lucru care poate duce la o implicare mai mare. [Află mai multe despre cerințele de instalare pentru manifest](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{Un motiv}few{# motive}other{# de motive}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Manifestul aplicației web sau service workerul nu îndeplinesc cerințele de instalare"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Adresa URL a aplicației din Magazinul Play și codul din Magazinul Play nu corespund"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Pagina este încărcată într-o fereastră incognito"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Proprietatea manifestului `display` trebuie să fie `standalone`, `fullscreen` sau `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Manifestul conține câmpul „display_override” și primul mod de afișare acceptat trebuie să fie „standalone”, „fullscreen” sau „minimal-ui”"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Manifestul nu a putut fi preluat, este gol sau nu a putut fi analizat"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "Adresa URL a manifestului s-a schimbat în timpul preluării manifestului."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Manifestul nu conține câmpul `name` sau `short_name`"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Manifestul nu conține o pictogramă potrivită. Este necesară o pictogramă în format PNG, SVG sau WebP, de minimum {value0} px, care să aibă atributul „dimensiuni” setat și, dacă are atributul „scop” setat, acesta trebuie să includă „oricare”."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Nicio pictogramă adăugată nu întrunește următoarele cerințe: minimum {value0} px, pătrată, în format PNG, SVG sau WebP, cu atributul scop nesetat sau setat la „oricare”."
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Pictograma descărcată este goală sau deteriorată"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Nu s-a indicat niciun cod din Magazinul Play"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Pagina nu include adresa URL <link> a manifestului"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Nu s-a putut verifica service workerul fără câmpul „start_url” în manifest"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Codul „{errorId}” al erorii legate de instalare nu este recunoscut"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Pagina nu este difuzată dintr-o sursă sigură"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Pagina nu este încărcată în cadrul principal"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Pagina nu funcționează offline"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA a fost dezinstalată și se resetează instalarea."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Platforma aplicației indicată nu este acceptată pe Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Manifestul are proprietatea prefer_related_applications activată"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "Proprietatea prefer_related_applications este acceptată numai în Chrome Beta și pe canale stabile de pe Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse nu a putut stabili dacă pagina poate fi instalată. Încearcă folosind o versiune mai nouă de Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Adresa URL inițială a manifestului nu este validă"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Manifestul aplicației web și service workerul nu îndeplinesc cerințele de instalare"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "O adresă URL din manifest conține un nume de utilizator, o parolă sau un port"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Pagina nu funcționează offline. Pagina nu va fi considerată instalabilă după lansarea versiunii stabile Chrome 93, în august 2021."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Permisă"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Minimizează procesarea firului principal"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Ca să se adreseze cât mai multor utilizatori, site-urile trebuie să funcționeze în toate browserele importante. [Află despre compatibilitatea cu mai multe browsere](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Site-ul funcționează pe orice browser"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Asigură-te că se pot crea linkuri directe către pagini individuale prin adresa URL și că adresele URL sunt unice, pentru a putea fi trimise în rețelele sociale. [Află mai multe despre adăugarea linkurilor directe](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Fiecare pagină are o adresă URL"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Tranzițiile trebuie să aibă loc repede atunci când atingi ecranul, chiar și în rețele lente. Această experiență este esențială pentru performanța percepută de utilizator. [Află mai multe despre tranzițiile paginilor](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Tranzițiile de pagini nu par să blocheze rețeaua"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "O pictogramă cu mască asigură faptul că imaginea umple întreaga formă, fără a fi convertită în format letterbox la instalarea unei aplicații pe un dispozitiv. [Află despre pictogramele de manifest cu mască](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Manifestul nu are o pictogramă care poate fi mascată"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Manifestul are o pictogramă care poate fi mascată"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Cumulative Layout Shift măsoară deplasarea elementelor vizibile în aria vizibilă. [Află mai multe despre valoarea Cumulative Layout Shift](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Durata inițială de răspuns de la server a fost scurtă"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Un ecran de întâmpinare tematic asigură o experiență de calitate atunci când utilizatorii lansează aplicația din ecranele de pornire. [Află mai multe despre ecranele de întâmpinare](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Nu este configurat pentru un ecran de întâmpinare personalizat"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Configurat pentru un ecran de întâmpinare personalizat"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Bara de adrese din browser poate avea o temă ce corespunde cu site-ul tău. [Află mai multe despre personalizarea barei de adrese](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Nu setează o culoare tematică pentru bara de adrese."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Setează o culoare tematică pentru bara de adrese."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Compatibilitatea cu cookie-urile terță parte va fi eliminată într-o versiune viitoare de Chrome. [Află mai multe despre retragerea cookie-urilor terță parte](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

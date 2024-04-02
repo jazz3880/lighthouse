@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "[Éñåбļé ţéxţ çömþŕéššîöñ one two three]"
   },
-  "core/audits/content-width.js | description": {
-    "message": "[Îƒ ţĥé ŵîðţĥ öƒ ýöûŕ åþþ'š çöñţéñţ ðöéšñ'ţ måţçĥ ţĥé ŵîðţĥ öƒ ţĥé vîéŵþöŕţ, ýöûŕ åþþ mîĝĥţ ñöţ бé öþţîmîžéð ƒöŕ möбîļé šçŕééñš. ᐅ[ᐊĻéåŕñ ĥöŵ ţö šîžé çöñţéñţ ƒöŕ ţĥé vîéŵþöŕţᐅ](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour twentyfive]"
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "[Ţĥé vîéŵþöŕţ šîžé öƒ ᐅ{innerWidth}ᐊþx ðöéš ñöţ måţçĥ ţĥé ŵîñðöŵ šîžé öƒ ᐅ{outerWidth}ᐊþx. one two three four five six seven eight nine ten eleven twelve thirteen]"
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "[Çöñţéñţ îš ñöţ šîžéð çöŕŕéçţļý ƒöŕ ţĥé vîéŵþöŕţ one two three four five six seven eight nine ten]"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "[Çöñţéñţ îš šîžéð çöŕŕéçţļý ƒöŕ ţĥé vîéŵþöŕţ one two three four five six seven eight nine]"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "[Ţĥé Çŕîţîçåļ Ŕéqûéšţ Çĥåîñš бéļöŵ šĥöŵ ýöû ŵĥåţ ŕéšöûŕçéš åŕé ļöåðéð ŵîţĥ å ĥîĝĥ þŕîöŕîţý. Çöñšîðéŕ ŕéðûçîñĝ ţĥé ļéñĝţĥ öƒ çĥåîñš, ŕéðûçîñĝ ţĥé ðöŵñļöåð šîžé öƒ ŕéšöûŕçéš, öŕ ðéƒéŕŕîñĝ ţĥé ðöŵñļöåð öƒ ûññéçéššåŕý ŕéšöûŕçéš ţö îmþŕövé þåĝé ļöåð. ᐅ[ᐊĻéåŕñ ĥöŵ ţö åvöîð çĥåîñîñĝ çŕîţîçåļ ŕéqûéšţšᐅ](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour twentyfive twentysix twentyseven twentyeight twentynine thirty thirtyone thirtytwo thirtythree thirtyfour thirtyfive thirtysix]"
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "[Šéŕvéš îmåĝéš ŵîţĥ åþþŕöþŕîåţé ŕéšöļûţîöñ one two three four five six seven eight nine]"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "[Ţĥé åþþ îš åļŕéåðý îñšţåļļéð one two three four five six]"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "[Çöûļð ñöţ ðöŵñļöåð å ŕéqûîŕéð îçöñ ƒŕöm ţĥé måñîƒéšţ one two three four five six seven eight nine ten eleven]"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "[Fåîļûŕé ŕéåšöñ one two]"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "[Šéŕvîçé ŵöŕķéŕ îš ţĥé ţéçĥñöļöĝý ţĥåţ éñåбļéš ýöûŕ åþþ ţö ûšé måñý Þŕöĝŕéššîvé Ŵéб Åþþ ƒéåţûŕéš, šûçĥ åš öƒƒļîñé, åðð ţö ĥöméšçŕééñ, åñð þûšĥ ñöţîƒîçåţîöñš. Ŵîţĥ þŕöþéŕ šéŕvîçé ŵöŕķéŕ åñð måñîƒéšţ îmþļéméñţåţîöñš, бŕöŵšéŕš çåñ þŕöåçţîvéļý þŕömþţ ûšéŕš ţö åðð ýöûŕ åþþ ţö ţĥéîŕ ĥöméšçŕééñ, ŵĥîçĥ çåñ ļéåð ţö ĥîĝĥéŕ éñĝåĝéméñţ. ᐅ[ᐊĻéåŕñ möŕé åбöûţ måñîƒéšţ îñšţåļļåбîļîţý ŕéqûîŕéméñţšᐅ](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour twentyfive twentysix twentyseven twentyeight twentynine thirty thirtyone thirtytwo thirtythree thirtyfour thirtyfive thirtysix thirtyseven thirtyeight thirtynine forty one two three four five six seven eight nine]"
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{[1 ŕéåšöñ one]}other{[# ŕéåšöñš one two]}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "[Ŵéб åþþ måñîƒéšţ öŕ šéŕvîçé ŵöŕķéŕ ðö ñöţ mééţ ţĥé îñšţåļļåбîļîţý ŕéqûîŕéméñţš one two three four five six seven eight nine ten eleven twelve thirteen fourteen]"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "[Ţĥé Þļåý Šţöŕé åþþ ÛŔĻ åñð Þļåý Šţöŕé ÎÐ ðö ñöţ måţçĥ one two three four five six seven eight nine ten eleven]"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "[Þåĝé îš ļöåðéð îñ åñ îñçöĝñîţö ŵîñðöŵ one two three four five six seven eight]"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "[Måñîƒéšţ ᐅ`display`ᐊ þŕöþéŕţý mûšţ бé öñé öƒ ᐅ`standalone`ᐊ, ᐅ`fullscreen`ᐊ, öŕ ᐅ`minimal-ui`ᐊ one two three four five six seven eight nine ten eleven]"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "[Måñîƒéšţ çöñţåîñš 'ðîšþļåý_övéŕŕîðé' ƒîéļð, åñð ţĥé ƒîŕšţ šûþþöŕţéð ðîšþļåý möðé mûšţ бé öñé öƒ 'šţåñðåļöñé', 'ƒûļļšçŕééñ', öŕ 'mîñîmåļ-ûî' one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone]"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "[Måñîƒéšţ çöûļð ñöţ бé ƒéţçĥéð, îš émþţý, öŕ çöûļð ñöţ бé þåŕšéð one two three four five six seven eight nine ten eleven twelve]"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "[Måñîƒéšţ ÛŔĻ çĥåñĝéð ŵĥîļé ţĥé måñîƒéšţ ŵåš бéîñĝ ƒéţçĥéð. one two three four five six seven eight nine ten eleven twelve]"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "[Måñîƒéšţ ðöéš ñöţ çöñţåîñ å ᐅ`name`ᐊ öŕ ᐅ`short_name`ᐊ ƒîéļð one two three four five six seven eight nine]"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "[Måñîƒéšţ ðöéš ñöţ çöñţåîñ å šûîţåбļé îçöñ - ÞÑĜ, ŠVĜ öŕ ŴéбÞ ƒöŕmåţ öƒ åţ ļéåšţ ᐅ{value0}ᐊ þx îš ŕéqûîŕéð, ţĥé šîžéš åţţŕîбûţé mûšţ бé šéţ, åñð ţĥé þûŕþöšé åţţŕîбûţé, îƒ šéţ, mûšţ îñçļûðé \"åñý\". one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour twentyfive twentysix]"
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "[Ñö šûþþļîéð îçöñ îš åţ ļéåšţ ᐅ{value0}ᐊ þx šqûåŕé îñ ÞÑĜ, ŠVĜ öŕ ŴéбÞ ƒöŕmåţ, ŵîţĥ ţĥé þûŕþöšé åţţŕîбûţé ûñšéţ öŕ šéţ ţö \"åñý\" one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen]"
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "[Ðöŵñļöåðéð îçöñ ŵåš émþţý öŕ çöŕŕûþţéð one two three four five six seven eight]"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "[Ñö Þļåý šţöŕé ÎÐ þŕövîðéð one two three four five six]"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "[Þåĝé ĥåš ñö måñîƒéšţ <link> ÛŔĻ one two three four five six]"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "[Çöûļð ñöţ çĥéçķ šéŕvîçé ŵöŕķéŕ ŵîţĥöûţ å 'šţåŕţ_ûŕļ' ƒîéļð îñ ţĥé måñîƒéšţ one two three four five six seven eight nine ten eleven twelve thirteen fourteen]"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "[Îñšţåļļåбîļîţý éŕŕöŕ îð 'ᐅ{errorId}ᐊ' îš ñöţ ŕéçöĝñîžéð one two three four five six seven eight nine ten]"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "[Þåĝé îš ñöţ šéŕvéð ƒŕöm å šéçûŕé öŕîĝîñ one two three four five six seven eight]"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "[Þåĝé îš ñöţ ļöåðéð îñ ţĥé måîñ ƒŕåmé one two three four five six seven eight]"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "[Þåĝé ðöéš ñöţ ŵöŕķ öƒƒļîñé one two three four five six]"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "[ÞŴÅ ĥåš бééñ ûñîñšţåļļéð åñð îñšţåļļåбîļîţý çĥéçķš ŕéšéţţîñĝ. one two three four five six seven eight nine ten eleven twelve]"
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "[Ţĥé šþéçîƒîéð åþþļîçåţîöñ þļåţƒöŕm îš ñöţ šûþþöŕţéð öñ Åñðŕöîð one two three four five six seven eight nine ten eleven twelve]"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "[Måñîƒéšţ šþéçîƒîéš þŕéƒéŕ_ŕéļåţéð_åþþļîçåţîöñš: ţŕûé one two three four five six seven eight nine ten eleven]"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "[þŕéƒéŕ_ŕéļåţéð_åþþļîçåţîöñš îš öñļý šûþþöŕţéð öñ Çĥŕömé Бéţå åñð Šţåбļé çĥåññéļš öñ Åñðŕöîð. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "[Ļîĝĥţĥöûšé çöûļð ñöţ ðéţéŕmîñé îƒ ţĥé þåĝé îš îñšţåļļåбļé. Þļéåšé ţŕý ŵîţĥ å ñéŵéŕ véŕšîöñ öƒ Çĥŕömé. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen]"
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "[Måñîƒéšţ šţåŕţ ÛŔĻ îš ñöţ våļîð one two three four five six seven]"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "[Ŵéб åþþ måñîƒéšţ åñð šéŕvîçé ŵöŕķéŕ mééţ ţĥé îñšţåļļåбîļîţý ŕéqûîŕéméñţš one two three four five six seven eight nine ten eleven twelve thirteen]"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "[Å ÛŔĻ îñ ţĥé måñîƒéšţ çöñţåîñš å ûšéŕñåmé, þåššŵöŕð, öŕ þöŕţ one two three four five six seven eight nine ten eleven twelve]"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "[Þåĝé ðöéš ñöţ ŵöŕķ öƒƒļîñé. Ţĥé þåĝé ŵîļļ ñöţ бé ŕéĝåŕðéð åš îñšţåļļåбļé åƒţéŕ Çĥŕömé 93, šţåбļé ŕéļéåšé Åûĝûšţ 2021. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen]"
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "[Åļļöŵéð one]"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "[Mîñîmîžéš måîñ-ţĥŕéåð ŵöŕķ one two three]"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "[Ţö ŕéåçĥ ţĥé möšţ ñûmбéŕ öƒ ûšéŕš, šîţéš šĥöûļð ŵöŕķ åçŕöšš évéŕý måĵöŕ бŕöŵšéŕ. ᐅ[ᐊĻéåŕñ åбöûţ çŕöšš-бŕöŵšéŕ çömþåţîбîļîţýᐅ](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty]"
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "[Šîţé ŵöŕķš çŕöšš-бŕöŵšéŕ one two three]"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "[Éñšûŕé îñðîvîðûåļ þåĝéš åŕé ðééþ ļîñķåбļé vîå ÛŔĻ åñð ţĥåţ ÛŔĻš åŕé ûñîqûé ƒöŕ ţĥé þûŕþöšé öƒ šĥåŕéåбîļîţý öñ šöçîåļ méðîå. ᐅ[ᐊĻéåŕñ möŕé åбöûţ þŕövîðîñĝ ðééþ ļîñķšᐅ](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour]"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "[Éåçĥ þåĝé ĥåš å ÛŔĻ one two three four]"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "[Ţŕåñšîţîöñš šĥöûļð ƒééļ šñåþþý åš ýöû ţåþ åŕöûñð, évéñ öñ å šļöŵ ñéţŵöŕķ. Ţĥîš éxþéŕîéñçé îš ķéý ţö å ûšéŕ'š þéŕçéþţîöñ öƒ þéŕƒöŕmåñçé. ᐅ[ᐊĻéåŕñ möŕé åбöûţ þåĝé ţŕåñšîţîöñšᐅ](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour twentyfive]"
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "[Þåĝé ţŕåñšîţîöñš ðöñ'ţ ƒééļ ļîķé ţĥéý бļöçķ öñ ţĥé ñéţŵöŕķ one two three four five six seven eight nine ten eleven twelve]"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "[Å måšķåбļé îçöñ éñšûŕéš ţĥåţ ţĥé îmåĝé ƒîļļš ţĥé éñţîŕé šĥåþé ŵîţĥöûţ бéîñĝ ļéţţéŕбöxéð ŵĥéñ îñšţåļļîñĝ ţĥé åþþ öñ å ðévîçé. ᐅ[ᐊĻéåŕñ åбöûţ måšķåбļé måñîƒéšţ îçöñšᐅ](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour]"
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "[Måñîƒéšţ ðöéšñ'ţ ĥåvé å måšķåбļé îçöñ one two three four five six seven eight]"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "[Måñîƒéšţ ĥåš å måšķåбļé îçöñ one two three four five six]"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "[Çûmûļåţîvé Ļåýöûţ Šĥîƒţ méåšûŕéš ţĥé mövéméñţ öƒ vîšîбļé éļéméñţš ŵîţĥîñ ţĥé vîéŵþöŕţ. ᐅ[ᐊĻéåŕñ möŕé åбöûţ ţĥé Çûmûļåţîvé Ļåýöûţ Šĥîƒţ méţŕîçᐅ](https://web.dev/articles/cls)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo]"
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "[Îñîţîåļ šéŕvéŕ ŕéšþöñšé ţîmé ŵåš šĥöŕţ one two three four five six seven eight]"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "[Å ţĥéméð šþļåšĥ šçŕééñ éñšûŕéš å ĥîĝĥ-qûåļîţý éxþéŕîéñçé ŵĥéñ ûšéŕš ļåûñçĥ ýöûŕ åþþ ƒŕöm ţĥéîŕ ĥöméšçŕééñš. ᐅ[ᐊĻéåŕñ möŕé åбöûţ šþļåšĥ šçŕééñšᐅ](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo]"
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "[Îš ñöţ çöñƒîĝûŕéð ƒöŕ å çûšţöm šþļåšĥ šçŕééñ one two three four five six seven eight nine]"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "[Çöñƒîĝûŕéð ƒöŕ å çûšţöm šþļåšĥ šçŕééñ one two three four five six seven eight]"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "[Ţĥé бŕöŵšéŕ åððŕéšš бåŕ çåñ бé ţĥéméð ţö måţçĥ ýöûŕ šîţé. ᐅ[ᐊĻéåŕñ möŕé åбöûţ ţĥémîñĝ ţĥé åððŕéšš бåŕᐅ](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen]"
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "[Ðöéš ñöţ šéţ å ţĥémé çöļöŕ ƒöŕ ţĥé åððŕéšš бåŕ. one two three four five six seven eight nine ten]"
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "[Šéţš å ţĥémé çöļöŕ ƒöŕ ţĥé åððŕéšš бåŕ. one two three four five six seven eight]"
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "[Šûþþöŕţ ƒöŕ ţĥîŕð-þåŕţý çööķîéš ŵîļļ бé ŕémövéð îñ å ƒûţûŕé véŕšîöñ öƒ Çĥŕömé. ᐅ[ᐊĻéåŕñ möŕé åбöûţ þĥåšîñĝ öûţ ţĥîŕð-þåŕţý çööķîéšᐅ](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone]"

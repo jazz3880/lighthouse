@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Ενεργοποίηση συμπίεσης κειμένου"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Εάν το πλάτος του περιεχομένου της εφαρμογής σας δεν αντιστοιχεί στο πλάτος της θύρας προβολής, η εφαρμογή σας ενδέχεται να μην είναι βελτιστοποιημένη για οθόνες κινητών. [Μάθετε πώς μπορείτε να καθορίσετε το μέγεθος του περιεχομένου για τη θύρα προβολής](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Το μέγεθος {innerWidth}px της θύρας προβολής δεν αντιστοιχεί στο μέγεθος {outerWidth}px του παραθύρου."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Το μέγεθος του περιεχομένου δεν προσαρμόζεται σωστά για τη θύρα προβολής"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Το μέγεθος του περιεχομένου έχει προσαρμοστεί σωστά για τη θύρα προβολής"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Στις ακόλουθες αλυσίδες κρίσιμων αιτημάτων φαίνεται ποιοι πόροι φορτώνονται με υψηλή προτεραιότητα. Για τη βελτίωση της φόρτωσης των σελίδων, εξετάστε το ενδεχόμενο μείωσης του μεγέθους των αλυσίδων, μείωσης του μεγέθους λήψης πόρων ή καθυστέρησης λήψης των μη απαραίτητων πόρων. [Μάθετε πώς μπορείτε να αποφύγετε τη συσσώρευση κρίσιμων αιτημάτων](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Προβάλλει εικόνες με κατάλληλη ανάλυση"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Η εφαρμογή έχει εγκατασταθεί ήδη."
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Δεν ήταν δυνατή η λήψη ενός απαιτούμενου εικονιδίου από το μανιφέστο."
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Αιτία αποτυχίας"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Το service worker είναι η τεχνολογία που επιτρέπει στην εφαρμογή σας να χρησιμοποιεί πολλές λειτουργίες προηγμένων εφαρμογών ιστού, όπως είναι η λειτουργία εκτός σύνδεσης, η προσθήκη στην αρχική οθόνη και οι ειδοποιήσεις push. Με τη σωστή υλοποίηση service worker και μανιφέστου, τα προγράμματα περιήγησης μπορούν να ζητούν ενεργά από τους χρήστες να προσθέσουν την εφαρμογή σας στην αρχική οθόνη τους, κάτι που μπορεί να οδηγήσει σε μεγαλύτερη αφοσίωση. [Μάθετε περισσότερα σχετικά με τις απαιτήσεις για τη δυνατότητα εγκατάστασης μανιφέστου](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 αιτία}other{# αιτίες}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Το μανιφέστο της εφαρμογής ιστού ή το service worker δεν ικανοποιούν τις απαιτήσεις εγκαταστασιμότητας"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Το URL της εφαρμογής Play Store και το αναγνωριστικό του Play Store δεν ταιριάζουν."
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Η σελίδα φορτώθηκε σε ένα παράθυρο ανώνυμης περιήγησης."
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Η ιδιότητα `display` του μανιφέστου πρέπει να είναι `standalone`, `fullscreen` ή `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Το μανιφέστο περιέχει το πεδίο \"display_override\" και η πρώτη υποστηριζόμενη μέθοδος εμφάνισης θα πρέπει να είναι μία από τις εξής \"standalone\", \"fullscreen\" ή \"minimal-ui\"."
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Δεν ήταν δυνατή η ανάκτηση του μανιφέστου, το μανιφέστο είναι κενό ή δεν ήταν δυνατή η ανάλυσή του."
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "Το URL μανιφέστου άλλαξε κατά τη λήψη του μανιφέστου."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Το μανιφέστο δεν περιέχει πεδίο `name` ή `short_name`"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Το μανιφέστο δεν περιέχει κατάλληλο εικονίδιο. Απαιτείται μορφή PNG, SVG ή WebP, μεγέθους τουλάχιστον {value0} px. Το χαρακτηριστικό μεγέθους θα πρέπει να οριστεί και το χαρακτηριστικό σκοπού, εάν οριστεί, θα πρέπει να περιλαμβάνει την τιμή \"any\"."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Κανένα παρεχόμενο εικονίδιο δεν είναι τετράγωνο μεγέθους τουλάχιστον {value0} px σε μορφή PNG, SVG ή WebP, με το στοιχείο σκοπού μη ορισμένο ή ορισμένο σε \"any\""
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Το εικονίδιο λήψης ήταν κενό ή κατεστραμμένο."
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Δεν παρασχέθηκε αναγνωριστικό Play Store"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Η σελίδα δεν περιέχει <link> URL μανιφέστου"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Δεν ήταν δυνατός ο έλεγχος του service worker χωρίς πεδίο \"start_url\" στο μανιφέστο."
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Το αναγνωριστικό σφάλματος εγκαταστασιμότητας \"{errorId}\" δεν αναγνωρίζεται."
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Η σελίδα δεν προβάλλεται από ασφαλή προέλευση."
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Η σελίδα δεν φορτώνεται στο κύριο πλαίσιο."
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Η σελίδα δεν λειτουργεί εκτός σύνδεσης."
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "Το PWA έχει απεγκατασταθεί και γίνεται επαναφορά των ελέγχων δυνατότητας εγκατάστασης."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Η καθορισμένη πλατφόρμα εφαρμογών δεν υποστηρίζεται σε Android."
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Το μανιφέστο καθορίζει prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "Η παράμετρος prefer_related_applications υποστηρίζεται μόνο σε κανάλια Chrome Beta και κανάλια σταθερής έκδοσης σε Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Το Lighthouse δεν μπόρεσε να προσδιορίσει αν η σελίδα έχει δυνατότητα εγκατάστασης. Δοκιμάστε με μια νεότερη έκδοση του Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Το URL έναρξης μανιφέστου δεν είναι έγκυρο"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Το μανιφέστο της εφαρμογής ιστού και το service worker δεν ικανοποιούν τις απαιτήσεις εγκαταστασιμότητας"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "Ένα URL στο μανιφέστο περιέχει όνομα χρήστη, κωδικό πρόσβασης ή θύρα."
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Η σελίδα δεν λειτουργεί εκτός σύνδεσης. Η σελίδα δεν θα θεωρείται ως εγκαταστάσιμη μετά τη σταθερή κυκλοφορία της έκδοσης Chrome 93 τον Αύγουστο του 2021."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Επιτρέπεται"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Ελαχιστοποιεί την εργασία κύριου νήματος"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Για να προσελκύσουν τον μεγαλύτερο δυνατό αριθμό χρηστών, οι ιστότοποι θα πρέπει να λειτουργούν σε κάθε κύριο πρόγραμμα περιήγησης. [Μάθετε σχετικά με τη συμβατότητα μεταξύ προγραμμάτων περιήγησης](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Ο ιστότοπος λειτουργεί σε διαφορετικά προγράμματα περιήγησης"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Βεβαιωθείτε ότι οι μεμονωμένες σελίδες υποστηρίζουν συνδέσμους σε βάθος μέσω URL και ότι τα URL είναι μοναδικά με σκοπό την κοινή χρήση σε μέσα κοινωνικής δικτύωσης. [Μάθετε περισσότερα σχετικά με την παροχή συνδέσμων σε βάθος](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Κάθε σελίδα έχει URL"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Οι μεταβάσεις θα πρέπει να έχουν γρήγορη αίσθηση καθώς πατάτε σε διάφορα σημεία, ακόμη και σε ένα αργό δίκτυο. Αυτή η εμπειρία αποτελεί το κλειδί για την απόδοση που αντιλαμβάνεται ένας χρήστης. [Μάθετε περισσότερα σχετικά με τις μεταβάσεις σελίδας](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Οι μεταβάσεις σελίδας δεν δίνουν την αίσθηση ότι καθυστερούν στο δίκτυο"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Ένα εικονίδιο με δυνατότητα μάσκας διασφαλίζει ότι η εικόνα θα γεμίζει ολόκληρο το σχήμα χωρίς να εμφανίζονται οριζόντιες μαύρες γραμμές κατά την εγκατάσταση της εφαρμογής σε μια συσκευή. [Μάθετε σχετικά με τα εικονίδια μανιφέστου με δυνατότητα μάσκας](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Το μανιφέστο δεν διαθέτει εικονίδιο με δυνατότητα μάσκας"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Το μανιφέστο διαθέτει εικονίδιο με δυνατότητα μάσκας"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Οι Συνολικές αλλαγές διάταξης μετρούν την κίνηση των ορατών στοιχείων εντός της θύρας προβολής. [Μάθετε περισσότερα σχετικά με τη μέτρηση Συνολικές αλλαγές διάταξης](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Ο αρχικός χρόνος απόκρισης διακομιστή ήταν σύντομος"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Μια θεματική οθόνη εκκίνησης διασφαλίζει μια εμπειρία υψηλής ποιότητας όταν οι χρήστες εκκινούν την εφαρμογή σας από την αρχική οθόνη τους. [Μάθετε περισσότερα σχετικά με τις οθόνες εκκίνησης](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Δεν έχει διαμορφωθεί για προσαρμοσμένη οθόνη εκκίνησης"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Διαμορφώνεται από προσαρμοσμένη οθόνη εκκίνησης"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Μπορείτε να προσθέσετε ένα θέμα στη γραμμή διευθύνσεων του προγράμματος περιήγησης, ώστε να ταιριάζει με τον ιστότοπό σας. [Μάθετε περισσότερα σχετικά με τη χρήση θεμάτων στη γραμμή διευθύνσεων](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Δεν ορίζει ένα χρώμα θέματος για τη γραμμή διευθύνσεων."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Ορίζει ένα χρώμα θέματος για τη γραμμή διευθύνσεων."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Η υποστήριξη για cookie τρίτου μέρους θα καταργηθεί σε μελλοντική έκδοση του Chrome. [Μάθετε περισσότερα σχετικά με τη σταδιακή κατάργηση των cookie τρίτου μέρους](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

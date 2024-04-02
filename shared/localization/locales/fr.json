@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Activez la compression de texte"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Si la largeur du contenu de votre appli ne correspond pas à la largeur de la fenêtre d'affichage, il se peut que votre appli ne soit pas optimisée pour les écrans mobiles. [Découvrez comment dimensionner le contenu de la fenêtre d'affichage.](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)"
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "La dimension de la fenêtre d'affichage ({innerWidth} pixels) ne correspond pas à la taille de la fenêtre ({outerWidth} pixels)."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Le contenu n'est pas correctement dimensionné pour la fenêtre d'affichage"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Le contenu est correctement dimensionné pour la fenêtre d'affichage"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Les chaînes de demandes critiques ci-dessous vous montrent quelles ressources sont chargées avec une priorité élevée. Envisagez de réduire la longueur des chaînes et la taille de téléchargement des ressources ou de reporter le téléchargement de ressources inutiles afin d'améliorer le chargement des pages. [Découvrez comment éviter de créer des chaînes de demandes critiques.](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)"
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Images diffusées dans la résolution appropriée"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "L'application est déjà installée"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Impossible de télécharger une icône requise depuis le fichier manifeste"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Motif de l'échec"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Service worker est une technologie qui permet à votre appli d'exploiter de nombreuses fonctionnalités propres aux progressive web apps, comme le fonctionnement hors connexion, l'ajout à l'écran d'accueil et les notifications push. Lorsqu'un service worker et un fichier manifeste sont correctement implémentés, les utilisateurs peuvent être invités à ajouter votre appli à leur écran d'accueil par le biais de leur navigateur. Cette fonctionnalité peut contribuer à une hausse de l'engagement. [En savoir plus sur les exigences liées à l'implémentation du fichier manifeste](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)"
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 motif}one{# motif}other{# motifs}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Le fichier manifeste ou le service worker de l'application Web ne respectent pas les conditions d'installation requises"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "L'URL de l'application Play Store et l'ID Play Store ne correspondent pas"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "La page est chargée dans une fenêtre de navigation privée"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "La propriété `display` du fichier manifeste doit être `standalone`, `fullscreen` ou `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Le fichier manifeste contient le champ \"display_override\" et le premier mode d'affichage pris en charge doit être \"standalone\", \"fullscreen\" ou \"minimal-ui\""
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Le fichier manifeste n'a pas pu être récupéré, est vide ou n'a pas pu être analysé"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "L'URL du fichier manifeste a changé pendant la récupération du fichier manifeste."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Le manifeste ne contient pas de champ `name` ni `short_name`"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Le fichier manifeste ne contient pas d'icône éligible : format PNG, SVG ou WebP d'au moins {value0} px, avec l'attribut de taille défini et l'attribut de fonction non défini ou défini sur \"any\"."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Aucune icône fournie ne fait au moins {value0} px carré(s) au format PNG, SVG ou WebP, avec l'attribut de fonction non défini ou défini sur \"any\""
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "L'icône téléchargée était vide ou corrompue"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Aucun ID Play Store fourni"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "La page n'a aucune URL <lien> de fichier manifeste"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Impossible de contrôler le service worker sans un champ \"start_url\" dans le fichier manifeste"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Le code d'erreur d'installation \"{errorId}\" n'est pas reconnu"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "L'origine de la page n'est pas sécurisée"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "La page n'est pas chargée dans le frame principal"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "La page ne fonctionne pas hors connexion"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA a été désinstallé, et les vérifications d'installabilité sont en cours de réinitialisation."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "La plate-forme d'applications indiquée n'est pas compatible avec Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Le fichier manifeste indique prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications est uniquement disponible dans la version bêta et les versions stables de Chrome sur Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse n'a pas pu déterminer si la page pouvait être installée. Veuillez réessayer avec une version plus récente de Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "L'URL de démarrage du fichier manifeste n'est pas valide"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Le fichier manifeste et le service worker de l'application Web respectent les conditions d'installation requises"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "Une URL du fichier manifeste contient un nom d'utilisateur, un mot de passe ou un port"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "La page ne fonctionne pas hors connexion. La page ne sera pas considérée comme installable après le lancement de la version stable de Chrome 93 en août 2021."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Autorisée"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Réduire le travail du thread principal"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Afin de toucher le plus grand nombre d'utilisateurs possible, les sites doivent fonctionner sur tous les principaux navigateurs. [En savoir plus sur la compatibilité multinavigateur](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)"
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Le site fonctionne sur différents navigateurs"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Veillez à ce que les URL de vos pages puissent être utilisées dans des liens profonds. En outre, chaque URL doit être unique afin de pouvoir être correctement partagée sur les médias sociaux. [En savoir plus sur l'ajout de liens profonds](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Chaque page a sa propre URL"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "La navigation sur les pages doit être rapide et fluide, même pour les utilisateurs avec une connexion lente. C'est un critère de performance fondamental pour les utilisateurs. [En savoir plus sur les transitions de pages](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)"
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "La navigation entre les différentes pages du site doit être rapide et fluide"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Une icône masquable empêche l'apparition de bandes noires (format letterbox) et assure que l'image remplit totalement l'espace disponible lorsque l'appli est installée sur un appareil. [En savoir plus sur les icônes masquables du fichier manifeste](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)"
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Le fichier manifeste ne comporte pas d'icône masquable"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Le fichier manifeste comporte une icône masquable"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Cumulative Layout Shift mesure le mouvement des éléments visibles dans la fenêtre d'affichage. [En savoir plus sur cette métrique](https://web.dev/articles/cls)"
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Le temps de réponse initial du serveur était court"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Avec un écran de démarrage à thème, vous garantissez une expérience de haute qualité aux utilisateurs qui lancent votre appli depuis leur écran d'accueil. [En savoir plus sur les écrans de démarrage](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)"
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Écran de démarrage personnalisé non disponible"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Écran de démarrage personnalisé disponible"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Vous pouvez définir un thème assorti à votre site pour la barre d'adresse du navigateur. [En savoir plus sur les thèmes de la barre d'adresse](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)"
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Aucune couleur de thème n'est configurée pour la barre d'adresse."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Une couleur de thème est configurée pour la barre d'adresse."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Les cookies tiers ne seront plus acceptés dans une prochaine version de Chrome. [En savoir plus sur la suppression progressive des cookies tiers](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)"

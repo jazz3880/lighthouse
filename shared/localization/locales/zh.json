@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "启用文本压缩"
   },
-  "core/audits/content-width.js | description": {
-    "message": "如果应用内容的宽度与视口的宽度不一致，该应用可能不会针对移动设备屏幕进行优化。[了解如何根据视口调整内容大小](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)。"
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "视口大小（{innerWidth} 像素）与窗口大小（{outerWidth} 像素）不一致。"
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "未根据视口正确设置内容尺寸"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "已根据视口正确设置内容尺寸"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "下面的关键请求链显示了以高优先级加载的资源。建议缩短链长、缩减资源的下载文件大小，或者推迟下载不必要的资源，从而提高网页加载速度。[了解如何避免链接关键请求](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)。"
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "所提供的图片都采用了合适的分辨率"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "该应用已安装"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "无法从清单下载必需的图标"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "失败原因"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Service Worker 是一项技术，可让您的应用使用很多渐进式 Web 应用功能，例如离线、添加到主屏幕和推送通知。如果 Service Worker 和清单的实现均正确无误，浏览器可主动提示用户向其主屏幕中添加您的应用，这有助于提高互动度。[详细了解清单可安装性要求](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)。"
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 个原因}other{# 个原因}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Web 应用清单或 Service Worker 不符合可安装性要求"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Play 商店应用网址和 Play 商店 ID 不相符"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "该网页是在无痕式窗口中加载的"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "清单 `display` 属性必须是 `standalone`、`fullscreen` 或 `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "清单包含“display_override”字段，因此第一个受支持的显示模式必须是“standalone”、“fullscreen”或“minimal-ui”之一"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "清单无法提取、为空或无法解析"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "在提取清单期间，清单网址发生了更改。"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "清单未包含 `name` 或 `short_name` 字段"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "清单未包含合适的图标 - 必须提供不小于 {value0} 像素的 PNG、SVG 或 WebP 格式图标；必须设置 sizes 属性；如果设置了 purpose 属性，其中必须包含“any”。"
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "清单未提供不小于 {value0} 正方形像素的 PNG、SVG 或 WebP 格式图标，而且 purpose 属性设为“any”或未设置"
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "下载的图标为空或已损坏"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "未提供 Play 商店 ID"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "该网页没有清单 <link> 网址"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "如果清单不含“start_url”字段，则无法检查 Service Worker"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "系统无法识别可安装性错误 ID“{errorId}”"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "该网页不是从安全来源提供的"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "该网页不是在主框架中加载的"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "该网页无法离线使用"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA 已卸载完毕，正在重置可安装性检查。"
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "指定的应用平台在 Android 设备上不受支持"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "清单指定了 prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications 仅适用于 Android 设备上的 Chrome Beta 版和稳定版。"
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse 无法确定该页面是否可安装。请在较新版本的 Chrome 中重试。"
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "清单起始网址无效"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Web 应用清单和 Service Worker 符合可安装性要求"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "清单中的某个网址包含用户名、密码或端口"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "该网页无法离线使用。Chrome 于 2021 年 8 月推出 93 稳定版之后，不会将该网页视为可安装。"
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "允许"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "最大限度地减少主线程工作"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "网站应该能在所有主流浏览器中正常显示，以便覆盖尽可能多的用户。[了解跨浏览器兼容性](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)。"
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "网站能在各种浏览器中正常显示"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "确保各个网页可通过网址建立深层链接，并且这些网址是独一无二的，可以在社交媒体上共享。[详细了解如何提供深层链接](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)。"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "每个网页都有一个网址"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "无论点按哪个链接，都应能快速跳转到相应页面，即使网速缓慢也应如此。若想让用户感知到出色的网页加载速度，这种体验至关重要。[详细了解网页转换](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)。"
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "在不同网页之间跳转时，用户感觉不到网页加载缓慢"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "利用可遮盖式图标，可确保应用安装到设备上后，图片可填满整个形状轮廓，而不会出现黑边。[了解可遮盖式清单图标](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)。"
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "清单不含可遮罩的图标"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "清单含有可遮罩的图标"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Cumulative Layout Shift 旨在衡量可见元素在视口内的移动情况。[详细了解 Cumulative Layout Shift 指标](https://web.dev/articles/cls)。"
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "初始服务器响应用时较短"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "选定主题的启动画面可确保用户在从主屏幕中启动您的应用时获得优质体验。[详细了解启动画面](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)。"
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "未针对自定义启动画面进行配置"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "已针对自定义启动画面进行配置"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "可以为浏览器地址栏设置与您的网站相契合的主题。[详细了解如何为地址栏设置主题](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)。"
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "没有为地址栏设置主题背景颜色。"
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "为地址栏设置主题背景颜色。"
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "在 Chrome 的某个未来版本中，对第三方 Cookie 的支持将被彻底取消。[详细了解逐步停用第三方 Cookie](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)。"

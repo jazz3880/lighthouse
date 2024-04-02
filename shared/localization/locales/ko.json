@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "텍스트 압축 사용"
   },
-  "core/audits/content-width.js | description": {
-    "message": "앱 콘텐츠의 너비가 표시 영역의 너비와 일치하지 않을 경우 앱이 휴대기기 화면에 최적화되지 않을 수 있습니다. [표시 영역에 맞게 콘텐츠 크기를 조절하는 방법 알아보기](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)"
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "{innerWidth}px의 표시 영역 크기는 {outerWidth}px인 창 크기와 일치하지 않습니다."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "콘텐츠의 크기가 표시 영역에 알맞지 않음"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "콘텐츠의 크기가 표시 영역에 알맞음"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "다음의 크리티컬 요청 체인은 로드 시 우선순위가 높은 리소스를 보여줍니다. 체인의 길이를 줄이고, 리소스의 다운로드 크기를 줄이거나 불필요한 리소스의 다운로드를 지연하여 페이지 로드 속도를 높이는 것이 좋습니다. [크리티컬 요청 체이닝을 방지하는 방법 알아보기](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)"
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "이미지가 적절한 해상도로 제공됨"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "앱이 이미 설치되어 있습니다."
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "매니페스트에서 필요한 아이콘을 다운로드할 수 없음"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "실패 이유"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "서비스 워커는 앱에서 오프라인, 홈 화면에 추가, 푸시 알림 등 다양한 프로그레시브 웹 앱 기능을 사용할 수 있도록 하는 기술입니다. 적절한 서비스 워커와 매니페스트를 구현할 경우 브라우저는 사용자에게 홈 화면에 앱을 추가하라는 메시지를 사전에 표시할 수 있으며 이렇게 하면 참여도가 높아질 수 있습니다. [매니페스트 설치 가능 요건에 관해 자세히 알아보기](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)"
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{이유: 1개}other{이유: #개}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "웹 앱 매니페스트 또는 서비스 워커가 설치 가능 요건을 충족하지 않음"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Play 스토어 앱 URL 및 Play 스토어 ID가 일치하지 않습니다."
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "페이지가 시크릿 창에 로드되었습니다."
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "매니페스트 `display` 속성은 `standalone`, `fullscreen`, `minimal-ui` 중 하나여야 합니다."
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "매니페스트에 'display_override' 입력란이 포함되어 있으며 첫 번째 지원되는 디스플레이 모드는 'standalone', 'fullscreen', 'minimal-ui' 중 하나여야 합니다."
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "매니페스트를 가져올 수 없거나 비어있거나 파싱할 수 없습니다."
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "매니페스트를 가져오는 중에 매니페스트 URL이 변경되었습니다."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "매니페스트에는 `name` 또는 `short_name` 필드가 포함되지 않습니다."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "매니페스트에 적절한 아이콘이 포함되어 있지 않습니다. 아이콘은 최소 {value0}px 크기의 PNG, SVG 또는 WebP 형식으로 sizes 속성이 설정되어야 하며 purpose 속성이 설정된 경우 'any'를 포함해야 합니다."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "제공된 아이콘 중 최소 {value0}px인 PNG, SVG, WebP 형식의 정사각형이며, purpose 속성이 설정되어 있지 않거나 'any'로 설정되어 있는 아이콘이 없습니다."
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "다운로드된 아이콘이 비어 있거나 손상됨"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "제공된 Play 스토어 ID 없음"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "페이지에 매니페스트 <link> URL이 없습니다."
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "매니페스트에 'start_url' 필드가 없는 서비스 워크를 확인할 수 없습니다."
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "설치 가능 오류 ID ‘{errorId}’을(를) 인식할 수 없습니다."
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "페이지가 보안이 설정된 출처에서 제공되지 않았습니다."
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "메인 프레임에 페이지가 로드되지 않았습니다."
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "페이지가 오프라인에서 작동하지 않습니다."
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA가 제거되었으며 설치 가능 여부 확인이 재설정되었습니다."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "지정된 애플리케이션 플랫폼이 Android에서 지원되지 않습니다."
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "매니페스트에서 다음과 같이 지정합니다. prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications는 Android의 Chrome 베타 및 공개 버전 채널에서만 지원됩니다."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse에서 페이지 설치 가능 여부를 판단할 수 없습니다. 최신 버전의 Chrome을 사용해 시도해 보세요."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "잘못된 매니페스트 시작 URL입니다."
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "웹 앱 매니페스트 및 서비스 워커가 설치 가능 요건을 충족함"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "매니페스트의 URL에 사용자 이름, 비밀번호 또는 포트가 포함되어 있습니다."
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "페이지가 오프라인에서 작동하지 않습니다. Chrome 93 안정화 버전이 2021년 8월 출시된 이후에는 이 페이지가 설치 가능한 것으로 간주되지 않을 것입니다."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "허용됨"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "기본 스레드 작업 최소화하기"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "최대한 많은 사용자가 이용할 수 있으려면 사이트가 모든 주요 브라우저에서 작동해야 합니다. [교차 브라우저 호환성에 관해 알아보기](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)"
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "사이트가 다양한 브라우저에서 작동함"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "페이지를 소셜 미디어에 공유하려면 개별 페이지가 URL을 통해 딥 링크로 연결될 수 있어야 하며 페이지별로 URL이 달라야 합니다. [딥 링크 제공에 관해 자세히 알아보기](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "페이지마다 URL이 있음"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "느린 네트워크에서도 탭할 때 전환이 빠르게 느껴져야 합니다. 이 전환 경험이야말로 사용자의 성능 인식에 중요한 영향을 미칩니다. [페이지 전환 자세히 알아보기](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)"
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "페이지 전환 시 네트워크에서 막히는 느낌이 들지 않음"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "마스크 가능한 아이콘은 앱을 기기에 설치할 때 레터박스 없이 이미지가 도형 전체를 채울 수 있게 합니다. [마스크 가능한 매니페스트 아이콘에 관해 자세히 알아보기](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)"
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "매니페스트에 마스크 가능한 아이콘이 없음"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "매니페스트에 마스크 가능한 아이콘이 있음"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "레이아웃 변경 횟수는 표시 영역 안에 보이는 요소의 이동을 측정합니다. [레이아웃 변경 횟수 측정항목에 관해 자세히 알아보기](https://web.dev/articles/cls)"
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "초기 서버 응답 시간 짧음"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "테마 스플래시 화면을 사용하면 사용자가 홈 화면에서 앱을 실행했을 때 고품질의 환경을 경험할 수 있습니다. [스플래시 화면에 관해 자세히 알아보기](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)"
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "맞춤 스플래시 화면에 맞게 구성되지 않음"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "맞춤 스플래시 화면에 맞게 구성됨"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "브라우저 주소 표시줄에는 사이트에 맞는 테마를 설정할 수 있습니다. [주소 표시줄 테마 설정에 관해 자세히 알아보기](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)"
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "주소 표시줄의 테마 색상을 설정하지 않음"
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "주소 표시줄의 테마 색상을 설정함"
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "서드 파티 쿠키에 대한 지원은 Chrome 향후 버전에서 삭제될 예정입니다. [서드 파티 쿠키의 단계적 지원 중단에 대해 자세히 알아보기](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)"

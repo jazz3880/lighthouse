@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Aktivér tekstkomprimering"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Hvis bredden på indholdet i din app ikke stemmer overens med bredden på din visning, bliver din app muligvis ikke optimeret til mobilskærme. [Få flere oplysninger om, hvordan du tilpasser indholdets størrelse til det synlige område](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Visningens størrelse på {innerWidth} px stemmer ikke overens med vinduets størrelse på {outerWidth} px."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Indholdet har ikke den rigtige størrelse til visningen"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Indholdet har den rigtige størrelse til visningen"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Kæderne med kritiske anmodninger nedenfor viser dig, hvilke ressourcer der indlæses med høj prioritet. Overvej at reducere kædernes længde, så ressourcernes downloadstørrelse bliver mindre, eller at udskyde download af unødvendige ressourcer, så sideindlæsningen forbedres. [Få oplysninger om, hvordan du undgår at sammenkæde kritiske anmodninger](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Viser billeder med en passende opløsning"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Appen er allerede installeret"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Et påkrævet ikon blev ikke downloadet fra manifestet"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Årsag til fejl"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Scripttjenesten er den teknologi, der gør det muligt for din app at bruge mange funktioner til progressive webapps, f.eks. offlinefunktioner, tilføjelse på startskærme og push-notifikationer. Med korrekt scripttjeneste og manifestimplementeringer kan browsere proaktivt bede brugere om at føje din app til deres startskærm, hvilket kan medføre større interaktion. [Få flere oplysninger om krav til installerbarhed for manifester](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 årsag}one{# årsag}other{# årsager}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Manifestets webadresse eller scripttjenesten opfylder ikke kravene til installation"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Play Butik-webadressen til appen og Play Butik-id'et stemmer ikke overens"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Siden er indlæst i et inkognitovindue"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Manifestets `display`-ejendom skal være enten `standalone`, `fullscreen` eller `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Manifestet indeholder feltet \"display_override\", og den første understøttede skærmtilstand skal være enten \"standalone\", \"fullscreen\" eller \"minimal-ui\""
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Manifestet kunne ikke hentes, er tomt eller kunne ikke parses"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "Manifestets webadresse blev ændret, mens manifestet blev hentet."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Manifestet indeholder ikke feltet `name` eller `short_name`"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Manifestet indeholder ikke et passende ikon. Der kræves PNG-, SVG- eller WebP-format med mindst {value0} px, attributten for størrelser skal angives, og attributten for formål, hvis denne er angivet, skal indeholde \"any\"."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Der er ikke angivet et kvadratisk ikon på mindst {value0} px i PNG-, SVG- eller WebP-format, hvor attributten for formål ikke er angivet eller er angivet som \"any\""
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Downloadikonet var tomt eller beskadiget"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Der er ikke angivet noget Play Butik-id"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Siden har ikke nogen <link>-webadresse for manifestet"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Scripttjenesten kunne ikke tjekkes, da feltet \"start_url\" i manifestet ikke var angivet"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Installationsfejl-id'et \"{errorId}\" kan ikke genkendes"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Siden vises ikke fra et sikkert oprindelsessted"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Siden indlæses ikke i hovedrammen"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Siden fungerer ikke offline"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA'en er blevet afinstalleret, og installerbarhedstjek nulstilles."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Den angivne app-platform understøttes ikke i Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Følgende er angivet i manifestet: prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications understøttes kun i betaversionen af Chrome og stabile kanaler i Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse kunne ikke fastslå, om siden kan installeres. Prøv med en nyere version af Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Manifestets startwebadresse er ikke gyldig"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Manifestets webapp og scripttjenesten opfylder kravene til installation"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "En webadresse i manifestet indeholder et brugernavn, en adgangskode eller en port"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Siden fungerer ikke offline. Siden anses ikke som installerbar efter udgivelsen af Chrome 93 i august 2021."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Tilladt"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Formindsker primært trådarbejde"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Websites bør fungere på alle populære browsere, så de når ud til flest mulige brugere. [Få flere oplysninger om kompatibilitet på tværs af browsere](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Websitet fungerer i forskellige browsere"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Sørg for, at der kan føjes et dybt link til individuelle sider via en webadresse, og at denne webadresse er unik, så den kan deles på sociale medier. [Få flere oplysninger om tilføjelse af dybe links](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Hver side har en webadresse"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Overgange bør være hurtige, når der trykkes på forskellige elementer, også selvom netværket er langsomt. Det er afgørende for brugerens opfattelse af effektiviteten. [Få flere oplysninger om overgange på sider](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Det føles ikke som om sideovergange blokeres på netværket"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Et ikon, der kan maskeres, sikrer, at billedet fylder hele formen uden at indgå i letterbox-format, når appen installeres på en enhed. [Få flere oplysninger om manifestikoner, der kan maskeres](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Manifestet har ikke et ikon, der kan maskeres"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Manifestet har et ikon, der kan maskeres"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Cumulative Layout Shift måler synlige elementers bevægelse i det synlige område. [Få flere oplysninger om metric'en Cumulative Layout Shift](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Den indledende serversvartid var kort"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "En splash-skærm med tema sikrer, at brugerne får en god oplevelse, når de starter din app på deres startskærm. [Få flere oplysninger om splash-skærme](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Websitet er ikke konfigureret til en tilpasset splash-skærm"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Konfigureret til en tilpasset splash-skærm"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Der kan angives et tema for browserens adresselinje, som matcher dit website. [Få flere oplysninger om tematisering af adresselinjen](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Angiver ikke en temafarve til adresselinjen."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Angiver en temafarve til adresselinjen."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Understøttelse af tredjepartscookies fjernes i en fremtidig version af Chrome. [Få flere oplysninger om udfasningen af tredjepartscookies](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

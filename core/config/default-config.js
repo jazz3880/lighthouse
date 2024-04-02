@@ -138,7 +138,6 @@ const defaultConfig = {
     {id: 'Inputs', gatherer: 'inputs'},
     {id: 'IFrameElements', gatherer: 'iframe-elements'},
     {id: 'ImageElements', gatherer: 'image-elements'},
-    {id: 'InstallabilityErrors', gatherer: 'installability-errors'},
     {id: 'InspectorIssues', gatherer: 'inspector-issues'},
     {id: 'JsUsage', gatherer: 'js-usage'},
     {id: 'LinkElements', gatherer: 'link-elements'},
@@ -338,12 +337,6 @@ const defaultConfig = {
     'diagnostics': {
       title: str_(UIStrings.diagnosticsGroupTitle),
       description: str_(UIStrings.diagnosticsGroupDescription),
-    },
-    'pwa-installable': {
-      title: str_(UIStrings.pwaInstallableGroupTitle),
-    },
-    'pwa-optimized': {
-      title: str_(UIStrings.pwaOptimizedGroupTitle),
     },
     'a11y-best-practices': {
       title: str_(UIStrings.a11yBestPracticesGroupTitle),

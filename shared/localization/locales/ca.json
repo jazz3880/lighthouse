@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Activa la compressió de text"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Si l'amplada del contingut de l'aplicació no coincideix amb l'amplada de la finestra gràfica, és possible que l'aplicació no s'optimitzi per a pantalles de dispositius mòbils. [Obtén informació sobre com pots ajustar la mida del contingut de la finestra gràfica](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "La mida de la finestra gràfica ({innerWidth} píxels) no coincideix amb la mida de la finestra ({outerWidth} píxels)."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "El contingut no té la mida correcta per a la finestra gràfica"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "El contingut té la mida correcta per a la finestra gràfica"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Les cadenes de sol·licituds essencials de sota et mostren quins recursos es carreguen amb prioritat alta. Et recomanem que escurcis les cadenes, redueixis la mida de baixada dels recursos o ajornis la baixada de recursos innecessaris per millorar la càrrega de les pàgines. [Obtén informació sobre com pots evitar encadenar sol·licituds essencials](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Utilitza imatges amb una resolució adequada"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "L'aplicació ja està instal·lada"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "No s'ha pogut baixar una icona necessària del fitxer de manifest"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Motiu de l'error"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "El Service Worker és la tecnologia que fa possible que la teva aplicació utilitzi moltes funcions d'aplicació web progressiva, com ara funcionar sense connexió, poder afegir-se a la pantalla d'inici i mostrar notificacions automàtiques. Amb un Service Worker adequat i implementacions del fitxer de manifest, els navegadors poden demanar als usuaris de manera proactiva que afegeixin la teva aplicació a la pantalla d'inici, cosa que permet obtenir més interaccions. [Obtén més informació sobre els requisits d'instal·labilitat del fitxer de manifest](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 motiu}other{# motius}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "El fitxer de manifest de l'aplicació web o el Service Worker no compleixen els requisits d'instal·lació"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "L'identificador i l'URL de l'aplicació Play Store no coincideixen"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "La pàgina es carrega en una finestra d'incògnit"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "La propietat `display` del fitxer de manifest ha de ser `standalone`, `fullscreen` o `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "El fitxer de manifest conté el camp \"display_override\" i el primer mode de visualització admès ha de ser \"standalone\", \"fullscreen\" o \"minimal-ui\""
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "El fitxer de manifest no s'ha pogut obtenir, és buit o no s'ha pogut analitzar"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "L'URL del fitxer de manifest ha canviat mentre s'estava recollint el fitxer de manifest."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "El fitxer de manifest no conté cap camp `name` o `short_name`"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "El manifest no conté cap icona adequada. Es requereix un format PNG, SVG o WebP de com a mínim {value0} píxels, l'atribut \"sizes\" ha d'estar establert i l'atribut \"purpose\", si s'estableix, ha d'incloure \"any\"."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "No s'ha proporcionat cap icona que tingui com a mínim {value0} píxels quadrats en format PNG, SVG o WebP i que tingui l'atribut \"purpose\" sense establir o definit en \"any\""
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "La icona baixada era buida o estava malmesa"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "No s'ha proporcionat cap identificador de Play Store"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "La pàgina no té cap URL <link> del fitxer de manifest"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "No s'ha pogut comprovar el Service Worker perquè el fitxer de manifest no té cap camp \"start_url\""
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "No es reconeix l'identificador d'error d'instal·lació \"{errorId}\""
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "La pàgina no es publica des d'un origen segur"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "La pàgina no es carrega al marc principal"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "La pàgina no funciona sense connexió"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "S'ha desinstal·lat la PWA i s'estan restablint les comprovacions d'instal·labilitat."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "La plataforma de l'aplicació especificada no s'admet a Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "El fitxer de manifest especifica prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications només s'admet a Chrome beta i als canals estables a Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse no ha pogut determinar si la pàgina es pot instal·lar. Prova-ho amb una versió més recent de Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "L'URL d'inici del manifest no és vàlid"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "El fitxer de manifest de l'aplicació web i el Service Worker no compleixen els requisits d'instal·lació"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "Un URL del fitxer de manifest conté un nom d'usuari, una contrasenya o un port"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "La pàgina no funciona sense connexió. A partir de Chrome 93, versió estable d'agost de 2021, es considerarà que la pàgina no es pot instal·lar."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Permès"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Minimitza el treball al fil principal"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Per arribar al major nombre d'usuaris possible, els llocs web han de funcionar en tots els navegadors principals. [Obtén informació sobre la compatibilitat entre navegadors](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "El lloc web funciona en diversos navegadors"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Comprova que l'URL de cada pàgina sigui un enllaç profund i únic per poder compartir-lo als mitjans socials. [Obtén més informació sobre com pots proporcionar enllaços profunds](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Cada pàgina té un URL"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Les transicions en navegar per l'aplicació han de ser àgils, fins i tot en xarxes lentes. És una experiència clau en la percepció del rendiment per part de l'usuari. [Obtén més informació sobre les transicions de pàgines](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "No sembla que les transicions entre pàgines es bloquegin a la xarxa"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Una icona adaptativa garanteix que la imatge omple tota la forma sense adquirir el format de bústia en instal·lar l'aplicació en un dispositiu. [Obtén informació sobre les icones de manifest adaptatives](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "El manifest no té cap icona adaptativa"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "El manifest té una icona adaptativa"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "El canvi de disseny acumulatiu mesura el moviment d'elements visibles a la finestra gràfica. [Obtén més informació sobre la mètrica Canvi de disseny acumulatiu](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "El temps inicial de resposta del servidor ha estat breu"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Utilitzar una pantalla inicial temàtica garanteix una experiència d'alta qualitat quan els usuaris inicien l'aplicació des de la pantalla d'inici. [Obtén més informació sobre les pantalles inicials](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "No està configurat per a una pantalla inicial personalitzada"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Està configurat per a una pantalla inicial personalitzada"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Es pot aplicar un tema a la barra d'adreces del navegador perquè faci joc amb el teu lloc web. [Obtén més informació sobre com pots tematitzar la barra d'adreces](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "No estableix un color temàtic per a la barra d'adreces."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Estableix un color temàtic per a la barra d'adreces."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "La compatibilitat amb les galetes de tercers se suprimirà en una versió futura de Chrome. [Obtén més informació sobre com pots retirar les galetes de tercers](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

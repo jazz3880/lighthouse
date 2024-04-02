@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "יש להפעיל דחיסת טקסט"
   },
-  "core/audits/content-width.js | description": {
-    "message": "אם הרוחב של תוכן האפליקציה לא תואם לרוחב של אזור התצוגה, ייתכן שלא בוצעה אופטימיזציה לאפליקציה שלך עבור מסכים של ניידים. [כאן מוסבר איך להתאים את גודל התוכן לאזור התצוגה](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "גודל אזור התצוגה של {innerWidth} פיקסלים לא תואם לגודל החלון של {outerWidth} פיקסלים."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "הגודל של התוכן הוגדר בצורה לא תקינה עבור אזור התצוגה"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "הגודל של התוכן הוגדר בצורה תקינה עבור אזור התצוגה"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "בקטע 'שרשראות בקשה קריטיות' שבהמשך מוצגים המשאבים שנטענים עם עדיפות גבוהה. כדי לשפר את מהירות טעינת הדף, מומלץ לקצר את השרשראות, להקטין את גודל ההורדה של משאבים או לעכב את ההורדה של משאבים לא נחוצים. [כאן מוסבר איך להימנע משרשור של בקשות קריטיות](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "מציג תמונות עם רזולוציה מתאימה"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "האפליקציה כבר מותקנת"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "לא ניתן היה להוריד סמל נדרש מהמניפסט"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "סיבה לכשל"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "קובץ שירות (service worker) הוא הטכנולוגיה שמאפשרת לאפליקציה שלך להשתמש במספר תכונות Progressive Web App, כמו 'מצב אופליין', 'הוספה למסך הבית' ו'התראות'. בעזרת הטמעה נכונה של קובצי מניפסט וקובצי שירות (service worker), הדפדפנים יכולים לבקש ממשתמשים באופן יזום להוסיף את האפליקציה שלך למסך הבית שלהם. הפעולה הזו מגדילה את הסיכוי להשגת מעורבות גבוהה יותר. [מידע נוסף על הדרישות בנוגע להתקנה של מניפסט](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)"
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{סיבה אחת}one{סיבה אחת}two{שתי סיבות}other{# סיבות}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "קובץ המניפסט של האפליקציה או קובץ השירות (service worker) אינם עומדים בדרישות יכולת ההתקנה"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "כתובת ה-URL של האפליקציה בחנות Play והמזהה בחנות Play אינם תואמים"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "הדף נטען בחלון אנונימי"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "המאפיין `display` במניפסט חייב להיות אחד מהערכים `standalone`, `fullscreen` או `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "המניפסט מכיל את השדה 'display_override' ומצב התצוגה הראשון הנתמך צריך להיות 'standalone',‏ 'fullscreen' או 'minimal-ui'"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "לא ניתן לאחזר או לנתח את קובץ המניפסט, או שהוא ריק"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "כתובת ה-URL של המניפסט השתנתה במהלך אחזור המניפסט."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "קובץ המניפסט לא מכיל את השדות '`name`' או '`short_name`'"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "קובץ המניפסט אינו מכיל סמל מתאים. דרוש פורמט PNG‏, SVG או WebP ברזולוציה של ‎{value0}px לפחות, ויש להגדיר את מאפיין הגודל. אם הוגדר המאפיין 'שימוש', הוא חייב לציין \"הכול\"."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "לא סיפקת סמל ריבועי באורך/רוחב של {value0} פיקסלים לפחות בפורמט PNG‏, SVG או WebP, עם מאפיין מטרה לא מוגדר או מוגדר ל\"הכול\""
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "הסמל שהורד היה ריק או פגום"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "לא סופק מזהה חנות Play"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "אין לדף כתובת URL של מניפסט <link>"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "לא ניתן לבדוק את קובץ השירות (service worker) ללא השדה 'כתובת url להתחלה'"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "המזהה '{errorId}' של השגיאה ביכולת ההתקנה אינו מוכר"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "הדף מוצג ממקור לא מאובטח"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "הדף לא נטען במסגרת הראשית"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "הדף לא פועל ללא חיבור לאינטרנט"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA הוסרה ומתבצע איפוס של בדיקות לגבי אפשרות התקנה."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "פלטפורמת האפליקציה שסופקה לא נתמכת ב-Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "המניפסט מפרט אפליקציות שקשורות להעדפות: TRUE"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "התכונה prefer_related_applications נתמכת רק בגרסת הבטא של Chrome ובערוצים יציבים ב-Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "במסגרת Lighthouse אי אפשר היה לקבוע אם ניתן להתקין את הדף. צריך לנסות שוב בגרסה חדשה יותר של Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "כתובת ה-URL להתחלה של המניפסט לא חוקית"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "המניפסט של אפליקציית האינטרנט וקובץ השירות (service worker) עומדים בדרישות יכולת ההתקנה"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "המניפסט מכיל כתובת URL הכוללת שם משתמש, סיסמה או יציאה"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "הדף לא פועל ללא חיבור לאינטרנט. הדף לא ייחשב כדף שניתן להתקנה אחרי Chrome 93, בגרסה היציבה של אוגוסט 2021."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "הכתובת אושרה"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "מצמצם את העבודה על התהליכון הראשי"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "כדי להגדיל את פוטנציאל החשיפה לכמה שיותר משתמשים, האתרים צריכים לעבוד בכל הדפדפנים הנפוצים. [מידע על תאימות לדפדפנים שונים](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)"
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "האתר עובד בדפדפנים שונים"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "יש לוודא שניתן לבצע קישור עומק לדפים נפרדים דרך כתובת URL ושכתובות ה-URL ייחודיות, כדי שניתן יהיה לשתף אותן ברשתות חברתיות. [מידע נוסף על הוספת קישורי עומק](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "לכל דף יש כתובת URL"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "כשמשתמשים מקישים באפליקציה, המעברים צריכים להיראות להם מהירים, גם ברשת איטית. החוויה הזו היא אחד הגורמים החשובים לתפיסת הביצועים בעיני המשתמשים. [מידע נוסף על מעברים בין דפים](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)"
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "מעברי הדפים לא מרגישים חסומים ברשת"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "סמל שניתן להתאמה (maskable) מבטיח שהתמונה תמלא את כל הצורה במקום שתוצג בפורמט letterbox כשהאפליקציה תותקן במכשיר. [מידע על סמלי מניפסט שניתנים להתאמה (maskable)](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)"
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "המניפסט לא מכיל סמלים שניתנים למיסוך"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "המניפסט מכיל לפחות סמל אחד שניתן למיסוך"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "המדד Cumulative Layout Shift ‏(CLS) מודד את התנועה של הרכיבים הגלויים בתוך אזור התצוגה. [מידע נוסף על המדד Cumulative Layout Shift ‏(CLS)](https://web.dev/articles/cls)"
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "זמן התגובה הראשונית של השרת היה קצר"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "מסך פתיחה מעוצב מבטיח חוויה באיכות גבוהה כשמשתמשים מפעילים את האפליקציה שלך ממסכי הבית שלהם. [מידע נוסף על מסכי פתיחה](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)"
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "לא מוגדר עבור מסך פתיחה בהתאמה אישית"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "מוגדר עבור מסך פתיחה בהתאמה אישית"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "ניתן לעצב את סרגל הכתובות של הדפדפן כך שיתאים לאתר שלך. [למידע נוסף על תהליך העיצוב של סרגל הכתובות](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)"
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "לא מגדיר צבע עיצוב עבור סרגל הכתובות."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "מגדיר צבע עיצוב עבור סרגל הכתובות."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "התמיכה בקובצי Cookie של צד שלישי תוסר בגרסה עתידית של Chrome. [מידע נוסף על הוצאה משימוש בהדרגה של קובצי Cookie של צד שלישי](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)"

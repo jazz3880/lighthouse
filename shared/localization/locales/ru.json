@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Включите сжатие текста"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Приложение не оптимизировано под экраны мобильных устройств, если ширина контента приложения не совпадает с шириной области просмотра. Подробнее о том, [как изменять размеры контента для области просмотра](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)…"
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Область просмотра ({innerWidth} пикселей) не совпадает с размером окна ({outerWidth} пикселей)."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Размер контента не соответствует области просмотра"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Размер контента соответствует области просмотра"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Приведенные ниже цепочки критических запросов показывают, какие ресурсы загружаются с высоким приоритетом. Чтобы ускорить загрузку страниц, рекомендуем сократить длину цепочек, уменьшить размер скачиваемых ресурсов или отложить скачивание ненужных ресурсов. Подробнее о том, [как предотвращать образование цепочек критических запросов](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)…"
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Изображения показываются в нужном разрешении"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Приложение уже установлено."
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Не удалось скачать нужный значок из манифеста."
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Причина ошибки"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Service worker — это технология, которая позволяет использовать преимущества современных веб-приложений, такие как поддержка офлайн-режима, push-уведомлений и добавления на главный экран. Браузеры могут предлагать пользователям добавлять приложение на главный экран, за счет чего они наверняка будут чаще его открывать. Подробнее [о требованиях установки, предъявляемых к манифесту](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)…"
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 причина}one{# причина}few{# причины}many{# причин}other{# причины}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Манифест веб-приложения или файл service worker не соответствует условиям, необходимым для установки"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "URL приложения и его идентификатор в Google Play не соответствуют друг другу."
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Эта страница открыта в режиме инкогнито."
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "У свойства `display` манифеста должно быть значение `standalone`, `fullscreen` или `minimal-ui`."
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Файл манифеста содержит поле display_override, поэтому первый поддерживаемый режим отображения должен быть следующим: standalone (стандартный), fullscreen (полноэкранный) или minimal-ui (минимальный)."
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Файл манифеста нельзя загрузить или обработать, либо он пуст."
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "Во время загрузки манифеста его URL был изменен."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "В манифесте нет поля `name` или `short_name`."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "В файле манифеста отсутствует допустимый значок. Добавьте значок в формате PNG, SVG или WebP с разрешением не менее {value0} пкс и атрибутом sizes. Если есть атрибут purpose, у него должно быть значение any."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "В файле манифеста нет значка в формате PNG, SVG или WebP в форме квадрата с разрешением не менее {value0} пкс, у которого атрибут purpose не задан или задан со значением any."
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Скачанный значок пуст или поврежден."
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Укажите идентификатор Google Play."
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Страница не содержит URL манифеста <link>."
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Для проверки файла service worker в манифесте должно быть поле start_url."
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Идентификатор ошибки установки {errorId} не распознан."
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Страница загружена из незащищенного источника."
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Страница не загружается в основном фрейме."
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Эта страница не поддерживается в офлайн-режиме."
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "Условия установки сброшены после удаления PWA."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Указанная платформа приложения не поддерживается на устройствах Android."
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Значение атрибута prefer_related_applications в манифесте: true."
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "Атрибут prefer_related_applications поддерживается только в бета-версии Chrome и стабильной версии на устройствах Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse не удалось проверить, можно ли установить страницу. Повторите попытку в более новой версии Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Недействительный URL стартовой страницы манифеста."
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Манифест веб-приложения и файл service worker соответствуют условиям, необходимым для установки"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "URL в манифесте содержит имя пользователя, пароль или порт."
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Эта страница не работает в офлайн-режиме. Она не будет считаться доступной для установки после выхода Chrome 93 в августе 2021 года."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Разрешено"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Минимизация работы в основном потоке"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Для максимального охвата аудитории сайт должен поддерживать все основные браузеры. Подробнее [о совместимости с разными браузерами](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)…"
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Сайт работает в разных браузерах"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Убедитесь, что у каждой страницы есть уникальный URL, чтобы контент, к которому они ведут, было удобно распространять в социальных сетях. Подробнее [об указании ссылок на контент](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)…"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "У каждой страницы есть URL"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Переходы должны создавать впечатление мгновенного отклика даже при медленной работе сети. Это имеет решающее значение для удобства работы с приложением. Подробнее [о переходах между страницами](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)…"
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Во время перехода между страницами нет ощущения, что они ожидают ответа от сети"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Создайте маскируемый значок. Тогда к значку вашего установленного приложения не будет добавляться белый фон. Подробнее [о маскируемых значках из файла манифеста](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)…"
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Манифест не содержит маскируемый значок"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Манифест содержит маскируемый значок"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Совокупное смещение макета – это величина, на которую смещаются видимые элементы области просмотра при загрузке. Подробнее о [совокупном смещении макета](https://web.dev/articles/cls)…"
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Время до получения первого байта от сервера допустимое"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Приложение оставляет у пользователей более приятное впечатление, когда оно встречает их тематической заставкой. Подробнее [о заставках](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)…"
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Собственная заставка не настроена"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Настроена собственная заставка"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Цвет адресной строки браузера можно изменить под цветовую тему сайта. Подробнее [об оформлении адресной строки](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)…"
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Не изменяет цвет адресной строки в соответствии с темой"
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Изменяет цвет адресной строки в соответствии с темой"
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "В будущей версии Chrome поддержка сторонних файлов cookie будет прекращена. Подробнее [об отказе от сторонних файлов cookie](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)…"

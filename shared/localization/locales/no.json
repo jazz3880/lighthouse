@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Aktiver tekstkomprimering"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Hvis bredden på appinnholdet ikke samsvarer med bredden på det synlige området, er appen kanskje ikke optimalisert for mobilskjermer. [Finn ut hvordan du tilpasser innholdet etter størrelsen på visningsområdet](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Det synlige områdets størrelse på {innerWidth} px samsvarer ikke med vindusstørrelsen på {outerWidth} px."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Innholdet har ikke riktig størrelse i forhold til det synlige området"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Innholdet har riktig størrelse i forhold til det synlige området"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Kjedene med kritiske forespørsler nedenfor viser hvilke ressurser som lastes inn med høy prioritet. Vurder å redusere lengden på kjedene, redusere nedlastingsstørrelsen på ressursene eller utsette nedlasting av unødvendige ressurser for å bedre sideinnlastingen. [Finn ut hvordan du unngår kjeder med kritiske forespørsler](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Viser bilder med riktig oppløsning"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Appen er allerede installert"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Kunne ikke laste ned et obligatorisk ikon fra manifestet"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Årsak til feilen"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Service Worker er teknologien som gjør at appen din kan bruke mange funksjoner for progressive nettprogrammer, f.eks. muligheten til å bruke appen uten nett, legge den til på startskjermen og sende pushvarslinger. Med ordentlige Service Worker- og manifestimplementasjoner kan nettlesere aktivt spørre brukere om de vil legge til appen på startskjermen. Det kan føre til høyere engasjement. [Finn ut mer om kravene til installerbarhet av manifester](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 årsak}other{# årsaker}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Manifestet til nettappen eller Service Worker oppfyller ikke kravene til installerbarhet"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Play Butikk-appnettadressen og Play Butikk-ID-en samsvarer ikke"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Siden er lastet inn i et inkognitovindu"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Manifestets `display`-egenskap må være enten `standalone`, `fullscreen` eller `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Manifestet inneholder feltet «display_override», og den første støttede skjermmodusen må være enten «standalone», «fullscreen» eller «minimal-ui»"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Manifestet kunne ikke hentes, er tomt eller kunne ikke parses"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "Manifestets nettadresse ble endret mens manifestet holdt på å bli lastet ned."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Manifestet inneholder ikke noe `name`- eller `short_name`-felt"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Manifestet inneholder ikke noe egnet ikon. Ikonet må være i PNG-, SVG- eller WebP-format og ha en størrelse på minst {value0} px, sizes-attributtet må være angitt, og hvis purpose-attributtet er angitt, må det inneholde «any»."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Ingen oppgitte ikoner har en størrelse på minst {value0} px (kvadrat) og er i PNG-, SVG- eller WebP-format med purpose-attributtet satt til «any» eller ikke angitt"
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Det nedlastede ikonet var tomt eller skadet"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Ingen Play Butikk-ID er oppgitt"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Siden har ingen manifest-<link>-nettadresse"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Kunne ikke sjekke Service Worker uten et «start_url»-felt i manifestet"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Installerbarhetsfeil-ID-en «{errorId}» gjenkjennes ikke"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Siden vises ikke fra et sikkert opphavsdomene"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Siden lastes ikke inn i hovedrammen"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Siden fungerer ikke uten nett"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "Det progressive nettappen er avinstallert, og kontrollene knyttet til om apper kan installeres, blir tilbakestilt."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Den angitte applikasjonsplattformen støttes ikke på Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Manifestet spesifiserer prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications støttes kun i Chrome Beta- og Stable-kanalene på Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse kunne ikke fastslå om siden kan installeres. Prøv med en nyere versjon av Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Start-nettadressen til manifestet er ikke gyldig"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Manifestet til nettappen og Service Worker oppfyller kravene til installerbarhet"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "En nettadresse i manifestet inneholder et brukernavn, et passord eller en port"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Siden fungerer ikke uten nett. Siden kommer ikke til å anses som installerbar når Chrome 93 lanseres i stabil utgave i august 2021."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Tillatt"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Minimerer arbeidet på hovedtråden"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "For å nå så mange brukere som mulig bør nettsteder fungere i alle de vanligste nettleserne. [Finn ut mer om kompatibilitet med flere nettlesere](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Nettstedet fungerer i ulike nettlesere"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Sørg for at individuelle sider kan dyplinkes via nettadresser, og at nettadressene er unike, slik at de kan deles på sosiale medier. [Finn ut mer om hvordan du legger inn dyplinker](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Hver side har en nettadresse"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Overganger skal føles smidige når du trykker deg rundt, selv på et tregt nettverk. Denne opplevelsen er avgjørende for brukerens opplevelse av ytelsen. [Finn ut mer om sideoverganger](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Sideoverganger føles ikke som om de blokkerer på nettverket"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Maskerbare ikoner sørger for at bildet fyller hele omrisset og vises uten kanter når appen installeres på enheter. [Finn ut mer om maskerbare manifestikoner](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Manifestet har ikke noe maskerbart ikon"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Manifestet har et maskerbart ikon"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Akkumulert utseendeforskyvning (CLS) måler bevegelsene til synlige elementer i det synlige området. [Finn ut mer om beregningen Akkumulert utseendeforskyvning (CLS)](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Den innledende tjenerresponstiden var kort"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Tematiske splash-skjermer gjør at brukerne får en kvalitetsopplevelse når de starter appen fra startskjermen. [Finn ut mer om splash-skjermer](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Er ikke konfigurert med tilpasset splash-skjerm"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Konfigurert med tilpasset splash-skjerm"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Adressefeltet i nettleseren kan gis et tema for å stå i stil med nettstedet. [Finn ut mer om angivelse av tema i adressefeltet](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Angir ikke en temafarge for adressefeltet."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Angir en temafarge for adressefeltet."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Støtte for informasjonskapsler fra tredjeparter blir fjernet i en fremtidig versjon av Chrome. [Finn ut mer om utfasing av informasjonskapsler fra tredjeparter](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

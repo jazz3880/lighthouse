@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "लेख कंप्रेशन चालू करें"
   },
-  "core/audits/content-width.js | description": {
-    "message": "अगर आपके ऐप्लिकेशन के कॉन्टेंट की चौड़ाई का मिलान, व्यूपोर्ट की चौड़ाई से नहीं होता, तो हो सकता है कि आपका ऐप्लिकेशन, मोबाइल स्क्रीन पर ऑप्टिमाइज़ न किया जा सके. [व्यूपोर्ट के हिसाब से कॉन्टेंट के साइज़ को सेट करने का तरीका जानें](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "{innerWidth}px के व्यूपोर्ट का आकार {outerWidth}px की विंडो के आकार से मेल नहीं खाता है."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "सामग्री का आकार व्यूपोर्ट (किसी वेब पेज के स्क्रीन पर दिखने वाले हिस्से) के मुताबिक नहीं है"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "सामग्री का आकार व्यूपोर्ट (किसी वेब पेज के स्क्रीन पर दिखने वाले हिस्से) के मुताबिक है"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "नीचे दी गई अहम अनुरोध चेन बताती हैं कि किन संसाधनों को ज़्यादा प्राथमिकता से लोड किया गया है. चेन का और डाउनलोड किए गए रिसॉर्स का साइज़ कम करें या गैर-ज़रूरी रिसॉर्स को फ़िलहाल डाउनलोड न करें. इससे पेज लोड होने की प्रोसेस को बेहतर बनाया जा सकता है. [अहम अनुरोधों की चेन बनाने से बचने का तरीका जानें](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "पेज पर दिख रही इमेज का रिज़ॉल्यूशन ठीक है"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "यह ऐप्लिकेशन पहले से इंस्टॉल किया जा चुका है"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "मेनिफ़ेस्ट में से एक ज़रूरी आइकॉन को डाउनलोड नहीं किया जा सका"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "इंस्टॉल न हो पाने की वजह"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "सर्विस वर्कर ऐसी टेक्नोलॉजी है जिसकी मदद से आपका ऐप्लिकेशन, प्रोग्रेसिव वेब ऐप्लिकेशन वाली कई सुविधाएं इस्तेमाल कर पाता है. जैसे, ऑफ़लाइन मोड, होमस्क्रीन पर जोड़ने, और पुश नोटिफ़िकेशन की सुविधाएं. सर्विस वर्कर और मेनिफ़ेस्ट को सही तरीके से लागू करने पर, ब्राउज़र लोगों को अपनी होमस्क्रीन पर आपका ऐप्लिकेशन जोड़ने का सुझाव अपने-आप दे सकते हैं. इस तरह, आपको ज़्यादा लोगों के साथ जुड़ने में मदद मिल सकती है. [मेनिफ़ेस्ट इंस्टॉल करने की ज़रूरी शर्तों के बारे में ज़्यादा जानें](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 गड़बड़ी}one{# गड़बड़ी}other{# गड़बड़ियां}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "वेब ऐप्लिकेशन मेनिफ़ेस्ट या सर्विस वर्कर, इंस्टॉल करने की ज़रूरी शर्तों को नहीं पूरा करते"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Play Store ऐप्लिकेशन का यूआरएल और आईडी आपस में मेल नहीं खाते"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "पेज को गुप्त विंडो में लोड किया गया है"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "मेनिफ़ेस्ट `display` प्रॉपर्टी, `standalone`, `fullscreen` या `minimal-ui` में से एक होनी चाहिए"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "मेनिफ़ेस्ट में 'display_override' फ़ील्ड है, जबकि इसमें 'standalone', 'fullscreen' या 'minimal-ui' में से कोई एक डिसप्ले मोड होना ज़रूरी है. यह पहले डिसप्ले मोड के तौर पर काम करता है"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "मेनिफ़ेस्ट को फ़ेच नहीं किया जा सका, वह खाली है या उसे पार्स नहीं किया जा सका"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "मेनिफ़ेस्ट को फ़ेच करते समय उसका यूआरएल बदल गया."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "मेनिफ़ेस्ट में `name` या `short_name` फ़ील्ड शामिल नहीं है"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "मेनिफ़ेस्ट में सही आइकॉन नहीं है. इसमें PNG, SVG या WebP फ़ॉर्मैट में ऐसा आइकॉन होना ज़रूरी है जो कम से कम {value0} पिक्सल का हो. साथ ही, sizes एट्रिब्यूट को सेट करना ज़रूरी है. अगर purpose एट्रिब्यूट को भी सेट किया जाता है, तो यह ज़रूरी है कि उसमें \"any\" शामिल हो."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "सेट न करें या \"any\" पर सेट करें वाले purpose एट्रिब्यूट के साथ दिया गया कोई भी आइकॉन, ऐसे PNG, SVG या WebP फ़ॉर्मैट में नहीं है जो कम से कम {value0} पिक्सल स्क्वेयर का हो"
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "डाउनलोड किया गया आइकॉन खाली या खराब था"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "'Play Store' आईडी नहीं दिया गया"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "पेज में कोई भी मेनिफ़ेस्ट <link> यूआरएल नहीं है"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "मेनिफ़ेस्ट में 'start_url' फ़ील्ड न होने की वजह से सर्विस वर्कर की जांच नहीं की जा सकती"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "इंस्टॉल करने के दौरान हुई गड़बड़ी के '{errorId}' आईडी की पहचान नहीं हो पाई"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "पेज को किसी सुरक्षित ओरिजन पर नहीं खोला गया है"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "पेज को मुख्य फ़्रेम में लोड नहीं किया गया"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "यह पेज, ऑफ़लाइन मोड में काम नहीं करता"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA को अनइंस्टॉल कर दिया गया है और इंस्टॉल होने की स्थिति को रीसेट किया जा रहा है."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "बताया गया ऐप्लिकेशन प्लैटफ़ॉर्म, Android पर काम नहीं करता"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "मेनिफ़ेस्ट, prefer_related_applications देता है: सही"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications सिर्फ़ Chrome बीटा और Android पर स्थिर चैनलों पर काम करता है."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "लाइटहाउस यह पता नहीं कर सका कि पेज को इंस्टॉल किया जा सकता है या नहीं. कृपया Chrome के नए वर्शन के साथ इस्तेमाल करें."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "दिया गया मेनिफ़ेस्ट स्टार्ट यूआरएल मान्य नहीं है"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "वेब ऐप्लिकेशन मेनिफ़ेस्ट और सर्विस वर्कर, इंस्टॉल करने की ज़रूरी शर्तों को पूरा करते हैं"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "मेनिफ़ेस्ट में मौजूद किसी यूआरएल में एक उपयोगकर्ता नाम, पासवर्ड या पोर्ट है"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "यह पेज, ऑफ़लाइन मोड में काम नहीं करता. अगस्त 2021 में Chrome 93 स्थिर चैनल रिलीज़ होने के बाद इस पेज को इंस्टॉल नहीं किया जा सकेगा."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "अनुमति है"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "मुख्य थ्रेड के काम को कम करता है"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "ज़्यादा से ज़्यादा उपयोगकर्ताओं तक पहुंचने के लिए, साइटों का सभी प्रमुख ब्राउज़र पर काम करना ज़रूरी है. [अलग-अलग ब्राउज़र के साथ काम करने की सुविधा के बारे में जानें](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "यह वेबसाइट अलग-अलग ब्राउज़र पर काम करती है"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "पक्का करें कि हर पेज को यूआरएल के ज़रिए डीप लिंक किया गया हो. साथ ही, वे ऐसे यूनीक यूआरएल हों जिन्हें सोशल मीडिया पर शेयर किया जा सके. [डीप लिंक देने के बारे में ज़्यादा जानें](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "हर पेज का एक यूआरएल होता है"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "नेटवर्क धीमा होने पर भी, वेब ऐप्लिकेशन में टैप करने पर ट्रांज़िशन की रफ़्तार तेज़ महसूस होनी चाहिए. इससे लोगों को आपके पेज की परफ़ॉर्मेंस अच्छी नज़र आएगी. [पेज ट्रांज़िशन के बारे में ज़्यादा जानें](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "पेज ट्रांज़िशन को देखकर ऐसा नहीं लगना चाहिए जैसे कि वे नेटवर्क लोड होने का इंतज़ार कर रहे हैं"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "मास्केबल आइकॉन से यह पक्का किया जाता है कि डिवाइस पर ऐप्लिकेशन इंस्टॉल करते समय, लेटरबॉक्स किए बिना इमेज पूरी जगह पर दिखे. [मास्केबल मेनिफ़ेस्ट आइकॉन के बारे में जानें](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "मेनिफ़ेस्ट में ऐसा कोई भी आइकॉन नहीं मिला जिसके लिए मास्क का इस्तेमाल किया जा सके"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "मेनिफ़ेस्ट में ऐसा आइकॉन है जिसके लिए मास्क का इस्तेमाल किया जा सकता है"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "कुल लेआउट शिफ़्ट, व्यूपोर्ट में दिखने वाले एलिमेंट की हलचल बताता है. [कुल लेआउट शिफ़्ट से जुड़ी मेट्रिक के बारे में ज़्यादा जानें](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "जवाब देने में सर्वर को लगने वाला शुरुआती समय कम था"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "जब लोग अपने डिवाइस की होमस्क्रीन से आपका ऐप्लिकेशन लॉन्च करते हैं, तो थीम वाली स्प्लैश स्क्रीन की वजह से उन्हें अच्छा अनुभव मिलता है. [स्प्लैश स्क्रीन के बारे में ज़्यादा जानें](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "पसंद के मुताबिक स्प्लैश स्क्रीन के लिए कॉन्फ़िगर नहीं किया गया"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "पसंद के मुताबिक स्प्लैश स्क्रीन के लिए कॉन्फ़िगर किया गया"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "ब्राउज़र के पता बार की थीम को ऐसा बनाया जा सकता है जो आपकी साइट से मेल खाए. [पता बार की थीम सेट करने के बारे में ज़्यादा जानें](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "'पता बार' के लिए थीम का रंग सेट नहीं करता है."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "'पता बार' के लिए थीम का रंग सेट करता है."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Chrome के आने वाले वर्शन में, तीसरे पक्ष की कुकी के साथ काम करने की सुविधा हटा दी जाएगी. [तीसरे पक्ष की कुकी का इस्तेमाल बंद करने के बारे में ज़्यादा जानें](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

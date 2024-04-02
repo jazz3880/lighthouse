@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Увімкніть стиснення тексту"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Якщо ширина контенту додатка не збігається з шириною області перегляду, можливо, додаток не вдасться оптимізувати для екранів мобільних пристроїв. [Дізнайтесь, як визначити розмір контенту для області перегляду.](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)"
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Розмір області перегляду ({innerWidth} пікс.) не збігається з розміром вікна ({outerWidth} пікс.)."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Розмір контенту не відповідає області перегляду"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Розмір контенту відповідає області перегляду"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Ланцюжки важливих запитів нижче показують, які ресурси мають високий пріоритет. Щоб пришвидшити завантаження сторінки, зменште довжину ланцюжків і розмір завантажень або відкладіть завантаження непотрібних ресурсів. [Дізнайтесь, як не створювати ланцюжки критичних запитів.](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)"
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Показує зображення з правильною роздільною здатністю"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Цей додаток уже встановлено"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Не вдалося завантажити потрібний значок із маніфесту"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Причина помилки"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Синтаксис Service Worker забезпечує багато функцій прогресивного веб-додатка, як-от режим офлайн, додавання на головний екран і push-сповіщення. Якщо правильно застосувати цей синтаксис і маніфест, веб-переглядачі зможуть активно заохочувати користувачів установити ваш додаток на головний екран, що сприятиме кращій взаємодії. [Докладніше про вимоги до маніфесту для встановлюваних додатків.](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)"
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 причина}one{# причина}few{# причини}many{# причин}other{# причини}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Маніфест або синтаксис Service Worker не відповідає вимогам до придатного для встановлення веб-додатка"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Розбіжність між URL-адресою та ідентифікатором додатка в Google Play"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Сторінка завантажується у вікні в режимі анонімного перегляду"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Для властивості `display` у маніфесті слід вибрати одне з таких значень: `standalone`, `fullscreen` або `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Маніфест містить поле display_override, тому для першого підтримуваного режиму відображення слід вибрати одне з таких значень: standalone, fullscreen або minimal-ui"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Не вдалося завантажити чи проаналізувати маніфест, або він порожній"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "Під час отримання маніфесту його URL-адреса змінилася."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Маніфест не містить полів `name` або `short_name`"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "У маніфесті немає відповідного значка. Потрібен значок у форматі PNG, SVG або WebP із роздільною здатністю принаймні {value0} пікс. і визначеним атрибутом purpose. Якщо він задається, слід указати значення \"any\"."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Немає значка розміром принаймні {value0} пікс. (квадрат) у форматі PNG, SVG або WebP, у якого атрибут purpose не заданий або заданий зі значенням \"any\""
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Завантажений значок порожній або пошкоджений"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Не вказано ідентифікатор Google Play"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "На сторінці немає URL-адреси маніфесту в тегах <link>"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Не вдалося перевірити синтаксис Service Worker без поля start_url у маніфесті"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Помилка перевірки придатності для встановлення з нерозпізнаним ідентифікатором \"{errorId}\""
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Сторінка завантажується не з надійного джерела"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Сторінка не завантажується в основному фреймі"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Сторінка не працює офлайн"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "Прогресивний веб-додаток видалено. Перевірки придатності для встановлення скидаються."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Указана платформа додатка не підтримується на Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Значення властивості prefer_related_applications у маніфесті: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "Властивість prefer_related_applications підтримується лише в бета-версії Chrome і стабільних версіях на Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Сервісу Lighthouse не вдалося визначити, чи цю сторінку можна встановити. Повторіть спробу в новішій версії Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Початкова URL-адреса в маніфесті недійсна"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Маніфест і синтаксис Service Worker відповідають вимогам до придатного для встановлення веб-додатка"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "URL-адреса в маніфесті містить ім'я користувача, пароль або порт"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Сторінка не працює офлайн. Після випуску Chrome 93 (стабільної версії від серпня 2021 року) сторінка вважатиметься непридатною для встановлення."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Дозволено"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Мінімізується робота основного потоку"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Щоб охопити якомога більше користувачів, сайти мають працювати в усіх відомих веб-переглядачах. [Докладніше про сумісність із різними веб-переглядачами.](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)"
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Сайт працює у різних веб-переглядачах"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Переконайтеся, що окремі сторінки можна відкрити за допомогою прямого посилання, а URL-адреси унікальні, щоб ними можна було ділитися в соціальних мережах. [Докладніше про надання посилань на контент.](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Кожна сторінка має URL-адресу"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Додаток має швидко реагувати на дії користувача, навіть якщо мережа повільна. Це значно впливає на оцінку роботи вашого додатка користувачем. [Докладніше про перенесення сторінок.](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)"
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Схоже, перехід між сторінками не блокує мережу"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Значок, який маскується, гарантує, що зображення заповнює всю форму, не перетворюючись на леттербокс під час встановлення додатка на пристрої. [Докладніше про значки маніфесту, які можна маскувати.](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)"
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Маніфест не має маскувального значка"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Маніфест має маскувальний значок"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Сукупне зміщення макета вимірює рух видимих елементів у межах області перегляду. [Докладніше про показник \"Сукупне зміщення макета\".](https://web.dev/articles/cls)"
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Сервер відповідає швидко"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Тематична заставка покращує взаємодію з користувачами під час запуску додатка з головного екрана. [Докладніше про заставки.](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)"
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Власну заставку не налаштовано"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Налаштовано власну заставку"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Для адресного рядка веб-переглядача можна створити тему, яка відповідатиме вашому сайту. [Докладніше про теми для адресного рядка.](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)"
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Не змінює колір адресного рядка відповідно до теми."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Змінює колір адресного рядка відповідно до теми."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "У майбутній версії Chrome сторонні файли cookie не підтримуватимуться. [Докладніше.](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)"

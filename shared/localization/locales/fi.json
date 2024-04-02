@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Ota tekstin pakkaus käyttöön"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Jos sovelluksesi leveys ei vastaa näkymän leveyttä, sovelluksesi ei välttämättä ole mobiilinäytöille optimoitu. [Katso, miten voit mukauttaa sisällön koon näkymään](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Näkymän koko, {innerWidth} px, ei vastaa ikkunan kokoa, {outerWidth} px."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Sisällön koko ei vastaa näkymää"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Sisällön koko on näkymän mukainen"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Alla olevat kriittiset pyyntöketjut kertovat, minkä resurssien lataaminen priorisoidaan. Suosittelemme parantamaan sivun latausaikaa lyhentämällä ketjuja, pienentämällä resurssien latauskokoa ja lykkäämällä tarpeettomien resurssien lataamista. [Lue, miten voit välttää kriittisten pyyntöjen ketjuttamisen](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Näyttää kuvat sopivalla resoluutiolla"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Sovellus on jo asennettu"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Tarvittavan kuvakkeen lataaminen teknisistä tiedoista ei onnistunut"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Epäonnistumisen syy"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Service worker ‑teknologia tuo sovelluksen käyttöön monia progressiivisen web-sovelluksen ominaisuuksia, kuten offline-käytön, aloitusnäytölle lisäämisen ja push-ilmoitukset. Jos service worker ja manifesti on otettu käyttöön oikein, selaimet voivat aktiivisesti suositella käyttäjille sovelluksesi lisäämistä aloitusnäytölle, mikä voi lisätä aktivoitumisten määrää. [Lue lisää manifestin asennusvaatimuksista](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 syy}other{# syytä}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Web app manifest ja service worker eivät täytä asennettavuusvaatimuksia"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Play Kauppa ‑sovelluksen URL ja Play Kaupan tunnus eivät täsmää"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Sivu ladataan incognito-ikkunassa"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Manifestin `display`-omaisuuden on oltava `standalone`, `fullscreen` tai `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Manifestissä on \"display_override\"-kenttä, ja ensimmäisen tuetun näyttötilan on oltava \"standalone\", \"fullscreen\" tai \"minimal-ui\""
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Manifestin nouto ei onnistunut, se on tyhjä tai ei jäsenneltävissä"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "Manifestin URL muuttui manifestin noudon aikana"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Manifestissä ei ole `name`- tai `short_name`-kenttää"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Manifestissa ei ole sopivaa kuvaketta, siinä on oltava vähintään {value0} pikselin kokoinen PNG-, SVG- tai WebP-tiedosto, kokomäärite on lisättävä ja mahdollisen tarkoitusmääritteen on oltava \"any\"."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Mikään kuvakkeista ei ole vähintään {value0} pikselin kokoinen PNG-, SVG- tai WebP-tiedosto, kun tarkoitusmääritettä ei ole lisätty tai se on \"any\"."
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Ladattu kuvake oli tyhjä tai vioittunut"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Ei Play Kaupan tunnusta"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Sivulta puuttuu manifestin <link>-URL"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Service workeria ei voitu tarkistaa, koska manifestistä puuttuu \"start_url\"-kenttä"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Asennettavuusvirheen tunnusta \"{errorId}\" ei tunnistettu"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Sivu ei ole peräisin turvallisesta lähteestä"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Sivu ei lataudu pääkehyksessä"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Sivu ei toimi ilman verkkoyhteyttä"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA on poistettu ja asennettavuustarkistuksia nollataan."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Määritettyä sovellusalustaa ei tueta Androidilla"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Manifestin määritys prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications on tuettu vain Chromen betaversioissa ja vakaissa versioissa Androidilla."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse ei pystynyt havaitsemaan, onko sivu asennettava. Yritä uudelleen Chromen uudemmalla versiolla."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Manifestin aloitus-URL ei kelpaa"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Web app manifest ja service worker täyttävät asennettavuusvaatimukset"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "Manifestissa oleva URL sisältää käyttäjänimen, salasanan tai portin"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Sivu ei toimi ilman verkkoyhteyttä. Tämä sivu ei enää ole ladattavissa Chrome 93:n vakaan version jälkeen (julkaistaan elokuussa 2021)."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Sallittu"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Minimoi pääsäikeen työkuorman"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Tavoittaakseen maksimimäärän käyttäjiä sivustojen tulee toimia kaikilla tärkeillä selaimilla. [Lue lisää yhteensopivuudesta eri selainten kanssa](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Sivusto toimii eri selaimilla"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Varmista, että yksittäisiin sivuihin voi täsmälinkittää URL-osoitteella ja että URL-osoitteet ovat ainutlaatuisia, jotta jaettavuus somessa paranee. [Lue lisää täsmälinkkien lisäämisestä](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Joka sivulla on URL-osoite"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Napautuksilla navigoitaessa siirtymien tulee olla saumattomia, vaikka verkko olisi hidas. Näin syntyy vaikutelma toimivuudesta. [Lue lisää sivusiirtymistä](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Verkko ei estä sivujen välisiä siirtymiä"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Peitettävällä kuvakkeella varmistetaan, että kuva täyttää koko muodon ilman vaakapalkkien käyttöä, kun sovellusta asennetaan laitteelle. [Lue lisää peitettävistä manifestikuvakkeista](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Teknisissä tiedoissa ei ole peitettävää kuvaketta"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Teknisissä tiedoissa on peitettävä kuvake"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Kumulatiivinen asettelumuutos mittaa näkymässä olevien elementtien liikettä. [Lue lisää Kumulatiivinen asettelumuutos ‐mittarista](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Palvelimen vasteaika alussa oli lyhyt"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Teeman sisältävä aloitussivu varmistaa laadukkaan kokemuksen, kun käyttäjä avaa sovelluksen aloitusnäytöltään. [Lue lisää aloitusnäytöistä](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Yksilöityä aloitusnäyttöä ei ole määritetty"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Yksilöity aloitusnäyttö määritetty"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Voit muokata selaimen osoitepalkkia sivustosi teeman mukaiseksi. [Lue lisää osoitepalkin teemasta](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Ei aseta osoitepalkin teemaväriä"
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Asettaa osoitepalkin teemavärin"
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Kolmannen osapuolen evästeiden tuki poistetaan Chromen tulevasta versiosta. [Lue lisää kolmannen osapuolen evästeiden käytöstä poistamisesta](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

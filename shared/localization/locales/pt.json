@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Ative a compactação de texto"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Se a largura do conteúdo do seu app não corresponder à largura da janela de visualização, não será possível otimizar o app para telas de dispositivos móveis. [Aprenda a redimensionar o conteúdo da janela de visualização](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "O tamanho da janela de visualização de {innerWidth} px não corresponde ao tamanho da janela {outerWidth} px."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "O conteúdo não está no tamanho correto para a janela de visualização"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "O conteúdo está no tamanho correto para a janela de visualização"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "As cadeias de solicitação críticas abaixo mostram quais recursos são carregados com prioridade alta. Diminua o tamanho das cadeias, reduza o tamanho do download de recursos ou adie o download de recursos desnecessários para melhorar o carregamento de página. [Aprenda a evitar encadeamento de solicitações críticas](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Exibe imagens em resolução adequada"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "O app já está instalado"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Não foi possível fazer o download de um ícone necessário do manifesto"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Motivo da falha"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "O service worker é a tecnologia que permite que seu app use muitos recursos do App Web Progressivo, como disponibilidade off-line, adição à tela inicial e notificações push. Com implementações de manifesto e service worker adequadas, os navegadores podem solicitar proativamente que os usuários adicionem seu app à tela inicial deles, o que pode aumentar o engajamento. [Saiba mais sobre os requisitos de instalação do manifesto](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 motivo}one{# motivo}other{# motivos}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "O manifesto do app da Web ou o service worker não atendem aos requisitos para instalação"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "O URL do aplicativo não corresponde ao ID da Play Store"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "A página foi carregada em uma janela anônima"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "A propriedade \"`display`\" do manifesto precisa ser `standalone`, `fullscreen` ou `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "O manifesto contém o campo \"display_override\", e o primeiro modo de exibição compatível precisa ser \"standalone\", \"fullscreen\" ou \"minimal-ui\""
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Não foi possível buscar o manifesto, ele está vazio ou não foi possível analisá-lo"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "O URL do manifesto mudou enquanto a busca do manifesto era feita."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "O manifesto não contém um campo `name` ou `short_name`"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "O manifesto não contém um ícone adequado. É necessário um formato PNG, SVG ou WebP de pelo menos {value0} px. O atributo \"sizes\" precisa estar definido e o atributo \"purpose\", se definido, precisa incluir \"any\"."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Nenhum dos ícones fornecidos é um quadrado de pelo menos {value0} px no formato PNG, SVG ou WebP com o atributo \"purpose\" não definido ou definido como \"any\""
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "O ícone de download está vazio ou corrompido"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Nenhum ID da Play Store foi fornecido"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "A página não tem um URL de manifesto <link>"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Não foi possível verificar o service worker sem um campo \"start_url\" no manifesto"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "O ID do erro de instabilidade \"{errorId}\" não foi reconhecido"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "A página não foi exibida por uma origem segura"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "A página não está carregada no frame principal"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "A página não funciona off-line"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "O PWA foi desinstalado e as verificações de estabilidade estão sendo redefinidas."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "A plataforma de aplicativo especificada não é compatível com o Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "O manifesto especifica prefer_related_applications: verdadeiro"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications só é compatível no Android com Canais Beta e Stable do Chrome."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "O Lighthouse não conseguiu determinar se a página pode ser instalada. Tente de novo com uma versão mais recente do Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "O URL de início do manifesto não é válido"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "O manifesto do app da Web e o service worker atendem aos requisitos para instalação"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "Um URL no manifesto contém um nome de usuário, uma senha ou uma porta"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "A página não funciona off-line. Ela não será mais considerada instalável após a versão estável do Chrome 93, em agosto de 2021."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Permitido"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Minimiza o trabalho da thread principal"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Os sites precisam funcionar em todos os principais navegadores para que sejam acessíveis ao maior número de usuários. [Saiba mais sobre a compatibilidade com vários navegadores](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "O site funciona em diferentes navegadores"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "É necessário que as páginas individuais permitam links diretos via URL e que os URLs sejam exclusivos para o propósito de compartilhamento em mídias sociais. [Saiba mais sobre o fornecimento de links diretos](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Cada página tem um URL."
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "As transições precisam ser dinâmicas durante a navegação por toque, mesmo em uma conexão de rede lenta. Essa experiência é essencial para a percepção de performance. [Saiba mais sobre transições de página](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "As transições de página não devem parecer bloqueadas pelo carregamento da rede."
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Um ícone mascarável garante que a imagem preencha toda a forma sem um efeito letterbox durante a instalação do app em um dispositivo. [Saiba mais sobre os ícones de manifesto mascaráveis](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "O manifesto não tem um ícone mascarável"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "O manifesto tem um ícone mascarável"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "\"Cumulative Layout Shift\" mede o movimento de elementos visíveis na janela de visualização. [Saiba mais sobre a métrica \"Cumulative Layout Shift\"](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "O tempo de resposta inicial do servidor foi curto"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Uma tela de apresentação personalizada garante uma experiência de alta qualidade quando os usuários abrem o aplicativo na tela inicial. [Saiba mais sobre telas de apresentação](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Não foi configurado para uma tela de apresentação personalizada"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Configurado para uma tela de apresentação personalizada"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "É possível atribuir um tema relacionado ao seu site à barra de endereço do navegador. [Saiba mais sobre como adicionar temas à barra de endereço](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Não foi definida uma cor de tema para a barra de endereços."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Foi definida uma cor de tema para a barra de endereços."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "O suporte para cookies de terceiros será removido em uma versão futura do Chrome. [Saiba mais sobre a desativação gradual dos cookies de terceiros](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

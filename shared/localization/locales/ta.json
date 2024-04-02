@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "உரைச் சுருக்கத்தை இயக்கவும்"
   },
-  "core/audits/content-width.js | description": {
-    "message": "ஆப்ஸின் உள்ளடக்க அகலம் காட்சிப் பகுதியின் அகலத்துடன் பொருந்தவில்லை எனில் மொபைல் திரைகளுக்கு ஏற்ற வகையில் உங்கள் ஆப்ஸ் மேம்படுத்தப்படாமல் போகலாம். [காட்சிப் பகுதிக்கான உள்ளடக்கத்தை மாற்றுவது எப்படி என அறிக](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "{innerWidth} என்ற காட்சிப் பகுதி அளவு பிக்சலுடன் {outerWidth} என்ற சாளரத்தின் அளவு பிக்சல் பொருந்தவில்லை."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "காட்சிப் பகுதிக்கு ஏற்ற வகையில் உள்ளடக்கம் சரியாகப் பொருந்தவில்லை"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "காட்சிப் பகுதிக்கு ஏற்ற வகையில் உள்ளடக்கம் சரியாகப் பொருந்துகிறது"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "கீழே இருக்கும் 'முக்கியக் கோரிக்கை வரிசைகள்' எந்தெந்த ஆதாரங்கள் அதிக முன்னுரிமையுடன் ஏற்றப்படுகின்றன என்பதைக் காட்டுகின்றன. பக்கம் ஏற்றப்படுவதன் வேகத்தை அதிகரிக்க, வரிசைகளின் நீளத்தைக் குறைத்தல், ஆதாரங்களின் பதிவிறக்க அளவைக் குறைத்தல், தேவையற்ற ஆதாரங்களைப் பதிவிறக்குவதைத் தவிர்த்தல் போன்றவற்றை முயற்சி செய்யவும். [முக்கியக் கோரிக்கைகள் தேங்குவதைத் தவிர்ப்பது எப்படி என அறிக](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "பொருத்தமான தெளிவுத்திறனைக் கொண்ட படங்களை வழங்குதல்"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "இந்த ஆப்ஸ் ஏற்கெனவே நிறுவப்பட்டுள்ளது"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "மெனிஃபெஸ்ட்டில் இருந்து அவசியமான ஐகானைப் பதிவிறக்க முடியவில்லை"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "தோல்விக்கான காரணம்"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Service worker என்பது ஆஃப்லைனில் பணிபுரிவது, முகப்புத் திரையில் சேர்ப்பது, புஷ் அறிவிப்புகள் போன்ற இணைய ஆப்ஸின் பல்வேறு மேம்பட்ட அம்சங்களை உங்கள் ஆப்ஸ் பயன்படுத்த அனுமதிக்கும் தொழில்நுட்பமாகும். சரியான service worker, மெனிஃபெஸ்ட் செயலாக்கங்கள் ஆகியவற்றின் மூலம் உலாவிகள் உங்கள் ஆப்ஸை முகப்புத்திரையில் சேர்க்குமாறு பயனர்களுக்கு முன்கூட்டியே அறிவிக்கும். இப்படிச் செய்வது அதிகப் பயனர்களைப் பெற வழிவகுக்கும். [மெனிஃபெஸ்ட் நிறுவல்தன்மைக்கான தேவைகள் பற்றி மேலும் அறிக](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 காரணம்}other{# காரணங்கள்}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "இணைய ஆப்ஸ் மெனிஃபெஸ்ட், service worker போன்றவை நிறுவுதல் தேவைகளைப் பூர்த்தி செய்யவில்லை"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Play Store ஆப்ஸின் URLலும் Play Storeரின் ஐடியும் பொருந்தவில்லை"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "மறைநிலை சாளரத்தில் பக்கம் ஏற்றப்பட்டுள்ளது"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "`standalone`, `fullscreen`, `minimal-ui` ஆகியவற்றில் ஏதேனும் ஒன்றாக மெனிஃபெஸ்ட் `display` பிராப்பர்ட்டி இருக்க வேண்டும்"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "மெனிஃபெஸ்ட் 'display_override' புலத்தைக் கொண்டிருக்கும், மேலும் முதலில் ஆதரிக்கப்படும் காட்சிப் பயன்முறையானது 'standalone', 'fullscreen', 'minimal-ui' போன்றவற்றில் ஒன்றாக இருக்க வேண்டும்"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "மெனிஃபெஸ்ட்டைப் பெறவோ பாகுபடுத்தவோ முடியவில்லை அல்லது அது காலியாக இருக்கக்கூடும்"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "மெனிஃபெஸ்ட் பெறப்படும்போது மெனிஃபெஸ்ட் URL மாறியது."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "மெனிஃபெஸ்ட்டில் `name` அல்லது `short_name` புலம் இல்லை"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "பொருத்தமான ஐகானை மெனிஃபெஸ்ட் கொண்டிருக்கவில்லை. PNG, SVG, WebP போன்ற வடிவமைப்பில் குறைந்தபட்சம் {value0} பிக்சல்களுடன் இருக்க வேண்டும், sizes பண்புக்கூறு அமைக்கப்பட்டிருக்க வேண்டும், purpose பண்புக்கூறு அமைக்கப்பட்டிருந்தால் \"any\" என்பதைக் கொண்டிருக்க வேண்டும்."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "வழங்கப்பட்ட எந்தவொரு ஐகானும் PNG, SVG, WebP போன்ற வடிவமைப்பில் குறைந்தபட்சம் {value0} சதுர பிக்சல்களுடன் இல்லை. purpose பண்புக்கூறு அமைக்கப்படவில்லை அல்லது “any” என அமைக்கப்பட்டு உள்ளது"
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "பதிவிறக்கிய ஐகான் காலியாக உள்ளது அல்லது சிதைந்துள்ளது"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Play Store ஐடி வழங்கப்படவில்லை"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "பக்கம் மெனிஃபெஸ்ட் <link> URLலைக் கொண்டிருக்கவில்லை"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "மெனிஃபெஸ்ட்டில், 'start_url' இல்லாத service workerரைச் சரிபார்க்க முடியவில்லை"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "'{errorId}' என்ற நிறுவுதல் பிழை ஐடியை அடையாளம் காண முடியவில்லை"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "பாதுகாப்பான மூலத்திலிருந்து பக்கம் காட்டப்படவில்லை"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "முதன்மை ஃபிரேமில் பக்கம் ஏற்றப்படவில்லை"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "பக்கம் ஆஃப்லைனில் காட்டப்படாது"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA நிறுவல் நீக்கப்பட்டது. நிறுவலுக்கான சரிபார்ப்புகள் மீட்டமைக்கப்படுகின்றன."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "குறிப்பிடப்பட்ட ஆப்ஸ் பிளாட்ஃபார்ம், Androidல் ஆதரிக்கப்படவில்லை"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "prefer_related_applicationsஸை மெனிஃபெஸ்ட் ’true' எனக் குறிக்கிறது"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "Chrome பீட்டாவிலும் Androidல் நிலையான சேனல்களிலும் மட்டுமே prefer_related_applications ஆதரிக்கப்படும்."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "இந்தப் பக்கம் நிறுவக்கூடியதா என்பதை Lighthouse கருவியால் தீர்மானிக்க முடியவில்லை. Chrome உலாவியின் புதிய பதிப்பில் முயலவும்."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "மெனிஃபெஸ்ட் ஸ்டார்ட் URL தவறானது"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "இணைய ஆப்ஸ் மெனிஃபெஸ்ட், service worker ஆகியவை நிறுவுதல் தேவைகளைப் பூர்த்தி செய்கின்றன"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "பயனர்பெயர், கடவுச்சொல், போர்ட் போன்றவற்றை மெனிஃபெஸ்ட்டில் உள்ள URL கொண்டுள்ளது"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "பக்கம் ஆஃப்லைனில் காட்டப்படாது. ஆகஸ்ட் 2021ல் Chrome 93 இன் நிலையான பதிப்பு வெளியிடப்பட்ட பிறகு, பக்கம் நிறுவக்கூடியதாகக் கருதப்படாது."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "அனுமதிக்கப்பட்டது"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "முக்கியத் தொடரிழையின் பணியைக் குறைக்கிறது"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "அதிக அளவிலான பயனர்களைப் பெற அனைத்துப் பிரபலமான உலாவிகளிலும் தளங்கள் செயல்பட வேண்டும். [உலாவிகளுக்கு இடையேயான இணக்கத்தன்மை குறித்து அறிக](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "வெவ்வேறு உலாவியிலும் தளம் செயல்படும்"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "URL மூலம் தனிப்பட்ட பக்கங்களை லிங்க் செய்யலாம் என்பதையும் சமூக வலைதளங்களில் பகிர்வதற்கு அந்த URLகள் தனித்துவமானவை என்பதையும் உறுதிப்படுத்தவும். [தனிப்பட்ட இணைப்புகள் குறித்து மேலும் அறிக](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "ஒவ்வொரு பக்கத்திற்கும் URL உள்ளது"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "வேகம் குறைந்த நெட்வொர்க்கிலும், பக்கத்தை நீங்கள் தட்டும்போது மாற்றங்கள் விரைவாக இருக்க வேண்டும். இது சிறந்த செயல்திறன் எனப் பயனர் கருதும் முக்கிய அம்சமாகும். [பக்க மாற்றங்கள் குறித்து மேலும் அறிக](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "பக்கத்தின் மாற்றங்கள் நெட்வொர்க்கில் தடுக்கப்பட்டவை போன்று தோன்றக்கூடாது"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "சாதனத்தில் ஆப்ஸை நிறுவும்போது ஐகானின் படம் லெட்டர்பாக்ஸ் ஆகாமல் அந்த வடிவத்தினுள் முழுமையாகத் தோன்றுவதை மாஸ்க் செய்யப்பட்ட ஐகான் உறுதிப்படுத்துகின்றது. [மாஸ்க் செய்யப்பட்ட மெனிஃபெஸ்ட் ஐகான்கள் குறித்து மேலும் அறிக](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "மாஸ்க் செய்யக்கூடிய ஐகான் மெனிஃபெஸ்டில் இல்லை"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "மாஸ்க் செய்யப்பட்ட ஐகான் மெனிஃபெஸ்டில் உள்ளது"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "காட்சிப் பகுதிக்குள் தெரியக்கூடிய கூறுகளின் நகர்வை கியூமுலேட்டிவ் லேஅவுட் ஷிஃப்ட் அளவிடுகிறது. [கியூமுலேட்டிவ் லேஅவுட் ஷிஃப்ட் அளவீடு குறித்து மேலும் அறிக](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "சேவையகப் பதிலளிப்புக்கான தொடக்க நேரம் குறைவானது"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "பயனர்கள் அவர்களது முகப்புத் திரைகளில் இருந்து உங்கள் ஆப்ஸைத் தொடங்கும்போது உயர்தரமான அனுபவத்தைப் பெறுவதை தீம் அமைக்கப்பட்ட ஸ்பிளாஷ் திரை உறுதிப்படுத்தும். [ஸ்பிளாஷ் திரைகள் குறித்து மேலும் அறிக](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "பிரத்யேக ஸ்பிளாஷ் திரைக்கு உள்ளமைக்கப்படவில்லை"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "பிரத்யேக ஸ்பிளாஷ் திரைக்கு உள்ளமைக்கப்பட்டது"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "உங்களின் தளத்திற்குப் பொருந்தும் வகையில் உலாவியின் முகவரிப் பட்டிக்கான தீமினை அமைக்க முடியும். [முகவரிப் பட்டியில் தீமினை அமைப்பது குறித்து மேலும் அறிக](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "முகவரிப் பட்டிக்கான தீம் வண்ணத்தை அமைக்க முடியவில்லை."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "முகவரிப் பட்டிக்கான தீம் வண்ணத்தை அமைக்கும்."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "இனி வரும் Chrome பதிப்புகளில் மூன்றாம் தரப்புக் குக்கீகளைப் பயன்படுத்த முடியாது. [மூன்றாம் தரப்புக் குக்கீகளைப் படிப்படியாகக் குறைப்பது குறித்து மேலும் தெரிந்துகொள்ளுங்கள்](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

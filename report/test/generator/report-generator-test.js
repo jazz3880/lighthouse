@@ -103,20 +103,20 @@ describe('ReportGenerator', () => {
       expect(lines.length).toBeGreaterThan(100);
       expect(lines.slice(0, 15).join('\n')).toMatchInlineSnapshot(`
 "\\"requestedUrl\\",\\"finalDisplayedUrl\\",\\"fetchTime\\",\\"gatherMode\\"
-\\"http://localhost:10200/dobetterweb/dbw_tester.html\\",\\"http://localhost:10200/dobetterweb/dbw_tester.html\\",\\"2021-09-07T20:11:11.853Z\\",\\"navigation\\"
+\\"http://localhost:10200/dobetterweb/dbw_tester.html\\",\\"http://localhost:10200/dobetterweb/dbw_tester.html\\",\\"2024-04-02T19:39:21.334Z\\",\\"navigation\\"
 
 category,score
-\\"performance\\",\\"0.28\\"
-\\"accessibility\\",\\"0.77\\"
-\\"best-practices\\",\\"0.35\\"
-\\"seo\\",\\"0.73\\"
+\\"performance\\",\\"0.27\\"
+\\"accessibility\\",\\"0.75\\"
+\\"best-practices\\",\\"0.31\\"
+\\"seo\\",\\"0.75\\"
 
 category,audit,score,displayValue,description
 \\"performance\\",\\"first-contentful-paint\\",\\"0.01\\",\\"6.8 s\\",\\"First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/).\\"
-\\"performance\\",\\"largest-contentful-paint\\",\\"0\\",\\"13.3 s\\",\\"Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)\\"
-\\"performance\\",\\"total-blocking-time\\",\\"0.2\\",\\"1,220 ms\\",\\"Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/).\\"
-\\"performance\\",\\"cumulative-layout-shift\\",\\"0.8\\",\\"0.136\\",\\"Cumulative Layout Shift measures the movement of visible elements within the viewport. [Learn more about the Cumulative Layout Shift metric](https://web.dev/articles/cls).\\"
-\\"performance\\",\\"speed-index\\",\\"0.21\\",\\"8.1 s\\",\\"Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/).\\"
+\\"performance\\",\\"largest-contentful-paint\\",\\"0\\",\\"11.0 s\\",\\"Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)\\"
+\\"performance\\",\\"total-blocking-time\\",\\"0.07\\",\\"2,120 ms\\",\\"Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/).\\"
+\\"performance\\",\\"cumulative-layout-shift\\",\\"0.9\\",\\"0.1\\",\\"Cumulative Layout Shift measures the movement of visible elements within the viewport. [Learn more about the Cumulative Layout Shift metric](https://web.dev/articles/cls).\\"
+\\"performance\\",\\"speed-index\\",\\"0.18\\",\\"8.4 s\\",\\"Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/).\\"
 "
 `);
 

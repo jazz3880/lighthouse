@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Engedélyezze a szövegtömörítést"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Ha az alkalmazás tartalmának szélessége nem egyezik a megjelenítési terület szélességével, akkor lehet, hogy alkalmazása nincs optimalizálva a mobilok képernyőjére. [További információ a tartalom megjelenítési területhez való méretezéséről](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "A megjelenítési terület mérete ({innerWidth} képpont) nem egyezik az ablak méretével ({outerWidth} képpont)."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "A tartalom nincs megfelelően méretezve a megjelenítési területhez"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "A tartalom megfelelően van méretezve a megjelenítési területhez"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Az alábbi kritikus kérésláncok megjelenítik, hogy milyen források töltődnek be magas prioritással. Az oldalbetöltés javítása érdekében fontolja meg a láncok hosszának csökkentését, a letöltött források méretének csökkentését vagy a felesleges források letöltésének késleltetését. [További információ a kritikus kérések láncba rendezésének elkerüléséről](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "A képek megjelenítése megfelelő felbontásban történik"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Az alkalmazás már telepítve van."
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Nem sikerült letölteni a szükséges ikont a manifestből"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "A hiba oka"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "A service worker elnevezésű technológia lehető teszi az alkalmazás számára a progresszív webes alkalmazások funkcióinak használatát. Ilyen funkció például az offline működés, a kezdőképernyőhöz való hozzáadás és a leküldött (push) értesítések. A megfelelő service worker- és manifestmegvalósítással rendelkező böngészők proaktív módon kérhetik a felhasználókat, hogy adják hozzá az Ön alkalmazását a kezdőképernyőjükhöz, ami erősebb elköteleződéshez vezethet. [További információ a manifest telepíthetőségi követelményeiről](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 ok}other{# ok}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Az internetes alkalmazás manifestje vagy service workere nem felel meg a telepíthetőségi követelményeknek"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "A Play Áruház alkalmazás-URL-je és a Play Áruház azonosítója nem egyezik."
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Az oldal inkognitó módban lett betöltve."
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "A manifest `display` tulajdonságának a következők egyikének kell lennie `standalone`, `fullscreen` vagy `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "A manifest tartalmazza a „display_override” mezőt, és az első támogatott megjelenítési módnak a következők egyikének kell lennie: „standalone”, „fullscreen” vagy „minimal-ui”."
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Nem sikerült a manifest lekérése vagy elemzése, vagy üres a manifest."
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "A manifest URL-je módosítva lett a manifest lekérése során."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "A manifest nem tartalmaz `name` vagy `short_name` mezőt"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "A manifest nem tartalmaz megfelelő ikont. PNG-, SVG- vagy WebP-formátumra van szükség legalább {value0} px méretben. Be kell állítani a méretek attribútumát. Ha be van állítva a cél attribútuma, tartalmaznia kell az „any” (bármilyen) értéket."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Nincs megadva olyan ikon legalább {value0} képpontos, négyzetes méretben, PNG-, SVG- vagy WebP-formátumban, amelynek célattribútuma nincs beállítva, vagy „any” (bármely) értékre van állítva."
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "A letöltött ikon üres vagy sérült"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Nincs megadva Play Áruház-azonosító."
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Az oldalon nem található manifest-URL (<link>)"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Nem sikerült a service worker ellenőrzése, mivel nem található „start_url” mező a manifestben."
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Nem lehet felismerni a következő telepíthetőségi hibaazonosítót: {errorId}"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Az oldal megjelenítése nem biztonságos eredetről történik"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Az oldal nem töltődött be a fő keretbe."
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Az oldal nem működik offline állapotban"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "Megtörtént a PWA eltávolítása, visszaállnak a telepíthetőségi ellenőrzések."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "A megadott alkalmazásplatform nem támogatott Androidon."
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "A manifest meghatározza a következőt: „prefer_related_applications: true”"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "A prefer_related_applications csak a Chrome bétaverziójában és a Stabil csatornákon támogatott Androidon."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "A Lighthouse nem tudta meghatározni, hogy az oldal telepíthető-e. Próbálja újra a Chrome újabb verziójával."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "A manifest kezdési URL-je érvénytelen"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Az internetes alkalmazás manifestje és a service worker nem felel meg a telepíthetőségi követelményeknek"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "A manifestben található URL felhasználónevet, jelszót vagy portot tartalmaz."
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Az oldal nem működik offline állapotban. A rendszer nem tekinti telepíthetőnek az oldalt a Chrome 93-as verziója után (stabil kiadás: 2021. augusztus)."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Engedélyezve"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Minimalizálja a fő szál terhelését"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "A lehető legtöbb felhasználó elérése érdekében a webhelyeknek minden elterjedtebb böngészőben működniük kell. [További információ a több böngészőre kiterjedő kompatibilitásról](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "A webhely többféle böngészőben is működik"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Lássa el az egyes oldalakat mélylinkként használható URL-ekkel, és ügyeljen arra, hogy ezek az URL-ek egyediek legyenek a közösségi médiában való megosztás céljából. [További információ a mélylinkek megadásáról](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Minden oldal rendelkezik URL-címmel"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "A koppintgatás során az átmeneteknek még lassú hálózaton is gyorsnak kell lenniük. Ez az egyik legfontosabb tényező a felhasználók által észlelt teljesítmény tekintetében. [További információ az oldalátmenetről](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Az oldalak közti váltásnak nem szabadna akadályozni a hálózati forgalmat"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Maszkolható ikonnal biztosíthatja, hogy a kép a forma egészét kitöltse: ne kerüljön köré letterbox, amikor a felhasználó eszközre telepíti az alkalmazást. [További információ a maszkolható manifestikonokról](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "A manifest nem tartalmaz maszkolható ikont"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "A manifest tartalmaz maszkolható ikont"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Az Elrendezés összmozgása mutató az oldal megjelenítési területén látható elemek mozgását méri. [További információ az Elrendezés összmozgása mutatóról](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "A kezdeti szerverválaszidő rövid volt"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "A saját témájú betöltési képernyő jó felhasználói élményt eredményez, amikor a kezdőképernyőről indítják el az alkalmazást. [További információ a betöltési képernyőről](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Nincs beállítva egyéni betöltési képernyő"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Be van állítva egyéni betöltési képernyő"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "A böngésző címsávjához megadható a webhelyhez illő téma. [További információ a címsávtémák beállításáról](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Nem állítja be a téma színét a címsávon."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "A téma színét állítja be a címsávon."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "A harmadik féltől származó cookie-k támogatását megszüntetjük a Chrome egyik későbbi verziójában. [További információ a harmadik féltől származó cookie-k kivezetéséről](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

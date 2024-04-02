@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Įgalinkite teksto glaudinimą"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Jei programos turinio plotis nesutampa su peržiūros srities pločiu, jūsų programa gali būti neoptimizuota mobiliųjų įrenginių ekranams. [Sužinokite, kaip nustatyti peržiūros srities turinio dydį](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "{innerWidth} tšk. peržiūros sritis neatitinka {outerWidth} tšk. lango dydžio."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Turinys nėra tinkamo dydžio peržiūros sričiai"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Turinys yra tinkamo dydžio peržiūros sričiai"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Toliau pateiktose svarbiausių užklausų grandinėse nurodoma, kurie ištekliai įkelti nurodant aukštą prioritetą. Kad puslapio įkėlimas būtų sklandesnis, apsvarstykite galimybę sutrumpinti grandines, sumažinti atsisiunčiamų išteklių dydį arba atidėti nebūtinų išteklių atsisiuntimą. [Sužinokite, kaip išvengti svarbiausių užklausų grandinių](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Teikiami tinkamos raiškos vaizdai"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Programa jau įdiegta"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Nepavyko atsisiųsti būtinos piktogramos iš aprašo"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Trikties priežastis"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Pagalbinis „JavaScript“ failas – tai technologija, įgalinanti jūsų programą naudoti daug laipsniškosios žiniatinklio programos funkcijų, pvz., naudoti neprisijungus, pridėti prie pagrindinio ekrano ar naudoti iš karto gaunamus pranešimus. Pasirinkus tinkamą pagalbinį „JavaScript“ failą ir aprašą, naršyklės gali aktyviai raginti naudotojus pridėti jūsų programą prie pagrindinio ekrano, tai paskatintų geresnį įtraukimą. [Sužinokite daugiau apie aprašo diegiamumo reikalavimus](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{Viena priežastis}one{# priežastis}few{# priežastys}many{# priežasties}other{# priežasčių}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Žiniatinklio programos aprašas arba pagalbinis „JavaScript“ failas neatitinka diegiamumo reikalavimų."
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Neatitinka „Play“ parduotuvės programos URL ir „Play“ parduotuvės ID"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Puslapis įkeliamas inkognito lange"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Aprašo „`display`“ nuosavybė turi būti viena iš „`standalone`“, „`fullscreen`“ arba „`minimal-ui`“"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Apraše yra laukas „display_override“ ir pirmas palaikomas rodymo režimas turi būti „standalone“, „fullscreen“ arba „minimal-ui“"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Aprašas negautas, yra tuščias arba nepavyko jo išanalizuoti"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "Gaunant aprašą pasikeitė jo URL."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Apraše nėra lauko „`name`“ arba „`short_name`“"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Apraše nėra tinkamos piktogramos – reikia PNG, SVG ar „WebP“ formato, ne mažiau kaip {value0} tšk., turi būti nustatytas atributas „sizes“, o jei nustatytas atributas „purpose“, jis turi apimti parinktį „any“."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Neteikiama piktograma yra ne mažesnis nei {value0} tšk. PNG, SVG ar „WebP“ formato kvadratas, kurio paskirties atributas nenustatytas arba nustatytas kaip „any“."
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Atsisiųsta piktograma buvo tuščia arba sugadinta"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Nepateiktas „Play“ parduotuvės ID"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "Puslapyje nėra aprašo <link> URL"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Nepavyko patikrinti pagalbinio „JavaScript“ failo, nes apraše nėra lauko „start_url“"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Diegiamumo klaidos ID „{errorId}“ neatpažintas"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Puslapis teikiamas iš nesaugaus šaltinio"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Puslapis neįkeliamas pagrindiniame kadre"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Puslapis neveikia neprisijungus"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "LŽP pašalinta ir diegimo patikros nustatomos iš naujo."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Nurodyta programų platforma nepalaikoma sistemoje „Android“"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "Apraše nurodoma „prefer_related_applications: true“"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "„prefer_related_applications“ palaikoma tik beta versijos „Chrome“ ir pastoviuose kanaluose sistemoje „Android“."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "„Lighthouse“ nepavyko nustatyti, ar puslapį galima įdiegti. Bandykite naudodami naujesnės versijos „Chrome“."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "Aprašo pradžios URL netinkamas"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Žiniatinklio programos aprašas ir pagalbinis „JavaScript“ failas atitinka diegiamumo reikalavimus"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "Aprašo URL yra naudotojo vardas, slaptažodis arba prievadas"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Puslapis neveikia neprisijungus. 2021 m. rugpjūtį išleidus stabilią „Chrome“ 93 versiją puslapis nebus laikomas tinkamu diegti."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Leidžiama"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Sutrumpinamas pagrindinės grupės veikimas"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "Norint pasiekti daugiausia naudotojų, svetainės turi veikti visose svarbiausiose naršyklėse. [Sužinokite apie suderinamumą skirtingose naršyklėse](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Svetainė veikia skirtingose naršyklėse"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Užtikrinkite, kad atskiri puslapiai būtų susiejami giliąja nuoroda naudojant URL ir kad URL yra unikalūs pagal bendrinimo visuomeninėje medijoje tikslą. [Sužinokite daugiau apie giliųjų nuorodų pateikimą](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Kiekvienas puslapis turi URL"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Palietus ekraną perėjimai turi būti sklandūs, net esant lėtam interneto ryšiui. Tai labai svarbu, kad naudotojas tinkamai suvoktų našumą. [Sužinokite daugiau apie puslapių perėjimus](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Neatrodo, kad puslapio perėjimai būtų blokuojami tinklo"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Maskuojama piktograma užtikrina, kad vaizdas užpildytų visą formą netaikant pašto dėžutės efekto, įdiegiant programą įrenginyje. [Sužinokite apie maskuojamas aprašo piktogramas](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Nėra maskuojamos aprašo piktogramos"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Pateikta maskuojama aprašo piktograma"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Nustatant kaupiamąjį išdėstymo poslinkį įvertinamas peržiūros srityje matomų elementų judėjimas. [Sužinokite daugiau apie kaupiamojo išdėstymo poslinkio metriką](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Pradinio serverio atsako laikas buvo trumpas"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Teminis prisistatymo langas užtikrina kokybišką patirtį naudotojui paleidžiant jūsų programą iš pagrindinio ekrano. [Sužinokite daugiau apie prisistatymo langus](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Nesukonfigūruota tinkintam prisistatymo langui"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Sukonfigūruota tinkintam prisistatymo langui"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Naršyklės adreso juostos temą galima pakeisti taip, kad atitiktų svetainės temą. [Sužinokite daugiau apie adreso juostos temą](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Nenustatoma adreso juostos temos spalva."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Nustatoma adreso juostos temos spalva."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Trečiųjų šalių slapukų palaikymas bus pašalintas būsimos versijos naršyklėje „Chrome“. [Sužinokite daugiau apie trečiųjų šalių slapukų atsisakymą](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

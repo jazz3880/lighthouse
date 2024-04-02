@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "Активирайте компресирането на текста"
   },
-  "core/audits/content-width.js | description": {
-    "message": "Ако ширината на съдържанието на приложението ви не съответства на тази на прозоречния изглед, приложението ви може да не е оптимизирано за мобилни екрани. [Научете как да оразмерите съдържанието за прозоречния изглед](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)."
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "Размерът на прозоречния изглед ({innerWidth} пкс) не съответства на размера на прозореца ({outerWidth} пкс)."
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "Съдържанието не е оразмерено правилно за прозоречния изглед"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "Съдържанието е оразмерено правилно за прозоречния изглед"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "Веригите от критични заявки по-долу ви показват кои ресурси се зареждат с висок приоритет. За да ускорите зареждането на страницата, препоръчваме да скъсите веригите, да намалите размера за изтегляне на ресурсите или да отложите изтеглянето на ненужните от тях. [Научете как да избягвате верижните последователности от критични заявки](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)."
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "Изображенията се показват с подходяща разделителна способност"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "Приложението вече е инсталирано"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "Изисквана икона от манифеста не бе изтеглена"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "Причина за проблема"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "Service worker е технологията, която дава възможност на приложението ви да използва много от функциите на прогресивните уеб приложения (PWA), като например работа офлайн, добавяне към началния екран и насочени известия. Правилното внедряване на файл service worker и манифест дава възможност на браузърите проактивно да подканват потребителите да добавят приложението ви към началния екран, което може да повиши ангажираността. [Научете повече за изискванията за възможност за инсталиране, свързани с манифеста](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)."
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 причина}other{# причини}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "Манифестът или файлът service worker на уеб приложението не отговарят на изискванията за възможност за инсталиране"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "URL адресът на приложението в Google Play Магазин и идентификаторът за Google Play Магазин не съвпадат"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "Страницата се зарежда в прозорец в режим „инкогнито“"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "Стойността на свойството `display` в манифеста трябва да е `standalone`, `fullscreen` или `minimal-ui`"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "Манифестът съдържа поле display_override и първият поддържан режим на екрана трябва да е standalone, fullscreen или minimal-ui"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "Манифестът не бе извлечен, не съдържа нищо или не бе анализиран синтактично"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "По време на извличането на манифеста URL адресът му бе променен."
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "Манифестът не съдържа поле `name` или `short_name`"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "Манифестът не съдържа подходяща икона – изисква се файл във формат PNG, SVG или WebP с поне {value0} пкс, атрибутът за размери трябва да е зададен, а атрибутът за предназначение, ако е зададен, трябва да включва стойността any."
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "Никоя от предоставените икони не е квадрат с размери поне {value0} пиксела във формат PNG, SVG или WebP, за който атрибутът за предназначение не е зададен или е със стойност any"
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "Изтегленият файл за икона бе празен или повреден"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "Не е предоставен идентификатор за Google Play Магазин"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "В страницата не е зададен URL адрес на манифеста чрез маркера <link>"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "Файлът service worker не бе проверен, тъй като за него липсваше поле start_url в манифеста"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "Идентификаторът на грешката, свързана с възможността за инсталиране, {errorId} не е разпознат"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "Страницата не се показва от защитен източник"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "Страницата не се зарежда в основната рамка"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "Страницата не работи офлайн"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA бе деинсталирано и проверките на възможността за инсталиране се нулират."
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Посочената платформа за приложения не се поддържа от Android"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "В манифеста е посочено prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications се поддържа само в бета- и стабилния канал на Chrome за Android."
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse не успя да установи дали страницата може да се инсталира. Опитайте с по-нова версия на Chrome."
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "URL адресът за стартиране в манифеста не е валиден"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "Манифестът и файлът service worker на уеб приложението отговарят на изискванията за възможност за инсталиране"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "В манифеста има URL адрес, който съдържа потребителско име, парола или порт"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "Страницата не работи офлайн. Тя няма да бъде считана за страница с възможност за инсталиране след пускането на Chrome 93 в стабилния канал през август 2021 г."
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "Разрешено"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "Работата по основната нишка е сведена до минимум"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "За да достигнат до възможно най-много потребители, сайтовете трябва да работят във всички основни браузъри. [Научете повече за съвместимостта с различни браузъри](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)."
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "Сайтът работи в различни браузъри"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "Отделните страници трябва да могат да се свързват пряко чрез URL адрес, а URL адресите трябва да са уникални, за да се даде възможност за споделянето им в социалните медии. [Научете повече за предоставянето на преки връзки](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)."
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "Всяка страница има URL адрес"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "Дори когато мрежата е бавна, преходите при докосване на различни елементи трябва да са бързи – така у потребителите се създава усещане за добра ефективност. [Научете повече за преходите между страниците](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)."
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "Преходите между страниците не създават усещане за забавяне на мрежата"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "Използването на адаптивна икона гарантира, че изображението ще запълни цялата фигура, а не само част от нея, когато приложението бъде инсталирано на устройство. [Научете повече за адаптивните икони в манифеста](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)."
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "Манифестът не съдържа адаптивна икона"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "Манифестът съдържа адаптивна икона"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "Показателят „Кумулативни структурни промени (CLS)“ измерва движението на видимите елементи в прозоречния изглед. [Научете повече за този показател](https://web.dev/articles/cls)."
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "Началното време за реакция на сървъра бе кратко"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "Тематичният първоначален екран гарантира висококачествена практическа работа, когато потребителите стартират приложението ви от началния екран. [Научете повече за първоначалните екрани](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)."
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "Няма персонализиран първоначален екран"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "Има персонализиран първоначален екран"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "Адресната лента на браузъра може да бъде тематична, за да съответства на сайта ви. [Научете повече за задаването на тема за нея](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)."
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "Не е зададен тематичен цвят за адресната лента."
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "Зададен е тематичен цвят за адресната лента."
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "Поддръжката за „бисквитки“ на трети страни ще бъде премахната в бъдеща версия на Chrome. [Научете повече за оттеглянето на „бисквитките“ на трети страни](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)."

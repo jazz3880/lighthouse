@@ -734,18 +734,6 @@
   "core/audits/byte-efficiency/uses-text-compression.js | title": {
     "message": "啟用文字壓縮"
   },
-  "core/audits/content-width.js | description": {
-    "message": "如果你的應用程式內容寬度與可視區域的寬度不相符，應用程式可能無法在行動裝置螢幕上呈現最佳效果。[瞭解如何根據可視區域調整內容大小](https://developer.chrome.com/docs/lighthouse/pwa/content-width/)。"
-  },
-  "core/audits/content-width.js | explanation": {
-    "message": "可視區域大小 ({innerWidth} 像素) 與視窗大小 ({outerWidth} 像素) 不相符。"
-  },
-  "core/audits/content-width.js | failureTitle": {
-    "message": "未針對可視區域正確調整內容大小"
-  },
-  "core/audits/content-width.js | title": {
-    "message": "已針對可視區域正確調整內容大小"
-  },
   "core/audits/critical-request-chains.js | description": {
     "message": "下方的「關鍵要求鏈結」顯示優先載入的資源。建議你縮短鏈結長度、降低下載資源的大小，或是將非必要資源延後載入，以提高網頁載入速度。[瞭解如何避免鏈結關鍵要求](https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains/)。"
   },
@@ -995,102 +983,6 @@
   "core/audits/image-size-responsive.js | title": {
     "message": "提供的圖片解析度適當"
   },
-  "core/audits/installable-manifest.js | already-installed": {
-    "message": "先前已安裝這個應用程式"
-  },
-  "core/audits/installable-manifest.js | cannot-download-icon": {
-    "message": "無法從資訊清單下載必要圖示"
-  },
-  "core/audits/installable-manifest.js | columnValue": {
-    "message": "失敗原因"
-  },
-  "core/audits/installable-manifest.js | description": {
-    "message": "透過 Service Worker 技術，你的應用程式可以使用漸進式網頁應用程式的許多功能，例如離線功能、新增至主畫面，以及推播通知。正確導入 Service Worker 和資訊清單後，瀏覽器可主動提示使用者將你的應用程式新增至主畫面，進而提升參與度。[進一步瞭解資訊清單安裝規定](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)。"
-  },
-  "core/audits/installable-manifest.js | displayValue": {
-    "message": "{itemCount,plural, =1{1 個原因}other{# 個原因}}"
-  },
-  "core/audits/installable-manifest.js | failureTitle": {
-    "message": "網頁應用程式資訊清單或 Service Worker 不符合安裝規定"
-  },
-  "core/audits/installable-manifest.js | ids-do-not-match": {
-    "message": "Play 商店應用程式網址與 Play 商店 ID 不符"
-  },
-  "core/audits/installable-manifest.js | in-incognito": {
-    "message": "網頁透過無痕視窗載入"
-  },
-  "core/audits/installable-manifest.js | manifest-display-not-supported": {
-    "message": "資訊清單「`display`」屬性必須是「`standalone`」、「`fullscreen`」或「`minimal-ui`」其中之一"
-  },
-  "core/audits/installable-manifest.js | manifest-display-override-not-supported": {
-    "message": "資訊清單包含「display_override」欄位，且第一個支援的顯示模式必須是「standalone」、「fullscreen」或「minimal-ui」"
-  },
-  "core/audits/installable-manifest.js | manifest-empty": {
-    "message": "無法擷取或剖析資訊清單，或是資訊清單沒有任何內容"
-  },
-  "core/audits/installable-manifest.js | manifest-location-changed": {
-    "message": "資訊清單網址在資訊清單擷取期間已變更。"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-name-or-short-name": {
-    "message": "資訊清單不含「`name`」或「`short_name`」欄位"
-  },
-  "core/audits/installable-manifest.js | manifest-missing-suitable-icon": {
-    "message": "資訊清單未包含適當圖示；圖示必須為 {value0} px 以上的 PNG、SVG 或 WebP 檔案，同時必須設定 sizes 屬性，且如果設有 purpose 屬性，當中必須包含「any」。"
-  },
-  "core/audits/installable-manifest.js | no-acceptable-icon": {
-    "message": "未提供任何大小在 {value0} px 以上的 PNG、SVG 或 WebP 格式正方形圖示，而且 purpose 屬性未設定或設為「any」"
-  },
-  "core/audits/installable-manifest.js | no-icon-available": {
-    "message": "下載的圖示空白或已損毀"
-  },
-  "core/audits/installable-manifest.js | no-id-specified": {
-    "message": "未提供 Play 商店 ID"
-  },
-  "core/audits/installable-manifest.js | no-manifest": {
-    "message": "網頁沒有資訊清單 <link> 網址"
-  },
-  "core/audits/installable-manifest.js | no-url-for-service-worker": {
-    "message": "資訊清單中沒有「start_url」欄位，因此無法檢查 Service Worker"
-  },
-  "core/audits/installable-manifest.js | noErrorId": {
-    "message": "無法辨識安裝錯誤 ID「{errorId}」"
-  },
-  "core/audits/installable-manifest.js | not-from-secure-origin": {
-    "message": "網頁的提供來源不安全"
-  },
-  "core/audits/installable-manifest.js | not-in-main-frame": {
-    "message": "網頁未在主頁框中載入"
-  },
-  "core/audits/installable-manifest.js | not-offline-capable": {
-    "message": "網頁無法離線運作"
-  },
-  "core/audits/installable-manifest.js | pipeline-restarted": {
-    "message": "PWA 已解除安裝並將重設安裝規定檢查。"
-  },
-  "core/audits/installable-manifest.js | platform-not-supported-on-android": {
-    "message": "Android 不支援指定的應用程式平台"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications": {
-    "message": "資訊清單指定了 prefer_related_applications: true"
-  },
-  "core/audits/installable-manifest.js | prefer-related-applications-only-beta-stable": {
-    "message": "prefer_related_applications 僅適用於 Android 上的 Chrome Beta 版和穩定版。"
-  },
-  "core/audits/installable-manifest.js | protocol-timeout": {
-    "message": "Lighthouse 無法判斷該網頁是否可安裝。請嘗試使用較新的 Chrome 版本。"
-  },
-  "core/audits/installable-manifest.js | start-url-not-valid": {
-    "message": "資訊清單開始網址無效"
-  },
-  "core/audits/installable-manifest.js | title": {
-    "message": "網頁應用程式資訊清單和 Service Worker 符合安裝規定"
-  },
-  "core/audits/installable-manifest.js | url-not-supported-for-webapk": {
-    "message": "資訊清單中的某個網址包含使用者名稱、密碼或連接埠"
-  },
-  "core/audits/installable-manifest.js | warn-not-offline-capable": {
-    "message": "網頁無法離線運作。Chrome 從 2021 年 8 月推出 93 穩定版開始，就不會再將這個網頁視為可安裝。"
-  },
   "core/audits/is-on-https.js | allowed": {
     "message": "已允許"
   },
@@ -1210,33 +1102,6 @@
   },
   "core/audits/mainthread-work-breakdown.js | title": {
     "message": "將主要執行緒的工作降到最低"
-  },
-  "core/audits/manual/pwa-cross-browser.js | description": {
-    "message": "為了盡可能觸及使用者，網站應能在所有主要瀏覽器上運作。[瞭解跨瀏覽器相容性](https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser/)。"
-  },
-  "core/audits/manual/pwa-cross-browser.js | title": {
-    "message": "網站可以在不同瀏覽器上運作"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | description": {
-    "message": "可確保每個網頁都能透過網址進行深層連結，而且具有專屬網址，方便你在社群媒體上分享。[進一步瞭解如何提供深層連結](https://developer.chrome.com/docs/lighthouse/pwa/pwa-each-page-has-url/)。"
-  },
-  "core/audits/manual/pwa-each-page-has-url.js | title": {
-    "message": "每個網頁都有一個網址"
-  },
-  "core/audits/manual/pwa-page-transitions.js | description": {
-    "message": "即使網路速度緩慢，當使用者輕觸不同網頁也應該要能流暢切換，這是展現效能的重要關鍵。[進一步瞭解頁面轉換](https://developer.chrome.com/docs/lighthouse/pwa/pwa-page-transitions/)。"
-  },
-  "core/audits/manual/pwa-page-transitions.js | title": {
-    "message": "使用者在切換頁面時不會覺得網路速度緩慢"
-  },
-  "core/audits/maskable-icon.js | description": {
-    "message": "在裝置上安裝應用程式時，可遮蓋的圖示可確保圖片會填滿整個形狀，圖片的上方和下方不會加上黑邊。[瞭解可遮蓋的資訊清單圖示](https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/)。"
-  },
-  "core/audits/maskable-icon.js | failureTitle": {
-    "message": "資訊清單未包含可遮蓋的圖示"
-  },
-  "core/audits/maskable-icon.js | title": {
-    "message": "資訊清單包含可遮蓋的圖示"
   },
   "core/audits/metrics/cumulative-layout-shift.js | description": {
     "message": "「累計版面配置轉移」指標是用於測量可見元素在可視區域內的移動情形。[進一步瞭解「累計版面配置位移」指標](https://web.dev/articles/cls)。"
@@ -1501,24 +1366,6 @@
   },
   "core/audits/server-response-time.js | title": {
     "message": "初始伺服器回應時間很短"
-  },
-  "core/audits/splash-screen.js | description": {
-    "message": "透過設定啟動畫面的主題，可確保使用者從主畫面啟動你的應用程式時享有優質體驗。[進一步瞭解啟動畫面](https://developer.chrome.com/docs/lighthouse/pwa/splash-screen/)。"
-  },
-  "core/audits/splash-screen.js | failureTitle": {
-    "message": "未設定自訂啟動畫面"
-  },
-  "core/audits/splash-screen.js | title": {
-    "message": "設有自訂啟動畫面"
-  },
-  "core/audits/themed-omnibox.js | description": {
-    "message": "你可以將瀏覽器網址列的主題設定為與網站相符。[進一步瞭解如何設定網址列的主題](https://developer.chrome.com/docs/lighthouse/pwa/themed-omnibox/)。"
-  },
-  "core/audits/themed-omnibox.js | failureTitle": {
-    "message": "尚未設定網址列的主題顏色。"
-  },
-  "core/audits/themed-omnibox.js | title": {
-    "message": "設定網址列的主題顏色。"
   },
   "core/audits/third-party-cookies.js | description": {
     "message": "未來的 Chrome 版本將不再支援第三方 Cookie。[進一步瞭解 Chrome 如何逐步停止支援第三方 Cookie](https://developer.chrome.com/en/docs/privacy-sandbox/third-party-cookie-phase-out/)。"
