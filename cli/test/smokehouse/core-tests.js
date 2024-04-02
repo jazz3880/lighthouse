@@ -31,9 +31,6 @@ import metricsDelayedFcp from './test-definitions/metrics-delayed-fcp.js';
 import metricsDelayedLcp from './test-definitions/metrics-delayed-lcp.js';
 import metricsTrickyTti from './test-definitions/metrics-tricky-tti.js';
 import metricsTrickyTtiLateFcp from './test-definitions/metrics-tricky-tti-late-fcp.js';
-import offlineOnlineOnly from './test-definitions/offline-online-only.js';
-import offlineReady from './test-definitions/offline-ready.js';
-import offlineSwBroken from './test-definitions/offline-sw-broken.js';
 import oopifRequests from './test-definitions/oopif-requests.js';
 import oopifScripts from './test-definitions/oopif-scripts.js';
 import perfBudgets from './test-definitions/perf-budgets.js';
@@ -90,9 +87,6 @@ const smokeTests = [
   metricsDelayedLcp,
   metricsTrickyTti,
   metricsTrickyTtiLateFcp,
-  offlineOnlineOnly,
-  offlineReady,
-  offlineSwBroken,
   oopifRequests,
   oopifScripts,
   perfBudgets,
