@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokumentet har et `<title>`-element"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Alle elementer, der kan fokuseres på, skal have en unik `id` for at sikre, at de er synlige for hjælpeteknologier. [Få flere oplysninger om, hvordan du løser problemer med identiske `id`'er](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "`[id]`-attributterne på aktive elementer, der kan fokuseres på, er ikke unikke"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "`[id]`-attributterne på aktive elementer, der kan fokuseres på, er unikke"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Værdien af et ARIA-id skal være unik for at forhindre, at andre forekomster bliver overset af hjælpeteknologier. [Få flere oplysninger om, hvordan du løser problemer med identiske ARIA-id'er](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt er gyldig"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interaktive elementer som f.eks. knapper og links skal være store nok (48 x 48 px) eller have tilstrækkelig plads omkring sig for at gøre det let at trykke på dem uden at overlappe andre elementer. [Få flere oplysninger om trykbare elementer](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} trykbare elementer med passende størrelse"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Trykbare elementer er for små, fordi der ikke er et viewport-metatag, som er optimeret til mobilskærme"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Trykbare elementer har ikke en passende størrelse"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Overlappende mål"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Trykbart element"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Trykbare elementer har en passende størrelse"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Sørg for at holde serversvartiden for hoveddokumentet kort, da alle andre anmodninger afhænger af den. [Få flere oplysninger om metric'en Time to First Byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."

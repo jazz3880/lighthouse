@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokument enthält ein `<title>`-Element"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Für alle fokussierbaren Elemente ist eine eindeutige `id` erforderlich, damit sie von Hilfstechnologien erkannt werden können. [Informationen zum Korrigieren doppelter `id`s.](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "`[id]`-Attribute zu aktiven, fokussierbaren Elementen sind nicht eindeutig"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "`[id]`-Attribute zu aktiven, fokussierbaren Elementen sind eindeutig"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Der Wert einer ARIA-ID muss eindeutig sein, damit andere Instanzen nicht von Hilfstechnologien übersehen werden. [Informationen zum Korrigieren doppelter ARIA-IDs.](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)"
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt ist gültig"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interaktive Elemente wie Schaltflächen und Links sollten groß genug sein (48 × 48 px) oder über genügend Zwischenraum verfügen, damit sie leicht angetippt werden können. Sie dürfen sich nicht mit anderen Elementen überschneiden. [Weitere Informationen zu Tippzielen.](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} der Tippziele haben eine passende Größe"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Die Tippziele sind zu klein, weil kein Meta-Tag für den Darstellungsbereich vorhanden ist, das für Bildschirme von Mobilgeräten optimiert ist"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Größe von Tippzielen ist nicht richtig eingestellt"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Sich überschneidendes Ziel"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Tippziel"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Größe von Tippzielen ist richtig eingestellt"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Achte auf eine möglichst kurze Serverantwortzeit für das Hauptdokument, weil alle anderen Anfragen davon abhängen. [Weitere Informationen zum Messwert „Time to First Byte“.](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)"

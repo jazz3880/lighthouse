@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Il documento ha un elemento `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Tutti gli elementi attivabili devono avere un valore `id` univoco per garantirne la visibilità alle tecnologie per la disabilità. [Scopri come correggere i valori `id` duplicati](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Gli attributi `[id]` in elementi attivi per cui è possibile impostare lo stato attivo non sono univoci"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Gli attributi `[id]` in elementi attivi per cui è possibile impostare lo stato attivo sono univoci"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Il valore di un ID ARIA deve essere univoco per evitare che altre istanze vengano ignorate dalle tecnologie per la disabilità. [Scopri come correggere gli ID ARIA duplicati](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt è valido"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Gli elementi interattivi come pulsanti e link dovrebbero essere abbastanza grandi (48 x 48 px) o avere abbastanza spazio intorno a loro affinché non si sovrappongano ad altri elementi e siano facili da toccare. [Scopri di più sui target dei tocchi](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "Il {decimalProportion, number, percent} dei target dei tocchi ha dimensioni appropriate"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "I target dei tocchi sono troppo piccoli perché non esiste un meta tag viewport ottimizzato per gli schermi dei dispositivi mobili"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "I target dei tocchi non sono dimensionati in modo appropriato"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Target sovrapposto"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Target dei tocchi"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "I target dei tocchi sono dimensionati in modo appropriato"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Fai in modo che il tempo di risposta del server per il documento principale sia breve perché tutte le altre richieste dipendono da questo. [Scopri di più sulla metrica Time to First Byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."

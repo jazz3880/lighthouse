@@ -115,7 +115,7 @@ const expectations = {
         details: {
           // the specific ms value is not meaningful for this smoketest
           // *some largish amount* of savings should be reported
-          overallSavingsMs: '>500',
+          overallSavingsMs: '>100',
           overallSavingsBytes: '>45000',
           items: [
             {
@@ -218,7 +218,7 @@ const expectations = {
         details: {
           // the specific ms value is not meaningful for this smoketest
           // *some largish amount* of savings should be reported
-          overallSavingsMs: '>700',
+          overallSavingsMs: '>100',
           overallSavingsBytes: '>50000',
           items: {
             length: 3,

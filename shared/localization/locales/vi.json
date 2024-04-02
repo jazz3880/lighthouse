@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Tài liệu có phần tử `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Để có thể hiển thị với các công nghệ hỗ trợ, `id` của các phần tử có thể lấy tiêu điểm không được trùng nhau. [Tìm hiểu cách khắc phục các `id` trùng lặp](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Các thuộc tính `[id]` trên những phần tử có thể lấy tiêu điểm đang hoạt động bị trùng nhau"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Các thuộc tính `[id]` trên những phần tử có thể lấy tiêu điểm đang hoạt động là duy nhất"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Để các công nghệ hỗ trợ không bỏ qua các phiên bản khác, giá trị mã nhận dạng của Ứng dụng Internet phong phú dễ dùng (ARIA) không được trùng nhau. [Tìm hiểu cách khắc phục mã nhận dạng trùng lặp của Ứng dụng Internet phong phú dễ dùng (ARIA)](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt hợp lệ"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Các phần tử tương tác, chẳng hạn như nút và đường liên kết, cần có kích thước đủ lớn (48 x 48 pixel) hoặc khoảng cách xung quanh đủ rộng sao cho dễ nhấn mà không chồng chéo lên các phần tử khác. [Tìm hiểu thêm về các mục tiêu nhấn](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} mục tiêu nhấn có kích thước phù hợp"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Mục tiêu nhấn có kích thước quá nhỏ do không có thẻ meta viewport nào được tối ưu hóa cho màn hình thiết bị di động"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Các mục tiêu nhấn có kích thước không phù hợp"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Mục tiêu chồng chéo"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Mục tiêu nhấn"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Mục tiêu nhấn có kích thước phù hợp"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Giữ cho máy chủ phản hồi trong thời gian ngắn đối với tài liệu chính vì tất cả các yêu cầu khác phụ thuộc vào thời gian đó. [Tìm hiểu thêm về chỉ số Thời gian cho byte đầu tiên](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."

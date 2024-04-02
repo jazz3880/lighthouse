@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokumentet har ett `<title>`-element"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Alla fokuserbara element måste ha unika `id` så att de kan identifieras av hjälpmedelsteknik. [Läs om hur du åtgärdar dubbletter av `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Alla `[id]`-attribut för aktiva fokuserbara element är inte unika"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Alla `[id]`-attribut för aktiva, fokuserbara element är unika"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Alla ARIA-id:n måste ha unika värden. Hjälpmedelstekniken skulle annars hoppa över dubblettförekomsterna av ett värde. [Läs mer om hur du åtgärdar dubbletter av ARIA-id:n](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt är giltig"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interaktiva element som knappar och länkar ska vara tillräckligt stora (48 × 48 pixlar) eller ha tillräckligt mycket utrymme runtomkring för att vara lätta att trycka på utan att överlappa andra element. [Läs mer om tryckytor](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} av tryckmålen har lämplig storlek"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Tryckmålen är för små eftersom det inte finns någon metatagg för visningsområde som är optimerad för mobilskärmar"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Tryckmålen har inte lämplig storlek"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Överlappande tryckmål"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Tryckmål"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Tryckmål har lämplig storlek"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Se till att serverns svarstid för huvuddokumentet är kort, eftersom alla andra förfrågningar är beroende av det. [Läs mer om mätvärdet Time to First Byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."

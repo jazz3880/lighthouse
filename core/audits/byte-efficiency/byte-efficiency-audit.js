@@ -5,11 +5,9 @@
  */
 
 import {Audit} from '../audit.js';
-import {LanternInteractive} from '../../computed/metrics/lantern-interactive.js';
 import * as i18n from '../../lib/i18n/i18n.js';
 import {NetworkRecords} from '../../computed/network-records.js';
 import {LoadSimulator} from '../../computed/load-simulator.js';
-import {PageDependencyGraph} from '../../computed/page-dependency-graph.js';
 import {LanternLargestContentfulPaint} from '../../computed/metrics/lantern-largest-contentful-paint.js';
 import {LanternFirstContentfulPaint} from '../../computed/metrics/lantern-first-contentful-paint.js';
 import {LCPImageRecord} from '../../computed/lcp-image-record.js';
@@ -152,37 +150,6 @@ class ByteEfficiencyAudit extends Audit {
   }
 
   /**
-   * Computes the estimated effect of all the byte savings on the maximum of the following:
-   *
-   * - end time of the last long task in the provided graph
-   * - (if includeLoad is true or not provided) end time of the last node in the graph
-   *
-   * @param {Array<LH.Audit.ByteEfficiencyItem>} results The array of byte savings results per resource
-   * @param {Node} graph
-   * @param {Simulator} simulator
-   * @param {{includeLoad?: boolean, providedWastedBytesByUrl?: Map<string, number>}=} options
-   * @return {number}
-   */
-  static computeWasteWithTTIGraph(results, graph, simulator, options) {
-    options = Object.assign({includeLoad: true}, options);
-    const {savings: savingsOnOverallLoad, simulationBeforeChanges, simulationAfterChanges} =
-      this.computeWasteWithGraph(results, graph, simulator, {
-        ...options,
-        label: 'overallLoad',
-      });
-
-    const savingsOnTTI =
-      LanternInteractive.getLastLongTaskEndTime(simulationBeforeChanges.nodeTimings) -
-      LanternInteractive.getLastLongTaskEndTime(simulationAfterChanges.nodeTimings);
-
-    let savings = savingsOnTTI;
-    if (options.includeLoad) savings = Math.max(savings, savingsOnOverallLoad);
-
-    // Round waste to nearest 10ms
-    return Math.round(Math.max(savings, 0) / 10) * 10;
-  }
-
-  /**
    * @param {ByteEfficiencyProduct} result
    * @param {Simulator} simulator
    * @param {LH.Artifacts.MetricComputationDataInput} metricComputationInput
@@ -204,17 +171,12 @@ class ByteEfficiencyAudit extends Audit {
     // This is useful information in the LHR and should be preserved.
     let wastedMs;
     if (metricComputationInput.gatherContext.gatherMode === 'navigation') {
-      const graph = await PageDependencyGraph.request(metricComputationInput, context);
       const {
         optimisticGraph: optimisticFCPGraph,
       } = await LanternFirstContentfulPaint.request(metricComputationInput, context);
       const {
         optimisticGraph: optimisticLCPGraph,
       } = await LanternLargestContentfulPaint.request(metricComputationInput, context);
-
-      wastedMs = this.computeWasteWithTTIGraph(results, graph, simulator, {
-        providedWastedBytesByUrl: result.wastedBytesByUrl,
-      });
 
       const {savings: fcpSavings} = this.computeWasteWithGraph(
         results,
@@ -243,6 +205,7 @@ class ByteEfficiencyAudit extends Audit {
 
       metricSavings.FCP = fcpSavings;
       metricSavings.LCP = Math.max(lcpGraphSavings, lcpRecordSavings);
+      wastedMs = metricSavings.LCP;
     } else {
       wastedMs = simulator.computeWastedMsFromWastedBytes(wastedBytes);
     }

@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokumentet har et `<title>`-element"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Alle fokuserbare elementer må ha unike `id`-attributter for å sikre at de er synlige for assisterende teknologi. [Finn ut hvordan du korrigerer dupliserte `id`-verdier](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "`[id]`-attributter på aktive, fokuserbare elementer er ikke unike"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "`[id]`-attributter på aktive, fokuserbare elementer er unike"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "ARIA-ID-attributter må ha unike verdier for å unngå at andre forekomster blir oversett av assisterende teknologi. [Finn ut hvordan du korrigerer dupliserte ARIA-ID-er](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt er gyldig"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interaktive elementer, som knapper og linker, må være store nok (48 × 48 px) eller ha nok plass rundt seg til at det er lett å trykke på dem uten overlapping med andre elementer. [Finn ut mer om trykkbare områder](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} av de trykkbare elementene er store nok"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "De trykkbare elementene er for små fordi det ikke er noen viewport-metatag som er optimalisert for mobilskjermer"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Trykkbare elementer er ikke store nok"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Overlappende trykkbart element"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Trykkbart element"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Trykkbare elementer er store nok"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Hold tjenerresponstiden for hoveddokumentet lav, siden alle andre forespørsler avhenger av den. [Finn ut mer om beregningen Tid til første byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."

@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "‏‮Document‬‏ ‏‮has‬‏ ‏‮a‬‏ `<title>` ‏‮element‬‏"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "‏‮All‬‏ ‏‮focusable‬‏ ‏‮elements‬‏ ‏‮must‬‏ ‏‮have‬‏ ‏‮a‬‏ ‏‮unique‬‏ `id` ‏‮to‬‏ ‏‮ensure‬‏ ‏‮that‬‏ ‏‮they‬‏'‏‮re‬‏ ‏‮visible‬‏ ‏‮to‬‏ ‏‮assistive‬‏ ‏‮technologies‬‏. [‏‮Learn‬‏ ‏‮how‬‏ ‏‮to‬‏ ‏‮fix‬‏ ‏‮duplicate‬‏ `id`‏‮s‬‏](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "`[id]` ‏‮attributes‬‏ ‏‮on‬‏ ‏‮active‬‏, ‏‮focusable‬‏ ‏‮elements‬‏ ‏‮are‬‏ ‏‮not‬‏ ‏‮unique‬‏"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "`[id]` ‏‮attributes‬‏ ‏‮on‬‏ ‏‮active‬‏, ‏‮focusable‬‏ ‏‮elements‬‏ ‏‮are‬‏ ‏‮unique‬‏"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "‏‮The‬‏ ‏‮value‬‏ ‏‮of‬‏ ‏‮an‬‏ ‏‮ARIA‬‏ ‏‮ID‬‏ ‏‮must‬‏ ‏‮be‬‏ ‏‮unique‬‏ ‏‮to‬‏ ‏‮prevent‬‏ ‏‮other‬‏ ‏‮instances‬‏ ‏‮from‬‏ ‏‮being‬‏ ‏‮overlooked‬‏ ‏‮by‬‏ ‏‮assistive‬‏ ‏‮technologies‬‏. [‏‮Learn‬‏ ‏‮how‬‏ ‏‮to‬‏ ‏‮fix‬‏ ‏‮duplicate‬‏ ‏‮ARIA‬‏ ‏‮IDs‬‏](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "‏‮robots‬‏.‏‮txt‬‏ ‏‮is‬‏ ‏‮valid‬‏"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "‏‮Interactive‬‏ ‏‮elements‬‏ ‏‮like‬‏ ‏‮buttons‬‏ ‏‮and‬‏ ‏‮links‬‏ ‏‮should‬‏ ‏‮be‬‏ ‏‮large‬‏ ‏‮enough‬‏ (48‏‮x‬‏48‏‮px‬‏), ‏‮or‬‏ ‏‮have‬‏ ‏‮enough‬‏ ‏‮space‬‏ ‏‮around‬‏ ‏‮them‬‏, ‏‮to‬‏ ‏‮be‬‏ ‏‮easy‬‏ ‏‮enough‬‏ ‏‮to‬‏ ‏‮tap‬‏ ‏‮without‬‏ ‏‮overlapping‬‏ ‏‮onto‬‏ ‏‮other‬‏ ‏‮elements‬‏. [‏‮Learn‬‏ ‏‮more‬‏ ‏‮about‬‏ ‏‮tap‬‏ ‏‮targets‬‏](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} ‏‮appropriately‬‏ ‏‮sized‬‏ ‏‮tap‬‏ ‏‮targets‬‏"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "‏‮Tap‬‏ ‏‮targets‬‏ ‏‮are‬‏ ‏‮too‬‏ ‏‮small‬‏ ‏‮because‬‏ ‏‮there‬‏'‏‮s‬‏ ‏‮no‬‏ ‏‮viewport‬‏ ‏‮meta‬‏ ‏‮tag‬‏ ‏‮optimized‬‏ ‏‮for‬‏ ‏‮mobile‬‏ ‏‮screens‬‏"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "‏‮Tap‬‏ ‏‮targets‬‏ ‏‮are‬‏ ‏‮not‬‏ ‏‮sized‬‏ ‏‮appropriately‬‏"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "‏‮Overlapping‬‏ ‏‮Target‬‏"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "‏‮Tap‬‏ ‏‮Target‬‏"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "‏‮Tap‬‏ ‏‮targets‬‏ ‏‮are‬‏ ‏‮sized‬‏ ‏‮appropriately‬‏"
   },
   "core/audits/server-response-time.js | description": {
     "message": "‏‮Keep‬‏ ‏‮the‬‏ ‏‮server‬‏ ‏‮response‬‏ ‏‮time‬‏ ‏‮for‬‏ ‏‮the‬‏ ‏‮main‬‏ ‏‮document‬‏ ‏‮short‬‏ ‏‮because‬‏ ‏‮all‬‏ ‏‮other‬‏ ‏‮requests‬‏ ‏‮depend‬‏ ‏‮on‬‏ ‏‮it‬‏. [‏‮Learn‬‏ ‏‮more‬‏ ‏‮about‬‏ ‏‮the‬‏ ‏‮Time‬‏ ‏‮to‬‏ ‏‮First‬‏ ‏‮Byte‬‏ ‏‮metric‬‏](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."

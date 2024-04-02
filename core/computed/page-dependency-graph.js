@@ -30,8 +30,9 @@ class PageDependencyGraph {
     // Calculates the URL artifact from the processed trace and DT log.
     const URL = data.URL || await DocumentUrls.request(data, context);
 
+    const mainThreadEvents = processedTrace.mainThreadEvents;
     const lanternRequests = networkRecords.map(NetworkRequest.asLanternNetworkRequest);
-    return LanternPageDependencyGraph.createGraph(processedTrace, lanternRequests, URL);
+    return LanternPageDependencyGraph.createGraph(mainThreadEvents, lanternRequests, URL);
   }
 }
 

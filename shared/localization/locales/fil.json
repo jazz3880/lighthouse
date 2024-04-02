@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "May `<title>` na element ang dokumento"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Ang lahat ng nafo-focus na element ay dapat na may natatanging `id` para matiyak na nakikita ang mga ito ng mga pantulong na teknolohiya. [Alamin kung paano mag-ayos ng mga duplicate na `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Hindi natatangi ang mga attribute na `[id]` sa aktibo at nafo-focus na element"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Natatangi ang mga attribute na `[id]` sa mga aktibo at nafo-focus na element"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Dapat ay natatangi ang value ng isang ARIA ID para hindi makaligtaan ng mga pantulong na teknolohiya ang iba pang instance. [Alamin kung paano ayusin ang mga duplicate na ARIA ID](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "Valid ang robots.txt"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Sapat dapat ang laki (48x48px) o mayroon dapat sapat na espasyo sa paligid ang mga interactive na element tulad ng mga button at link, para madaling ma-tap ang mga ito nang hindi nag-o-overlap sa iba pang element. [Matuto pa tungkol sa mga target ng pag-tap](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} ng mga target sa pag-tap ang may angkop na laki"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Masyadong maliit ang mga target ng pag-tap dahil walang viewport meta tag na naka-optimize para sa mga screen ng mobile"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Hindi angkop ang laki ng mga target ng pag-tap"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Nag-o-overlap na Target"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Target ng Pag-tap"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Angkop ang laki ng mga target ng pag-tap"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Panatilihing mabilis ang pagtugon ng server para sa pangunahing dokumento dahil nakadepende rito ang lahat ng iba pang kahilingan. [Matuto pa tungkol sa sukatang Time to First Byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."

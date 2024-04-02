@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "文件具備 `<title>` 元素"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "所有可聚焦元素都必須有不重複的 `id`，以確保輔助技術可以查看這些元素。[瞭解如何修正 `id` 重複的問題](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)。"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "已啟用且可聚焦的元素有重複的 `[id]` 屬性"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "已啟用且可聚焦的元素沒有重複的 `[id]` 屬性"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "ARIA ID 的值不可重複，以免輔助技術忽略其他例項。[瞭解如何修正重複的 ARIA ID](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)。"
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt 有效"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "按鈕和連結等互動元素的大小應至少有 48x48 像素，或周圍應保留足夠空間以便使用者輕按，同時避免與其他元素重疊的情況。[進一步瞭解輕按目標](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)。"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} 的輕按目標大小適中"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "由於網頁沒有為流動裝置螢幕設定合適的檢視區中繼標記，因此輕按目標太小"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "輕按目標未設定成適當大小"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "重疊的目標"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "輕按目標"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "輕按目標已設定成適當大小"
   },
   "core/audits/server-response-time.js | description": {
     "message": "請確保主要文件的伺服器回應時間不會太長，因為這會影響所有其他要求。[進一步瞭解「首個字節時間」數據](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)。"

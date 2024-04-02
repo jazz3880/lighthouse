@@ -3222,13 +3222,6 @@
         "items": []
       }
     },
-    "duplicate-id-active": {
-      "id": "duplicate-id-active",
-      "title": "`[id]` attributes on active, focusable elements are unique",
-      "description": "All focusable elements must have a unique `id` to ensure that they're visible to assistive technologies. [Learn how to fix duplicate `id`s](https://dequeuniversity.com/rules/axe/4.9/duplicate-id-active).",
-      "score": null,
-      "scoreDisplayMode": "notApplicable"
-    },
     "duplicate-id-aria": {
       "id": "duplicate-id-aria",
       "title": "ARIA IDs are unique",
@@ -4437,7 +4430,7 @@
       "description": "Minifying JavaScript files can reduce payload sizes and script parse time. [Learn how to minify JavaScript](https://developer.chrome.com/docs/lighthouse/performance/unminified-javascript/).",
       "score": 0,
       "scoreDisplayMode": "metricSavings",
-      "numericValue": 1200,
+      "numericValue": 630,
       "numericUnit": "millisecond",
       "displayValue": "Potential savings of 81 KiB",
       "warnings": [],
@@ -4472,7 +4465,7 @@
             "wastedPercent": 50.176166426166425
           }
         ],
-        "overallSavingsMs": 1200,
+        "overallSavingsMs": 630,
         "overallSavingsBytes": 83453,
         "sortedBy": [
           "wastedBytes"
@@ -4525,7 +4518,7 @@
       "description": "Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. [Learn how to reduce unused JavaScript](https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/).",
       "score": 0,
       "scoreDisplayMode": "metricSavings",
-      "numericValue": 750,
+      "numericValue": 330,
       "numericUnit": "millisecond",
       "displayValue": "Potential savings of 63 KiB",
       "metricSavings": {
@@ -4575,7 +4568,7 @@
             "wastedPercent": 70.99531129443884
           }
         ],
-        "overallSavingsMs": 750,
+        "overallSavingsMs": 330,
         "overallSavingsBytes": 64572,
         "sortedBy": [
           "wastedBytes"
@@ -4596,7 +4589,7 @@
       "description": "Image formats like WebP and AVIF often provide better compression than PNG or JPEG, which means faster downloads and less data consumption. [Learn more about modern image formats](https://developer.chrome.com/docs/lighthouse/performance/uses-webp-images/).",
       "score": 0,
       "scoreDisplayMode": "metricSavings",
-      "numericValue": 450,
+      "numericValue": 330,
       "numericUnit": "millisecond",
       "displayValue": "Potential savings of 76 KiB",
       "warnings": [],
@@ -4694,7 +4687,7 @@
             "wastedWebpBytes": 9002
           }
         ],
-        "overallSavingsMs": 450,
+        "overallSavingsMs": 330,
         "overallSavingsBytes": 77874.3,
         "sortedBy": [
           "wastedBytes"
@@ -4748,7 +4741,7 @@
       "description": "Text-based resources should be served with compression (gzip, deflate or brotli) to minimize total network bytes. [Learn more about text compression](https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/).",
       "score": 0,
       "scoreDisplayMode": "metricSavings",
-      "numericValue": 2400,
+      "numericValue": 930,
       "numericUnit": "millisecond",
       "displayValue": "Potential savings of 143 KiB",
       "metricSavings": {
@@ -4786,7 +4779,7 @@
             "wastedBytes": 11647
           }
         ],
-        "overallSavingsMs": 2400,
+        "overallSavingsMs": 930,
         "overallSavingsBytes": 146478,
         "sortedBy": [
           "wastedBytes"
@@ -4839,7 +4832,7 @@
       "description": "Large GIFs are inefficient for delivering animated content. Consider using MPEG4/WebM videos for animations and PNG/WebP for static images instead of GIF to save network bytes. [Learn more about efficient video formats](https://developer.chrome.com/docs/lighthouse/performance/efficient-animated-content/)",
       "score": 0.5,
       "scoreDisplayMode": "metricSavings",
-      "numericValue": 3300,
+      "numericValue": 0,
       "numericUnit": "millisecond",
       "displayValue": "Potential savings of 666 KiB",
       "metricSavings": {
@@ -4872,7 +4865,7 @@
             "wastedBytes": 682028
           }
         ],
-        "overallSavingsMs": 3300,
+        "overallSavingsMs": 0,
         "overallSavingsBytes": 682028,
         "sortedBy": [
           "wastedBytes"
@@ -4925,7 +4918,7 @@
       "description": "Polyfills and transforms enable legacy browsers to use new JavaScript features. However, many aren't necessary for modern browsers. For your bundled JavaScript, adopt a modern script deployment strategy using module/nomodule feature detection to reduce the amount of code shipped to modern browsers, while retaining support for legacy browsers. [Learn how to use modern JavaScript](https://web.dev/articles/publish-modern-javascript)",
       "score": 0,
       "scoreDisplayMode": "metricSavings",
-      "numericValue": 450,
+      "numericValue": 300,
       "numericUnit": "millisecond",
       "displayValue": "Potential savings of 26 KiB",
       "metricSavings": {
@@ -4990,7 +4983,7 @@
             "totalBytes": 0
           }
         ],
-        "overallSavingsMs": 450,
+        "overallSavingsMs": 300,
         "overallSavingsBytes": 26585,
         "sortedBy": [
           "wastedBytes"
@@ -5532,76 +5525,6 @@
       "description": "If your robots.txt file is malformed, crawlers may not be able to understand how you want your website to be crawled or indexed. [Learn more about robots.txt](https://developer.chrome.com/docs/lighthouse/seo/invalid-robots-txt/).",
       "score": null,
       "scoreDisplayMode": "notApplicable"
-    },
-    "tap-targets": {
-      "id": "tap-targets",
-      "title": "Tap targets are not sized appropriately",
-      "description": "Interactive elements like buttons and links should be large enough (48x48px), or have enough space around them, to be easy enough to tap without overlapping onto other elements. [Learn more about tap targets](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/).",
-      "score": 0,
-      "scoreDisplayMode": "binary",
-      "displayValue": "0% appropriately sized tap targets",
-      "details": {
-        "type": "table",
-        "headings": [
-          {
-            "key": "tapTarget",
-            "valueType": "node",
-            "label": "Tap Target"
-          },
-          {
-            "key": "size",
-            "valueType": "text",
-            "label": "Size"
-          },
-          {
-            "key": "overlappingTarget",
-            "valueType": "node",
-            "label": "Overlapping Target"
-          }
-        ],
-        "items": [
-          {
-            "tapTarget": {
-              "type": "node",
-              "lhId": "5-46-BUTTON",
-              "path": "3,HTML,1,BODY,30,BUTTON",
-              "selector": "body > button.small-button",
-              "boundingRect": {
-                "top": 484,
-                "bottom": 505,
-                "left": 8,
-                "right": 208,
-                "width": 200,
-                "height": 21
-              },
-              "snippet": "<button class=\"small-button\">",
-              "nodeLabel": "Do something"
-            },
-            "overlappingTarget": {
-              "type": "node",
-              "lhId": "5-47-BUTTON",
-              "path": "3,HTML,1,BODY,31,BUTTON",
-              "selector": "body > button.small-button",
-              "boundingRect": {
-                "top": 505,
-                "bottom": 526,
-                "left": 8,
-                "right": 208,
-                "width": 200,
-                "height": 21
-              },
-              "snippet": "<button class=\"small-button\">",
-              "nodeLabel": "Do something else"
-            },
-            "tapTargetScore": 1008,
-            "overlappingTargetScore": 648,
-            "overlapScoreRatio": 0.6428571428571429,
-            "size": "200x21",
-            "width": 200,
-            "height": 21
-          }
-        ]
-      }
     },
     "hreflang": {
       "id": "hreflang",
@@ -6305,11 +6228,6 @@
           "group": "a11y-names-labels"
         },
         {
-          "id": "duplicate-id-active",
-          "weight": 0,
-          "group": "a11y-navigation"
-        },
-        {
           "id": "duplicate-id-aria",
           "weight": 0,
           "group": "a11y-aria"
@@ -6425,6 +6343,11 @@
           "group": "a11y-tables-lists"
         },
         {
+          "id": "target-size",
+          "weight": 0,
+          "group": "a11y-best-practices"
+        },
+        {
           "id": "td-headers-attr",
           "weight": 0,
           "group": "a11y-tables-lists"
@@ -6496,11 +6419,6 @@
         },
         {
           "id": "landmark-one-main",
-          "weight": 0,
-          "group": "hidden"
-        },
-        {
-          "id": "target-size",
           "weight": 0,
           "group": "hidden"
         },
@@ -6685,17 +6603,12 @@
           "group": "seo-content"
         },
         {
-          "id": "tap-targets",
-          "weight": 1,
-          "group": "seo-mobile"
-        },
-        {
           "id": "structured-data",
           "weight": 0
         }
       ],
       "id": "seo",
-      "score": 0.67
+      "score": 0.73
     }
   },
   "categoryGroups": {
@@ -8586,12 +8499,6 @@
       },
       {
         "startTime": 0,
-        "name": "lh:audit:duplicate-id-active",
-        "duration": 100,
-        "entryType": "measure"
-      },
-      {
-        "startTime": 0,
         "name": "lh:audit:duplicate-id-aria",
         "duration": 100,
         "entryType": "measure"
@@ -9079,12 +8986,6 @@
       {
         "startTime": 0,
         "name": "lh:audit:robots-txt",
-        "duration": 100,
-        "entryType": "measure"
-      },
-      {
-        "startTime": 0,
-        "name": "lh:audit:tap-targets",
         "duration": 100,
         "entryType": "measure"
       },
@@ -10001,12 +9902,6 @@
       "core/audits/accessibility/document-title.js | description": [
         "audits[document-title].description"
       ],
-      "core/audits/accessibility/duplicate-id-active.js | title": [
-        "audits[duplicate-id-active].title"
-      ],
-      "core/audits/accessibility/duplicate-id-active.js | description": [
-        "audits[duplicate-id-active].description"
-      ],
       "core/audits/accessibility/duplicate-id-aria.js | title": [
         "audits[duplicate-id-aria].title"
       ],
@@ -10526,29 +10421,6 @@
       ],
       "core/audits/seo/robots-txt.js | description": [
         "audits[robots-txt].description"
-      ],
-      "core/audits/seo/tap-targets.js | failureTitle": [
-        "audits[tap-targets].title"
-      ],
-      "core/audits/seo/tap-targets.js | description": [
-        "audits[tap-targets].description"
-      ],
-      "core/audits/seo/tap-targets.js | displayValue": [
-        {
-          "values": {
-            "decimalProportion": 0
-          },
-          "path": "audits[tap-targets].displayValue"
-        }
-      ],
-      "core/audits/seo/tap-targets.js | tapTargetHeader": [
-        "audits[tap-targets].details.headings[0].label"
-      ],
-      "core/lib/i18n/i18n.js | columnSize": [
-        "audits[tap-targets].details.headings[1].label"
-      ],
-      "core/audits/seo/tap-targets.js | overlappingTargetHeader": [
-        "audits[tap-targets].details.headings[2].label"
       ],
       "core/audits/seo/hreflang.js | title": [
         "audits.hreflang.title"

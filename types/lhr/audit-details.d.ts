@@ -9,10 +9,6 @@ import Treemap from './treemap.js';
 
 /** Common properties for all details types. */
 interface BaseDetails {
-  /** If present and audit is part of the performance category, audit is treated as an Opportunity. */
-  overallSavingsMs?: number;
-  /** Optional additional Opportunity information. */
-  overallSavingsBytes?: number;
   /** Additional information, usually used for including debug or meta information in the LHR */
   debugData?: Details.DebugData;
 }
@@ -85,6 +81,15 @@ declare module Details {
     isEntityGrouped?: boolean;
     /** Column keys to skip summing. If omitted, all column types supported are summed. */
     skipSumming?: Array<string>;
+    /**
+     * @deprecated
+     * Historically this represents the time saved on the entire page load. It's mostly used as an
+     * alias for `metricSavings.LCP` now. We recommend using `metricSavings` directly for more
+     * metric-specific savings estimates.
+     */
+    overallSavingsMs?: number;
+    /** Total byte savings covered by this audit. */
+    overallSavingsBytes?: number;
   }
 
   interface Screenshot extends BaseDetails {

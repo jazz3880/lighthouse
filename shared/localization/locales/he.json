@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "המסמך מכיל רכיב `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "כל הרכיבים הניתנים למיקוד חייבים לכלול `id` ייחודי כדי לוודא שטכנולוגיות מסייעות יוכלו לזהות אותם. [כך פותרים בעיות בכפילויות של `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "נעשה שימוש במאפייני `[id]` לא ייחודיים ברכיבים פעילים שיכולים לקבל פוקוס"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "נעשה שימוש במאפייני `[id]` ייחודיים ברכיבים פעילים שיכולים לקבל פוקוס"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "הערך של מזהה ARIA חייב להיות ייחודי כדי למנוע מצבים שבהם טכנולוגיות מסייעות מתעלמות ממופעים אחרים. [כאן מוסבר איך לתקן מצבים של מזהי ARIA כפולים](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "הקובץ robots.txt חוקי"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "כדי שיהיה קל להקיש על רכיבים אינטראקטיביים, כמו לחצנים וקישורים, בלי לגעת ברכיבים אחרים, הם צריכים להיות גדולים מספיק (48x48 פיקסלים) או עם ריווח גדול מספיק סביבם. [מידע נוסף על יעדי הקשה](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} מבין יעדי ההקשה הם בגודל תקין"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "רכיבי ההקשה קטנים מדי כי לא בוצעה אופטימיזציית מטא תגים של אזור התצוגה למסכים של ניידים"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "הגודל של רכיבי ההקשה הוגדר בצורה לא תקינה"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "יעד חופף"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "רכיב הקשה"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "הרכיבים להקשה הוגדרו בגודל המתאים"
   },
   "core/audits/server-response-time.js | description": {
     "message": "כדאי לוודא שזמן התגובה של השרת בנוגע למסמך הראשי הוא קצר, כי כל שאר הבקשות תלויות בו. [מידע נוסף על המדד Time to First Byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)"

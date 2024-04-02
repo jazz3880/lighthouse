@@ -109,10 +109,10 @@ class PageDependencyGraph {
   }
 
   /**
-   * @param {LH.Artifacts.ProcessedTrace} processedTrace
+   * @param {LH.TraceEvent[]} mainThreadEvents
    * @return {Array<CPUNode>}
    */
-  static getCPUNodes({mainThreadEvents}) {
+  static getCPUNodes(mainThreadEvents) {
     /** @type {Array<CPUNode>} */
     const nodes = [];
     let i = 0;
@@ -393,14 +393,14 @@ class PageDependencyGraph {
   }
 
   /**
-   * @param {LH.Artifacts.ProcessedTrace} processedTrace
+   * @param {LH.TraceEvent[]} mainThreadEvents
    * @param {Array<Lantern.NetworkRequest>} networkRecords
    * @param {URLArtifact} URL
    * @return {Node}
    */
-  static createGraph(processedTrace, networkRecords, URL) {
+  static createGraph(mainThreadEvents, networkRecords, URL) {
     const networkNodeOutput = PageDependencyGraph.getNetworkNodeOutput(networkRecords);
-    const cpuNodes = PageDependencyGraph.getCPUNodes(processedTrace);
+    const cpuNodes = PageDependencyGraph.getCPUNodes(mainThreadEvents);
     const {requestedUrl, mainDocumentUrl} = URL;
     if (!requestedUrl) throw new Error('requestedUrl is required to get the root request');
     if (!mainDocumentUrl) throw new Error('mainDocumentUrl is required to get the main resource');

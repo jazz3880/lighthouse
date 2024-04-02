@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Document bevat een `<title>`-element"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Alle focusbare elementen moeten een unieke `id` hebben om ervoor te zorgen dat ze zichtbaar zijn voor ondersteunende technologieën. [Meer informatie over het oplossen van problemen met dubbele `id`'s](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "`[id]`-kenmerken voor actieve, focusbare elementen zijn niet uniek"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "`[id]`-kenmerken voor actieve, focusbare elementen zijn uniek"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "De waarde van een ARIA-ID moet uniek zijn om te voorkomen dat andere instanties over het hoofd worden gezien door ondersteunende technologieën. [Meer informatie over hoe je dubbele ARIA-ID's oplost](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)"
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt is geldig"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interactieve elementen, zoals knoppen en links, moeten groot genoeg zijn (48 x 48 pixels) of moeten voldoende ruimte eromheen hebben, zodat er makkelijk op getikt kan worden zonder dat andere elementen worden aangeraakt. [Meer informatie over tikdoelen](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} van de tikdoelen heeft een geschikt formaat"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Tikdoelen zijn te klein, omdat er geen kijkvenstermetatag is geoptimaliseerd voor mobiele schermen"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Tikdoelen hebben niet het juiste formaat"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Overlappend doel"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Tikdoel"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Tikdoelen hebben het juiste formaat"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Houd de reactietijd van de server voor het hoofddocument kort, omdat alle andere verzoeken daarvan afhankelijk zijn. [Meer informatie over de statistiek Tijd tot eerste byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)"

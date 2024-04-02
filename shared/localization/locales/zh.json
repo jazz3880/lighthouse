@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "文档包含 `<title>` 元素"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "所有可聚焦的元素都必须具有独一无二的 `id`，以确保能被辅助技术识别。[了解如何修正重复的 `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)。"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "处于活动状态的可聚焦元素的 `[id]` 属性不是独一无二的"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "处于活动状态的可聚焦元素的 `[id]` 属性都是独一无二的"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "ARIA ID 的值必须独一无二，才能防止其他实例被辅助技术忽略。[了解如何修正重复的 ARIA ID](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)。"
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt 有效"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "交互式元素（例如按钮和链接）应足够大 (48x48px)，或者周围有足够的空间以便用户轻松点按，且不遮挡其他元素。[详细了解点按目标](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)。"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} 的点按目标大小合适"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "点按目标过小，因为缺少已针对移动设备屏幕进行优化的 viewport meta 标记"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "点按目标的大小不合适"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "点按目标重叠"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "点按目标"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "点按目标的大小合适"
   },
   "core/audits/server-response-time.js | description": {
     "message": "请确保服务器响应主文档的用时较短，因为这会影响到所有其他请求的响应时长。[详细了解 Time to First Byte 指标](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)。"

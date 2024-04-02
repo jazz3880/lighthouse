@@ -15,11 +15,9 @@
 import {Audit} from '../audit.js';
 import {EntityClassification} from '../../computed/entity-classification.js';
 import UrlUtils from '../../lib/url-utils.js';
-import {LanternInteractive} from '../../computed/metrics/lantern-interactive.js';
 import {NetworkRequest} from '../../lib/network-request.js';
 import {NetworkRecords} from '../../computed/network-records.js';
 import {LoadSimulator} from '../../computed/load-simulator.js';
-import {PageDependencyGraph} from '../../computed/page-dependency-graph.js';
 import {LanternLargestContentfulPaint} from '../../computed/metrics/lantern-largest-contentful-paint.js';
 import {LanternFirstContentfulPaint} from '../../computed/metrics/lantern-first-contentful-paint.js';
 import * as i18n from '../../lib/i18n/i18n.js';
@@ -118,32 +116,6 @@ class UsesHTTP2Audit extends Audit {
   }
 
   /**
-   * Computes the estimated effect all results being converted to use http/2, the max of:
-   *
-   * - end time of the last long task in the provided graph
-   * - end time of the last node in the graph
-   * @param {Array<{url: string}>} results
-   * @param {Node} graph
-   * @param {Simulator} simulator
-   * @return {number}
-   */
-  static computeWasteWithTTIGraph(results, graph, simulator) {
-    const {savings: savingsOnOverallLoad, simulationBefore, simulationAfter} =
-      this.computeWasteWithGraph(results, graph, simulator, {
-        label: 'tti',
-      });
-
-    const savingsOnTTI =
-      LanternInteractive.getLastLongTaskEndTime(simulationBefore.nodeTimings) -
-      LanternInteractive.getLastLongTaskEndTime(simulationAfter.nodeTimings);
-
-    const savings = Math.max(savingsOnTTI, savingsOnOverallLoad);
-
-    // Round waste to nearest 10ms
-    return Math.round(Math.max(savings, 0) / 10) * 10;
-  }
-
-  /**
    * Determines whether a network request is a "static resource" that would benefit from H2 multiplexing.
    * XHRs, tracking pixels, etc generally don't benefit as much because they aren't requested en-masse
    * for the same origin at the exact same time.
@@ -235,7 +207,6 @@ class UsesHTTP2Audit extends Audit {
    * @return {Promise<LH.Audit.Product>}
    */
   static async audit(artifacts, context) {
-    const trace = artifacts.traces[Audit.DEFAULT_PASS];
     const devtoolsLog = artifacts.devtoolsLogs[Audit.DEFAULT_PASS];
     const URL = artifacts.URL;
     const networkRecords = await NetworkRecords.request(devtoolsLog, context);
@@ -269,7 +240,6 @@ class UsesHTTP2Audit extends Audit {
       devtoolsLog,
       settings,
     };
-    const pageGraph = await PageDependencyGraph.request({trace, devtoolsLog, URL}, context);
     const simulator = await LoadSimulator.request(simulatorOptions, context);
     const metricComputationInput = Audit.makeMetricComputationDataInput(artifacts, context);
 
@@ -280,8 +250,6 @@ class UsesHTTP2Audit extends Audit {
       pessimisticGraph: lcpGraph,
     } = await LanternLargestContentfulPaint.request(metricComputationInput, context);
 
-    const wastedMsTti = UsesHTTP2Audit.computeWasteWithTTIGraph(
-      resources, pageGraph, simulator);
     const wasteFcp =
       UsesHTTP2Audit.computeWasteWithGraph(resources,
         fcpGraph, simulator, {label: 'fcp'});
@@ -296,11 +264,11 @@ class UsesHTTP2Audit extends Audit {
     ];
 
     const details = Audit.makeOpportunityDetails(headings, resources,
-      {overallSavingsMs: wastedMsTti});
+      {overallSavingsMs: wasteLcp.savings});
 
     return {
       displayValue,
-      numericValue: wastedMsTti,
+      numericValue: wasteLcp.savings,
       numericUnit: 'millisecond',
       score: resources.length ? 0 : 1,
       details,

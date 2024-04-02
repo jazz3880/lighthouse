@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "O documento tem um elemento `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Todos os elementos focalizáveis têm de ter um `id` exclusivo para garantir que são visíveis para as tecnologias de assistência. [Saiba como corrigir `id`s duplicados](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Os atributos `[id]` nos elementos ativos e focáveis não são exclusivos"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Os atributos `[id]` nos elementos ativos e focáveis são exclusivos"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "O valor de um ID ARIA tem de ser exclusivo para evitar que outras instâncias sejam ignoradas pelas tecnologias de assistência. [Saiba como corrigir IDs ARIA duplicados](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "O ficheiro robots.txt é válido"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Os elementos interativos, como botões e links, devem ser suficientemente grandes (48 x 48 px) ou ter espaço suficiente à volta para serem fáceis de tocar sem que se sobreponham a outros elementos. [Saiba mais acerca dos alvos táteis](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "Os alvos táteis foram dimensionados corretamente com um tamanho de {decimalProportion, number, percent}"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Os alvos táteis são demasiado pequenos porque não existe nenhuma metatag de área visível otimizada para ecrãs de dispositivos móveis."
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Os alvos táteis não estão dimensionados corretamente"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Alvo sobreposto"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Alvo tátil"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Os alvos táteis estão dimensionados corretamente"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Mantenha o tempo de resposta do servidor para o documento principal curto porque todos os outros pedidos dependem do mesmo. [Saiba mais acerca da métrica Tempo até ao primeiro byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."

@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "El document té un element `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Tots els elements enfocables han de tenir un `id` únic per garantir que les tecnologies assistencials els puguin veure. [Obtén informació sobre com pots corregir els `id` duplicats](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Els atributs `[id]` en elements actius en què es pot posar el focus no són únics"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Els atributs `[id]` en elements actius en què es pot posar el focus són únics"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "El valor d'un identificador ARIA ha de ser únic per impedir que les tecnologies assistencials passin per alt altres instàncies. [Obtén informació sobre com pots corregir els identificadors ARIA duplicats](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "El fitxer robots.txt és vàlid"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Els elements interactius, com ara els botons i els enllaços, han de ser prou grans (48 x 48 píxels) o han de tenir prou espai al voltant perquè els usuaris els puguin tocar sense que se superposin a altres elements. [Obtén més informació sobre els objectius tàctils](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "El {decimalProportion, number, percent} de les mides dels objectius tàctils és correcte"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Els elements tàctils són massa petits perquè no hi ha cap metaetiqueta de finestra gràfica optimitzada per a pantalles de mòbil"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "La mida dels elements tàctils no és correcta"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Objectiu superposat"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Element tàctil"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "La mida dels elements tàctils és correcta"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Fes que el temps de resposta del servidor per al document principal sigui breu, ja que la resta de sol·licituds en depenen. [Obtén més informació sobre la mètrica Temps fins al primer byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."

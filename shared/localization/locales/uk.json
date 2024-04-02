@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Документ містить елемент `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Усі фокусовані елементи мають містити унікальний `id`, щоб їх могли розпізнавати технології для людей з обмеженими можливостями. [Дізнайтесь, як виправити повторювані `id`.](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Атрибути `[id]` в активних інтерактивних елементах неунікальні"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Атрибути `[id]` в активних інтерактивних елементах унікальні"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Значення ідентифікатора ARIA має бути унікальним, щоб технології для людей з обмеженими можливостями не пропускали інші копії. [Дізнайтесь, як виправити повторювані ідентифікатори ARIA.](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)"
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "Файл robots.txt дійсний"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Інтерактивні елементи, як-от кнопки й посилання, мають бути достатньо великі (48 x 48 пікселів) або навколо них має бути достатньо місця, щоб їх можна було легко натиснути, не зачепивши інші елементи. [Докладніше про інтерактивні елементи.](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} елементів для натискання мають правильний розмір"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Елементи для натискання замалі, оскільки метатег області перегляду не оптимізовано для мобільних пристроїв"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Елементи для натискання мають неправильний розмір"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Елементи для натискання накладаються"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Елемент для натискання"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Елементи для натискання мають правильний розмір"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Сервер основного документа має відповідати швидко, оскільки всі інші запити залежать від нього. [Докладніше про показник \"Час до першого байта\".](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)"

@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "A dokumentum tartalmaz `<title>` elemet"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Egyéni `id` meglétére van szükség az összes fókuszálható elemnél, hogy biztosan láthatók legyenek a segítő technológiák számára. [További információ az ismétlődő `id` elemek kijavításáról](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Egyes aktív, fókuszálható elemek `[id]` attribútumai nem egyediek"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Az aktív, fókuszálható elemek `[id]` attribútumai egyediek"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Az ARIA-azonosító értékének egyedinek kell lennie, hogy a kisegítő technológiák ne hagyják figyelmen kívül a többi előfordulást. [További információ az ismétlődő ARIA-azonosítók kijavításáról](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "A robots.txt fájl érvényes"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Az interaktív elemeknek (például a gomboknak és a linkeknek) elég nagynak kell lenniük (48 × 48 képpont), vagy elég helynek kell lennie körülöttük, hogy könnyen rájuk lehessen koppintani a szomszédos elemek megérintése nélkül. [További információ a koppintási célokról](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent}-nyi megfelelően méretezett koppintható elem"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "A koppintási célok túl kicsik, ugyanis a látható terület metacímkéje nincs optimalizálva a mobilképernyőkre"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "A koppintási célok mérete nem megfelelő"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Átfedésben lévő cél"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Koppintási cél"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "A koppintási célok mérete megfelelő"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Érdemes a szerver válaszidejét lerövidíteni a fő dokumentum esetében, mert az összes további kérés függ tőle. [További információ az Első bájt betöltéséhez szükséges idő mutatóról](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."

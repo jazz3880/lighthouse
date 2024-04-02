@@ -52,7 +52,6 @@ async function runA11yChecks() {
       'aria-text': {enabled: true},
       'audio-caption': {enabled: false},
       'blink': {enabled: false},
-      'duplicate-id-active': {enabled: true},
       'duplicate-id': {enabled: false},
       'empty-heading': {enabled: true},
       'frame-focusable-content': {enabled: false},
@@ -79,8 +78,7 @@ async function runA11yChecks() {
       'tabindex': {enabled: true},
       'table-duplicate-name': {enabled: true},
       'table-fake-caption': {enabled: true},
-      // TODO: https://github.com/GoogleChrome/lighthouse/issues/15824
-      // 'target-size': {enabled: true},
+      'target-size': {enabled: true},
       'td-has-header': {enabled: true},
     },
   });

@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Doküman geçerli bir `<title>` öğesi içeriyor"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Odaklanabilir tüm öğelerde yardımcı teknolojilere görünür olmalarını sağlamak için benzersiz bir `id` olmalıdır. [Yinelenen `id` öğelerini nasıl düzelteceğinizi öğrenin](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Etkin, odaklanabilir öğelerdeki `[id]` özellikleri benzersiz değil"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Etkin, odaklanabilir öğelerdeki `[id]` özellikleri benzersiz"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "ARIA kimliğinin değeri benzersiz olmalıdır. Bunun nedeni, yardımcı teknolojilerin farkına varmadan diğer örnekleri atlamasını önlemektir. [Yinelenen ARIA kimliklerini nasıl düzelteceğinizi öğrenin](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt dosyası geçerli"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Düğmeler ve bağlantılar gibi etkileşimli öğelerin, başka öğelerle üst üste binmeden rahatlıkla dokunulabilecek kadar büyük olması (48x48 piksel) veya etraflarında yeterli boşluk bulunması gerekir. [Dokunma hedefleri hakkında daha fazla bilgi edinin](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "Dokunma hedeflerinin {decimalProportion, number, percent} kadarı uygun boyutta"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Mobil ekranlar için optimize edilmiş görüntü alanı meta etiketi olmadığından dokunma hedefleri çok küçük"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Dokunma hedefleri uygun boyutta değil"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Çakışan Hedef"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Dokunma Hedefi"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Dokunma hedefleri uygun boyutta"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Diğer tüm istekler sunucu yanıt süresine bağlı olduğundan ana doküman için sunucu yanıt süresini kısa tutun. [Time to First Byte metriği hakkında daha fazla bilgi edinin](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."

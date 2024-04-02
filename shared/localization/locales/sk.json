@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokument má prvok `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Všetky označiteľné prvky musia mať jedinečný atribút `id`, aby ich dokázali rozpoznať asistenčné technológie. [Ako opraviť duplicitné atribúty `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Atribúty `[id]` aktívnych označiteľných prvkov nie sú jedinečné"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Atribúty `[id]` aktívnych označiteľných prvkov sú jedinečné"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Hodnota identifikátora ARIA musí byť jedinečná, aby asistenčné technológie neprehliadli ďalšie výskyty. [Ako opraviť duplicitné identifikátory ARIA](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)"
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "Súbor robots.txt je platný"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interaktívne prvky, ako sú tlačidlá a odkazy, by mali byť dostatočne veľké (48 × 48 px) a mať okolo seba dostatočné voľné miesto, aby sa na ne dalo ľahko klepnúť a neprekrývali ďalšie prvky. [Ďalšie informácie o cieľoch klepnutí](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} cieľových oblastí s vhodnou veľkosťou"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Cieľové oblasti klepnutia sú príliš malé, pretože neexistuje žiadna metaznačka oblasti zobrazenia optimalizovaná pre mobilné obrazovky"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Cieľové oblasti klepnutia nemajú vhodnú veľkosť"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Prekrývajúce sa cieľové oblasti"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Cieľová oblasť klepnutia"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Cieľové oblasti klepnutia majú vhodnú veľkosť"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Zaistite, aby bol čas odozvy servera pre hlavný dokument krátky, pretože od neho závisia všetky ostatné žiadosti. [Ďalšie informácie o metrike Čas do prvého bajtu](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)"

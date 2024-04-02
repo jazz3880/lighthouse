@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "O documento tem um elemento `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Todos os elementos focalizáveis precisam ter um `id` único para garantir que estejam visíveis para tecnologias adaptativas. [Aprenda a corrigir `id`s duplicados](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Os atributos `[id]` em elementos focalizáveis ativos não são únicos"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Os atributos `[id]` em elementos focalizáveis ativos são únicos"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "É necessário que o valor de um código ARIA seja único para impedir que outras instâncias sejam ignoradas por tecnologias adaptativas. [Aprenda a corrigir códigos ARIA duplicados](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt é válido"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Elementos interativos, como botões e links, precisam ser grandes o bastante (48x48 px) ou ter espaço suficiente ao redor para poderem ser tocados sem sobreposição com outros elementos. [Saiba mais sobre áreas de toque](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} de áreas de toque dimensionadas corretamente"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "As áreas de toque são muito pequenas porque não há nenhuma metatag de janela de visualização otimizada para telas de dispositivos móveis"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "As áreas de toque não estão dimensionadas corretamente"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Área com sobreposição"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Área de toque"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "As áreas de toque estão dimensionadas corretamente"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Mantenha curto o tempo de resposta do servidor para o documento principal, já que todos os outros pedidos dependem dele. [Saiba mais sobre a métrica \"Tempo até o primeiro byte\"](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."

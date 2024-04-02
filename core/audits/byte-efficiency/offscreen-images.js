@@ -157,21 +157,6 @@ class OffscreenImages extends ByteEfficiencyAudit {
   }
 
   /**
-   * The default byte efficiency audit will report max(TTI, load), since lazy-loading offscreen
-   * images won't reduce the overall time and the wasted bytes are really only "wasted" for TTI,
-   * override the function to just look at TTI savings.
-   *
-   * @param {Array<LH.Audit.ByteEfficiencyItem>} results
-   * @param {LH.Gatherer.Simulation.GraphNode} graph
-   * @param {LH.Gatherer.Simulation.Simulator} simulator
-   * @return {number}
-   */
-  static computeWasteWithTTIGraph(results, graph, simulator) {
-    return super.computeWasteWithTTIGraph(results, graph, simulator,
-      {includeLoad: false});
-  }
-
-  /**
    * @param {LH.Artifacts} artifacts
    * @param {Array<LH.Artifacts.NetworkRequest>} networkRecords
    * @param {LH.Audit.Context} context

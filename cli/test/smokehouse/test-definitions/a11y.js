@@ -452,37 +452,6 @@ const expectations = {
 
         },
       },
-      'duplicate-id-active': {
-        score: 0,
-        details: {
-          items: [
-            {
-              node: {
-                'type': 'node',
-                'selector': 'body > section > textarea#duplicate-id-active',
-                'path': '2,HTML,1,BODY,47,SECTION,0,TEXTAREA',
-                'snippet': '<textarea id="duplicate-id-active" aria-label="text1">',
-                'explanation': 'Fix any of the following:\n  Document has active elements with the same id attribute: duplicate-id-active',
-                'nodeLabel': 'text1',
-              },
-              subItems: {
-                type: 'subitems',
-                items: [
-                  {
-                    relatedNode: {
-                      'type': 'node',
-                      'path': '2,HTML,1,BODY,47,SECTION,1,TEXTAREA',
-                      'selector': 'body > section > textarea#duplicate-id-active',
-                      'snippet': '<textarea id="duplicate-id-active" aria-label="text2">',
-                      'nodeLabel': 'text2',
-                    },
-                  },
-                ],
-              },
-            },
-          ],
-        },
-      },
       'duplicate-id-aria': {
         score: 1,
         details: {
@@ -491,7 +460,7 @@ const expectations = {
               node: {
                 'type': 'node',
                 'selector': 'body > section > div#duplicate-id-aria',
-                'path': '2,HTML,1,BODY,49,SECTION,0,DIV',
+                'path': '2,HTML,1,BODY,47,SECTION,0,DIV',
                 'snippet': '<div id="duplicate-id-aria" class="duplicate-id-aria">',
                 'explanation': 'Fix any of the following:\n  Document has multiple elements referenced with ARIA with the same id attribute: duplicate-id-aria',
                 'nodeLabel': 'body > section > div#duplicate-id-aria',
@@ -502,7 +471,7 @@ const expectations = {
                   {
                     relatedNode: {
                       'type': 'node',
-                      'path': '2,HTML,1,BODY,49,SECTION,0,DIV,0,DIV',
+                      'path': '2,HTML,1,BODY,47,SECTION,0,DIV,0,DIV',
                       'selector': 'body > section > div#duplicate-id-aria > div#duplicate-id-aria',
                       'snippet': '<div id="duplicate-id-aria">',
                       'nodeLabel': 'body > section > div#duplicate-id-aria > div#duplicate-id-aria',
@@ -539,7 +508,7 @@ const expectations = {
               node: {
                 'type': 'node',
                 'selector': 'body > section > input#form-field-multiple-labels',
-                'path': '2,HTML,1,BODY,53,SECTION,2,INPUT',
+                'path': '2,HTML,1,BODY,51,SECTION,2,INPUT',
                 'snippet': '<input type="checkbox" id="form-field-multiple-labels">',
                 'explanation': 'Fix all of the following:\n  Multiple label elements is not widely supported in assistive technologies. Ensure the first label contains all necessary information.',
                 'nodeLabel': 'body > section > input#form-field-multiple-labels',
@@ -550,7 +519,7 @@ const expectations = {
                   {
                     relatedNode: {
                       'type': 'node',
-                      'path': '2,HTML,1,BODY,53,SECTION,0,LABEL',
+                      'path': '2,HTML,1,BODY,51,SECTION,0,LABEL',
                       'selector': 'body > section > label#label1',
                       'snippet': '<label for="form-field-multiple-labels" id="label1">',
                       'nodeLabel': 'label1',
@@ -559,7 +528,7 @@ const expectations = {
                   {
                     relatedNode: {
                       'type': 'node',
-                      'path': '2,HTML,1,BODY,53,SECTION,1,LABEL',
+                      'path': '2,HTML,1,BODY,51,SECTION,1,LABEL',
                       'selector': 'body > section > label',
                       'snippet': '<label for="form-field-multiple-labels">',
                       'nodeLabel': 'label2',
@@ -595,7 +564,7 @@ const expectations = {
               node: {
                 'type': 'node',
                 'selector': 'body > section > h3',
-                'path': '2,HTML,1,BODY,57,SECTION,1,H3',
+                'path': '2,HTML,1,BODY,55,SECTION,1,H3',
                 'snippet': '<h3>',
                 'explanation': 'Fix any of the following:\n  Heading order invalid',
                 'nodeLabel': 'sub-sub-header',
@@ -930,34 +899,33 @@ const expectations = {
           ],
         },
       },
-      // TODO: https://github.com/GoogleChrome/lighthouse/issues/15824
-      // 'target-size': {
-      //   score: 1,
-      //   details: {
-      //     items: [
-      //       {
-      //         node: {
-      //           'type': 'node',
-      //           'selector': 'body > section > button#target-size-1',
-      //           'snippet': '<button id="target-size-1">',
-      //           // Exact target size can vary depending on the device.
-      //           'explanation': /^Fix any of the following:\n {2}Target has insufficient size \([0-9.]+px by [0-9.]+px, should be at least 24px by 24px\)\n {2}Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of [0-9.]+px instead of at least 24px\.$/,
-      //           'nodeLabel': '+',
-      //         },
-      //       },
-      //       {
-      //         node: {
-      //           'type': 'node',
-      //           'selector': 'body > section > span#target-size-2',
-      //           'snippet': '<span role="button" tabindex="0" id="target-size-2">',
-      //           // Exact target size can vary depending on the device.
-      //           'explanation': /^Fix any of the following:\n {2}Target has insufficient size \([0-9.]+px by [0-9.]+px, should be at least 24px by 24px\)\n {2}Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of [0-9.]+px instead of at least 24px\.$/,
-      //           'nodeLabel': 'o',
-      //         },
-      //       },
-      //     ],
-      //   },
-      // },
+      'target-size': {
+        score: 1,
+        details: {
+          items: [
+            {
+              node: {
+                'type': 'node',
+                'selector': 'body > section > button#target-size-1',
+                'snippet': '<button id="target-size-1">',
+                // Exact target size can vary depending on the device.
+                'explanation': /^Fix any of the following:\n {2}Target has insufficient size \([0-9.]+px by [0-9.]+px, should be at least 24px by 24px\)\n {2}Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of [0-9.]+px instead of at least 24px\.$/,
+                'nodeLabel': '+',
+              },
+            },
+            {
+              node: {
+                'type': 'node',
+                'selector': 'body > section > span#target-size-2',
+                'snippet': '<span role="button" tabindex="0" id="target-size-2">',
+                // Exact target size can vary depending on the device.
+                'explanation': /^Fix any of the following:\n {2}Target has insufficient size \([0-9.]+px by [0-9.]+px, should be at least 24px by 24px\)\n {2}Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of [0-9.]+px instead of at least 24px\.$/,
+                'nodeLabel': 'o',
+              },
+            },
+          ],
+        },
+      },
       'td-has-header': {
         score: 0,
         details: {

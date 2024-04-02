@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokument ima element `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Da biste se uverili da su vidljivi za tehnologije za pomoć osobama sa invaliditetom, svi elementi koji mogu da se fokusiraju moraju da imaju jedinstveni `id`. [Saznajte kako da rešite duplirane `id`-ove](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Atributi `[id]` na aktivnim elementima koji mogu da se fokusiraju nisu jedinstveni"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Atributi `[id]` na aktivnim elementima koji mogu da se fokusiraju su jedinstveni"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Vrednost ARIA ID-a mora da bude jedinstvena da bi se sprečilo da tehnologije za pomoć osobama sa invaliditetom propuste druge instance. [Saznajte kako da otklonite duplikate ARIA ID-ova](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "Datoteka robots.txt je važeća"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interaktivni elementi poput dugmadi i linkova treba da budu dovoljno veliki (48×48 piksela) ili da imaju dovoljno prostora oko sebe da bi bilo lako da se dodirnu bez preklapanja sa drugim elementima. [Saznajte više o ciljevima za dodir](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} ciljeva dodirivanja ima odgovarajuću veličinu"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Ciljevi dodirivanja su premali jer ne postoji metaoznaka oblasti prikaza koja je optimizovana za ekrane na mobilnim uređajima"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Ciljevi dodirivanja nemaju odgovarajuću veličinu"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Cilj koji se preklapa"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Cilj dodirivanja"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Ciljevi dodirivanja imaju odgovarajuću veličinu"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Vreme odgovora servera za glavni dokument treba da bude kratko jer svi drugi zahtevi zavise od njega. [Saznajte više o pokazatelju Vreme do prvog bajta](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."

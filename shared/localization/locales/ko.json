@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "문서에 `<title>` 요소가 있음"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "포커스 가능한 모든 요소가 보조 기술에 올바르게 표시되려면 고유한 `id`가 있어야 합니다. [중복된 `id`를 해결하는 방법 알아보기](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "포커스할 수 있는 활성 요소에 중복되는 `[id]` 속성이 있음"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "포커스할 수 있는 활성 요소에 중복되는 `[id]` 속성이 없음"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "중복되는 ARIA ID 값이 없어야 보조 기술이 다른 인스턴스를 놓치지 않습니다. [중복 ARIA ID를 수정하는 방법 알아보기](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)"
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt가 유효함"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "버튼이나 링크 같은 상호작용 요소가 충분히 크거나(48x48px), 주변에 충분한 공간이 있고 다른 요소와 겹치지 않아 쉽게 탭할 수 있어야 합니다. [탭 타겟에 관해 자세히 알아세요](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} 탭 타겟 크기가 적절함"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "모바일 화면에 최적화된 표시 영역 메타 태그가 없어서 탭 타겟이 너무 작음"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "탭 타겟 크기가 적절하지 않음"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "타겟이 중복됨"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "탭 타겟"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "탭 타겟의 크기가 적절함"
   },
   "core/audits/server-response-time.js | description": {
     "message": "다른 모든 요청이 기본 문서의 영향을 받으므로 기본 문서에 대한 서버 응답 시간을 짧게 유지하세요. [Time to First Byte(첫 바이트까지의 시간) 측정항목에 관해 자세히 알아보기](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)"

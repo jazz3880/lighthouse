@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "El documento tiene un elemento `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Todos los elementos enfocables deben tener un valor de `id` único para que las tecnologías de accesibilidad puedan detectarlos. [Obtén información para corregir `id` duplicados](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Los atributos de `[id]` de los elementos enfocables y activos no son únicos"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Los atributos de `[id]` de los elementos enfocables y activos son únicos"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "El valor de un ID de ARIA debe ser único para impedir que las tecnologías de accesibilidad omitan otras instancias. [Obtén información para corregir los IDs de ARIA duplicados](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1498,27 +1489,6 @@
   },
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt es válido"
-  },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Los elementos interactivos, como los botones y vínculos, deben ser suficientemente grandes (48 × 48 px) o tener alrededor el espacio necesario para que sea posible tocarlos con facilidad sin presionar otros elementos a la vez. [Obtén más información sobre los botones táctiles](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "El {decimalProportion, number, percent} de los elementos táctiles tiene un tamaño adecuado"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Los elementos táctiles son demasiado pequeños porque no hay metaetiquetas de la vista del puerto optimizadas para pantallas de dispositivos móviles"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "El tamaño de los elementos táctiles no es el adecuado"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Elementos superpuestos"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Elemento táctil"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "El tamaño de los elementos táctiles es el adecuado"
   },
   "core/audits/server-response-time.js | description": {
     "message": "Es importante que el tiempo de respuesta del servidor para el documento principal sea breve, ya que afecta a las demás solicitudes. [Obtén más información sobre la métrica Tiempo hasta el primer byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
