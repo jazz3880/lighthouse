@@ -76,18 +76,18 @@ const expectations = {
           ],
         },
       },
-      'preload-fonts': {
-        scoreDisplayMode: 'notApplicable',
-        // Disabled for now, see https://github.com/GoogleChrome/lighthouse/issues/11960
-        // score: 0,
-        // details: {
-        //   items: [
-        //     {
-        //       url: 'http://localhost:10200/perf/lobster-two-v10-latin-700.woff2?delay=1000',
-        //     },
-        //   ],
-        // },
-      },
+      // Disabled for now, see https://github.com/GoogleChrome/lighthouse/issues/11960
+      // 'preload-fonts': {
+      //   scoreDisplayMode: 'notApplicable',
+      //   score: 0,
+      //   details: {
+      //     items: [
+      //       {
+      //         url: 'http://localhost:10200/perf/lobster-two-v10-latin-700.woff2?delay=1000',
+      //       },
+      //     ],
+      //   },
+      // },
     },
   },
 };

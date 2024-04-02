@@ -4,8 +4,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import {lighthouseVersion} from '../../shared/root.js';
-
 const NO_THROTTLING_METRICS = {
   latency: 0,
   downloadThroughput: 0,
@@ -29,7 +27,6 @@ function parseUseragentIntoMetadata(userAgent, formFactor) {
   const brands = [
     {brand: 'Chromium', version},
     {brand: 'Google Chrome', version},
-    {brand: 'Lighthouse', version: lighthouseVersion},
   ];
 
   const motoGPowerDetails = {

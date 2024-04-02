@@ -17,6 +17,7 @@ import formsAutoComplete from './test-definitions/forms-autocomplete.js';
 import fpsMax from './test-definitions/fps-max.js';
 import fpsMaxPassive from './test-definitions/fps-max-passive.js';
 import fpsScaled from './test-definitions/fps-scaled.js';
+import fpsOverflowX from './test-definitions/fps-overflow-x.js';
 import issuesMixedContent from './test-definitions/issues-mixed-content.js';
 import lanternFetch from './test-definitions/lantern-fetch.js';
 import lanternIdleCallbackLong from './test-definitions/lantern-idle-callback-long.js';
@@ -44,7 +45,6 @@ import perfFonts from './test-definitions/perf-fonts.js';
 import perfFrameMetrics from './test-definitions/perf-frame-metrics.js';
 import perfPreload from './test-definitions/perf-preload.js';
 import perfTraceElements from './test-definitions/perf-trace-elements.js';
-import pubads from './test-definitions/pubads.js';
 import pwaAirhorner from './test-definitions/pwa-airhorner.js';
 import pwaCaltrain from './test-definitions/pwa-caltrain.js';
 import pwaChromestatus from './test-definitions/pwa-chromestatus.js';
@@ -61,7 +61,6 @@ import screenshot from './test-definitions/screenshot.js';
 import seoFailing from './test-definitions/seo-failing.js';
 import seoPassing from './test-definitions/seo-passing.js';
 import seoStatus403 from './test-definitions/seo-status-403.js';
-import seoTapTargets from './test-definitions/seo-tap-targets.js';
 import serviceWorkerReloaded from './test-definitions/service-worker-reloaded.js';
 import shiftAttribution from './test-definitions/shift-attribution.js';
 import sourceMaps from './test-definitions/source-maps.js';
@@ -81,6 +80,7 @@ const smokeTests = [
   formsAutoComplete,
   fpsMax,
   fpsMaxPassive,
+  fpsOverflowX,
   fpsScaled,
   issuesMixedContent,
   lanternFetch,
@@ -109,7 +109,6 @@ const smokeTests = [
   perfFrameMetrics,
   perfPreload,
   perfTraceElements,
-  pubads,
   pwaAirhorner,
   pwaCaltrain,
   pwaChromestatus,
@@ -126,7 +125,6 @@ const smokeTests = [
   seoFailing,
   seoPassing,
   seoStatus403,
-  seoTapTargets,
   serviceWorkerReloaded,
   shiftAttribution,
   sourceMaps,

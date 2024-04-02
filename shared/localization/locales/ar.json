@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "المستند يحتوي على عنصر `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "يجب أن يتوفر لكل العناصر التي يمكن التركيز عليها `id` فريدًا لضمان إمكانية وصول التكنولوجيا المساعِدة إليها. تعرَّف على [كيفية حلّ مشاكل `id` المكرّرة](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "سمات `[id]` المتوفّرة في العناصر النشطة والقابلة للتركيز غير فريدة"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "سمات `[id]` المتوفّرة في العناصر النشطة والقابلة للتركيز فريدة"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "يجب أن تكون قيمة رقم تعريف ARIA فريدة حتى لا تتجاهل التكنولوجيا المساعِدة الأمثلة الأخرى. تعرَّف على [كيفية حلّ مشكلة أرقام تعريف ARIA المكرَّرة](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "أوقات الاستجابة لواجهة الخادم الخلفية"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "لا يعمل حدث `unload` بفاعلية ويمكن أن تؤدي معالجته إلى عدم تنفيذ عمليات تحسين المتصفّح، مثل عملية \"التخزين المؤقت للصفحات\". وبدلاً من هذا الحدث، يمكنك استخدام `pagehide` أو `visibilitychange`. [مزيد من المعلومات حول إلغاء تحميل أدوات معالجة الأحداث](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "يتم استخدام أدوات معالجة حدث `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "لا يتم استخدام أدوات معالجة حدث `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "يمكن للصور المتحركة غير المركّبة أن تكون بجودة رديئة وأن تزيد متغيّرات التصميم التراكمية (CLS). تعرَّف على [كيفية تجنُّب استخدام الصور المتحركة غير المركّبة](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)."
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "ملف \"robots.txt\" صالح"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "يجب أن تكون العناصر التفاعلية، مثل الأزرار والروابط، كبيرة بشكلٍ كافٍ (48 × 48 بكسل) أو أن تحيط بها مساحة كافية ليكون من السهل النقر عليها بدون النقر على أي عناصر أخرى. [مزيد من المعلومات حول العناصر التي يمكن التفاعل معها عند النقر](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "تم تحديد حجم {decimalProportion, number, percent} لأهداف النقر بشكلٍ مناسب"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "أهداف النقر صغيرة جدًا لأنه لا تتوفّر علامة وصفية لإطار العرض محسنة لشاشات الجوّال."
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "لم يتم تحديد حجم أهداف النقر بشكل مناسب"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "استهداف متداخِل"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "هدف النقر"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "يتم تحديد حجم أهداف النقر بشكل مناسب"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "يجب إبقاء وقت استجابة الخادم للمستند الرئيسي قصيرًا، حيث تعتمد جميع الطلبات الأخرى على هذا الإجراء. [مزيد من المعلومات حول مقياس \"وقت وصول أول بايت\"](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)"
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "تأخير عرض الاستجابة"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "وقت المعالجة"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "تحسينات العرض الأول"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "يمكن أن تساعد هذه الاقتراحات على تحميل صفحتك بشكل أسرع. لا تؤثر هذه الاقتراحات [بشكل مباشر](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) في نتيجة الأداء."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "فرص تحسين الأداء"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "المقاييس"
@@ -3399,7 +3354,7 @@
     "message": "اجتياز عمليات التدقيق بنجاح"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "إلى جانب [معايير قابلية التثبيت المُعدَّلة في Chrome](https://developer.chrome.com/blog/update-install-criteria)، ستوقف أداة Lighthouse فئة تطبيقات الويب التقدّمية (PWA) نهائيًا في إصدار مستقبلي. يُرجى الرجوع إلى [مستندات تطبيقات الويب التقدّمية (PWA) المعدَّلة](https://developer.chrome.com/docs/devtools/progressive-web-apps/) لاختبار هذه التطبيقات في المستقبل."
+    "message": "وفق [معايير قابلية التثبيت المُعدَّلة في Chrome](https://developer.chrome.com/blog/update-install-criteria)، ستوقف أداة Lighthouse فئة تطبيقات الويب التقدّمية (PWA) نهائيًا في أي إصدار مستقبلي. يُرجى الرجوع إلى [مستندات تطبيقات الويب التقدّمية (PWA) المعدَّلة](https://developer.chrome.com/docs/devtools/progressive-web-apps/) لاختبار هذه التطبيقات في المستقبل."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "التحميل الأولي للصفحة"

@@ -326,6 +326,7 @@ Array [
     expect([...unrecognizedKeys]).toMatchInlineSnapshot(`
       Array [
         "unminified-warning",
+        "uses-rel-preload",
         "disable-bundling",
       ]
     `);

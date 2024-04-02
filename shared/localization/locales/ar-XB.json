@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "‏‮Document‬‏ ‏‮has‬‏ ‏‮a‬‏ `<title>` ‏‮element‬‏"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "‏‮All‬‏ ‏‮focusable‬‏ ‏‮elements‬‏ ‏‮must‬‏ ‏‮have‬‏ ‏‮a‬‏ ‏‮unique‬‏ `id` ‏‮to‬‏ ‏‮ensure‬‏ ‏‮that‬‏ ‏‮they‬‏'‏‮re‬‏ ‏‮visible‬‏ ‏‮to‬‏ ‏‮assistive‬‏ ‏‮technologies‬‏. [‏‮Learn‬‏ ‏‮how‬‏ ‏‮to‬‏ ‏‮fix‬‏ ‏‮duplicate‬‏ `id`‏‮s‬‏](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "`[id]` ‏‮attributes‬‏ ‏‮on‬‏ ‏‮active‬‏, ‏‮focusable‬‏ ‏‮elements‬‏ ‏‮are‬‏ ‏‮not‬‏ ‏‮unique‬‏"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "`[id]` ‏‮attributes‬‏ ‏‮on‬‏ ‏‮active‬‏, ‏‮focusable‬‏ ‏‮elements‬‏ ‏‮are‬‏ ‏‮unique‬‏"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "‏‮The‬‏ ‏‮value‬‏ ‏‮of‬‏ ‏‮an‬‏ ‏‮ARIA‬‏ ‏‮ID‬‏ ‏‮must‬‏ ‏‮be‬‏ ‏‮unique‬‏ ‏‮to‬‏ ‏‮prevent‬‏ ‏‮other‬‏ ‏‮instances‬‏ ‏‮from‬‏ ‏‮being‬‏ ‏‮overlooked‬‏ ‏‮by‬‏ ‏‮assistive‬‏ ‏‮technologies‬‏. [‏‮Learn‬‏ ‏‮how‬‏ ‏‮to‬‏ ‏‮fix‬‏ ‏‮duplicate‬‏ ‏‮ARIA‬‏ ‏‮IDs‬‏](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "‏‮Server‬‏ ‏‮Backend‬‏ ‏‮Latencies‬‏"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "‏‮The‬‏ `unload` ‏‮event‬‏ ‏‮does‬‏ ‏‮not‬‏ ‏‮fire‬‏ ‏‮reliably‬‏ ‏‮and‬‏ ‏‮listening‬‏ ‏‮for‬‏ ‏‮it‬‏ ‏‮can‬‏ ‏‮prevent‬‏ ‏‮browser‬‏ ‏‮optimizations‬‏ ‏‮like‬‏ ‏‮the‬‏ ‏‮Back‬‏-‏‮Forward‬‏ ‏‮Cache‬‏. ‏‮Use‬‏ `pagehide` ‏‮or‬‏ `visibilitychange` ‏‮events‬‏ ‏‮instead‬‏. [‏‮Learn‬‏ ‏‮more‬‏ ‏‮about‬‏ ‏‮unload‬‏ ‏‮event‬‏ ‏‮listeners‬‏](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "‏‮Registers‬‏ ‏‮an‬‏ `unload` ‏‮listener‬‏"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "‏‮Avoids‬‏ `unload` ‏‮event‬‏ ‏‮listeners‬‏"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "‏‮Animations‬‏ ‏‮which‬‏ ‏‮are‬‏ ‏‮not‬‏ ‏‮composited‬‏ ‏‮can‬‏ ‏‮be‬‏ ‏‮janky‬‏ ‏‮and‬‏ ‏‮increase‬‏ ‏‮CLS‬‏. [‏‮Learn‬‏ ‏‮how‬‏ ‏‮to‬‏ ‏‮avoid‬‏ ‏‮non‬‏-‏‮composited‬‏ ‏‮animations‬‏](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "‏‮robots‬‏.‏‮txt‬‏ ‏‮is‬‏ ‏‮valid‬‏"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "‏‮Interactive‬‏ ‏‮elements‬‏ ‏‮like‬‏ ‏‮buttons‬‏ ‏‮and‬‏ ‏‮links‬‏ ‏‮should‬‏ ‏‮be‬‏ ‏‮large‬‏ ‏‮enough‬‏ (48‏‮x‬‏48‏‮px‬‏), ‏‮or‬‏ ‏‮have‬‏ ‏‮enough‬‏ ‏‮space‬‏ ‏‮around‬‏ ‏‮them‬‏, ‏‮to‬‏ ‏‮be‬‏ ‏‮easy‬‏ ‏‮enough‬‏ ‏‮to‬‏ ‏‮tap‬‏ ‏‮without‬‏ ‏‮overlapping‬‏ ‏‮onto‬‏ ‏‮other‬‏ ‏‮elements‬‏. [‏‮Learn‬‏ ‏‮more‬‏ ‏‮about‬‏ ‏‮tap‬‏ ‏‮targets‬‏](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} ‏‮appropriately‬‏ ‏‮sized‬‏ ‏‮tap‬‏ ‏‮targets‬‏"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "‏‮Tap‬‏ ‏‮targets‬‏ ‏‮are‬‏ ‏‮too‬‏ ‏‮small‬‏ ‏‮because‬‏ ‏‮there‬‏'‏‮s‬‏ ‏‮no‬‏ ‏‮viewport‬‏ ‏‮meta‬‏ ‏‮tag‬‏ ‏‮optimized‬‏ ‏‮for‬‏ ‏‮mobile‬‏ ‏‮screens‬‏"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "‏‮Tap‬‏ ‏‮targets‬‏ ‏‮are‬‏ ‏‮not‬‏ ‏‮sized‬‏ ‏‮appropriately‬‏"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "‏‮Overlapping‬‏ ‏‮Target‬‏"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "‏‮Tap‬‏ ‏‮Target‬‏"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "‏‮Tap‬‏ ‏‮targets‬‏ ‏‮are‬‏ ‏‮sized‬‏ ‏‮appropriately‬‏"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "‏‮Keep‬‏ ‏‮the‬‏ ‏‮server‬‏ ‏‮response‬‏ ‏‮time‬‏ ‏‮for‬‏ ‏‮the‬‏ ‏‮main‬‏ ‏‮document‬‏ ‏‮short‬‏ ‏‮because‬‏ ‏‮all‬‏ ‏‮other‬‏ ‏‮requests‬‏ ‏‮depend‬‏ ‏‮on‬‏ ‏‮it‬‏. [‏‮Learn‬‏ ‏‮more‬‏ ‏‮about‬‏ ‏‮the‬‏ ‏‮Time‬‏ ‏‮to‬‏ ‏‮First‬‏ ‏‮Byte‬‏ ‏‮metric‬‏](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "‏‮Presentation‬‏ ‏‮delay‬‏"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "‏‮Processing‬‏ ‏‮time‬‏"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "‏‮First‬‏ ‏‮Paint‬‏ ‏‮Improvements‬‏"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "‏‮These‬‏ ‏‮suggestions‬‏ ‏‮can‬‏ ‏‮help‬‏ ‏‮your‬‏ ‏‮page‬‏ ‏‮load‬‏ ‏‮faster‬‏. ‏‮They‬‏ ‏‮don‬‏'‏‮t‬‏ [‏‮directly‬‏ ‏‮affect‬‏](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) ‏‮the‬‏ ‏‮Performance‬‏ ‏‮score‬‏."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "‏‮Opportunities‬‏"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "‏‮Metrics‬‏"
@@ -3399,7 +3354,7 @@
     "message": "‏‮Passed‬‏ ‏‮audits‬‏"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "‏‮Alongside‬‏ [‏‮Chrome‬‏’‏‮s‬‏ ‏‮updated‬‏ ‏‮Installability‬‏ ‏‮Criteria‬‏](https://developer.chrome.com/blog/update-install-criteria), ‏‮Lighthouse‬‏ ‏‮will‬‏ ‏‮be‬‏ ‏‮deprecating‬‏ ‏‮the‬‏ ‏‮PWA‬‏ ‏‮category‬‏ ‏‮in‬‏ ‏‮a‬‏ ‏‮future‬‏ ‏‮release‬‏. ‏‮Please‬‏ ‏‮refer‬‏ ‏‮to‬‏ ‏‮the‬‏ [‏‮updated‬‏ ‏‮PWA‬‏ ‏‮documentation‬‏](https://developer.chrome.com/docs/devtools/progressive-web-apps/) ‏‮for‬‏ ‏‮future‬‏ ‏‮PWA‬‏ ‏‮testing‬‏."
+    "message": "‏‮As‬‏ ‏‮per‬‏ [‏‮Chrome‬‏’‏‮s‬‏ ‏‮updated‬‏ ‏‮Installability‬‏ ‏‮Criteria‬‏](https://developer.chrome.com/blog/update-install-criteria), ‏‮Lighthouse‬‏ ‏‮will‬‏ ‏‮be‬‏ ‏‮deprecating‬‏ ‏‮the‬‏ ‏‮PWA‬‏ ‏‮category‬‏ ‏‮in‬‏ ‏‮a‬‏ ‏‮future‬‏ ‏‮release‬‏. ‏‮Please‬‏ ‏‮refer‬‏ ‏‮to‬‏ ‏‮the‬‏ [‏‮updated‬‏ ‏‮PWA‬‏ ‏‮documentation‬‏](https://developer.chrome.com/docs/devtools/progressive-web-apps/) ‏‮for‬‏ ‏‮future‬‏ ‏‮PWA‬‏ ‏‮testing‬‏."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "‏‮Initial‬‏ ‏‮page‬‏ ‏‮load‬‏"

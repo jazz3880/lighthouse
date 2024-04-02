@@ -12,14 +12,12 @@ const config = {
       title: 'Performance',
       auditRefs: [
         {id: 'oopif-iframe-test-audit', weight: 0},
-        {id: 'script-elements-test-audit', weight: 0},
       ],
     },
   },
   audits: [
     // Include an audit that *forces* the IFrameElements artifact to be used for our test.
     {path: 'oopif-iframe-test-audit'},
-    {path: 'script-elements-test-audit'},
   ],
   settings: {
     // This test runs in CI and hits the outside network of a live site.
@@ -99,27 +97,9 @@ const expectations = {
         isPositionFixed: true,
       },
     ],
-    // Only `:10200/oopif-simple-page.html`'s inclusion of `simple-script.js` shows here.
+    // Only `:10200/oopif-simple-page.html`'s inclusion of `simple-script.js` shows here,
+    // as well as inline scripts of the iframe.
     // All other scripts are filtered out because of our "OOPIF" filter.
-    ScriptElements: [
-      {
-        src: 'http://localhost:10200/simple-script.js',
-        source: 'network',
-      },
-      {
-        // Worker requests emitted on the worker's parent target since M123.
-        _minChromiumVersion: '123',
-        src: 'http://localhost:10200/simple-worker.mjs',
-        source: 'network',
-      },
-      {
-        // Worker requests emitted on the worker's parent target since M123.
-        _minChromiumVersion: '123',
-        src: 'http://localhost:10200/simple-worker.js',
-        source: 'network',
-      },
-    ],
-    // Same here, except we get inline scripts of the iframe.
     Scripts: {
       _includes: [
         {

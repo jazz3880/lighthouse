@@ -11,7 +11,7 @@
 
 import {Audit} from '../audit.js';
 import * as i18n from '../../lib/i18n/i18n.js';
-import {BaseNode} from '../../lib/dependency-graph/base-node.js';
+import {BaseNode} from '../../lib/lantern/base-node.js';
 import {UnusedCSS} from '../../computed/unused-css.js';
 import {NetworkRequest} from '../../lib/network-request.js';
 import {ProcessedNavigation} from '../../computed/processed-navigation.js';
@@ -20,9 +20,9 @@ import {FirstContentfulPaint} from '../../computed/metrics/first-contentful-pain
 import {LCPImageRecord} from '../../computed/lcp-image-record.js';
 
 
-/** @typedef {import('../../lib/dependency-graph/simulator/simulator').Simulator} Simulator */
-/** @typedef {import('../../lib/dependency-graph/base-node.js').Node} Node */
-/** @typedef {import('../../lib/dependency-graph/network-node.js')} NetworkNode */
+/** @typedef {import('../../lib/lantern/simulator/simulator.js').Simulator} Simulator */
+/** @typedef {import('../../lib/lantern/base-node.js').Node<LH.Artifacts.NetworkRequest>} Node */
+/** @typedef {import('../../lib/lantern/network-node.js').NetworkNode<LH.Artifacts.NetworkRequest>} NetworkNode */
 
 // Because of the way we detect blocking stylesheets, asynchronously loaded
 // CSS with link[rel=preload] and an onload handler (see https://github.com/filamentgroup/loadCSS)
@@ -249,9 +249,9 @@ class RenderBlockingResources extends Audit {
     // Add the inlined bytes to the HTML response
     const originalTransferSize = minimalFCPGraph.record.transferSize;
     const safeTransferSize = originalTransferSize || 0;
-    minimalFCPGraph.record.transferSize = safeTransferSize + totalChildNetworkBytes;
+    minimalFCPGraph.request.transferSize = safeTransferSize + totalChildNetworkBytes;
     const estimateAfterInline = simulator.simulate(minimalFCPGraph).timeInMs;
-    minimalFCPGraph.record.transferSize = originalTransferSize;
+    minimalFCPGraph.request.transferSize = originalTransferSize;
     return Math.round(Math.max(estimateBeforeInline - estimateAfterInline, 0));
   }
 

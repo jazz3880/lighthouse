@@ -394,7 +394,7 @@ describe('getConfigDisplayString', () => {
       passes: [{
         passName: 'defaultPass',
         gatherers: [
-          {path: 'script-elements'},
+          {path: 'scripts'},
         ],
       }],
       audits: [

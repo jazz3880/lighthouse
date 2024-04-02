@@ -9,7 +9,7 @@ import * as TraceEngine from '@paulirish/trace_engine';
 import {LayoutShiftRootCausesData} from '@paulirish/trace_engine/models/trace/root-causes/LayoutShift.js';
 
 import {parseManifest} from '../core/lib/manifest-parser.js';
-import {Simulator} from '../core/lib/dependency-graph/simulator/simulator.js';
+import {Simulator} from '../core/lib/lantern/simulator/simulator.js';
 import {LighthouseError} from '../core/lib/lh-error.js';
 import {NetworkRequest as _NetworkRequest} from '../core/lib/network-request.js';
 import speedline from 'speedline-core';
@@ -89,8 +89,8 @@ interface PublicGathererArtifacts {
   LinkElements: Artifacts.LinkElement[];
   /** The values of the <meta> elements in the head. */
   MetaElements: Array<{name?: string, content?: string, property?: string, httpEquiv?: string, charset?: string, node: Artifacts.NodeDetails}>;
-  /** Information on all script elements in the page. Also contains the content of all requested scripts and the networkRecord requestId that contained their content. Note, HTML documents will have one entry per script tag, all with the same requestId. */
-  ScriptElements: Array<Artifacts.ScriptElement>;
+  /** Information on all scripts in the page. */
+  Scripts: Artifacts.Script[];
   /** The dimensions and devicePixelRatio of the loaded viewport. */
   ViewportDimensions: Artifacts.ViewportDimensions;
 }
@@ -146,8 +146,6 @@ export interface GathererArtifacts extends PublicGathererArtifacts {
   RobotsTxt: {status: number|null, content: string|null, errorMessage?: string};
   /** The result of calling the shared trace engine root cause analysis. */
   RootCauses: Artifacts.TraceEngineRootCauses;
-  /** Information on all scripts in the page. */
-  Scripts: Artifacts.Script[];
   /** Version information for all ServiceWorkers active after the first page load. */
   ServiceWorker: {versions: Crdp.ServiceWorker.ServiceWorkerVersion[], registrations: Crdp.ServiceWorker.ServiceWorkerRegistration[]};
   /** Source maps of scripts executed in the page. */

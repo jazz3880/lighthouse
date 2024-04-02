@@ -107,21 +107,21 @@ const expectations = {
           },
         },
       },
-      'uses-rel-preload': {
-        scoreDisplayMode: 'notApplicable',
-        // Disabled for now, see https://github.com/GoogleChrome/lighthouse/issues/11960
-        // score: '<1',
-        // numericValue: '>500',
-        // warnings: {
-        //   0: /level-2.*warning/,
-        //   length: 1,
-        // },
-        // details: {
-        //   items: {
-        //     length: 1,
-        //   },
-        // },
-      },
+      // Disabled for now, see https://github.com/GoogleChrome/lighthouse/issues/11960
+      // 'uses-rel-preload': {
+      //   scoreDisplayMode: 'notApplicable',
+      //   score: '<1',
+      //   numericValue: '>500',
+      //   warnings: {
+      //     0: /level-2.*warning/,
+      //     length: 1,
+      //   },
+      //   details: {
+      //     items: {
+      //       length: 1,
+      //     },
+      //   },
+      // },
       'uses-rel-preconnect': {
         score: 1,
         warnings: [/localhost:10503/],

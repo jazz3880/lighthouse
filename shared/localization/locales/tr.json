@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Doküman geçerli bir `<title>` öğesi içeriyor"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Odaklanabilir tüm öğelerde yardımcı teknolojilere görünür olmalarını sağlamak için benzersiz bir `id` olmalıdır. [Yinelenen `id` öğelerini nasıl düzelteceğinizi öğrenin](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Etkin, odaklanabilir öğelerdeki `[id]` özellikleri benzersiz değil"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Etkin, odaklanabilir öğelerdeki `[id]` özellikleri benzersiz"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "ARIA kimliğinin değeri benzersiz olmalıdır. Bunun nedeni, yardımcı teknolojilerin farkına varmadan diğer örnekleri atlamasını önlemektir. [Yinelenen ARIA kimliklerini nasıl düzelteceğinizi öğrenin](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Sunucunun Arka Uç Gecikmeleri"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "`unload` etkinliği güvenilir bir şekilde tetiklenmez ve etkinliğin dinlenmesi, Geri-İleri Önbelleği gibi tarayıcı optimizasyonlarını engelleyebilir. Bunun yerine `pagehide` veya `visibilitychange` etkinliklerini kullanın. [Kaldırma etkinlik işleyiciler hakkında daha fazla bilgi edinin](https://web.dev/articles/bfcache#never_use_the_unload_event)."
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Bir `unload` işleyicisi bulunuyor"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "`unload` etkinlik işleyicisi içermiyor"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Birleştirilmemiş animasyonlar kalitesiz olabilir ve CLS'yi artırır. [Bileşik olmayan animasyonları nasıl önleyeceğinizi öğrenin](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)."
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt dosyası geçerli"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Düğmeler ve bağlantılar gibi etkileşimli öğelerin, başka öğelerle üst üste binmeden rahatlıkla dokunulabilecek kadar büyük olması (48x48 piksel) veya etraflarında yeterli boşluk bulunması gerekir. [Dokunma hedefleri hakkında daha fazla bilgi edinin](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "Dokunma hedeflerinin {decimalProportion, number, percent} kadarı uygun boyutta"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Mobil ekranlar için optimize edilmiş görüntü alanı meta etiketi olmadığından dokunma hedefleri çok küçük"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Dokunma hedefleri uygun boyutta değil"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Çakışan Hedef"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Dokunma Hedefi"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Dokunma hedefleri uygun boyutta"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Diğer tüm istekler sunucu yanıt süresine bağlı olduğundan ana doküman için sunucu yanıt süresini kısa tutun. [Time to First Byte metriği hakkında daha fazla bilgi edinin](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Yanıt sunumu gecikmesi"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "İşlem süresi"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "İlk Boya İyileştirmeleri"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Bu öneriler, sayfanızın daha hızlı yüklenmesine yardımcı olabilir. Performan skoruna [doğrudan etki](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) etmezler."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Fırsatlar"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Metrikler"
@@ -3399,7 +3354,7 @@
     "message": "Başarılı denetimler"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Lighthouse, [Chrome'un güncellenen Yüklenebilirlik Ölçütleri](https://developer.chrome.com/blog/update-install-criteria) ile birlikte, gelecekteki sürümlerden birinde PWA (progresif web uygulaması) kategorisi desteğini sonlandıracaktır. Gelecekteki PWA testleri için lütfen [güncellenmiş PWA dokümanlarına](https://developer.chrome.com/docs/devtools/progressive-web-apps/) göz atın."
+    "message": "Lighthouse, [Chrome'un güncellenen yüklenebilirlik ölçütleri](https://developer.chrome.com/blog/update-install-criteria) uyarınca gelecekteki sürümlerden birinde PWA (progresif web uygulaması) kategorisi desteğini sonlandıracaktır. Gelecekteki PWA testleri için lütfen [güncellenmiş PWA dokümanlarına](https://developer.chrome.com/docs/devtools/progressive-web-apps/) göz atın."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "İlk sayfa yükleme"

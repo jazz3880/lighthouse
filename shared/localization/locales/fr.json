@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Le document contient un élément `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Tous les éléments sélectionnables doivent être associés à un `id` unique pour qu'ils soient visibles par les technologies d'assistance. [Découvrez comment résoudre les problèmes d'`id` en double.](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Les attributs `[id]` sur des éléments sélectionnables actifs ne sont pas uniques"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Les attributs `[id]` sur des éléments sélectionnables actifs sont uniques"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "La valeur d'un ID ARIA doit être unique afin que les différentes instances soient toutes prises en compte par les technologies d'assistance. [Découvrez comment résoudre les problèmes d'ID ARIA en double.](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)"
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Latences du backend serveur"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "L'événement `unload` ne se déclenche pas de manière fiable, et son analyse risque d'empêcher les optimisations du navigateur telles que la mise en cache des pages précédentes et suivantes. Utilisez plutôt les événements `pagehide` ou `visibilitychange`. [En savoir plus sur le déchargement des écouteurs d'événements](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Permet d'enregistrer un écouteur `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Permet d'éviter les écouteurs d'événements `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Les animations non composées peuvent être lentes et augmenter le CLS. [Découvrez comment éviter les animations non composées.](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "Le fichier robots.txt est valide"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Les éléments interactifs comme les boutons et les liens doivent être suffisamment larges (48 x 48 pixels) ou avoir assez d'espace autour d'eux pour que l'utilisateur puisse appuyer facilement dessus sans appuyer en même temps sur d'autres éléments. [En savoir plus sur les éléments tactiles](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} des éléments tactiles sont correctement dimensionnés"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Les éléments tactiles sont trop petits, car aucune balise Meta de fenêtre d'affichage n'est optimisée pour les écrans mobiles"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Les éléments tactiles ne sont pas dimensionnés correctement"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Cible en chevauchement"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Élément tactile"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Les éléments tactiles sont dimensionnés correctement"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Le temps de réponse du serveur pour le document principal doit rester court, car toutes les autres requêtes en dépendent. [En savoir plus sur la métrique \"Time to First Byte\"](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)"
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Délai de présentation"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Temps de traitement"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Amélioration de First Paint"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Ces suggestions peuvent contribuer à charger votre page plus rapidement. En revanche, elles n'ont pas d'[incidence directe](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) sur le score lié aux performances."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Opportunités"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Statistiques"

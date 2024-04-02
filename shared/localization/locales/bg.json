@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Документът има елемент `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Всички елементи, които могат да получат фокуса, трябва да са с уникален `id`, за да могат помощните технологии да работят с тях. [Научете как да коригирате дублиращите се `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Атрибутите `[id]` на активните елементи, които могат да получат фокуса, не са уникални"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Атрибутите `[id]` на активните елементи, които могат да получат фокуса, са уникални"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Стойността на атрибута за ARIA трябва да е уникална, за да се предотврати пропускането на други екземпляри от страна на помощните технологии. [Научете как да коригирате дублиращи се идентификатори за ARIA](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Забавяния в задния слой на сървъра"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Събитието `unload` не се задейства надеждно и приемането му може да попречи на оптимизациите на браузъра, като например Back-Forward Cache. Вместо това използвайте събитията `pagehide` или `visibilitychange`. [Научете повече за приемателите на събития unload](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Регистрира приемател за `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Избягва приематели за събития `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Анимациите, които не са комбинирани, могат да са с лошо качество и да увеличат стойността на показателя CLS. [Научете как да ги избягвате](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)."
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "Файлът robots.txt е валиден"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Интерактивните елементи, като бутони и връзки, трябва да са достатъчно големи (48 x 48 пиксела) или с достатъчно пространство около тях, за да се докосват лесно, без да се застъпват с други елементи. [Научете повече за целевите зони за докосване](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} от целевите зони за докосване са оразмерени правилно"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Целевите зони за докосване са твърде малки, тъй като няма мета маркер viewport, оптимизиран за мобилни екрани"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Целевите зони за докосване не са оразмерени правилно"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Припокриваща се целева зона"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Целева зона за докосване"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Целевите зони за докосване са оразмерени правилно"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Времето за реакция на сървъра за главния документ трябва да бъде кратко, тъй като всички други заявки зависят от него. [Научете повече за показателя „Време до първия байт“](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Забавяне на представянето"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Време за обработка"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Подобрения, свързани с първото изобразяване"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Тези предложения може да ускорят зареждането на страницата ви. Те не се [отразяват директно](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) върху рейтинга за ефективността."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Възможности"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Показатели"
@@ -3399,7 +3354,7 @@
     "message": "Успешно преминати проверки"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Заедно с [актуализираните критерии на Chrome за инсталиране](https://developer.chrome.com/blog/update-install-criteria) Lighthouse ще оттегли категорията PWA в бъдеща версия. Моля, разгледайте [актуализираната документация за PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/) за бъдещо тестване на PWA."
+    "message": "В съответствие с [актуализираните критерии на Chrome за инсталиране](https://developer.chrome.com/blog/update-install-criteria) Lighthouse ще оттегли категорията PWA в бъдеща версия. Моля, разгледайте [актуализираната документация за PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/) за бъдещо тестване на PWA."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Първоначално зареждане на страницата"

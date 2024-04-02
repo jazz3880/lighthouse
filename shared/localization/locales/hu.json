@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "A dokumentum tartalmaz `<title>` elemet"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Egyéni `id` meglétére van szükség az összes fókuszálható elemnél, hogy biztosan láthatók legyenek a segítő technológiák számára. [További információ az ismétlődő `id` elemek kijavításáról](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Egyes aktív, fókuszálható elemek `[id]` attribútumai nem egyediek"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Az aktív, fókuszálható elemek `[id]` attribútumai egyediek"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Az ARIA-azonosító értékének egyedinek kell lennie, hogy a kisegítő technológiák ne hagyják figyelmen kívül a többi előfordulást. [További információ az ismétlődő ARIA-azonosítók kijavításáról](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Várakozási idő a háttérszervereknél"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Az `unload` esemény működése nem megbízható, és figyelése megakadályozhatja a böngésző optimalizálását (például az előre-vissza gyorsítótárazást). Használja helyette a következő események valamelyikét: `pagehide` vagy `visibilitychange`. [További információ az eseményfigyelők kiürítéséről](https://web.dev/articles/bfcache#never_use_the_unload_event)."
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "`unload`-figyelőt regisztrál"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Elkerüli a(z) `unload`-eseményfigyelőket"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "A nem kompozit animációk minősége elégtelen lehet, és az ilyen animációk növelhetik a CLS-t. [További információ a nem kompozit animációk elkerüléséről](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)."
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "A robots.txt fájl érvényes"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Az interaktív elemeknek (például a gomboknak és a linkeknek) elég nagynak kell lenniük (48 × 48 képpont), vagy elég helynek kell lennie körülöttük, hogy könnyen rájuk lehessen koppintani a szomszédos elemek megérintése nélkül. [További információ a koppintási célokról](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent}-nyi megfelelően méretezett koppintható elem"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "A koppintási célok túl kicsik, ugyanis a látható terület metacímkéje nincs optimalizálva a mobilképernyőkre"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "A koppintási célok mérete nem megfelelő"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Átfedésben lévő cél"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Koppintási cél"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "A koppintási célok mérete megfelelő"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Érdemes a szerver válaszidejét lerövidíteni a fő dokumentum esetében, mert az összes további kérés függ tőle. [További információ az Első bájt betöltéséhez szükséges idő mutatóról](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Prezentáció késése"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Feldolgozási idő"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Az első leképezést érintő fejlesztések"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Ezek a javaslatok segíthetnek az oldalbetöltés felgyorsításában. Mindazonáltal a teljesítménypontszámra [nincs közvetlen hatásuk](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/)."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Lehetőségek"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Mutatók"
@@ -3399,7 +3354,7 @@
     "message": "Sikeresen teljesített ellenőrzések"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "A [Chrome telepíthetőségi feltételeinek módosítása](https://developer.chrome.com/blog/update-install-criteria) mellett a Lighthouse egy későbbi kiadásban megszünteti a PWA kategóriát. A PWA jövőbeli tesztelésével kapcsolatban tekintse át a [frissített PWA-dokumentációt](https://developer.chrome.com/docs/devtools/progressive-web-apps/)."
+    "message": "A [Chrome frissített telepíthetőségi feltételeinek](https://developer.chrome.com/blog/update-install-criteria) megfelelően a Lighthouse egy későbbi kiadásban megszünteti a PWA kategóriát. A PWA jövőbeli tesztelésével kapcsolatban tekintse át a [frissített PWA-dokumentációt](https://developer.chrome.com/docs/devtools/progressive-web-apps/)."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Első oldalbetöltés"

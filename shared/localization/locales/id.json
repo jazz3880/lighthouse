@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokumen memiliki elemen `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Semua elemen yang dapat difokuskan harus memiliki `id` unik agar dapat dilihat oleh teknologi pendukung. [Pelajari cara memperbaiki `id` duplikat](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Atribut `[id]` pada elemen aktif yang dapat difokuskan tidak unik"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Atribut `[id]` pada elemen aktif yang dapat difokuskan unik"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Nilai ID ARIA harus unik untuk mencegah instance lain terabaikan oleh teknologi pendukung. [Pelajari cara memperbaiki ID ARIA duplikat](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Latensi Backend Server"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Peristiwa `unload` tidak diaktifkan dengan lancar dan jika diproses dapat mencegah upaya pengoptimalan browser seperti Back-Forward Cache. Sebagai gantinya, gunakan peristiwa `pagehide` atau `visibilitychange`. [Pelajari lebih lanjut cara menghapus muatan pemroses peristiwa](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Mendaftarkan pemroses `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Menghindari pemroses peristiwa `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Animasi yang tidak digabungkan dapat tersendat dan menambah CLS. [Pelajari cara menghindari animasi non-gabungan](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt valid"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Elemen interaktif seperti tombol dan link harus berukuran cukup besar (48x48 piksel), atau memiliki cukup ruang di sekelilingnya, agar cukup mudah diketuk tanpa tumpang-tindih dengan elemen lain. [Pelajari lebih lanjut target ketuk](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} target ketuk memiliki ukuran yang tepat"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Target ketuk terlalu kecil karena tidak ada tag meta viewport yang dioptimalkan untuk layar seluler"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Target ketuk tidak memiliki ukuran yang tepat"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Target Tumpang-Tindih"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Target Ketuk"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Target ketuk memiliki ukuran yang tepat"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Pertahankan waktu respons server untuk dokumen utama tetap singkat karena semua permintaan lain bergantung padanya. [Pelajari lebih lanjut metrik Time to First Byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Penundaan presentasi"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Waktu pemrosesan"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Penyempurnaan First Paint"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Saran ini dapat membantu pemuatan halaman menjadi lebih cepat. Saran tersebut tidak [secara langsung memengaruhi](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) skor Performa."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Peluang"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Metrik"
@@ -3399,7 +3354,7 @@
     "message": "Lulus audit"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Bersamaan dengan [Kriteria Kemampuan Penginstalan yang diperbarui di Chrome](https://developer.chrome.com/blog/update-install-criteria), Lighthouse akan menghentikan penggunaan kategori PWA pada rilis mendatang. Lihat [dokumentasi PWA yang telah diperbarui](https://developer.chrome.com/docs/devtools/progressive-web-apps/) untuk pengujian PWA mendatang."
+    "message": "Sesuai dengan [Kriteria Kemampuan Penginstalan yang diperbarui di Chrome](https://developer.chrome.com/blog/update-install-criteria), Lighthouse akan menghentikan penggunaan kategori PWA pada rilis mendatang. Lihat [dokumentasi PWA yang telah diperbarui](https://developer.chrome.com/docs/devtools/progressive-web-apps/) untuk pengujian PWA mendatang."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Pemuatan halaman awal"

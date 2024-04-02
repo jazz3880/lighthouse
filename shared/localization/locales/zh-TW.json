@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "文件具有 `<title>` 元素"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "所有可聚焦的元素都必須擁有專屬的 `id`，以確保輔助技術可查看這些元素。[瞭解如何修正 `id` 重複的問題](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)。"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "已啟用的可聚焦元素有重複的 `[id]` 屬性"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "已啟用的可聚焦元素沒有重複的 `[id]` 屬性"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "ARIA ID 的值不得重複，以免輔助技術忽略其他重複的執行個體。[瞭解如何修正重複的 ARIA ID](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)。"
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "伺服器後端延遲時間"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "`unload` 事件無法穩定觸發，監聽該活動可能會妨礙系統進行某些瀏覽器最佳化作業 (例如往返快取)。請改用 `pagehide` 或 `visibilitychange` 事件。[進一步瞭解卸載事件監聽器](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "註冊 `unload` 事件監聽器"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "避免使用 `unload` 事件監聽器"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "未合成的動畫可能無法順暢播放，而且會增加 CLS。[瞭解如何避免使用非合成動畫](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt 有效"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "按鈕和連結等互動元素的大小應至少有 48x48 像素，或周圍保有足夠空間，方便使用者輕觸，同時避免與其他元素重疊的情況。[進一步瞭解輕觸目標](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)。"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} 的輕觸目標大小適中"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "輕觸目標太小，這是因為網頁沒有針對行動裝置螢幕設定合適的可視區域中繼標記"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "輕觸目標未設定成適當大小"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "重疊的目標"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "輕觸目標"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "輕觸目標已設定成適當大小"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "請確保伺服器能快速回應主要文件，因為這會影響到所有其他要求的回應時間。[進一步瞭解「第一個位元組時間」指標](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)。"
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "回應顯示延遲"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "處理時間"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "改進首次繪製程序"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "這些建議有助於提升網頁載入速度，但不會[直接影響](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/)「效能」分數。"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "最佳化建議"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "指標"
@@ -3399,7 +3354,7 @@
     "message": "通過稽核項目"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "除了[更新 Chrome 的安裝條件](https://developer.chrome.com/blog/update-install-criteria)，Lighthouse 也將在之後的版本淘汰 PWA 類別。如果之後要進行 PWA 測試，請參閱[新版 PWA 說明文件](https://developer.chrome.com/docs/devtools/progressive-web-apps/)。"
+    "message": "根據 [Chrome 的新版安裝條件](https://developer.chrome.com/blog/update-install-criteria)，Lighthouse 將於之後的版本淘汰 PWA 類別。如果之後要進行 PWA 測試，請參閱[新版 PWA 說明文件](https://developer.chrome.com/docs/devtools/progressive-web-apps/)。"
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "初次載入網頁"

@@ -1,3 +1,54 @@
+<a name="11.7.0"></a>
+# 11.7.0 (2024-03-20)
+[Full Changelog](https://github.com/GoogleChrome/lighthouse/compare/v11.6.0...v11.7.0)
+
+We expect this release to ship in the DevTools of [Chrome 125](https://chromiumdash.appspot.com/schedule), and to PageSpeed Insights within 2 weeks.
+
+## Notable Changes
+
+* The publisher ads plugin is out of date and will not be supported in Chrome DevTools M125 ([#15843](https://github.com/GoogleChrome/lighthouse/pull/15843))
+
+## Core
+
+* fix regression in internal chrome error messages ([#15853](https://github.com/GoogleChrome/lighthouse/pull/15853))
+* a11y: disable target-size hidden audit ([#15854](https://github.com/GoogleChrome/lighthouse/pull/15854))
+* css-usage: prevent late stylesheet additions ([#15865](https://github.com/GoogleChrome/lighthouse/pull/15865))
+* driver: don't await cleanup in PAGE_HUNG case ([#15833](https://github.com/GoogleChrome/lighthouse/pull/15833))
+* driver: fix protocol timeout being ignored for isolated eval ([#15826](https://github.com/GoogleChrome/lighthouse/pull/15826))
+* emulation: remove Lighthouse from client hint brand ([#15856](https://github.com/GoogleChrome/lighthouse/pull/15856))
+* full-page-screenshot: emit screenshot commands in parallel ([#15862](https://github.com/GoogleChrome/lighthouse/pull/15862))
+* full-page-screenshot: revise logic for determining dimensions ([#14920](https://github.com/GoogleChrome/lighthouse/pull/14920))
+* gather: gatherFn refactor ([#15830](https://github.com/GoogleChrome/lighthouse/pull/15830))
+* installable-manifest: add `manifest-parsing-or-network-error` ([#15849](https://github.com/GoogleChrome/lighthouse/pull/15849))
+* lantern: move types to lib/lantern ([#15859](https://github.com/GoogleChrome/lighthouse/pull/15859))
+* lantern: move LanternMetric in lib/lantern ([#15857](https://github.com/GoogleChrome/lighthouse/pull/15857))
+* lantern: refactor LH.Gatherer.Simulation ([#15852](https://github.com/GoogleChrome/lighthouse/pull/15852))
+* lantern: move PageDependencyGraph to lib/lantern ([#15851](https://github.com/GoogleChrome/lighthouse/pull/15851))
+* lantern: put types in namespace ([#15850](https://github.com/GoogleChrome/lighthouse/pull/15850))
+* lantern: rename lib/dependency-graph to lib/lantern ([#15844](https://github.com/GoogleChrome/lighthouse/pull/15844))
+* lantern: add interface for network request ([#15845](https://github.com/GoogleChrome/lighthouse/pull/15845))
+* lantern: use rendererStartTime instead of networkRequestTime ([#15834](https://github.com/GoogleChrome/lighthouse/pull/15834))
+* navigation-runner: only run `getArtifact` phase once ([#15827](https://github.com/GoogleChrome/lighthouse/pull/15827))
+* network-request: use rendererStartTime for initiator candidates ([#15832](https://github.com/GoogleChrome/lighthouse/pull/15832))
+* responsiveness: remove fallback trace event pre m103 ([#15866](https://github.com/GoogleChrome/lighthouse/pull/15866))
+
+## Deps
+
+* upgrade `chrome-launcher` to 1.1.1 ([#15871](https://github.com/GoogleChrome/lighthouse/pull/15871))
+* upgrade puppeteer to 22.5.0 ([#15867](https://github.com/GoogleChrome/lighthouse/pull/15867))
+* bump ip from 1.1.8 to 1.1.9 ([#15863](https://github.com/GoogleChrome/lighthouse/pull/15863))
+
+## I18n
+
+* import ([#15872](https://github.com/GoogleChrome/lighthouse/pull/15872))
+
+## Tests
+
+* devtools: use `is_debug = true` for local builds ([#15860](https://github.com/GoogleChrome/lighthouse/pull/15860))
+* devtools: skip type checking in local builds ([#15858](https://github.com/GoogleChrome/lighthouse/pull/15858))
+* devtools: sync e2e ([#15837](https://github.com/GoogleChrome/lighthouse/pull/15837))
+* full-page-screenshot: add node verification and debug tool ([#15324](https://github.com/GoogleChrome/lighthouse/pull/15324))
+
 <a name="11.6.0"></a>
 # 11.6.0 (2024-02-21)
 [Full Changelog](https://github.com/GoogleChrome/lighthouse/compare/v11.5.0...v11.6.0)

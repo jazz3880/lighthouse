@@ -139,8 +139,8 @@ describe('backward compatibility', () => {
     for (const auditRef of clonedSampleResult.categories['performance'].auditRefs) {
       if (auditRef.group === 'hidden') {
         delete auditRef.group;
-      } else if (!auditRef.group) {
-        auditRef.group = 'diagnostics';
+      } else if (auditRef.id === 'render-blocking-resources') {
+        auditRef.group = 'load-opportunities';
       }
     }
     assert.notDeepStrictEqual(clonedSampleResult.categories, sampleResult.categories);
@@ -151,6 +151,23 @@ describe('backward compatibility', () => {
     const preparedResult = upgradeLhr(sampleResult);
     assert.deepStrictEqual(clonedPreparedResult.categories, preparedResult.categories);
     assert.deepStrictEqual(clonedPreparedResult.categoryGroups, preparedResult.categoryGroups);
+  });
+
+  it('corrects performance category without consolidated diagnostics group', () => {
+    const clonedSampleResult = cloneLhr(sampleResult);
+
+    clonedSampleResult.lighthouseVersion = '11.0.0';
+    for (const auditRef of clonedSampleResult.categories['performance'].auditRefs) {
+      if (auditRef.group === 'diagnostics') {
+        delete auditRef.group;
+      }
+    }
+    assert.notDeepStrictEqual(clonedSampleResult.categories, sampleResult.categories);
+
+    // Original audit results should be restored.
+    const clonedPreparedResult = upgradeLhr(clonedSampleResult);
+    const preparedResult = upgradeLhr(sampleResult);
+    assert.deepStrictEqual(clonedPreparedResult.categories, preparedResult.categories);
   });
 
   it('converts old opportunity table column headings to consolidated table headings', () => {
@@ -196,5 +213,35 @@ describe('backward compatibility', () => {
     const preparedResult = upgradeLhr(clonedSampleResult);
     assert.deepStrictEqual(preparedResult.audits, sampleResult.audits);
     assert.strictEqual(preparedResult.audits['third-party-summary'].details.isEntityGrouped, true);
+  });
+
+  it('uses old metric relevance lists to backfill metric savings', () => {
+    const clonedSampleResult = cloneLhr(sampleResult);
+
+    clonedSampleResult.lighthouseVersion = '11.7.0';
+
+    for (const audit of Object.values(clonedSampleResult.audits)) {
+      // Keep metric savings explicit on this audit
+      if (audit.id === 'server-response-time') continue;
+
+      if (audit.metricSavings) {
+        delete audit.metricSavings;
+      }
+    }
+
+    const lcpAuditRef = clonedSampleResult.categories['performance'].auditRefs
+      .find(a => a.id === 'largest-contentful-paint');
+    lcpAuditRef.relevantAudits = ['render-blocking-resources'];
+
+    // Original audit results should be restored.
+    const preparedResult = upgradeLhr(clonedSampleResult);
+    assert.deepStrictEqual(
+      preparedResult.audits['render-blocking-resources'].metricSavings,
+      {LCP: 0}
+    );
+    assert.deepStrictEqual(
+      preparedResult.audits['server-response-time'].metricSavings,
+      {LCP: 450, FCP: 450}
+    );
   });
 });

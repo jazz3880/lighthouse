@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokumente yra elementas „`<title>`“"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Visų suaktyvinamų elementų `id` turi būti unikalūs, siekiant užtikrinti, kad elementai bus matomi pagalbinėms technologijoms. [Sužinokite, kaip išspręsti pasikartojančių `id` problemą](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "`[id]` atributai aktyviuose, išryškinamuose elementuose nėra unikalūs"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "`[id]` atributai aktyviuose, išryškinamuose elementuose yra unikalūs"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "ARIA ID vertė turi būti unikali, kad pagalbinės technologijos nepraleistų kitų objektų. [Sužinokite, kaip išspręsti pasikartojančių ARIA ID problemą](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Serverio vidinės pusės delsa"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Įvykis „`unload`“ patikimai nesuaktyvinamas ir jį apdorojant gali būti neleidžiama optimizuoti naršyklės, pvz., persiuntimo atgal ir pirmyn talpyklos. Vietoj to naudokite įvykį „`pagehide`“ arba „`visibilitychange`“. [Sužinokite daugiau apie įvykių apdorojimo priemonių iškėlimą](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Užregistruojama „`unload`“ apdorojimo priemonė"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Vengiama įvykio „`unload`“ apdorojimo priemonių"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Nesudėtinės animacijos gali būti prastos kokybės ir dėl jų gali padidėti KIP. [Sužinokite, kaip išvengti nesudėtinių animacijų](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt tinkamas"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interaktyvūs elementai, pvz., mygtukai ir nuorodos, turi būti pakankamai dideli (48 x 48 piks.) arba aplink juos turi būti pakankamai vietos, kad būtų galima lengvai paliesti ir kad jie nepersidengtų su kitais elementais. [Sužinokite daugiau apie liečiamus elementus](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} tinkamo dydžio liečiamų objektų"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Liečiami objektai per maži, nes nėra mobiliųjų įrenginių ekranams optimizuotos peržiūros srities metažymos"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Liečiami objektai netinkamo dydžio"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Persidengiantis objektas"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Liečiamas objektas"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Liečiami objektai tinkamo dydžio"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Padarykite, kad pagrindinio dokumento serverio atsako laikas būtų trumpas, nes nuo jo priklauso visos kitos užklausos. [Sužinokite daugiau apie laiko iki pirmojo baito metriką](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Pateikimo delsa"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Apdorojimo laikas"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Pirmojo parodymo patobulinimai"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Pasinaudojus šiais pasiūlymais puslapis gali būti įkeliamas greičiau. Tai [tiesiogiai nepaveiks](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) našumo įvertinimo."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Galimybės"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Metrika"
@@ -3399,7 +3354,7 @@
     "message": "Sėkmingos patikros"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Kartu su [atnaujintais „Chrome“ diegiamumo kriterijais](https://developer.chrome.com/blog/update-install-criteria), „Lighthouse“ būsimame leidime nebebus naudojama LŽP kategorija. Peržiūrėkite [atnaujintus LŽP dokumentus](https://developer.chrome.com/docs/devtools/progressive-web-apps/), skirtus būsimiems LŽP bandymams."
+    "message": "Kad būtų laikomasi [atnaujintų „Chrome“ diegiamumo kriterijų](https://developer.chrome.com/blog/update-install-criteria), „Lighthouse“ būsimame leidime nebebus naudojama LŽP kategorija. Peržiūrėkite [atnaujintus LŽP dokumentus](https://developer.chrome.com/docs/devtools/progressive-web-apps/), skirtus būsimiems LŽP bandymams."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Pirminis puslapio įkėlimas"

@@ -8,9 +8,9 @@ import assert from 'assert/strict';
 
 import RenderBlockingResourcesAudit from '../../../audits/byte-efficiency/render-blocking-resources.js'; // eslint-disable-line max-len
 import * as constants from '../../../config/constants.js';
-import {NetworkNode} from '../../../lib/dependency-graph/network-node.js';
-import {CPUNode} from '../../../lib/dependency-graph/cpu-node.js';
-import {Simulator} from '../../../lib/dependency-graph/simulator/simulator.js';
+import {NetworkNode} from '../../../lib/lantern/network-node.js';
+import {CPUNode} from '../../../lib/lantern/cpu-node.js';
+import {Simulator} from '../../../lib/lantern/simulator/simulator.js';
 import {NetworkRequest} from '../../../lib/network-request.js';
 import {getURLArtifactFromDevtoolsLog, readJson} from '../../test-utils.js';
 
@@ -129,11 +129,13 @@ describe('Render blocking resources audit', () => {
       const protocol = 'http';
       record = props => {
         const parsedURL = {host: 'example.com', scheme, securityOrigin: 'http://example.com'};
-        return Object.assign({parsedURL, requestId: requestId++}, props, {protocol});
+        const record = Object.assign({parsedURL, requestId: requestId++}, props, {protocol});
+        return NetworkRequest.asLanternNetworkRequest(record);
       };
       recordSlow = props => {
         const parsedURL = {host: 'slow.com', scheme, securityOrigin: 'http://slow.com'};
-        return Object.assign({parsedURL, requestId: requestId++}, props, {protocol});
+        const record = Object.assign({parsedURL, requestId: requestId++}, props, {protocol});
+        return NetworkRequest.asLanternNetworkRequest(record);
       };
     });
 

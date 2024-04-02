@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "ドキュメントに `<title>` 要素が指定されています"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "支援技術で認識できるように、フォーカス可能な要素にはすべて一意の `id` を設定する必要があります。[重複する `id` を修正する方法の詳細](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "`[id]` 属性が有効でフォーカス可能な要素の ID が一意ではありません"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "`[id]` 属性が有効でフォーカス可能な要素の ID はすべて一意です"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "他のインスタンスが支援技術によって見落とされることのないように、ARIA ID の値は一意にする必要があります。[重複する ARIA ID の修正方法の詳細](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)"
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "サーバーのバックエンド待ち時間"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "`unload` イベントの発生は安定していないため、これをリッスンするとブラウザの最適化機能（バックフォワード キャッシュなど）が妨げられる可能性があります。代わりに `pagehide` または `visibilitychange` イベントを使用してください。[アンロード イベント リスナーの詳細](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "`unload` リスナーの登録"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "`unload` イベントのリスナーの回避"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "合成されていないアニメーションは動きが不自然になり、CLS が大きくなることがあります。[合成されていないアニメーションを避ける方法の詳細](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt は有効です"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "ボタンやリンクなどの操作可能な要素は十分な大きさ（48×48 px）に設定するか、他の要素と重ならずに簡単にタップできるよう、要素の周囲にスペースを取る必要があります。[タップ ターゲットの詳細](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} でタップ ターゲットが適切なサイズに設定されています"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "タップ ターゲットが小さすぎます。モバイル スクリーン向けに最適化されたビューポート メタタグがありません。"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "タップ ターゲットのサイズが適切に設定されていません"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "重複するターゲット"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "タップ ターゲット"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "タップ ターゲットのサイズは適切に設定されています"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "メイン ドキュメントのサーバー応答時間は、他のすべてのリクエストに影響するため、速くする必要があります。[Time to First Byte 指標の詳細](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)"
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "表示の遅延"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "処理時間"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "First Paint の改善点"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "これらの提案を実施すると、ページの読み込み時間を短縮できる可能性があります。なお、パフォーマンス スコアには[直接影響](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/)しません。"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "改善できる項目"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "指標"

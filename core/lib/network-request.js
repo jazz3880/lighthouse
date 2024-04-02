@@ -53,6 +53,7 @@
  */
 
 import * as LH from '../../types/lh.js';
+import * as Lantern from './lantern/types/lantern.js';
 import UrlUtils from './url-utils.js';
 
 // Lightrider X-Header names for timing information.
@@ -570,6 +571,17 @@ class NetworkRequest {
 
   /**
    * @param {NetworkRequest} record
+   * @return {Lantern.NetworkRequest<NetworkRequest>}
+   */
+  static asLanternNetworkRequest(record) {
+    return {
+      ...record,
+      record,
+    };
+  }
+
+  /**
+   * @param {NetworkRequest} record
    * @return {boolean}
    */
   static isNonNetworkRequest(record) {
@@ -622,7 +634,7 @@ class NetworkRequest {
       /^content-encoding$/i,
       /^x-content-encoding-over-network$/i,
     ];
-    const compressionTypes = ['gzip', 'br', 'deflate'];
+    const compressionTypes = ['gzip', 'br', 'deflate', 'zstd'];
     return record.responseHeaders.some(header =>
       patterns.some(p => header.name.match(p)) && compressionTypes.includes(header.value)
     );

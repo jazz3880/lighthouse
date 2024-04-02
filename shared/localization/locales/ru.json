@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Документ содержит элемент `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Чтобы технологии специальных возможностей могли считывать все фокусируемые элементы, их атрибуты `id` должны быть уникальными. Подробнее о том, [как убрать копии атрибутов `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)…"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "У активных элементов есть неуникальные атрибуты `[id]`"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Атрибуты `[id]` у активных элементов уникальны"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Значение идентификатора ARIA должно быть уникальным, поскольку технологии специальных возможностей могут игнорировать повторяющиеся идентификаторы. Подробнее о том, [как убрать копии идентификаторов ARIA](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)…"
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Задержка со стороны сервера"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Событие `unload` активируется не всегда. Если для него создан прослушиватель, это может привести к ошибкам средств оптимизации браузера, например функции возвратного кеша. Рекомендуем использовать события `pagehide` или `visibilitychange`. Подробнее [о прослушивателе событий unload](https://web.dev/articles/bfcache#never_use_the_unload_event)…"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Регистрируется прослушиватель для события `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Не используются прослушиватели события `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Некомбинированные анимации могут пропускать кадры и усиливать совокупное смещение макета. Подробнее о том, [как убрать некомбинированные анимации](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)…"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "Файл robots.txt действителен"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Интерактивные элементы, такие как кнопки и ссылки, должны быть достаточно крупными (48 x 48 пкс) или располагаться на достаточном расстоянии друг от друга. Тогда при нажатии пользователи не будут задевать соседние объекты. Подробнее [об оптимальных размерах интерактивных элементов](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)…"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "Размеры {decimalProportion, number, percent} интерактивных элементов соответствуют требованиям."
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Слишком маленькие интерактивные элементы. Настройте область просмотра для экранов мобильных устройств с помощью метатега viewport."
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Размер интерактивных элементов не оптимален"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Частичное совпадение элементов"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Интерактивный элемент"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Размер интерактивных элементов оптимален"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Время ответа сервера для основного документа должно быть небольшим, так как все прочие запросы зависят от этого показателя. Подробнее [о времени до получения первого байта](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)…"
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Задержка вывода ответа на экран"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Время обработки"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Уменьшение времени загрузки контента"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Эти рекомендации могут помочь вам ускорить загрузку страницы. Они не влияют на показатель производительности [напрямую](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/)."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Оптимизация"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Показатели"

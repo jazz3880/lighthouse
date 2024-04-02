@@ -207,12 +207,6 @@ const expectations = {
         },
       },
     ],
-    GlobalListeners: [{
-      type: 'unload',
-      scriptId: /^\d+$/,
-      lineNumber: '>300',
-      columnNumber: '>30',
-    }],
     DevtoolsLog: {
       _includes: [
         // Ensure we are getting async call stacks.
@@ -448,7 +442,7 @@ const expectations = {
       },
       'dom-size': {
         score: 1,
-        numericValue: 154,
+        numericValue: 151,
         details: {
           items: [
             {
@@ -456,7 +450,7 @@ const expectations = {
               value: {
                 type: 'numeric',
                 granularity: 1,
-                value: 154,
+                value: 151,
               },
             },
             {
@@ -477,20 +471,6 @@ const expectations = {
               node: {snippet: '<div id="shadow-root-container">'},
             },
           ],
-        },
-      },
-      'no-unload-listeners': {
-        score: 0,
-        details: {
-          items: [{
-            source: {
-              type: 'source-location',
-              url: 'http://localhost:10200/dobetterweb/dbw_tester.html',
-              urlProvider: 'network',
-              line: '>300',
-              column: '>30',
-            },
-          }],
         },
       },
       'bf-cache': {

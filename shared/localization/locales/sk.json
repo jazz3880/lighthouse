@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokument má prvok `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Všetky označiteľné prvky musia mať jedinečný atribút `id`, aby ich dokázali rozpoznať asistenčné technológie. [Ako opraviť duplicitné atribúty `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Atribúty `[id]` aktívnych označiteľných prvkov nie sú jedinečné"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Atribúty `[id]` aktívnych označiteľných prvkov sú jedinečné"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Hodnota identifikátora ARIA musí byť jedinečná, aby asistenčné technológie neprehliadli ďalšie výskyty. [Ako opraviť duplicitné identifikátory ARIA](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)"
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Latencie na strane servera"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Udalosť `unload` sa nespúšťa spoľahlivo a jej prijímanie môže brániť optimalizáciám prehliadača, ako je spätná vyrovnávacia pamäť. Použite namiesto nej udalosť `pagehide` alebo `visibilitychange`. [Ďalšie informácie o uvoľňovacích prijímačoch udalostí](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Registruje sa ako prijímač udalosti `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Nepoužíva prijímače udalosti `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Nezložené animácie môžu byť nekvalitné a môžu zvýšiť kumulatívnu zmenu rozloženia. [Ako sa vyhnúť nezloženým animáciám](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "Súbor robots.txt je platný"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interaktívne prvky, ako sú tlačidlá a odkazy, by mali byť dostatočne veľké (48 × 48 px) a mať okolo seba dostatočné voľné miesto, aby sa na ne dalo ľahko klepnúť a neprekrývali ďalšie prvky. [Ďalšie informácie o cieľoch klepnutí](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} cieľových oblastí s vhodnou veľkosťou"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Cieľové oblasti klepnutia sú príliš malé, pretože neexistuje žiadna metaznačka oblasti zobrazenia optimalizovaná pre mobilné obrazovky"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Cieľové oblasti klepnutia nemajú vhodnú veľkosť"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Prekrývajúce sa cieľové oblasti"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Cieľová oblasť klepnutia"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Cieľové oblasti klepnutia majú vhodnú veľkosť"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Zaistite, aby bol čas odozvy servera pre hlavný dokument krátky, pretože od neho závisia všetky ostatné žiadosti. [Ďalšie informácie o metrike Čas do prvého bajtu](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)"
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Oneskorenie prezentácie"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Čas spracovania"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Vylepšenia prvého vyfarbenia"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Tieto návrhy môžu pomôcť s rýchlejším načítavaním vašej stránky. [Neovplyvňujú priamo](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) skóre výkonnosti."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Príležitosti"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Metriky"
@@ -3399,7 +3354,7 @@
     "message": "Absolvované kontroly"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Spolu s [aktualizovanými kritériami inštalovateľnosti Chromu](https://developer.chrome.com/blog/update-install-criteria) ukončí Lighthouse v budúcom vydaní aj podporu kategórie PWA. Ďalšie informácie o budúcom testovaní PWA nájdete v [aktualizovanej dokumentácii k PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/)."
+    "message": "Na základe [aktualizovaných kritérií inštalovateľnosti Chromu](https://developer.chrome.com/blog/update-install-criteria) ukončí Lighthouse v budúcom vydaní podporu kategórie PWA. Ďalšie informácie o budúcom testovaní PWA nájdete v [aktualizovanej dokumentácii k PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/)."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Počiatočné načítanie stránky"

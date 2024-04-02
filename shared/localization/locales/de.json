@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokument enthält ein `<title>`-Element"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Für alle fokussierbaren Elemente ist eine eindeutige `id` erforderlich, damit sie von Hilfstechnologien erkannt werden können. [Informationen zum Korrigieren doppelter `id`s.](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "`[id]`-Attribute zu aktiven, fokussierbaren Elementen sind nicht eindeutig"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "`[id]`-Attribute zu aktiven, fokussierbaren Elementen sind eindeutig"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Der Wert einer ARIA-ID muss eindeutig sein, damit andere Instanzen nicht von Hilfstechnologien übersehen werden. [Informationen zum Korrigieren doppelter ARIA-IDs.](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)"
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Server-Backend-Latenzen"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Das `unload`-Ereignis wird nicht zuverlässig ausgelöst. Wenn der Listener darauf wartet, kann das Browseroptimierungen wie den Back-Forward-Cache beeinträchtigen. Bitte verwende stattdessen `pagehide`- oder `visibilitychange`-Ereignisse. [Weitere Informationen zum Entfernen von Event-Listenern](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Registriert einen `unload`-Listener"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Keine `unload`-Ereignis-Listener gefunden"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Nicht zusammengesetzte Animationen werden eventuell nicht richtig gerendert und können den CLS-Wert erhöhen. [Informationen dazu, wie sich nicht zusammengefasste Animationen vermeiden lassen](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt ist gültig"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interaktive Elemente wie Schaltflächen und Links sollten groß genug sein (48 × 48 px) oder über genügend Zwischenraum verfügen, damit sie leicht angetippt werden können. Sie dürfen sich nicht mit anderen Elementen überschneiden. [Weitere Informationen zu Tippzielen.](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} der Tippziele haben eine passende Größe"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Die Tippziele sind zu klein, weil kein Meta-Tag für den Darstellungsbereich vorhanden ist, das für Bildschirme von Mobilgeräten optimiert ist"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Größe von Tippzielen ist nicht richtig eingestellt"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Sich überschneidendes Ziel"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Tippziel"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Größe von Tippzielen ist richtig eingestellt"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Achte auf eine möglichst kurze Serverantwortzeit für das Hauptdokument, weil alle anderen Anfragen davon abhängen. [Weitere Informationen zum Messwert „Time to First Byte“.](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)"
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Verzögerung bei der Präsentation"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Verarbeitungszeit"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Verbesserungen beim Zeichnen der ersten Inhalte"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Mithilfe dieser Empfehlungen lässt sich die Ladezeit deiner Seite möglicherweise verkürzen. Sie haben keinen [direkten Einfluss](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) auf die Leistungsbewertung."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Empfehlungen"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Messwerte"
@@ -3399,7 +3354,7 @@
     "message": "Bestandene Prüfungen"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Neben den [aktualisierten Kriterien für die Installierbarkeit von Chrome](https://developer.chrome.com/blog/update-install-criteria) wird die PWA-Kategorie in einer zukünftigen Version von Lighthouse eingestellt. Informationen zu zukünftigen Tests findest du in der [aktualisierten PWA-Dokumentation](https://developer.chrome.com/docs/devtools/progressive-web-apps/)."
+    "message": "Gemäß den [aktualisierten Kriterien für die Installierbarkeit von Chrome](https://developer.chrome.com/blog/update-install-criteria) wird die PWA-Kategorie in einer zukünftigen Version von Lighthouse eingestellt. Informationen zu zukünftigen PWA-Tests findest du in der [aktualisierten PWA-Dokumentation](https://developer.chrome.com/docs/devtools/progressive-web-apps/)."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Erster Seitenaufbau"

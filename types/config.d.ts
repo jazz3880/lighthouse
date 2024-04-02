@@ -83,7 +83,6 @@ declare module Config {
     weight: number;
     group?: string;
     acronym?: string;
-    relevantAudits?: string[];
   }
 
   type Settings = ConfigSettings;

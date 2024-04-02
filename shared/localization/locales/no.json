@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokumentet har et `<title>`-element"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Alle fokuserbare elementer må ha unike `id`-attributter for å sikre at de er synlige for assisterende teknologi. [Finn ut hvordan du korrigerer dupliserte `id`-verdier](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "`[id]`-attributter på aktive, fokuserbare elementer er ikke unike"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "`[id]`-attributter på aktive, fokuserbare elementer er unike"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "ARIA-ID-attributter må ha unike verdier for å unngå at andre forekomster blir oversett av assisterende teknologi. [Finn ut hvordan du korrigerer dupliserte ARIA-ID-er](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Forsinkelser i tjenerdelen"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "`unload`-hendelsen utløses ikke på en pålitelig måte. Å lytte til den kan forhindre nettleseroptimaliseringer, som frem-og-tilbake-bufferen. Bruk hendelsene `pagehide` eller `visibilitychange` i stedet. [Finn ut mer om utlasting av hendelseslyttere](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Registrerer en `unload`-lytter"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Unngår `unload`-hendelseslyttere"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Animasjoner som ikke er sammensatte, kan være hakkete og bidra til økt CLS. [Finn ut hvordan du unngår ikke-sammensatte animasjoner](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt er gyldig"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interaktive elementer, som knapper og linker, må være store nok (48 × 48 px) eller ha nok plass rundt seg til at det er lett å trykke på dem uten overlapping med andre elementer. [Finn ut mer om trykkbare områder](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} av de trykkbare elementene er store nok"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "De trykkbare elementene er for små fordi det ikke er noen viewport-metatag som er optimalisert for mobilskjermer"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Trykkbare elementer er ikke store nok"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Overlappende trykkbart element"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Trykkbart element"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Trykkbare elementer er store nok"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Hold tjenerresponstiden for hoveddokumentet lav, siden alle andre forespørsler avhenger av den. [Finn ut mer om beregningen Tid til første byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Presentasjonsforsinkelse"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Behandlingstid"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Forbedringer av første opptegning"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Disse forslagene kan bidra til at siden lastes inn raskere. De har ingen [direkte innvirkning](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) på ytelsespoengsummen."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Muligheter"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Beregninger"
@@ -3399,7 +3354,7 @@
     "message": "Beståtte revisjoner"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "I tillegg til de [oppdaterte kriteriene for installasjon i Chrome](https://developer.chrome.com/blog/update-install-criteria) kommer Lighthouse til å avvikle kategorien for PWA (progressive web app – progressive nettprogrammer) i en fremtidig utgave. Se den [oppdaterte PWA-dokumentasjonen](https://developer.chrome.com/docs/devtools/progressive-web-apps/) for fremtidig PWA-testing."
+    "message": "I henhold til de [oppdaterte kriteriene for installasjon i Chrome](https://developer.chrome.com/blog/update-install-criteria) kommer Lighthouse til å avvikle kategorien for PWA-er (progressive web apps – progressive nettprogrammer) i en fremtidig utgave. Se den [oppdaterte PWA-dokumentasjonen](https://developer.chrome.com/docs/devtools/progressive-web-apps/) for fremtidig PWA-testing."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Første sideinnlasting"

@@ -22,7 +22,7 @@ const UIStrings = {
       'the web page. If the `role` values are misspelled, not existing ARIA `role` values, or ' +
       'abstract roles, then the purpose of the element will not be communicated to users of ' +
       'assistive technologies. ' +
-      '[Learn more about ARIA roles](https://dequeuniversity.com/rules/axe/4.8/aria-allowed-role).',
+      '[Learn more about ARIA roles](https://dequeuniversity.com/rules/axe/4.9/aria-allowed-role).',
 };
 
 const str_ = i18n.createIcuMessageFn(import.meta.url, UIStrings);

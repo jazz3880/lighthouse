@@ -275,7 +275,7 @@ export class LighthouseReportViewer {
     const container = find('main', document);
 
     // Reset container content.
-    container.innerHTML = '';
+    container.textContent = '';
     const rootEl = document.createElement('div');
     container.append(rootEl);
 
@@ -300,7 +300,7 @@ export class LighthouseReportViewer {
       }
     } catch (e) {
       logger.error(`Error rendering report: ${e.stack}`);
-      container.innerHTML = '';
+      container.textContent = '';
       throw e;
     } finally {
       this._reportIsFromGist = this._reportIsFromPSI = this._reportIsFromJSON = false;

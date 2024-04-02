@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "המסמך מכיל רכיב `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "כל הרכיבים הניתנים למיקוד חייבים לכלול `id` ייחודי כדי לוודא שטכנולוגיות מסייעות יוכלו לזהות אותם. [כך פותרים בעיות בכפילויות של `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "נעשה שימוש במאפייני `[id]` לא ייחודיים ברכיבים פעילים שיכולים לקבל פוקוס"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "נעשה שימוש במאפייני `[id]` ייחודיים ברכיבים פעילים שיכולים לקבל פוקוס"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "הערך של מזהה ARIA חייב להיות ייחודי כדי למנוע מצבים שבהם טכנולוגיות מסייעות מתעלמות ממופעים אחרים. [כאן מוסבר איך לתקן מצבים של מזהי ARIA כפולים](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "זמני אחזור בקצה עורפי של שרת"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "האירוע `unload` לא מופעל בצורה אמינה, והפעלת ממשקי listener כדי לקלוט את האירוע הזה עשויה למנוע את השימוש באופטימיזציות שונות של הדפדפן, כמו האופטימיזציה במסגרת התכונה 'מטמון לדף הקודם/הבא'. יש להשתמש באירועי `pagehide` או `visibilitychange` במקום זאת. [מידע נוסף על ממשקי event listener להסרת הנתונים שנטענו](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "רישום מעבד אירוע של `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "הימנעות ממעבדי אירוע של `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "אנימציות שאינן מורכבות עלולות להיות איטיות ולהגדיל את ה-CLS. [איך להימנע מאנימציות לא מורכבות](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)?"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "הקובץ robots.txt חוקי"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "כדי שיהיה קל להקיש על רכיבים אינטראקטיביים, כמו לחצנים וקישורים, בלי לגעת ברכיבים אחרים, הם צריכים להיות גדולים מספיק (48x48 פיקסלים) או עם ריווח גדול מספיק סביבם. [מידע נוסף על יעדי הקשה](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} מבין יעדי ההקשה הם בגודל תקין"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "רכיבי ההקשה קטנים מדי כי לא בוצעה אופטימיזציית מטא תגים של אזור התצוגה למסכים של ניידים"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "הגודל של רכיבי ההקשה הוגדר בצורה לא תקינה"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "יעד חופף"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "רכיב הקשה"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "הרכיבים להקשה הוגדרו בגודל המתאים"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "כדאי לוודא שזמן התגובה של השרת בנוגע למסמך הראשי הוא קצר, כי כל שאר הבקשות תלויות בו. [מידע נוסף על המדד Time to First Byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)"
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "השהיה של הצגת תגובה"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "זמן העיבוד"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "שיפורים בעיבוד ראשון"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "ההצעות האלה יכולות לעזור לך להאיץ את טעינת הדף. אין להן [השפעה ישירה](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) על ציון הביצועים."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "הזדמנויות"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "ערכים"
@@ -3399,7 +3354,7 @@
     "message": "בדיקות עם ציון 'עובר'"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "לצד [הקריטריונים המעודכנים של Chrome לגבי אפשרות ההתקנה](https://developer.chrome.com/blog/update-install-criteria), הקטגוריה PWA תצא משימוש בגרסה עתידית במסגרת Lighthouse. אפשר לעיין ב[מסמכי התיעוד המעודכנים בנושא PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/) לצורך בדיקות עתידיות של PWA."
+    "message": "בהתאם [לקריטריונים המעודכנים של Chrome לגבי אפשרות ההתקנה](https://developer.chrome.com/blog/update-install-criteria), הקטגוריה PWA תצא משימוש בגרסה עתידית במסגרת Lighthouse. אפשר לעיין ב[מסמכי התיעוד המעודכנים בנושא PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/) לצורך בדיקות עתידיות של PWA."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "טעינת הדף הראשונית"

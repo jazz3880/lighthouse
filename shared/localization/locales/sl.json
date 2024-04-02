@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokument ima element `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Vsi elementi, ki jih je mogoče izbrati, morajo imeti enoličen atribut `id`, s čimer se zagotovi, da so vidni podpornim tehnologijam. [Preberite, kako odpravite težave s podvojenimi elementi`id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Toliko atributov aktivnih elementov, ki jih je mogoče izbrati, ni enoličnih: `[id]`"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Toliko atributov aktivnih elementov, ki jih je mogoče izbrati, je enoličnih: `[id]`"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Vrednost ID-ja ARIA mora biti enolična, če želite preprečiti, da bi podporne tehnologije spregledale druge primerke. [Preberite, kako odpravite podvojene ID-je ARIA](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Zakasnitve strežnikovega zaledja"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Dogodek `unload` se ne aktivira zanesljivo in poslušanje, kdaj se aktivira, lahko prepreči optimizacije brskalnika, kot je predpomnjenje pomikanja naprej in nazaj. Uporabite dogodke `pagehide` ali `visibilitychange`. [Preberite več o odstranjevanju poslušalcev dogodkov](https://web.dev/articles/bfcache#never_use_the_unload_event)."
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Registrira poslušalca dogodka `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Izogiba se poslušalcem dogodka `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Animacije, ki niso sestavljene, so lahko nestabilne in lahko povečajo CLS. [Preberite, kako se lahko izognete nesestavljenim animacijam](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "Datoteka robots.txt je veljavna"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interaktivni elementi, kot so gumbi in povezave, morajo biti dovolj veliki (48 x 48 slikovnih pik) mora biti okoli njih dovolj prostora, da se jih je mogoče dotakniti, ne da bi se pri tem dotaknili drugih elementov. [Preberite več o ciljih dotikov](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} ciljev dotika primerne velikosti"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Cilji za dotik so premajhni, ker ni metaoznake »viewport«, optimizirane za zaslone mobilnih naprav."
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Cilji za dotik niso primerne velikosti"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Prekrivajoči se cilj"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Cilj za dotik"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Cilji za dotikanje so ustrezne velikosti"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Odzivni čas strežnika za glavni dokument naj bo kratek, saj so od tega odvisne vse druge zahteve. [Preberite več o meritvi »Čas do prvega bajta«](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Zakasnitev predstavitve"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Čas obdelave"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Izboljšave prvega barvanja"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Ti predlogi lahko pomagajo pri hitrejšem nalaganju strani. [Neposredno ne vplivajo](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) na rezultat uspešnosti."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Priložnosti"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Meritve"
@@ -3399,7 +3354,7 @@
     "message": "Uspešni pregledi"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Poleg [posodobitev meril za izvedljivost namestitve v Chromu](https://developer.chrome.com/blog/update-install-criteria) bo Lighthouse v prihodnji izdaji opustil kategorijo MSA. Za prihodnje preizkušanje MSA-ja glejte [posodobljeno dokumentacijo za MSA](https://developer.chrome.com/docs/devtools/progressive-web-apps/)."
+    "message": "Skladno s [posodobljenimi merili za izvedljivost namestitve v Chromu](https://developer.chrome.com/blog/update-install-criteria) bo Lighthouse v prihodnji izdaji opustil kategorijo MSA. Za prihodnje preizkušanje MSA-ja glejte [posodobljeno dokumentacijo za MSA](https://developer.chrome.com/docs/devtools/progressive-web-apps/)."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Začetno nalaganje st rani"

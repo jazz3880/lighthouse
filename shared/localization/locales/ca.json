@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "El document té un element `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Tots els elements enfocables han de tenir un `id` únic per garantir que les tecnologies assistencials els puguin veure. [Obtén informació sobre com pots corregir els `id` duplicats](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Els atributs `[id]` en elements actius en què es pot posar el focus no són únics"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Els atributs `[id]` en elements actius en què es pot posar el focus són únics"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "El valor d'un identificador ARIA ha de ser únic per impedir que les tecnologies assistencials passin per alt altres instàncies. [Obtén informació sobre com pots corregir els identificadors ARIA duplicats](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Latències dorsals del servidor"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "L'esdeveniment `unload` no es pot activar amb fiabilitat i detectar-lo pot impedir optimitzacions del navegador, com ara la memòria cau endavant/enrere. Substitueix-lo pels esdeveniments `pagehide` o `visibilitychange`. [Més informació sobre com es poden baixar els detectors d'esdeveniments](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Registra un detector de `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Evita detectors d'esdeveniments `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Les animacions que no són compostes poden ser lentes i augmentar el canvi de disseny acumulatiu. [Informació sobre com pots evitar les animacions no compostes](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "El fitxer robots.txt és vàlid"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Els elements interactius, com ara els botons i els enllaços, han de ser prou grans (48 x 48 píxels) o han de tenir prou espai al voltant perquè els usuaris els puguin tocar sense que se superposin a altres elements. [Obtén més informació sobre els objectius tàctils](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "El {decimalProportion, number, percent} de les mides dels objectius tàctils és correcte"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Els elements tàctils són massa petits perquè no hi ha cap metaetiqueta de finestra gràfica optimitzada per a pantalles de mòbil"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "La mida dels elements tàctils no és correcta"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Objectiu superposat"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Element tàctil"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "La mida dels elements tàctils és correcta"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Fes que el temps de resposta del servidor per al document principal sigui breu, ja que la resta de sol·licituds en depenen. [Obtén més informació sobre la mètrica Temps fins al primer byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Retard en la presentació"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Temps de processament"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Millores de la primera renderització"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Aquests suggeriments poden ajudar la pàgina a carregar-se més de pressa. No [afecten directament](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) el resultat del rendiment."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Oportunitats"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Mètriques"
@@ -3399,7 +3354,7 @@
     "message": "Auditories aprovades"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Juntament amb els [criteris d'instal·labilitat actualitzats de Chrome](https://developer.chrome.com/blog/update-install-criteria), Lighthouse discontinuarà la categoria PWA en una propera versió. Consulta la [documentació actualitzada sobre la PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/) per consultar les futures proves de la PWA."
+    "message": "Segons els [criteris d'instal·lació actualitzats de Chrome](https://developer.chrome.com/blog/update-install-criteria), Lighthouse discontinuarà la categoria PWA en una futura versió. Consulta la [documentació actualitzada sobre PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/) per a futures proves de PWA."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Càrrega de la pàgina inicial"

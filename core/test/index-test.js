@@ -67,7 +67,7 @@ describe('Module Tests', function() {
       const resultPromise = lighthouse('chrome://version', {}, {
         passes: [{
           gatherers: [
-            'script-elements',
+            'scripts',
           ],
         }],
         audits: [

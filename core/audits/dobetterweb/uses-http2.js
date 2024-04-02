@@ -9,17 +9,15 @@
  * origin are over the http/2 protocol.
  */
 
-/** @typedef {import('../../lib/dependency-graph/simulator/simulator').Simulator} Simulator */
-/** @typedef {import('../../lib/dependency-graph/base-node.js').Node} Node */
+/** @typedef {import('../../lib/lantern/simulator/simulator.js').Simulator} Simulator */
+/** @typedef {import('../../lib/lantern/base-node.js').Node<LH.Artifacts.NetworkRequest>} Node */
 
 import {Audit} from '../audit.js';
 import {EntityClassification} from '../../computed/entity-classification.js';
 import UrlUtils from '../../lib/url-utils.js';
-import {LanternInteractive} from '../../computed/metrics/lantern-interactive.js';
 import {NetworkRequest} from '../../lib/network-request.js';
 import {NetworkRecords} from '../../computed/network-records.js';
 import {LoadSimulator} from '../../computed/load-simulator.js';
-import {PageDependencyGraph} from '../../computed/page-dependency-graph.js';
 import {LanternLargestContentfulPaint} from '../../computed/metrics/lantern-largest-contentful-paint.js';
 import {LanternFirstContentfulPaint} from '../../computed/metrics/lantern-first-contentful-paint.js';
 import * as i18n from '../../lib/i18n/i18n.js';
@@ -94,7 +92,7 @@ class UsesHTTP2Audit extends Audit {
       if (!urlsToChange.has(node.record.url)) return;
 
       originalProtocols.set(node.record.requestId, node.record.protocol);
-      node.record.protocol = 'h2';
+      node.request.protocol = 'h2';
     });
 
     const simulationAfter = simulator.simulate(graph, {label: afterLabel, flexibleOrdering});
@@ -104,7 +102,7 @@ class UsesHTTP2Audit extends Audit {
       if (node.type !== 'network') return;
       const originalProtocol = originalProtocols.get(node.record.requestId);
       if (originalProtocol === undefined) return;
-      node.record.protocol = originalProtocol;
+      node.request.protocol = originalProtocol;
     });
 
     const savings = simulationBefore.timeInMs - simulationAfter.timeInMs;
@@ -115,32 +113,6 @@ class UsesHTTP2Audit extends Audit {
       simulationBefore,
       simulationAfter,
     };
-  }
-
-  /**
-   * Computes the estimated effect all results being converted to use http/2, the max of:
-   *
-   * - end time of the last long task in the provided graph
-   * - end time of the last node in the graph
-   * @param {Array<{url: string}>} results
-   * @param {Node} graph
-   * @param {Simulator} simulator
-   * @return {number}
-   */
-  static computeWasteWithTTIGraph(results, graph, simulator) {
-    const {savings: savingsOnOverallLoad, simulationBefore, simulationAfter} =
-      this.computeWasteWithGraph(results, graph, simulator, {
-        label: 'tti',
-      });
-
-    const savingsOnTTI =
-      LanternInteractive.getLastLongTaskEndTime(simulationBefore.nodeTimings) -
-      LanternInteractive.getLastLongTaskEndTime(simulationAfter.nodeTimings);
-
-    const savings = Math.max(savingsOnTTI, savingsOnOverallLoad);
-
-    // Round waste to nearest 10ms
-    return Math.round(Math.max(savings, 0) / 10) * 10;
   }
 
   /**
@@ -235,7 +207,6 @@ class UsesHTTP2Audit extends Audit {
    * @return {Promise<LH.Audit.Product>}
    */
   static async audit(artifacts, context) {
-    const trace = artifacts.traces[Audit.DEFAULT_PASS];
     const devtoolsLog = artifacts.devtoolsLogs[Audit.DEFAULT_PASS];
     const URL = artifacts.URL;
     const networkRecords = await NetworkRecords.request(devtoolsLog, context);
@@ -269,7 +240,6 @@ class UsesHTTP2Audit extends Audit {
       devtoolsLog,
       settings,
     };
-    const pageGraph = await PageDependencyGraph.request({trace, devtoolsLog, URL}, context);
     const simulator = await LoadSimulator.request(simulatorOptions, context);
     const metricComputationInput = Audit.makeMetricComputationDataInput(artifacts, context);
 
@@ -280,8 +250,6 @@ class UsesHTTP2Audit extends Audit {
       pessimisticGraph: lcpGraph,
     } = await LanternLargestContentfulPaint.request(metricComputationInput, context);
 
-    const wastedMsTti = UsesHTTP2Audit.computeWasteWithTTIGraph(
-      resources, pageGraph, simulator);
     const wasteFcp =
       UsesHTTP2Audit.computeWasteWithGraph(resources,
         fcpGraph, simulator, {label: 'fcp'});
@@ -296,11 +264,11 @@ class UsesHTTP2Audit extends Audit {
     ];
 
     const details = Audit.makeOpportunityDetails(headings, resources,
-      {overallSavingsMs: wastedMsTti});
+      {overallSavingsMs: wasteLcp.savings});
 
     return {
       displayValue,
-      numericValue: wastedMsTti,
+      numericValue: wasteLcp.savings,
       numericUnit: 'millisecond',
       score: resources.length ? 0 : 1,
       details,

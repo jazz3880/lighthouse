@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "May `<title>` na element ang dokumento"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Ang lahat ng nafo-focus na element ay dapat na may natatanging `id` para matiyak na nakikita ang mga ito ng mga pantulong na teknolohiya. [Alamin kung paano mag-ayos ng mga duplicate na `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Hindi natatangi ang mga attribute na `[id]` sa aktibo at nafo-focus na element"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Natatangi ang mga attribute na `[id]` sa mga aktibo at nafo-focus na element"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Dapat ay natatangi ang value ng isang ARIA ID para hindi makaligtaan ng mga pantulong na teknolohiya ang iba pang instance. [Alamin kung paano ayusin ang mga duplicate na ARIA ID](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Mga Latency sa Backend ng Server"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Hindi palaging gumagana nang maayos ang event na `unload` at puwedeng mapigilan ng paghihintay rito ang mga pag-optimize ng browser tulad ng Back-Forward Cache. Gamitin na lang ang event na `pagehide` o `visibilitychange`. [Matuto pa tungkol sa pag-unload ng mga event listener](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Nagrerehistro ng listener na `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Umiiwas sa mga event listener na `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Kapag hindi na-composite ang animation, posibleng hindi maganda ang kalidad ng mga ito at posible ring mapataas ng mga ito ang CLS. [Alamin kung paano iwasan ang mga hindi na-composite na animation](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "Valid ang robots.txt"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Sapat dapat ang laki (48x48px) o mayroon dapat sapat na espasyo sa paligid ang mga interactive na element tulad ng mga button at link, para madaling ma-tap ang mga ito nang hindi nag-o-overlap sa iba pang element. [Matuto pa tungkol sa mga target ng pag-tap](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} ng mga target sa pag-tap ang may angkop na laki"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Masyadong maliit ang mga target ng pag-tap dahil walang viewport meta tag na naka-optimize para sa mga screen ng mobile"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Hindi angkop ang laki ng mga target ng pag-tap"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Nag-o-overlap na Target"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Target ng Pag-tap"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Angkop ang laki ng mga target ng pag-tap"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Panatilihing mabilis ang pagtugon ng server para sa pangunahing dokumento dahil nakadepende rito ang lahat ng iba pang kahilingan. [Matuto pa tungkol sa sukatang Time to First Byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Pagkaantala ng presentation"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Tagal ng pagpoproseso"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Mga Pagpapahusay sa First Paint"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Puwedeng makatulong ang mga suhestyon na ito na mapabilis ang pag-load ng iyong page. Hindi [direktang nakakaapekto](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) ang mga ito sa score sa Performance."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Mga Pagkakataon"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Mga Sukatan"
@@ -3399,7 +3354,7 @@
     "message": "Mga pumasang pag-audit"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Kasama ng [na-update na Pamantayan sa Installability ng Chrome](https://developer.chrome.com/blog/update-install-criteria), ihihinto na ng Lighthouse ang paggamit sa PWA na kategorya sa isang release sa hinaharap. Sumangguni sa [na-update na dokumentasyon ng PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/) para sa pagsusuri ng PWA sa hinaharap."
+    "message": "Alinsunod sa [Na-update na Mga Pamantayan sa Installability ng Chrome](https://developer.chrome.com/blog/update-install-criteria), hindi na gagamitin ng Lighthouse ang kategorya ng PWA sa release sa hinaharap. Sumangguni sa [na-update na dokumentasyon ng PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/) para sa pag-test ng PWA sa hinaharap."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Paunang pag-load ng page"

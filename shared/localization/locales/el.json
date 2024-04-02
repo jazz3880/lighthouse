@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Το έγγραφο έχει ένα στοιχείο `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Όλα τα στοιχεία με δυνατότητα εστίασης πρέπει να διαθέτουν ένα μοναδικό `id`, για να διασφαλιστεί ότι είναι ορατά σε τεχνολογίες υποβοήθησης. [Μάθετε πώς μπορείτε να διορθώσετε διπλότυπα `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "`[id]` χαρακτηριστικά σε ενεργά στοιχεία με δυνατότητα εστίασης, δεν είναι μοναδικά"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "`[id]` χαρακτηριστικά σε ενεργά στοιχεία με δυνατότητα εστίασης, είναι μοναδικά"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Η τιμή ενός αναγνωριστικού ARIA πρέπει να είναι μοναδική, προκειμένου να μην παραβλέπονται άλλες παρουσίες κατά τη χρήση τεχνολογιών υποβοήθησης. [Μάθετε πώς μπορείτε να διορθώσετε διπλότυπα αναγνωριστικά ARIA](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Λανθάνοντες χρόνοι συστημάτων υποστήριξης διακομιστή"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Το συμβάν `unload` δεν ενεργοποιείται με αξιοπιστία και η ακρόαση για το συμβάν μπορεί να αποτρέψει τις βελτιστοποιήσεις προγράμματος περιήγησης, όπως την κρυφή μνήμη πίσω/εμπρός. Αντ' αυτού, χρησιμοποιήστε το `pagehide` ή το `visibilitychange`. [Μάθετε περισσότερα σχετικά με την κατάργηση φόρτωσης των λειτουργιών αναμονής συμβάντος](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Εγγράφει μια λειτουργία αναμονής `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Αποφεύγει λειτουργίες αναμονής συμβάντων `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Οι μη σύνθετες κινούμενες εικόνες ενδέχεται να είναι κακής ποιότητας και να αυξάνουν το CLS. [Μάθετε πώς μπορείτε να αποφύγετε τις μη σύνθετες κινούμενες εικόνες](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "Το αρχείο robots.txt είναι έγκυρο"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Τα στοιχεία αλληλεπίδρασης, όπως είναι τα κουμπιά και οι σύνδεσμοι, θα πρέπει να είναι αρκετά μεγάλα (48x48px) ή με επαρκή χώρο γύρω τους, ώστε να μπορούν να πατηθούν εύκολα από τους χρήστες χωρίς να επικαλύπτουν άλλα στοιχεία. [Μάθετε περισσότερα σχετικά με τα στοιχεία που επιλέγονται με πάτημα](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "Το {decimalProportion, number, percent} των επιλεγόμενων με πάτημα στοιχείων έχουν κατάλληλο μέγεθος"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Τα στοιχεία που επιλέγονται με πάτημα είναι υπερβολικά μικρά γιατί δεν υπάρχει βελτιστοποιημένη μεταετικέτα θύρας προβολής για οθόνες κινητών"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Τα στοιχεία που επιλέγονται με πάτημα δεν έχουν κατάλληλο μέγεθος"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Αλληλεπικαλυπτόμενο στοιχείο επιλογής με πάτημα"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Στοιχείο επιλογής με πάτημα"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Τα στοιχεία που επιλέγονται με πάτημα έχουν το κατάλληλο μέγεθος"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Φροντίστε να παραμείνει σύντομος ο χρόνος απόκρισης διακομιστή για το κύριο έγγραφο, επειδή όλα τα άλλα αιτήματα εξαρτώνται από αυτόν. [Μάθετε περισσότερα σχετικά με τη μέτρηση Time to First Byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Καθυστέρηση παρουσίασης"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Χρόνος επεξεργασίας"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Βελτιώσεις πρώτης μορφής"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Αυτές οι προτάσεις μπορούν να βοηθήσουν στην ταχύτερη φόρτωση της σελίδας σας. Δεν [επηρεάζουν άμεσα](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) τη βαθμολογία απόδοσης."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Ευκαιρίες"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Μετρήσεις"
@@ -3399,7 +3354,7 @@
     "message": "Έλεγχοι που ολοκληρώθηκαν επιτυχώς"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Μαζί με τα [ενημερωμένα κριτήρια για τη δυνατότητα εγκατάστασης του Chrome](https://developer.chrome.com/blog/update-install-criteria), το Lighthouse θα καταργήσει την κατηγορία PWA σε μια μελλοντική έκδοση. Ανατρέξτε στην [ενημερωμένη τεκμηρίωση PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/) για μελλοντικές δοκιμές PWA."
+    "message": "Σύμφωνα με τα [ενημερωμένα κριτήρια για τη δυνατότητα εγκατάστασης του Chrome](https://developer.chrome.com/blog/update-install-criteria), το Lighthouse θα καταργήσει την κατηγορία PWA σε μια μελλοντική έκδοση. Ανατρέξτε στην [ενημερωμένη τεκμηρίωση PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/) για μελλοντικές δοκιμές PWA."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Αρχική φόρτωση σελίδας"

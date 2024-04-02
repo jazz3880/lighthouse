@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokument zawiera element `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Wszystkie elementy, które można zaznaczyć, muszą mieć unikalny atrybut `id`, aby były widoczne dla technologii wspomagających. [Jak naprawić duplikaty elementów `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Atrybuty `[id]` aktywnych elementów, które można zaznaczyć, nie są unikalne"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Atrybuty `[id]` aktywnych elementów, które można zaznaczyć, są unikalne"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Wartość identyfikatora ARIA musi być unikalna, aby technologie wspomagające nie pominęły innych wystąpień. [Jak naprawić zduplikowane identyfikatory ARIA](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)"
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Opóźnienia backendu serwera"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Zdarzenie `unload` nie zawsze jest uruchamiane prawidłowo, a wykrywanie go może uniemożliwić działanie mechanizmów optymalizujących pracę przeglądarki takich jak np. Back-Forward Cache. Zamiast tego użyj zdarzenia `pagehide` lub `visibilitychange`. [Więcej informacji o detektorach zdarzeń wyładowania](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Zarejestrowanie detektora zdarzeń `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Zarejestrowanie braku detektorów zdarzeń `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Nieskomponowane animacje mogą działać nieprawidłowo i zwiększać CLS. [Jak unikać nieskomponowanych animacji](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "Plik robots.txt jest prawidłowy"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Elementy interaktywne, takie jak przyciski i linki, powinny być dostatecznie duże (48 x 48 pikseli) lub mieć wokół siebie odpowiednią ilość miejsca, aby można było ich łatwo dotknąć, nie zahaczając o inne elementy. [Więcej informacji o elementach docelowych kliknięcia](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} elementów dotykowych ma odpowiednią wielkość"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Elementy dotykowe są zbyt małe z powodu braku metatagu viewport zoptymalizowanego na potrzeby ekranów telefonów"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Elementy dotykowe nie mają odpowiedniej wielkości"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Pokrywające się elementy dotykowe"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Element dotykowy"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Elementy dotykowe mają odpowiednią wielkość"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Zadbaj o to, aby czas reakcji serwera był jak najkrótszy dla głównego dokumentu na stronie, bo to od niego zależą wszystkie inne żądania. [Więcej informacji o czasie do pierwszego bajtu](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)"
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Opóźnienie prezentacji"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Czas przetwarzania"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Ulepszenia pierwszego renderowania"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Te sugestie mogą pomóc przyśpieszyć wczytywanie strony. Nie mają one [bezpośredniego wpływu](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) na wynik w kategorii Wydajność."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Możliwości"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Dane"
@@ -3399,7 +3354,7 @@
     "message": "Zaliczone audyty"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Oprócz [aktualizacji kryteriów instalacyjnych Chrome](https://developer.chrome.com/blog/update-install-criteria) w przyszłej wersji w Lighthouse wycofamy kategorię PWA. Aby dowiedzieć się, jak w przyszłości będzie wyglądać testowanie PWA, zapoznaj się ze [zaktualizowaną dokumentacją dotyczącą aplikacji PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/)."
+    "message": "Zgodnie ze [zaktualizowanymi kryteriami instalacyjnymi Chrome](https://developer.chrome.com/blog/update-install-criteria) w przyszłej wersji w Lighthouse wycofamy kategorię PWA. Aby dowiedzieć się, jak w przyszłości będzie wyglądać testowanie PWA, zapoznaj się ze [zaktualizowaną dokumentacją dotyczącą aplikacji PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/)."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Wstępne wczytanie strony"

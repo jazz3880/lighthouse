@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Documentul are un element `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Toate elementele focalizabile trebuie să aibă un `id` unic ca să fie vizibile pentru tehnologiile de asistare. [Află cum să remediezi dublurile de `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Atributele `[id]` ale elementelor focalizabile active nu sunt unice"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Atributele `[id]` ale elementelor focalizabile active sunt unice"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Valoarea unui ID ARIA trebuie să fie unică pentru a preveni omiterea altor instanțe de tehnologiile de asistare. [Află cum să remediezi ID-urile ARIA dublură](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Latențe ale backendului serverului"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Evenimentul `unload` nu se declanșează într-un mod fiabil și ascultarea lui poate împiedica optimizări de browser cum ar fi memoria cache înainte-înapoi. Folosește evenimente `pagehide` sau `visibilitychange` în loc. [Află mai multe despre funcțiile de procesare a evenimentelor unload](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Înregistrează un listener `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Evită funcțiile de procesare a evenimentelor `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Animațiile care nu sunt compuse pot fi dificile și pot spori CLS. [Află cum să eviți animațiile care nu sunt compuse](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)."
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "Fișierul robots.txt este valid"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Elementele interactive, precum butoanele și linkurile, trebuie să fie suficient de mari (48x48 px) și să aibă suficient spațiu în jurul lor pentru a fi ușor de atins, fără a se suprapune peste alte elemente. [Află mai multe despre țintele de atingere](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} direcționări ale atingerilor au mărimea corectă"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Direcționările atingerilor sunt prea mici, deoarece nu există o metaetichetă Viewport optimizată pentru ecranele dispozitivelor mobile"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Direcționările atingerilor nu sunt dimensionate corect"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Direcționarea se suprapune"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Direcționarea atingerii"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Direcționările atingerilor sunt dimensionate corect"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Menține o durată scurtă de răspuns de la server pentru documentul principal, deoarece toate celelalte solicitări depind de acest lucru. [Află mai multe despre valoarea Timpul până la primul byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Întârzierea prezentării"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Durată de procesare"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Îmbunătățirile pentru prima redare"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Aceste sugestii îți pot face pagina să se încarce mai repede. Ele nu [influențează direct](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) scorul de performanță."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Oportunități"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Valori"
@@ -3399,7 +3354,7 @@
     "message": "Auditări trecute"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Pe lângă [Criteriile de instalare actualizate pentru Chrome](https://developer.chrome.com/blog/update-install-criteria), Lighthouse va renunța la dezvoltarea categoriei PWA într-o versiune viitoare. Consultă [documentația actualizată pentru PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/) pentru testările viitoare ale aplicațiilor web progresive."
+    "message": "Conform [Criteriilor de instalare actualizate pentru Chrome](https://developer.chrome.com/blog/update-install-criteria), Lighthouse va renunța la dezvoltarea categoriei PWA într-o versiune viitoare. Consultă [documentația actualizată pentru PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/) pentru testările viitoare ale aplicațiilor web progresive."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Încărcarea inițială a paginii"

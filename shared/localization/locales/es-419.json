@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "El documento tiene un elemento `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Todos los elementos enfocables deben tener un valor de `id` único para que las tecnologías de accesibilidad puedan detectarlos. [Obtén información para corregir `id` duplicados](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Los atributos de `[id]` de los elementos enfocables y activos no son únicos"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Los atributos de `[id]` de los elementos enfocables y activos son únicos"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "El valor de un ID de ARIA debe ser único para impedir que las tecnologías de accesibilidad omitan otras instancias. [Obtén información para corregir los IDs de ARIA duplicados](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Latencias de backend del servidor"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "El evento `unload` no se ejecuta de forma confiable y su escucha puede impedir las optimizaciones del navegador, como la Memoria caché atrás/adelante. En su lugar, usa los eventos `pagehide` o `visibilitychange`. [Más información sobre la descarga de objetos de escucha de eventos](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Registra un objeto de escucha de `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Evita los objetos de escucha de eventos de `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Es posible que las animaciones que no estén compuestas se vean entrecortadas y aumenten el valor de CLS. [Más información para evitar las animaciones no compuestas](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt es válido"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Los elementos interactivos, como los botones y vínculos, deben ser suficientemente grandes (48 × 48 px) o tener alrededor el espacio necesario para que sea posible tocarlos con facilidad sin presionar otros elementos a la vez. [Obtén más información sobre los botones táctiles](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "El {decimalProportion, number, percent} de los elementos táctiles tiene un tamaño adecuado"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Los elementos táctiles son demasiado pequeños porque no hay metaetiquetas de la vista del puerto optimizadas para pantallas de dispositivos móviles"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "El tamaño de los elementos táctiles no es el adecuado"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Elementos superpuestos"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Elemento táctil"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "El tamaño de los elementos táctiles es el adecuado"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Es importante que el tiempo de respuesta del servidor para el documento principal sea breve, ya que afecta a las demás solicitudes. [Obtén más información sobre la métrica Tiempo hasta el primer byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Retraso en la presentación"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Tiempo de procesamiento"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Mejoras del primer procesamiento de imagen"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Estas sugerencias pueden hacer que tus páginas se carguen más rápido. No [afectan directamente](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) la medición del rendimiento."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Oportunidades"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Métricas"
@@ -3399,7 +3354,7 @@
     "message": "Auditorías aprobadas"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Además de los [criterios actualizados de instalación de Chrome](https://developer.chrome.com/blog/update-install-criteria), Lighthouse dará de baja la categoría AWP en una versión futura. Consulta la [documentación actualizada de la AWP](https://developer.chrome.com/docs/devtools/progressive-web-apps/) para futuras pruebas de la AWP."
+    "message": "Según los [criterios actualizados de instalación de Chrome](https://developer.chrome.com/blog/update-install-criteria), Lighthouse dará de baja la categoría AWP en una versión futura. Consulta la [documentación actualizada de las AWP](https://developer.chrome.com/docs/devtools/progressive-web-apps/) para futuras pruebas de AWP."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Carga inicial de la página"

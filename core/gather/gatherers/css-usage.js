@@ -36,7 +36,7 @@ class CSSUsage extends BaseGatherer {
   /**
    * @param {LH.Crdp.CSS.StyleSheetAddedEvent} event
    */
-  async _onStylesheetAdded(event) {
+  _onStylesheetAdded(event) {
     if (!this._session) throw new Error('Session not initialized');
     const styleSheetId = event.header.styleSheetId;
     const sheetPromise = this._session.sendCommand('CSS.getStyleSheetText', {styleSheetId})
@@ -66,41 +66,43 @@ class CSSUsage extends BaseGatherer {
   /**
    * @param {LH.Gatherer.Context} context
    */
-  async startCSSUsageTracking(context) {
+  async startInstrumentation(context) {
     const session = context.driver.defaultSession;
     this._session = session;
-    session.on('CSS.styleSheetAdded', this._onStylesheetAdded);
+
+    // Calling `CSS.enable` will emit events for stylesheets currently on the page.
+    // We want to ignore these events in navigation mode because they are not relevant to the
+    // navigation that is about to happen. Adding the event listener *after* calling `CSS.enable`
+    // ensures that the events for pre-existing stylesheets are ignored.
+    const isNavigation = context.gatherMode === 'navigation';
+    if (!isNavigation) {
+      session.on('CSS.styleSheetAdded', this._onStylesheetAdded);
+    }
 
     await session.sendCommand('DOM.enable');
     await session.sendCommand('CSS.enable');
     await session.sendCommand('CSS.startRuleUsageTracking');
+
+    if (isNavigation) {
+      session.on('CSS.styleSheetAdded', this._onStylesheetAdded);
+    }
   }
 
-
-  /**
-   * @param {LH.Gatherer.Context} context
-   */
-  async stopCSSUsageTracking(context) {
-    const session = context.driver.defaultSession;
-    const coverageResponse = await session.sendCommand('CSS.stopRuleUsageTracking');
-    this._ruleUsage = coverageResponse.ruleUsage;
-    session.off('CSS.styleSheetAdded', this._onStylesheetAdded);
-  }
-
-  /**
-   * @param {LH.Gatherer.Context} context
-   */
-  async startInstrumentation(context) {
-    if (context.gatherMode !== 'timespan') return;
-    await this.startCSSUsageTracking(context);
-  }
 
   /**
    * @param {LH.Gatherer.Context} context
    */
   async stopInstrumentation(context) {
-    if (context.gatherMode !== 'timespan') return;
-    await this.stopCSSUsageTracking(context);
+    const session = context.driver.defaultSession;
+    const coverageResponse = await session.sendCommand('CSS.stopRuleUsageTracking');
+    this._ruleUsage = coverageResponse.ruleUsage;
+    session.off('CSS.styleSheetAdded', this._onStylesheetAdded);
+
+    // Ensure we finish fetching all stylesheet contents before disabling the CSS domain
+    await Promise.all(this._sheetPromises.values());
+
+    await session.sendCommand('CSS.disable');
+    await session.sendCommand('DOM.disable');
   }
 
   /**
@@ -108,17 +110,16 @@ class CSSUsage extends BaseGatherer {
    * @return {Promise<LH.Artifacts['CSSUsage']>}
    */
   async getArtifact(context) {
-    const session = context.driver.defaultSession;
     const executionContext = context.driver.executionContext;
 
-    if (context.gatherMode !== 'timespan') {
-      await this.startCSSUsageTracking(context);
+    if (context.gatherMode === 'snapshot') {
+      await this.startInstrumentation(context);
 
       // Force style to recompute.
       // Doesn't appear to be necessary in newer versions of Chrome.
       await executionContext.evaluateAsync('getComputedStyle(document.body)');
 
-      await this.stopCSSUsageTracking(context);
+      await this.stopInstrumentation(context);
     }
 
     /** @type {Map<string, LH.Artifacts.CSSStyleSheetInfo>} */
@@ -139,9 +140,6 @@ class CSSUsage extends BaseGatherer {
 
       dedupedStylesheets.set(sheet.content, sheet);
     }
-
-    await session.sendCommand('CSS.disable');
-    await session.sendCommand('DOM.disable');
 
     if (!this._ruleUsage) throw new Error('Issue collecting rule usages');
 

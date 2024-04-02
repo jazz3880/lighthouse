@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokumentā ir ietverts elements `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Visiem fokusējamiem elementiem ir jābūt unikālam `id`, lai tie būtu redzami atbalsta tehnoloģijām. [Uzziniet, kā novērst ar `id` dublikātiem saistītas problēmas](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "`[id]` atribūti aktīvos, fokusējamos elementos nav unikāli"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "`[id]` atribūti aktīvos, fokusējamos elementos ir unikāli"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "ARIA ID vērtībai ir jābūt unikālai, lai atbalsta tehnoloģijas neizlaistu citas instances. [Uzziniet, kā novērst ARIA identifikatoru dublikātus](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Servera aizmugursistēmas latentums"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Notikums “`unload`” nenodrošināja uzticamu aktivizēšanu, un tā uztveršana var liegt pārlūka optimizāciju, piemēram, pilnīgu saglabāšanu kešatmiņā. Tā vietā izmantojiet notikumu “`pagehide`” vai “`visibilitychange`”. [Uzziniet vairāk par ielādes atcelšanas notikumu uztvērējiem](https://web.dev/articles/bfcache#never_use_the_unload_event)."
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Reģistrē notikuma “`unload`” uztvērēju"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Izvairās no notikuma “`unload`” uztvērējiem"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Nesaliktas animācijas var būt lēnas un palielināt kopējo izkārtojuma nobīdi. [Uzziniet, kā izvairīties no nesaliktām animācijām](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)."
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt ir derīgs"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interaktīvajiem elementiem, piemēram, pogām un saitēm, ir jābūt pietiekami lieliem (48 x 48 pikseļi) vai tiem apkārt ir jābūt pietiekami daudz brīvas vietas, lai tiem varētu viegli pieskarties, neaizskarot citus elementus. [Uzziniet vairāk par pieskārienu mērķiem](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} pieskārienu mērķu izmērs ir atbilstošs."
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Pieskārienu mērķu izmērs ir pārāk mazs, jo mobilo ierīču ekrāniem nav optimizēts skatvietas metatags"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Pieskārienu mērķi nav atbilstoša izmēra"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Mērķis, kas pārklājas"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Pieskārienu mērķis"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Pieskārienu mērķi ir pietiekami liela izmēra"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Galvenā dokumenta servera atbildes laikam jābūt īsam, jo no tā ir atkarīga pārējo pieprasījumu izpilde. [Uzziniet vairāk par rādītāju “Laiks līdz pirmajam baitam”](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Rādīšanas aizkave"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Apstrādes laiks"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Pirmā satura atveidojuma uzlabojumi"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Šie ieteikumi var palīdzēt ātrāk ielādēt jūsu lapu. Tie [tieša veidā neietekmē](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) veiktspējas rezultātu."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Iespējas"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Metrikas"

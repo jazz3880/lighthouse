@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import {NetworkRequest} from '../../../../lib/network-request.js';
 import {createMockContext, mockDriverSubmodules} from '../../../gather/mock-driver.js';
 
 const mocks = await mockDriverSubmodules();
@@ -136,7 +135,7 @@ const networkRecords = [
     finished: true,
     sessionTargetType: 'worker', // ignore for being from a worker
   },
-].map((record) => Object.assign(new NetworkRequest(), record));
+];
 
 describe('Optimized responses', () => {
   let context;

@@ -155,7 +155,7 @@ class TraceElements extends BaseGatherer {
     const {settings} = context;
     try {
       const responsivenessEvent = await Responsiveness.request({trace, settings}, context);
-      if (!responsivenessEvent || responsivenessEvent.name === 'FallbackTiming') return;
+      if (!responsivenessEvent) return;
       return {nodeId: responsivenessEvent.args.data.nodeId};
     } catch {
       // Don't let responsiveness errors sink the rest of the gatherer.

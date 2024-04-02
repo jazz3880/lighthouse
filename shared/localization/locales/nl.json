@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Document bevat een `<title>`-element"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Alle focusbare elementen moeten een unieke `id` hebben om ervoor te zorgen dat ze zichtbaar zijn voor ondersteunende technologieën. [Meer informatie over het oplossen van problemen met dubbele `id`'s](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "`[id]`-kenmerken voor actieve, focusbare elementen zijn niet uniek"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "`[id]`-kenmerken voor actieve, focusbare elementen zijn uniek"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "De waarde van een ARIA-ID moet uniek zijn om te voorkomen dat andere instanties over het hoofd worden gezien door ondersteunende technologieën. [Meer informatie over hoe je dubbele ARIA-ID's oplost](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)"
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Wachttijden van server-backend"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "De gebeurtenis `unload` wordt niet op een betrouwbare manier geactiveerd en hierop wachten kan ertoe leiden dat browseroptimalisaties zoals de Back-Forward Cache niet worden uitgevoerd. Gebruik in plaats daarvan de gebeurtenis `pagehide` of `visibilitychange`. [Meer informatie over het ongedaan maken van laden van event-listeners](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Registreert een `unload`-listener"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Vermijdt `unload`-event-listeners"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Animaties die niet samengesteld zijn, kunnen langzaam zijn en ertoe leiden dat de CLS toeneemt. [Meer informatie over hoe je niet-samengestelde animaties vermijdt](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt is geldig"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interactieve elementen, zoals knoppen en links, moeten groot genoeg zijn (48 x 48 pixels) of moeten voldoende ruimte eromheen hebben, zodat er makkelijk op getikt kan worden zonder dat andere elementen worden aangeraakt. [Meer informatie over tikdoelen](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} van de tikdoelen heeft een geschikt formaat"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Tikdoelen zijn te klein, omdat er geen kijkvenstermetatag is geoptimaliseerd voor mobiele schermen"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Tikdoelen hebben niet het juiste formaat"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Overlappend doel"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Tikdoel"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Tikdoelen hebben het juiste formaat"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Houd de reactietijd van de server voor het hoofddocument kort, omdat alle andere verzoeken daarvan afhankelijk zijn. [Meer informatie over de statistiek Tijd tot eerste byte](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)"
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Presentatievertraging"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Verwerkingstijd"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Verbeteringen voor eerste weergave"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Deze suggesties kunnen helpen je pagina sneller te laden. Ze hebben geen [directe invloed](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) op de prestatiescore."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Aanbevelingen"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Statistieken"
@@ -3399,7 +3354,7 @@
     "message": "Geslaagde controles"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Naast de [geüpdatete Installeerbaarheidscriteria van Chrome](https://developer.chrome.com/blog/update-install-criteria) beëindigt Lighthouse de categorie PWA in een toekomstige release. Raadpleeg de [geüpdatete PWA-documentatie](https://developer.chrome.com/docs/devtools/progressive-web-apps/) voor toekomstige PWA-tests."
+    "message": "Volgens de [geüpdatete Installeerbaarheidscriteria van Chrome](https://developer.chrome.com/blog/update-install-criteria) beëindigt Lighthouse de categorie PWA in een toekomstige release. Raadpleeg de [geüpdatete PWA-documentatie](https://developer.chrome.com/docs/devtools/progressive-web-apps/) voor toekomstige PWA-tests."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Eerste keer laden van de pagina"

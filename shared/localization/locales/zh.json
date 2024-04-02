@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "文档包含 `<title>` 元素"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "所有可聚焦的元素都必须具有独一无二的 `id`，以确保能被辅助技术识别。[了解如何修正重复的 `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)。"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "处于活动状态的可聚焦元素的 `[id]` 属性不是独一无二的"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "处于活动状态的可聚焦元素的 `[id]` 属性都是独一无二的"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "ARIA ID 的值必须独一无二，才能防止其他实例被辅助技术忽略。[了解如何修正重复的 ARIA ID](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)。"
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "服务器后端延迟"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "“`unload`”事件不会可靠地触发，而且监听该事件可能会妨碍系统实施“往返缓存”之类的浏览器优化策略。请改用“`pagehide`”或“`visibilitychange`”事件。[详细了解如何卸载事件监听器](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "注册“`unload`”事件监听器"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "避免使用“`unload`”事件监听器"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "未合成的动画可能会卡顿并增加 CLS。[了解如何避免使用未合成的动画](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt 有效"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "交互式元素（例如按钮和链接）应足够大 (48x48px)，或者周围有足够的空间以便用户轻松点按，且不遮挡其他元素。[详细了解点按目标](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)。"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} 的点按目标大小合适"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "点按目标过小，因为缺少已针对移动设备屏幕进行优化的 viewport meta 标记"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "点按目标的大小不合适"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "点按目标重叠"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "点按目标"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "点按目标的大小合适"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "请确保服务器响应主文档的用时较短，因为这会影响到所有其他请求的响应时长。[详细了解 Time to First Byte 指标](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)。"
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "展示延迟时间"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "处理时间"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "改进首次绘制"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "这些建议可以帮助您提高网页加载速度。它们不会[直接影响](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/)性能得分。"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "优化建议"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "指标"
@@ -3399,7 +3354,7 @@
     "message": "已通过的审核"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "除了 [Chrome 更新后的可安装性标准](https://developer.chrome.com/blog/update-install-criteria)之外，Lighthouse 还将在未来的版本中弃用 PWA 类别。请参阅[更新后的 PWA 文档](https://developer.chrome.com/docs/devtools/progressive-web-apps/)，了解今后的 PWA 测试。"
+    "message": "根据 [Chrome 更新后的可安装性标准](https://developer.chrome.com/blog/update-install-criteria)，Lighthouse 将在未来的版本中弃用 PWA 类别。请参阅[更新后的 PWA 文档](https://developer.chrome.com/docs/devtools/progressive-web-apps/)，了解今后的 PWA 测试。"
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "初始网页加载"

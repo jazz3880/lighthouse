@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-/** @typedef {import('./dependency-graph/base-node.js').Node} Node */
-/** @typedef {import('./dependency-graph/simulator/simulator.js').CompleteNodeTiming} CompleteNodeTiming */
+/** @typedef {import('./lantern/base-node.js').Node<LH.Artifacts.NetworkRequest>} Node */
+/** @typedef {import('./lantern/simulator/simulator.js').CompleteNodeTiming} CompleteNodeTiming */
 
 /**
  * @param {Map<Node, CompleteNodeTiming>} nodeTimings
@@ -32,9 +32,11 @@ function convertNodeTimingsToTrace(nodeTimings) {
       // Represent all CPU work that was bundled in a task as an EvaluateScript event
       traceEvents.push(...createFakeTaskEvents(node, timing));
     } else {
+      /** @type {LH.Artifacts.NetworkRequest} */
+      const record = node.record;
       // Ignore data URIs as they don't really add much value
-      if (/^data/.test(node.record.url)) continue;
-      traceEvents.push(...createFakeNetworkEvents(requestId, node.record, timing));
+      if (/^data/.test(record.url)) continue;
+      traceEvents.push(...createFakeNetworkEvents(requestId, record, timing));
       requestId++;
     }
   }

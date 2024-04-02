@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Dokument sadrži element `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Svi elementi s mogućnošću fokusiranja moraju imati jedinstveni `id` kako bi bili vidljivi asistivnim tehnologijama. [Saznajte kako ispraviti duplicirani `id`](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Atributi `[id]` na aktivnim elementima koji se mogu fokusirati nisu jedinstveni"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Atributi `[id]` na aktivnim elementima koji se mogu fokusirati jedinstveni su"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Vrijednost ARIA ID-ja mora biti jedinstvena kako bi se spriječilo da asistivne tehnologije previde druge instance. [Saznajte kako ispraviti duplikate ARIA ID-jeva](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Pozadinske latencije poslužitelja"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Događaj `unload` ne aktivira se na pouzdan način i njegovo osluškivanje može spriječiti optimizacije preglednika kao što je predmemoriranje cijele stranice Umjesto toga upotrijebite događaj `pagehide` ili `visibilitychange`. [Saznajte više o uklanjanju slušatelja događaja](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Registrira se kao slušatelj za događaj `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Izbjegava slušatelje događaja za `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Animacije koje nisu kompozitne mogu biti lošije kvalitete i povisiti CLS. [Saznajte kako izbjeći nekompozitne animacije](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt je valjan"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Interaktivni elementi kao što su gumbi i veze trebali bi biti dovoljno veliki (48 x 48 px) ili bi oko njih trebalo biti dovoljno prostora da ih se može lako dodirnuti bez preklapanja s drugim elementima. [Saznajte više o ciljevima dodira](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} ciljeva dodira odgovarajuće veličine"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Ciljevi dodira nisu dovoljno veliki jer nijedna metaoznaka vidljivog dijela nije optimizirana za zaslone mobilnih uređaja"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Ciljevi dodira nisu odgovarajuće veličine"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Preklapanje cilja"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Cilj dodira"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Ciljevi dodira odgovarajuće su veličine"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Neka vrijeme odgovora poslužitelja za glavni dokument bude kratko jer svi ostali zahtjevi ovise o njemu. [Saznajte više o mjernom podatku Vrijeme do prvog bajta](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Kašnjenje prezentacije"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Vrijeme obrade"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Poboljšanja prvog bojenja"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Ovi prijedlozi mogu vam pomoći da brže učitate stranicu. Oni ne [utječu izravno](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) na rezultat izvedbe."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Prilike"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Mjerni podaci"
@@ -3399,7 +3354,7 @@
     "message": "Uspješni pregledi"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Uz [Chromeove ažurirane kriterije prikladnosti za instalaciju](https://developer.chrome.com/blog/update-install-criteria) Lighthouse će u budućem izdanju obustaviti kategoriju PWA. Pogledajte [ažuriranu dokumentaciju o PWA-u](https://developer.chrome.com/docs/devtools/progressive-web-apps/) za buduće testiranje PWA-a."
+    "message": "U skladu s [Chromeovim ažuriranim kriterijima prikladnosti za instalaciju](https://developer.chrome.com/blog/update-install-criteria), Lighthouse će u budućem izdanju obustaviti PWA kategoriju. Pogledajte [ažuriranu dokumentaciju o PWA-u](https://developer.chrome.com/docs/devtools/progressive-web-apps/) za buduće testiranje PWA-a."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Početno učitavanje stranice"

@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "[Ðöçûméñţ ĥåš å ᐅ`<title>`ᐊ éļéméñţ one two three four five six]"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "[Åļļ ƒöçûšåбļé éļéméñţš mûšţ ĥåvé å ûñîqûé ᐅ`id`ᐊ ţö éñšûŕé ţĥåţ ţĥéý'ŕé vîšîбļé ţö åššîšţîvé ţéçĥñöļöĝîéš. ᐅ[ᐊĻéåŕñ ĥöŵ ţö ƒîx ðûþļîçåţé ᐅ`id`ᐊšᐅ](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone]"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "[ᐅ`[id]`ᐊ åţţŕîбûţéš öñ åçţîvé, ƒöçûšåбļé éļéméñţš åŕé ñöţ ûñîqûé one two three four five six seven eight nine ten eleven twelve]"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "[ᐅ`[id]`ᐊ åţţŕîбûţéš öñ åçţîvé, ƒöçûšåбļé éļéméñţš åŕé ûñîqûé one two three four five six seven eight nine ten eleven]"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "[Ţĥé våļûé öƒ åñ ÅŔÎÅ ÎÐ mûšţ бé ûñîqûé ţö þŕévéñţ öţĥéŕ îñšţåñçéš ƒŕöm бéîñĝ övéŕļööķéð бý åššîšţîvé ţéçĥñöļöĝîéš. ᐅ[ᐊĻéåŕñ ĥöŵ ţö ƒîx ðûþļîçåţé ÅŔÎÅ ÎÐšᐅ](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree]"
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "[Šéŕvéŕ Бåçķéñð Ļåţéñçîéš one two three]"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "[Ţĥé ᐅ`unload`ᐊ évéñţ ðöéš ñöţ ƒîŕé ŕéļîåбļý åñð ļîšţéñîñĝ ƒöŕ îţ çåñ þŕévéñţ бŕöŵšéŕ öþţîmîžåţîöñš ļîķé ţĥé Бåçķ-Föŕŵåŕð Çåçĥé. Ûšé ᐅ`pagehide`ᐊ öŕ ᐅ`visibilitychange`ᐊ évéñţš îñšţéåð. ᐅ[ᐊĻéåŕñ möŕé åбöûţ ûñļöåð évéñţ ļîšţéñéŕšᐅ](https://web.dev/articles/bfcache#never_use_the_unload_event)ᐊ one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour twentyfive twentysix twentyseven]"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "[Ŕéĝîšţéŕš åñ ᐅ`unload`ᐊ ļîšţéñéŕ one two three four five six]"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "[Åvöîðš ᐅ`unload`ᐊ évéñţ ļîšţéñéŕš one two three four five six]"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "[Åñîmåţîöñš ŵĥîçĥ åŕé ñöţ çömþöšîţéð çåñ бé ĵåñķý åñð îñçŕéåšé ÇĻŠ. ᐅ[ᐊĻéåŕñ ĥöŵ ţö åvöîð ñöñ-çömþöšîţéð åñîmåţîöñšᐅ](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)ᐊ one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen]"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "[ŕöбöţš.ţxţ îš våļîð one two three]"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "[Îñţéŕåçţîvé éļéméñţš ļîķé бûţţöñš åñð ļîñķš šĥöûļð бé ļåŕĝé éñöûĝĥ (48x48þx), öŕ ĥåvé éñöûĝĥ šþåçé åŕöûñð ţĥém, ţö бé éåšý éñöûĝĥ ţö ţåþ ŵîţĥöûţ övéŕļåþþîñĝ öñţö öţĥéŕ éļéméñţš. ᐅ[ᐊĻéåŕñ möŕé åбöûţ ţåþ ţåŕĝéţšᐅ](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour twentyfive twentysix twentyseven twentyeight]"
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "[ᐅ{decimalProportion, number, percent}ᐊ åþþŕöþŕîåţéļý šîžéð ţåþ ţåŕĝéţš one two three four five six seven eight]"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "[Ţåþ ţåŕĝéţš åŕé ţöö šmåļļ бéçåûšé ţĥéŕé'š ñö vîéŵþöŕţ méţå ţåĝ öþţîmîžéð ƒöŕ möбîļé šçŕééñš one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen]"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "[Ţåþ ţåŕĝéţš åŕé ñöţ šîžéð åþþŕöþŕîåţéļý one two three four five six seven eight]"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "[Övéŕļåþþîñĝ Ţåŕĝéţ one two three]"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "[Ţåþ Ţåŕĝéţ one two]"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "[Ţåþ ţåŕĝéţš åŕé šîžéð åþþŕöþŕîåţéļý one two three four five six seven eight]"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "[Ķééþ ţĥé šéŕvéŕ ŕéšþöñšé ţîmé ƒöŕ ţĥé måîñ ðöçûméñţ šĥöŕţ бéçåûšé åļļ öţĥéŕ ŕéqûéšţš ðéþéñð öñ îţ. ᐅ[ᐊĻéåŕñ möŕé åбöûţ ţĥé Ţîmé ţö Fîŕšţ Бýţé méţŕîçᐅ](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)ᐊ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo]"
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "[Þŕéšéñţåţîöñ ðéļåý one two three]"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "[Þŕöçéššîñĝ ţîmé one two]"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "[Fîŕšţ Þåîñţ Îmþŕövéméñţš one two three]"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "[Ţĥéšé šûĝĝéšţîöñš çåñ ĥéļþ ýöûŕ þåĝé ļöåð ƒåšţéŕ. Ţĥéý ðöñ'ţ ᐅ[ᐊðîŕéçţļý åƒƒéçţᐅ](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/)ᐊ ţĥé Þéŕƒöŕmåñçé šçöŕé. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen]"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "[Öþþöŕţûñîţîéš one two]"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "[Méţŕîçš one]"
@@ -3399,7 +3354,7 @@
     "message": "[Þåššéð åûðîţš one two]"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "[Åļöñĝšîðé ᐅ[ᐊÇĥŕömé’š ûþðåţéð Îñšţåļļåбîļîţý Çŕîţéŕîåᐅ](https://developer.chrome.com/blog/update-install-criteria)ᐊ, Ļîĝĥţĥöûšé ŵîļļ бé ðéþŕéçåţîñĝ ţĥé ÞŴÅ çåţéĝöŕý îñ å ƒûţûŕé ŕéļéåšé. Þļéåšé ŕéƒéŕ ţö ţĥé ᐅ[ᐊûþðåţéð ÞŴÅ ðöçûméñţåţîöñᐅ](https://developer.chrome.com/docs/devtools/progressive-web-apps/)ᐊ ƒöŕ ƒûţûŕé ÞŴÅ ţéšţîñĝ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour twentyfive twentysix twentyseven]"
+    "message": "[Åš þéŕ ᐅ[ᐊÇĥŕömé’š ûþðåţéð Îñšţåļļåбîļîţý Çŕîţéŕîåᐅ](https://developer.chrome.com/blog/update-install-criteria)ᐊ, Ļîĝĥţĥöûšé ŵîļļ бé ðéþŕéçåţîñĝ ţĥé ÞŴÅ çåţéĝöŕý îñ å ƒûţûŕé ŕéļéåšé. Þļéåšé ŕéƒéŕ ţö ţĥé ᐅ[ᐊûþðåţéð ÞŴÅ ðöçûméñţåţîöñᐅ](https://developer.chrome.com/docs/devtools/progressive-web-apps/)ᐊ ƒöŕ ƒûţûŕé ÞŴÅ ţéšţîñĝ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyone twentytwo twentythree twentyfour twentyfive twentysix twentyseven]"
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "[Îñîţîåļ þåĝé ļöåð one two three]"

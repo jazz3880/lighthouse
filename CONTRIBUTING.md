@@ -79,8 +79,8 @@ A PR adding or changing a gatherer almost always needs to include the following:
 1. **Golden artifacts**: `sample_v2.json` is generated from a set of artifacts that come from running LH against `dbw_tester.html`. Those artifacts likely need to be updated after gatherer changes with `yarn update:sample-artifacts`, but limit to just the artifact being altered if possible. For example:
 
    ```sh
-   # update just the ScriptElements artifact
-   yarn update:sample-artifacts ScriptElements
+   # update just the Scripts artifact
+   yarn update:sample-artifacts Scripts
    ```
 
    This command works for updating `yarn update:sample-artifacts DevtoolsLog` or `Trace` as well, but the resulting `sample_v2.json` churn may be extensive and you might be better off editing manually.

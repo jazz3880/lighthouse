@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "Tài liệu có phần tử `<title>`"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "Để có thể hiển thị với các công nghệ hỗ trợ, `id` của các phần tử có thể lấy tiêu điểm không được trùng nhau. [Tìm hiểu cách khắc phục các `id` trùng lặp](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "Các thuộc tính `[id]` trên những phần tử có thể lấy tiêu điểm đang hoạt động bị trùng nhau"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "Các thuộc tính `[id]` trên những phần tử có thể lấy tiêu điểm đang hoạt động là duy nhất"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "Để các công nghệ hỗ trợ không bỏ qua các phiên bản khác, giá trị mã nhận dạng của Ứng dụng Internet phong phú dễ dùng (ARIA) không được trùng nhau. [Tìm hiểu cách khắc phục mã nhận dạng trùng lặp của Ứng dụng Internet phong phú dễ dùng (ARIA)](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "Thời gian dưới nền của máy chủ"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "Sự kiện `unload` kích hoạt không ổn định và việc làm theo sự kiện này có thể ngăn các hoạt động tối ưu hoá trình duyệt, chẳng hạn như Bộ nhớ đệm cho thao tác tiến/lùi. Hãy chuyển sang dùng sự kiện `pagehide` hoặc `visibilitychange`. [Tìm hiểu thêm về trình nghe sự kiện huỷ tải](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "Đăng ký trình xử lý sự kiện `unload`"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "Tránh dùng trình xử lý sự kiện `unload`"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "Các ảnh động không được ghép có thể kém chất lượng và làm tăng CLS (Điểm số tổng hợp về mức thay đổi bố cục). [Tìm hiểu cách tránh ảnh động không được ghép](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt hợp lệ"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "Các phần tử tương tác, chẳng hạn như nút và đường liên kết, cần có kích thước đủ lớn (48 x 48 pixel) hoặc khoảng cách xung quanh đủ rộng sao cho dễ nhấn mà không chồng chéo lên các phần tử khác. [Tìm hiểu thêm về các mục tiêu nhấn](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} mục tiêu nhấn có kích thước phù hợp"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "Mục tiêu nhấn có kích thước quá nhỏ do không có thẻ meta viewport nào được tối ưu hóa cho màn hình thiết bị di động"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "Các mục tiêu nhấn có kích thước không phù hợp"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "Mục tiêu chồng chéo"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "Mục tiêu nhấn"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "Mục tiêu nhấn có kích thước phù hợp"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "Giữ cho máy chủ phản hồi trong thời gian ngắn đối với tài liệu chính vì tất cả các yêu cầu khác phụ thuộc vào thời gian đó. [Tìm hiểu thêm về chỉ số Thời gian cho byte đầu tiên](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "Độ trễ khi trình bày"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "Thời gian xử lý"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "Các thao tác để cải thiện thời gian hiển thị hình ảnh đầu tiên"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "Những đề xuất này có thể giúp trang của bạn tải nhanh hơn, chứ không [trực tiếp ảnh hưởng](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) đến Điểm hiệu suất."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "Cơ hội"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "Các chỉ số"
@@ -3399,7 +3354,7 @@
     "message": "Số lần kiểm tra đạt yêu cầu"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "Ngoài [điểm mới trong Tiêu chí về khả năng cài đặt của Chrome](https://developer.chrome.com/blog/update-install-criteria), Lighthouse sẽ ngừng sử dụng danh mục PWA trong bản phát hành sau này. Vui lòng tham khảo [tài liệu mới nhất về PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/) để biết quy trình kiểm thử PWA trong tương lai."
+    "message": "Theo [điểm mới trong Tiêu chí về khả năng cài đặt của Chrome](https://developer.chrome.com/blog/update-install-criteria), Lighthouse sẽ ngừng sử dụng danh mục PWA trong bản phát hành sau này. Vui lòng tham khảo [tài liệu mới nhất về PWA](https://developer.chrome.com/docs/devtools/progressive-web-apps/) để biết quy trình kiểm thử PWA trong tương lai."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "Lượt tải trang đầu tiên"

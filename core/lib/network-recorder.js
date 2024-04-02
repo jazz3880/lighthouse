@@ -10,7 +10,7 @@ import log from 'lighthouse-logger';
 
 import * as LH from '../../types/lh.js';
 import {NetworkRequest} from './network-request.js';
-import {PageDependencyGraph} from '../computed/page-dependency-graph.js';
+import {PageDependencyGraph} from '../lib/lantern/page-dependency-graph.js';
 
 /**
  * @typedef {{
@@ -257,7 +257,7 @@ class NetworkRecorder extends RequestEventEmitter {
     let candidates = recordsByURL.get(initiatorURL) || [];
     // The (valid) initiator must come before the initiated request.
     candidates = candidates.filter(c => {
-      return c.responseHeadersEndTime <= record.networkRequestTime &&
+      return c.responseHeadersEndTime <= record.rendererStartTime &&
           c.finished && !c.failed;
     });
     if (candidates.length > 1) {

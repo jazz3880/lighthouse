@@ -236,15 +236,6 @@
   "core/audits/accessibility/document-title.js | title": {
     "message": "ஆவணத்தில் `<title>` உறுப்பு உள்ளது"
   },
-  "core/audits/accessibility/duplicate-id-active.js | description": {
-    "message": "உதவிகரமான தொழில்நுட்பங்களுக்குத் தெரியும்வகையில் இருப்பதை உறுதிசெய்வதற்காக அனைத்து மையப்படுத்தக்கூடிய உறுப்புகளிடமும் தனித்துவ `id` இருக்க வேண்டும். [நகல் `id`களைச் சரிசெய்வது எப்படி என அறிக](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-active)."
-  },
-  "core/audits/accessibility/duplicate-id-active.js | failureTitle": {
-    "message": "செயலிலுள்ள, மையப்படுத்தக்கூடிய உறுப்புகளில் `[id]` பண்புக்கூறுகள் பிரத்தியேகமானவையாக இல்லை"
-  },
-  "core/audits/accessibility/duplicate-id-active.js | title": {
-    "message": "செயலிலுள்ள, மையப்படுத்தக்கூடிய உறுப்புகளில் `[id]` பண்புக்கூறுகள் பிரத்தியேகமானவையாக உள்ளன"
-  },
   "core/audits/accessibility/duplicate-id-aria.js | description": {
     "message": "உதவிகரமான தொழில்நுட்பங்களால் மற்ற நேர்வுகள் புறக்கணிக்கப்படுவதைத் தடுக்க, ARIA ஐடியின் மதிப்பு தனித்துவமானதாக இருக்க வேண்டும். [நகல் ARIA ஐடிகளைச் சரிசெய்வது எப்படி என அறிக](https://dequeuniversity.com/rules/axe/4.8/duplicate-id-aria)."
   },
@@ -1286,15 +1277,6 @@
   "core/audits/network-server-latency.js | title": {
     "message": "சேவையக பேக்எண்ட் தாமதங்கள்"
   },
-  "core/audits/no-unload-listeners.js | description": {
-    "message": "`unload` நிகழ்வு நம்பத்தகுந்த வகையில் தொடங்கவில்லை, பக்கங்கள் மேற்கொண்டு இதைக் கையாண்டால் உலாவியின் மேம்பட்ட திறன்கள் தடுக்கப்படலாம் (‘முன் பின் பக்கங்களைத் தற்காலிகமாகச் சேமித்தல்’ அம்சம் போன்றவை). இதற்குப் பதிலாக `pagehide` அல்லது `visibilitychange` நிகழ்வுகளைப் பயன்படுத்தவும். [அன்லோடு ஈவண்ட் லிசனர்கள் குறித்து மேலும் அறிக](https://web.dev/articles/bfcache#never_use_the_unload_event)"
-  },
-  "core/audits/no-unload-listeners.js | failureTitle": {
-    "message": "`unload` நிகழ்வு லிசனரைப் பதிவுசெய்கிறது"
-  },
-  "core/audits/no-unload-listeners.js | title": {
-    "message": "`unload` நிகழ்வு லிசனர்களைத் தவிர்க்கிறது"
-  },
   "core/audits/non-composited-animations.js | description": {
     "message": "தொகுக்கப்படாத அனிமேஷன்கள் மோசமாக இருக்கும், CLSஸை அதிகரிக்கும். [தொகுக்கப்படாத அனிமேஷன்களைத் தவிர்ப்பது எப்படி என அறிக](https://developer.chrome.com/docs/lighthouse/performance/non-composited-animations/)"
   },
@@ -1508,27 +1490,6 @@
   "core/audits/seo/robots-txt.js | title": {
     "message": "robots.txt செல்லுபடியாகிறது"
   },
-  "core/audits/seo/tap-targets.js | description": {
-    "message": "பட்டன்கள், இணைப்புகள் போன்ற பங்கேற்கத்தக்க உறுப்புகள் போதுமான அளவு பெரிதாகவோ (48x48px) அவற்றைச் சுற்றி போதுமான இடமோ இருக்க வேண்டும். இதனால் அவற்றைப் பிற உறுப்புகளின் குறுக்கீடு இல்லாமல் எளிதாகத் தட்டலாம். [தட்டல் இலக்குகள் குறித்து மேலும் அறிக](https://developer.chrome.com/docs/lighthouse/seo/tap-targets/)."
-  },
-  "core/audits/seo/tap-targets.js | displayValue": {
-    "message": "{decimalProportion, number, percent} தட்டுவதற்கான இலக்குகள் பொருத்தமான அளவில் இருக்கின்றன"
-  },
-  "core/audits/seo/tap-targets.js | explanationViewportMetaNotOptimized": {
-    "message": "மொபைல் திரைகளுக்கேற்ப காட்சிப் பகுதி மேலதிகத் தகவல் மேம்படுத்தப்படாததால் தட்டுவதற்கான இலக்குகள் மிகச் சிறிதாக உள்ளன"
-  },
-  "core/audits/seo/tap-targets.js | failureTitle": {
-    "message": "தட்டுவதற்கான இலக்குகள் சரியாக அளவிடப்படவில்லை"
-  },
-  "core/audits/seo/tap-targets.js | overlappingTargetHeader": {
-    "message": "குறுக்கிடும் இலக்கு"
-  },
-  "core/audits/seo/tap-targets.js | tapTargetHeader": {
-    "message": "தட்டுவதற்கான இலக்கு"
-  },
-  "core/audits/seo/tap-targets.js | title": {
-    "message": "தட்டுவதற்கான இலக்குகள் சரியாக அளவிடப்பட்டுள்ளன"
-  },
   "core/audits/server-response-time.js | description": {
     "message": "முதன்மை ஆவணத்திற்கான சேவையகப் பதிலளிப்பு நேரத்தைக் குறைவாக வைக்கவும். ஏனெனில் பிற அனைத்துக் கோரிக்கைகளும் அதைச் சார்ந்தே உள்ளன. ['முதல் பைட்டிற்கான நேரம்' அளவீடு குறித்து மேலும் அறிக](https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/)."
   },
@@ -1718,7 +1679,7 @@
   "core/audits/work-during-interaction.js | presentationDelay": {
     "message": "காட்சிப்படுத்தல் தாமதம்"
   },
-  "core/audits/work-during-interaction.js | processingTime": {
+  "core/audits/work-during-interaction.js | processingDuration": {
     "message": "செயலாக்க நேரம்"
   },
   "core/audits/work-during-interaction.js | title": {
@@ -1813,12 +1774,6 @@
   },
   "core/config/default-config.js | firstPaintImprovementsGroupTitle": {
     "message": "முதல் தோற்ற மேம்பாடுகள்"
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupDescription": {
-    "message": "இந்தப் பரிந்துரைகள் உங்கள் பக்கத்தை வேகமாக ஏற்ற உதவும். அவை செயல்திறன் ஸ்கோரை [நேரடியாகப் பாதிக்காது](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/)."
-  },
-  "core/config/default-config.js | loadOpportunitiesGroupTitle": {
-    "message": "பரிந்துரைகள்"
   },
   "core/config/default-config.js | metricGroupTitle": {
     "message": "அளவீடுகள்"
@@ -3399,7 +3354,7 @@
     "message": "தேர்ச்சி பெற்ற தணிக்கைகள்"
   },
   "report/renderer/report-utils.js | pwaRemovalMessage": {
-    "message": "[நிறுவலுக்கான Chromeமின் புதுப்பிக்கப்பட்ட நிபந்தனைகளை](https://developer.chrome.com/blog/update-install-criteria) அடுத்து, எதிர்கால வெளியீட்டில் PWA வகையை Lighthouse நிறுத்தும். எதிர்கால PWA சோதனைக்கு, [புதுப்பிக்கப்பட்ட PWA ஆவணத்தைப்](https://developer.chrome.com/docs/devtools/progressive-web-apps/) பார்க்கவும்."
+    "message": "[நிறுவலுக்கான Chromeமின் புதுப்பிக்கப்பட்ட நிபந்தனைகளின்படி](https://developer.chrome.com/blog/update-install-criteria), எதிர்கால வெளியீட்டில் இருந்து PWA வகையை Lighthouse நிறுத்தும். எதிர்கால PWA சோதனைக்கு, [புதுப்பிக்கப்பட்ட PWA ஆவணத்தைப்](https://developer.chrome.com/docs/devtools/progressive-web-apps/) பார்க்கவும்."
   },
   "report/renderer/report-utils.js | runtimeAnalysisWindow": {
     "message": "பக்கத்தின் முதற்கட்ட ஏற்றம்"

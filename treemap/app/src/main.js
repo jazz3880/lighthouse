@@ -138,7 +138,7 @@ class TreemapViewer {
 
   createBundleSelector() {
     const bundleSelectorEl = TreemapUtil.find('select.bundle-selector');
-    bundleSelectorEl.innerHTML = ''; // Clear just in case document was saved with Ctrl+S.
+    bundleSelectorEl.textContent = ''; // Clear just in case document was saved with Ctrl+S.
 
     /** @type {LH.Treemap.Selector[]} */
     const selectors = [];
@@ -428,7 +428,7 @@ class TreemapViewer {
         spacing: 10,
         caption: node => this.makeCaption(node),
       });
-      this.el.innerHTML = '';
+      this.el.textContent = '';
       this.treemap.render(this.el);
       TreemapUtil.find('.webtreemap-node').classList.add('webtreemap-node--root');
 
@@ -448,7 +448,7 @@ class TreemapViewer {
 
   createTable() {
     const tableEl = TreemapUtil.find('.lh-table');
-    tableEl.innerHTML = '';
+    tableEl.textContent = '';
 
     /** @type {Array<{node: NodeWithElement, name: string, bundleNode?: LH.Treemap.Node, resourceBytes: number, unusedBytes?: number}>} */
     const data = [];
@@ -692,7 +692,7 @@ function renderViewModeButtons(viewModes) {
   }
 
   const viewModesEl = TreemapUtil.find('.lh-modes');
-  viewModesEl.innerHTML = '';
+  viewModesEl.textContent = '';
   viewModes.forEach(render);
 }
 
@@ -792,8 +792,8 @@ class LighthouseTreemap {
     }
 
     if (treemapViewer) {
-      TreemapUtil.find('.lh-treemap').innerHTML = '';
-      TreemapUtil.find('.lh-table').innerHTML = '';
+      TreemapUtil.find('.lh-treemap').textContent = '';
+      TreemapUtil.find('.lh-table').textContent = '';
       treemapViewer.abortController.abort();
     }
     treemapViewer = new TreemapViewer(options, TreemapUtil.find('div.lh-treemap'));

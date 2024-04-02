@@ -12,14 +12,12 @@ const config = {
       title: 'Performance',
       auditRefs: [
         {id: 'oopif-iframe-test-audit', weight: 0},
-        {id: 'script-elements-test-audit', weight: 0},
       ],
     },
   },
   audits: [
     // Include an audit that *forces* the IFrameElements artifact to be used for our test.
     {path: 'oopif-iframe-test-audit'},
-    {path: 'script-elements-test-audit'},
   ],
   settings: {
     // This test runs in CI and hits the outside network of a live site.
@@ -86,7 +84,6 @@ const expectations = {
         isPositionFixed: false,
       },
     ],
-    ScriptElements: [],
     Scripts: [],
   },
 };

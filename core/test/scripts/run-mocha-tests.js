@@ -22,6 +22,9 @@ import glob from 'glob';
 import {LH_ROOT} from '../../../shared/root.js';
 import {mochaGlobalSetup, mochaGlobalTeardown} from '../test-env/mocha-setup.js';
 
+// Tell gatherer to use 100 quality for FPS tests.
+process.env.LH_FPS_TEST = '1';
+
 const failedTestsDir = `${LH_ROOT}/.tmp/failing-tests`;
 
 if (!isMainThread && parentPort) {
@@ -76,7 +79,6 @@ const testsToIsolate = new Set([
   'core/test/gather/timespan-runner-test.js',
   'core/test/user-flow-test.js',
   'core/test/gather/gatherers/dobetterweb/response-compression-test.js',
-  'core/test/gather/gatherers/script-elements-test.js',
   'core/test/runner-test.js',
 
   // These tend to timeout in puppeteer when run in parallel with other tests.
