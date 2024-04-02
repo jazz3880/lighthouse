@@ -4,16 +4,16 @@
   "mainDocumentUrl": "http://localhost:10200/dobetterweb/dbw_tester.html",
   "finalDisplayedUrl": "http://localhost:10200/dobetterweb/dbw_tester.html",
   "finalUrl": "http://localhost:10200/dobetterweb/dbw_tester.html",
-  "fetchTime": "2024-04-02T19:39:21.334Z",
+  "fetchTime": "2021-09-07T20:11:11.853Z",
   "gatherMode": "navigation",
   "runWarnings": [],
-  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4635.0 Safari/537.36",
   "environment": {
     "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.36",
-    "hostUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
-    "benchmarkIndex": 1839.5,
+    "hostUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4635.0 Safari/537.36",
+    "benchmarkIndex": 1549,
     "credits": {
-      "axe-core": "4.9.0"
+      "axe-core": "4.2.3"
     }
   },
   "audits": {
@@ -321,23 +321,23 @@
         "items": [
           {
             "source": "exception",
-            "description": "Error: A distinctive error\n    at http://localhost:10200/dobetterweb/dbw_tester.html:64:54",
+            "description": "Error: A distinctive error\n    at http://localhost:10200/dobetterweb/dbw_tester.html:56:54",
             "sourceLocation": {
               "type": "source-location",
               "url": "http://localhost:10200/dobetterweb/dbw_tester.html",
               "urlProvider": "network",
-              "line": 63,
+              "line": 55,
               "column": 53
             }
           },
           {
             "source": "exception",
-            "description": "Error: An ignored error\n    at http://localhost:10200/dobetterweb/dbw_tester.html:67:38",
+            "description": "Error: An ignored error\n    at http://localhost:10200/dobetterweb/dbw_tester.html:59:38",
             "sourceLocation": {
               "type": "source-location",
               "url": "http://localhost:10200/dobetterweb/dbw_tester.html",
               "urlProvider": "network",
-              "line": 66,
+              "line": 58,
               "column": 37
             }
           },
@@ -348,19 +348,8 @@
               "type": "source-location",
               "url": "http://localhost:10200/dobetterweb/dbw_tester.html",
               "urlProvider": "network",
-              "line": 510,
+              "line": 483,
               "column": 10
-            }
-          },
-          {
-            "source": "network",
-            "description": "Failed to load resource: net::ERR_CONNECTION_REFUSED",
-            "sourceLocation": {
-              "type": "source-location",
-              "url": "http://[::1]:10503/dobetterweb/empty_module.js?extra_header=Set-Cookie%3DFoo%253DBar%253BSameSite%253DNone%253BSecure%253B",
-              "urlProvider": "network",
-              "line": 0,
-              "column": 0
             }
           },
           {
@@ -391,6 +380,17 @@
             "sourceLocation": {
               "type": "source-location",
               "url": "http://localhost:10200/favicon.ico",
+              "urlProvider": "network",
+              "line": 0,
+              "column": 0
+            }
+          },
+          {
+            "source": "network",
+            "description": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+            "sourceLocation": {
+              "type": "source-location",
+              "url": "http://localhost:10200/dobetterweb/unknown404.css?delay=200",
               "urlProvider": "network",
               "line": 0,
               "column": 0
@@ -905,7 +905,7 @@
             "node": {
               "type": "node",
               "lhId": "1-3-IMG",
-              "path": "2,HTML,1,BODY,18,IMG",
+              "path": "2,HTML,1,BODY,19,IMG",
               "selector": "body > img",
               "boundingRect": {
                 "top": 556,
@@ -927,65 +927,14 @@
     },
     "image-size-responsive": {
       "id": "image-size-responsive",
-      "title": "Serves images with low resolution",
+      "title": "Serves images with appropriate resolution",
       "description": "Image natural dimensions should be proportional to the display size and the pixel ratio to maximize image clarity. [Learn how to provide responsive images](https://web.dev/articles/serve-responsive-images).",
-      "score": 0,
+      "score": 1,
       "scoreDisplayMode": "binary",
       "details": {
         "type": "table",
-        "headings": [
-          {
-            "key": "node",
-            "valueType": "node",
-            "label": ""
-          },
-          {
-            "key": "url",
-            "valueType": "url",
-            "label": "URL"
-          },
-          {
-            "key": "displayedSize",
-            "valueType": "text",
-            "label": "Displayed size"
-          },
-          {
-            "key": "actualSize",
-            "valueType": "text",
-            "label": "Actual size"
-          },
-          {
-            "key": "expectedSize",
-            "valueType": "text",
-            "label": "Expected size"
-          }
-        ],
-        "items": [
-          {
-            "url": "http://localhost:10200/dobetterweb/lighthouse-480x318.jpg?isr1",
-            "node": {
-              "type": "node",
-              "lhId": "1-3-IMG",
-              "path": "2,HTML,1,BODY,18,IMG",
-              "selector": "body > img",
-              "boundingRect": {
-                "top": 556,
-                "bottom": 916,
-                "left": 252,
-                "right": 652,
-                "width": 400,
-                "height": 360
-              },
-              "snippet": "<img src=\"lighthouse-480x318.jpg?isr1\" width=\"400\" height=\"360\" style=\"position: absolute;\">",
-              "nodeLabel": "body > img"
-            },
-            "displayedSize": "400 x 360",
-            "actualSize": "480 x 318",
-            "actualPixels": 152640,
-            "expectedSize": "600 x 540",
-            "expectedPixels": 324000
-          }
-        ]
+        "headings": [],
+        "items": []
       }
     },
     "deprecations": {
@@ -1011,23 +960,23 @@
         ],
         "items": [
           {
-            "value": "Synchronous `XMLHttpRequest` on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.",
+            "value": "'window.webkitStorageInfo' is deprecated. Please use 'navigator.webkitTemporaryStorage' or 'navigator.webkitPersistentStorage' instead.",
             "source": {
               "type": "source-location",
-              "url": "http://localhost:10200/dobetterweb/dbw_tester.html",
+              "url": "http://localhost:10200/dobetterweb/dbw_tester.js",
               "urlProvider": "network",
-              "line": 384,
-              "column": 6
+              "line": 13,
+              "column": 9
             }
           },
           {
-            "value": "UnloadHandler",
+            "value": "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.",
             "source": {
               "type": "source-location",
               "url": "http://localhost:10200/dobetterweb/dbw_tester.html",
               "urlProvider": "network",
-              "line": 399,
-              "column": 9
+              "line": 369,
+              "column": 6
             }
           }
         ]
@@ -2367,15 +2316,15 @@
               {
                 "node": {
                   "type": "node",
-                  "lhId": "page-2-H2",
-                  "path": "2,HTML,1,BODY,9,DIV,2,H2",
+                  "lhId": "page-13-H2",
+                  "path": "3,HTML,1,BODY,9,DIV,0,H2",
                   "selector": "body > div > h2#toppy",
                   "boundingRect": {
                     "top": 336,
-                    "bottom": 363,
+                    "bottom": 364,
                     "left": 8,
-                    "right": 404,
-                    "width": 396,
+                    "right": 352,
+                    "width": 344,
                     "height": 28
                   },
                   "snippet": "<h2 id=\"toppy\" style=\"background-image:url('');\">",
@@ -2469,98 +2418,10 @@
         "items": [
           {
             "node": {
-              "type": "node",
-              "lhId": "page-3-DIV",
-              "path": "2,HTML,1,BODY,9,DIV",
-              "selector": "body > div",
-              "boundingRect": {
-                "top": 336,
-                "bottom": 537,
-                "left": 8,
-                "right": 404,
-                "width": 396,
-                "height": 201
-              },
-              "snippet": "<div>",
-              "nodeLabel": "Do better web tester page\nHi there! "
+              "type": "code",
+              "value": "Other"
             },
-            "score": 0.029874201167186323
-          },
-          {
-            "node": {
-              "type": "node",
-              "lhId": "page-4-IMG",
-              "path": "2,HTML,1,BODY,26,IMG",
-              "selector": "body > img",
-              "boundingRect": {
-                "top": 640,
-                "bottom": 1102,
-                "left": 8,
-                "right": 819,
-                "width": 811,
-                "height": 462
-              },
-              "snippet": "<img src=\"lighthouse-rotating.gif\" width=\"811\" height=\"462\">",
-              "nodeLabel": "body > img"
-            },
-            "score": 0.02125980203528817
-          },
-          {
-            "node": {
-              "type": "node",
-              "lhId": "page-0-OBJECT",
-              "path": "2,HTML,1,BODY,4,OBJECT",
-              "selector": "body > object#5934a",
-              "boundingRect": {
-                "top": 8,
-                "bottom": 158,
-                "left": 8,
-                "right": 308,
-                "width": 300,
-                "height": 150
-              },
-              "snippet": "<object id=\"5934a\">",
-              "nodeLabel": "body > object#5934a"
-            },
-            "score": 0.017993589964106868
-          },
-          {
-            "node": {
-              "type": "node",
-              "lhId": "page-1-OBJECT",
-              "path": "2,HTML,1,BODY,5,OBJECT",
-              "selector": "body > object#5934b",
-              "boundingRect": {
-                "top": 162,
-                "bottom": 312,
-                "left": 8,
-                "right": 308,
-                "width": 300,
-                "height": 150
-              },
-              "snippet": "<object id=\"5934b\">",
-              "nodeLabel": "body > object#5934b"
-            },
-            "score": 0.017993589964106868
-          },
-          {
-            "node": {
-              "type": "node",
-              "lhId": "page-5-IMG",
-              "path": "2,HTML,1,BODY,18,IMG",
-              "selector": "body > img",
-              "boundingRect": {
-                "top": 556,
-                "bottom": 916,
-                "left": 252,
-                "right": 652,
-                "width": 400,
-                "height": 360
-              },
-              "snippet": "<img src=\"lighthouse-480x318.jpg?isr1\" width=\"400\" height=\"360\" style=\"position: absolute;\">",
-              "nodeLabel": "body > img"
-            },
-            "score": 0.012454664386989254
+            "score": 0.09957584751767748
           }
         ]
       },
@@ -2600,53 +2461,9 @@
         ],
         "items": [
           {
-            "node": {
-              "type": "node",
-              "lhId": "page-3-DIV",
-              "path": "2,HTML,1,BODY,9,DIV",
-              "selector": "body > div",
-              "boundingRect": {
-                "top": 336,
-                "bottom": 537,
-                "left": 8,
-                "right": 404,
-                "width": 396,
-                "height": 201
-              },
-              "snippet": "<div>",
-              "nodeLabel": "Do better web tester page\nHi there! "
-            },
-            "score": 0.060146177116290604,
-            "subItems": {
-              "type": "subitems",
-              "items": [
-                {
-                  "extra": {
-                    "type": "url",
-                    "value": "http://localhost:10200/dobetterweb/dbw_tester.css?scriptActivated&delay=200"
-                  },
-                  "cause": "A late network request adjusted the page layout"
-                }
-              ]
-            }
+            "score": 0.060146177116290604
           },
           {
-            "node": {
-              "type": "node",
-              "lhId": "page-3-DIV",
-              "path": "2,HTML,1,BODY,9,DIV",
-              "selector": "body > div",
-              "boundingRect": {
-                "top": 336,
-                "bottom": 537,
-                "left": 8,
-                "right": 404,
-                "width": 396,
-                "height": 201
-              },
-              "snippet": "<div>",
-              "nodeLabel": "Do better web tester page\nHi there! "
-            },
             "score": 0.03942967040138687
           }
         ]
@@ -2786,16 +2603,16 @@
           {
             "node": {
               "type": "node",
-              "lhId": "page-6-DIV",
-              "path": "2,HTML,1,BODY,73,DIV",
+              "lhId": "page-16-DIV",
+              "path": "3,HTML,1,BODY,77,DIV",
               "selector": "body > div#animated-boi",
               "boundingRect": {
-                "top": 1242,
-                "bottom": 1263,
+                "top": 1317,
+                "bottom": 1337,
                 "left": 8,
-                "right": 404,
-                "width": 396,
-                "height": 21
+                "right": 352,
+                "width": 344,
+                "height": 20
               },
               "snippet": "<div id=\"animated-boi\">",
               "nodeLabel": "hi"
@@ -2839,40 +2656,40 @@
         ],
         "items": [
           {
-            "url": "blob:http://localhost:10200/4aba3f76-e29a-49d7-97c7-8459ac20882a",
+            "url": "blob:http://localhost:10200/8081f274-a0c6-440f-a9cc-be826a0e01d5",
             "node": {
               "type": "node",
               "lhId": "1-8-IMG",
-              "path": "2,HTML,1,BODY,61,IMG",
+              "path": "2,HTML,1,BODY,66,IMG",
               "selector": "body > img",
               "boundingRect": {
-                "top": 1220,
-                "bottom": 1236,
+                "top": 1263,
+                "bottom": 1279,
                 "left": 310,
                 "right": 326,
                 "width": 16,
                 "height": 16
               },
-              "snippet": "<img src=\"blob:http://localhost:10200/4aba3f76-e29a-49d7-97c7-8459ac20882a\">",
+              "snippet": "<img src=\"blob:http://localhost:10200/8081f274-a0c6-440f-a9cc-be826a0e01d5\">",
               "nodeLabel": "body > img"
             }
           },
           {
-            "url": "filesystem:http://localhost:10200/temporary/empty-0.8539514507939652.png",
+            "url": "filesystem:http://localhost:10200/temporary/empty-0.30045073591260474.png",
             "node": {
               "type": "node",
               "lhId": "1-9-IMG",
-              "path": "2,HTML,1,BODY,74,IMG",
+              "path": "2,HTML,1,BODY,78,IMG",
               "selector": "body > img",
               "boundingRect": {
-                "top": 1263,
-                "bottom": 1279,
+                "top": 1306,
+                "bottom": 1322,
                 "left": 8,
                 "right": 24,
                 "width": 16,
                 "height": 16
               },
-              "snippet": "<img src=\"filesystem:http://localhost:10200/temporary/empty-0.8539514507939652.png\">",
+              "snippet": "<img src=\"filesystem:http://localhost:10200/temporary/empty-0.30045073591260474.png\">",
               "nodeLabel": "body > img"
             }
           }
@@ -2927,15 +2744,15 @@
           {
             "node": {
               "type": "node",
-              "lhId": "page-2-H2",
-              "path": "2,HTML,1,BODY,9,DIV,2,H2",
+              "lhId": "page-13-H2",
+              "path": "3,HTML,1,BODY,9,DIV,0,H2",
               "selector": "body > div > h2#toppy",
               "boundingRect": {
                 "top": 336,
-                "bottom": 363,
+                "bottom": 364,
                 "left": 8,
-                "right": 404,
-                "width": 396,
+                "right": 352,
+                "width": 344,
                 "height": 28
               },
               "snippet": "<h2 id=\"toppy\" style=\"background-image:url('');\">",
@@ -3027,8 +2844,8 @@
         "nodes": [
           {
             "name": "http://localhost:10200/dobetterweb/dbw_tester.html",
-            "resourceBytes": 8414,
-            "unusedBytes": 985,
+            "resourceBytes": 7166,
+            "unusedBytes": 937,
             "children": [
               {
                 "name": "(inline) setTimeout(() =…",
@@ -3038,11 +2855,6 @@
               {
                 "name": "(inline) this.rel = 'sty…",
                 "resourceBytes": 23,
-                "unusedBytes": 0
-              },
-              {
-                "name": "(inline) // Set a mobile…",
-                "resourceBytes": 204,
                 "unusedBytes": 0
               },
               {
@@ -3056,24 +2868,19 @@
                 "unusedBytes": 0
               },
               {
-                "name": "(inline) const promise =…",
-                "resourceBytes": 184,
-                "unusedBytes": 0
-              },
-              {
                 "name": "(inline) setTimeout(() =…",
                 "resourceBytes": 194,
                 "unusedBytes": 0
               },
               {
                 "name": "(inline) // DOM Size has…",
-                "resourceBytes": 429,
+                "resourceBytes": 434,
                 "unusedBytes": 0
               },
               {
                 "name": "(inline) // Ensure gathe…",
-                "resourceBytes": 671,
-                "unusedBytes": 48
+                "resourceBytes": 480,
+                "unusedBytes": 0
               },
               {
                 "name": "(inline) window.Error = …",
@@ -3087,7 +2894,7 @@
               },
               {
                 "name": "(inline) function stampT…",
-                "resourceBytes": 5700,
+                "resourceBytes": 5060,
                 "unusedBytes": 847
               },
               {
@@ -3096,13 +2903,8 @@
                 "unusedBytes": 44
               },
               {
-                "name": "(inline) window.$ = {fn:…",
-                "resourceBytes": 39,
-                "unusedBytes": 0
-              },
-              {
                 "name": "(inline) function onInit…",
-                "resourceBytes": 368,
+                "resourceBytes": 373,
                 "unusedBytes": 0
               },
               {
@@ -3114,7 +2916,7 @@
           },
           {
             "name": "http://localhost:10200/dobetterweb/dbw_tester.js",
-            "resourceBytes": 233,
+            "resourceBytes": 824,
             "unusedBytes": 0
           },
           {
@@ -3124,7 +2926,12 @@
           {
             "name": "http://localhost:10200/dobetterweb/third_party/aggressive-promise-polyfill.js",
             "resourceBytes": 166320,
-            "unusedBytes": 94194
+            "unusedBytes": 43507
+          },
+          {
+            "name": "http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js",
+            "resourceBytes": 84245,
+            "unusedBytes": 59810
           }
         ]
       }
@@ -3171,8 +2978,13 @@
       "id": "aria-dialog-name",
       "title": "Elements with `role=\"dialog\"` or `role=\"alertdialog\"` have accessible names.",
       "description": "ARIA dialog elements without accessible names may prevent screen readers users from discerning the purpose of these elements. [Learn how to make ARIA dialog elements more accessible](https://dequeuniversity.com/rules/axe/4.9/aria-dialog-name).",
-      "score": null,
-      "scoreDisplayMode": "notApplicable"
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [],
+        "items": []
+      }
     },
     "aria-hidden-body": {
       "id": "aria-hidden-body",
@@ -3256,8 +3068,13 @@
       "id": "aria-text",
       "title": "Elements with the `role=text` attribute do not have focusable descendents.",
       "description": "Adding `role=text` around a text node split by markup enables VoiceOver to treat it as one phrase, but the element's focusable descendents will not be announced. [Learn more about the `role=text` attribute](https://dequeuniversity.com/rules/axe/4.9/aria-text).",
-      "score": null,
-      "scoreDisplayMode": "notApplicable"
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [],
+        "items": []
+      }
     },
     "aria-toggle-field-name": {
       "id": "aria-toggle-field-name",
@@ -3308,8 +3125,13 @@
       "id": "button-name",
       "title": "Buttons have an accessible name",
       "description": "When a button doesn't have an accessible name, screen readers announce it as \"button\", making it unusable for users who rely on screen readers. [Learn how to make buttons more accessible](https://dequeuniversity.com/rules/axe/4.9/button-name).",
-      "score": null,
-      "scoreDisplayMode": "notApplicable"
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [],
+        "items": []
+      }
     },
     "bypass": {
       "id": "bypass",
@@ -3419,16 +3241,16 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-0-HTML",
-              "path": "2,HTML",
+              "lhId": "5-48-HTML",
+              "path": "3,HTML",
               "selector": "html",
               "boundingRect": {
                 "top": 0,
-                "bottom": 1291,
+                "bottom": 1365,
                 "left": 0,
-                "right": 412,
-                "width": 412,
-                "height": 1291
+                "right": 360,
+                "width": 360,
+                "height": 1365
               },
               "snippet": "<html>",
               "nodeLabel": "html",
@@ -3443,10 +3265,6 @@
             "cat.language",
             "wcag2a",
             "wcag311",
-            "TTv5",
-            "TT11.a",
-            "EN-301-549",
-            "EN-9.3.1.1",
             "ACT"
           ]
         }
@@ -3463,8 +3281,13 @@
       "id": "html-xml-lang-mismatch",
       "title": "`<html>` element has an `[xml:lang]` attribute with the same base language as the `[lang]` attribute.",
       "description": "If the webpage does not specify a consistent language, then the screen reader might not announce the page's text correctly. [Learn more about the `lang` attribute](https://dequeuniversity.com/rules/axe/4.9/html-xml-lang-mismatch).",
-      "score": null,
-      "scoreDisplayMode": "notApplicable"
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [],
+        "items": []
+      }
     },
     "identical-links-same-purpose": {
       "id": "identical-links-same-purpose",
@@ -3496,18 +3319,18 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-1-IMG",
-              "path": "2,HTML,1,BODY,14,IMG",
+              "lhId": "5-49-IMG",
+              "path": "3,HTML,1,BODY,14,IMG",
               "selector": "body > img",
               "boundingRect": {
-                "top": 621,
-                "bottom": 636,
+                "top": 639,
+                "bottom": 654,
                 "left": 8,
                 "right": 128,
                 "width": 120,
                 "height": 15
               },
-              "snippet": "<img src=\"lighthouse-1024x680.jpg?iar1\" width=\"120\" height=\"15\">",
+              "snippet": "<img src=\"lighthouse-480x318.jpg?iar1\" width=\"120\" height=\"15\">",
               "nodeLabel": "body > img",
               "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
             }
@@ -3515,18 +3338,18 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-2-IMG",
-              "path": "2,HTML,1,BODY,16,IMG",
+              "lhId": "5-50-IMG",
+              "path": "3,HTML,1,BODY,17,IMG",
               "selector": "body > img",
               "boundingRect": {
-                "top": 556,
-                "bottom": 636,
+                "top": 574,
+                "bottom": 654,
                 "left": 132,
                 "right": 252,
                 "width": 120,
                 "height": 80
               },
-              "snippet": "<img loading=\"lazy\" src=\"lighthouse-1024x680.jpg?iar2\" width=\"120\" height=\"80\" fetchpriority=\"low\">",
+              "snippet": "<img loading=\"lazy\" src=\"lighthouse-480x318.jpg?iar2\" width=\"120\" height=\"80\">",
               "nodeLabel": "body > img",
               "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
             }
@@ -3534,18 +3357,18 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-3-IMG",
-              "path": "2,HTML,1,BODY,18,IMG",
+              "lhId": "5-51-IMG",
+              "path": "3,HTML,1,BODY,19,IMG",
               "selector": "body > img",
               "boundingRect": {
-                "top": 556,
-                "bottom": 916,
+                "top": 574,
+                "bottom": 814,
                 "left": 252,
-                "right": 652,
-                "width": 400,
-                "height": 360
+                "right": 612,
+                "width": 360,
+                "height": 240
               },
-              "snippet": "<img src=\"lighthouse-480x318.jpg?isr1\" width=\"400\" height=\"360\" style=\"position: absolute;\">",
+              "snippet": "<img src=\"lighthouse-480x318.jpg?isr1\" width=\"360\" height=\"240\" style=\"position: absolute;\">",
               "nodeLabel": "body > img",
               "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
             }
@@ -3553,18 +3376,18 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-4-IMG",
-              "path": "2,HTML,1,BODY,20,IMG",
+              "lhId": "5-52-IMG",
+              "path": "3,HTML,1,BODY,21,IMG",
               "selector": "body > img",
               "boundingRect": {
-                "top": 556,
-                "bottom": 636,
+                "top": 574,
+                "bottom": 654,
                 "left": 252,
                 "right": 372,
                 "width": 120,
                 "height": 80
               },
-              "snippet": "<img src=\"lighthouse-1024x680.jpg?isr2\" width=\"120\" height=\"80\" style=\"position: absolute;\">",
+              "snippet": "<img src=\"lighthouse-480x318.jpg?isr2\" width=\"120\" height=\"80\" style=\"position: absolute;\">",
               "nodeLabel": "body > img",
               "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
             }
@@ -3572,18 +3395,18 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-5-IMG",
-              "path": "2,HTML,1,BODY,22,IMG",
+              "lhId": "5-53-IMG",
+              "path": "3,HTML,1,BODY,23,IMG",
               "selector": "body > img",
               "boundingRect": {
-                "top": 556,
-                "bottom": 796,
+                "top": 574,
+                "bottom": 814,
                 "left": 252,
                 "right": 612,
                 "width": 360,
                 "height": 240
               },
-              "snippet": "<img src=\"lighthouse-1024x680.jpg?isr3\" width=\"360\" height=\"240\" style=\"image-rendering: pixelated; position: absolute;\">",
+              "snippet": "<img src=\"lighthouse-480x318.jpg?isr3\" width=\"360\" height=\"240\" style=\"image-rendering: pixelated; position: absolute;\">",
               "nodeLabel": "body > img",
               "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
             }
@@ -3591,18 +3414,18 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-6-IMG",
-              "path": "2,HTML,1,BODY,24,IMG",
+              "lhId": "5-54-IMG",
+              "path": "3,HTML,1,BODY,25,IMG",
               "selector": "body > img",
               "boundingRect": {
-                "top": 556,
-                "bottom": 796,
+                "top": 574,
+                "bottom": 814,
                 "left": 252,
                 "right": 612,
                 "width": 360,
                 "height": 240
               },
-              "snippet": "<img src=\"http://localhost:10200/dobetterweb/lighthouse-1024x680.jpg\" srcset=\"lighthouse-1024x680.jpg 2x\" width=\"360\" height=\"240\" style=\"position: absolute;\">",
+              "snippet": "<img src=\"http://localhost:10200/dobetterweb/lighthouse-480x318.jpg\" srcset=\"lighthouse-480x318.jpg 2x\" width=\"360\" height=\"240\" style=\"position: absolute;\">",
               "nodeLabel": "body > img",
               "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
             }
@@ -3610,12 +3433,12 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-7-IMG",
-              "path": "2,HTML,1,BODY,26,IMG",
+              "lhId": "5-55-IMG",
+              "path": "3,HTML,1,BODY,27,IMG",
               "selector": "body > img",
               "boundingRect": {
-                "top": 640,
-                "bottom": 1102,
+                "top": 658,
+                "bottom": 1120,
                 "left": 8,
                 "right": 819,
                 "width": 811,
@@ -3629,18 +3452,18 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-8-IMG",
-              "path": "2,HTML,1,BODY,61,IMG",
+              "lhId": "5-56-IMG",
+              "path": "3,HTML,1,BODY,66,IMG",
               "selector": "body > img",
               "boundingRect": {
-                "top": 1220,
-                "bottom": 1236,
-                "left": 310,
-                "right": 326,
+                "top": 1295,
+                "bottom": 1311,
+                "left": 322,
+                "right": 338,
                 "width": 16,
                 "height": 16
               },
-              "snippet": "<img src=\"blob:http://localhost:10200/4aba3f76-e29a-49d7-97c7-8459ac20882a\">",
+              "snippet": "<img src=\"blob:http://localhost:10200/84c78bd5-a720-43b4-93e0-26591a9ff8ee\">",
               "nodeLabel": "body > img",
               "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
             }
@@ -3648,18 +3471,18 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-9-IMG",
-              "path": "2,HTML,1,BODY,74,IMG",
+              "lhId": "5-57-IMG",
+              "path": "3,HTML,1,BODY,78,IMG",
               "selector": "body > img",
               "boundingRect": {
-                "top": 1263,
-                "bottom": 1279,
+                "top": 1337,
+                "bottom": 1353,
                 "left": 8,
                 "right": 24,
                 "width": 16,
                 "height": 16
               },
-              "snippet": "<img src=\"filesystem:http://localhost:10200/temporary/empty-0.8539514507939652.png\">",
+              "snippet": "<img src=\"filesystem:http://localhost:10200/temporary/empty-0.48387978403091236.png\">",
               "nodeLabel": "body > img",
               "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
             }
@@ -3674,11 +3497,6 @@
             "wcag111",
             "section508",
             "section508.22.a",
-            "TTv5",
-            "TT7.a",
-            "TT7.b",
-            "EN-301-549",
-            "EN-9.1.1.1",
             "ACT"
           ]
         }
@@ -3714,8 +3532,13 @@
       "id": "label-content-name-mismatch",
       "title": "Elements with visible text labels have matching accessible names.",
       "description": "Visible text labels that do not match the accessible name can result in a confusing experience for screen reader users. [Learn more about accessible names](https://dequeuniversity.com/rules/axe/4.9/label-content-name-mismatch).",
-      "score": null,
-      "scoreDisplayMode": "notApplicable"
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [],
+        "items": []
+      }
     },
     "label": {
       "id": "label",
@@ -3740,16 +3563,16 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-10-INPUT",
-              "path": "2,HTML,1,BODY,56,INPUT",
+              "lhId": "5-41-INPUT",
+              "path": "3,HTML,1,BODY,61,INPUT",
               "selector": "body > input",
               "boundingRect": {
-                "top": 1198,
-                "bottom": 1220,
+                "top": 1274,
+                "bottom": 1295,
                 "left": 192,
-                "right": 339,
-                "width": 147,
-                "height": 22
+                "right": 345,
+                "width": 153,
+                "height": 21
               },
               "snippet": "<input type=\"password\" onpaste=\"event.preventDefault();\">",
               "nodeLabel": "body > input",
@@ -3759,16 +3582,16 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-11-INPUT",
-              "path": "2,HTML,1,BODY,58,INPUT",
+              "lhId": "5-42-INPUT",
+              "path": "3,HTML,1,BODY,63,INPUT",
               "selector": "body > input",
               "boundingRect": {
-                "top": 1221,
-                "bottom": 1242,
+                "top": 1296,
+                "bottom": 1317,
                 "left": 8,
-                "right": 155,
-                "width": 147,
-                "height": 22
+                "right": 161,
+                "width": 153,
+                "height": 21
               },
               "snippet": "<input type=\"password\">",
               "nodeLabel": "body > input",
@@ -3778,16 +3601,16 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-12-INPUT",
-              "path": "2,HTML,1,BODY,60,INPUT",
+              "lhId": "5-43-INPUT",
+              "path": "3,HTML,1,BODY,65,INPUT",
               "selector": "body > input",
               "boundingRect": {
-                "top": 1221,
-                "bottom": 1242,
-                "left": 159,
-                "right": 306,
-                "width": 147,
-                "height": 22
+                "top": 1296,
+                "bottom": 1317,
+                "left": 165,
+                "right": 318,
+                "width": 153,
+                "height": 21
               },
               "snippet": "<input type=\"password\" onpaste=\"return false;\">",
               "nodeLabel": "body > input",
@@ -3802,12 +3625,9 @@
             "cat.forms",
             "wcag2a",
             "wcag412",
+            "wcag131",
             "section508",
             "section508.22.n",
-            "TTv5",
-            "TT5.c",
-            "EN-301-549",
-            "EN-9.4.1.2",
             "ACT"
           ]
         }
@@ -3817,51 +3637,8 @@
       "id": "landmark-one-main",
       "title": "Document has a main landmark.",
       "description": "One main landmark helps screen reader users navigate a web page. [Learn more about landmarks](https://dequeuniversity.com/rules/axe/4.9/landmark-one-main).",
-      "score": 1,
-      "scoreDisplayMode": "informative",
-      "details": {
-        "type": "table",
-        "headings": [
-          {
-            "key": "node",
-            "valueType": "node",
-            "subItemsHeading": {
-              "key": "relatedNode",
-              "valueType": "node"
-            },
-            "label": "Failing Elements"
-          }
-        ],
-        "items": [
-          {
-            "node": {
-              "type": "node",
-              "lhId": "1-0-HTML",
-              "path": "2,HTML",
-              "selector": "html",
-              "boundingRect": {
-                "top": 0,
-                "bottom": 1291,
-                "left": 0,
-                "right": 412,
-                "width": 412,
-                "height": 1291
-              },
-              "snippet": "<html>",
-              "nodeLabel": "html",
-              "explanation": "Fix all of the following:\n  Document does not have a main landmark"
-            }
-          }
-        ],
-        "debugData": {
-          "type": "debugdata",
-          "impact": "moderate",
-          "tags": [
-            "cat.semantics",
-            "best-practice"
-          ]
-        }
-      }
+      "score": null,
+      "scoreDisplayMode": "notApplicable"
     },
     "link-name": {
       "id": "link-name",
@@ -3886,16 +3663,16 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-13-A",
-              "path": "2,HTML,1,BODY,52,A",
+              "lhId": "5-9-A",
+              "path": "3,HTML,1,BODY,57,A",
               "selector": "body > a",
               "boundingRect": {
-                "top": 1199,
-                "bottom": 1217,
+                "top": 1275,
+                "bottom": 1293,
                 "left": 192,
                 "right": 192,
                 "width": 0,
-                "height": 19
+                "height": 18
               },
               "snippet": "<a href=\"javascript:void(0)\" target=\"_blank\">",
               "nodeLabel": "body > a",
@@ -3905,16 +3682,16 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-14-A",
-              "path": "2,HTML,1,BODY,54,A",
+              "lhId": "5-10-A",
+              "path": "3,HTML,1,BODY,59,A",
               "selector": "body > a",
               "boundingRect": {
-                "top": 1199,
-                "bottom": 1217,
+                "top": 1275,
+                "bottom": 1293,
                 "left": 192,
                 "right": 192,
                 "width": 0,
-                "height": 19
+                "height": 18
               },
               "snippet": "<a href=\"mailto:inbox@email.com\" target=\"_blank\">",
               "nodeLabel": "body > a",
@@ -3928,15 +3705,10 @@
           "tags": [
             "cat.name-role-value",
             "wcag2a",
-            "wcag244",
             "wcag412",
+            "wcag244",
             "section508",
             "section508.22.a",
-            "TTv5",
-            "TT6.a",
-            "EN-301-549",
-            "EN-9.2.4.4",
-            "EN-9.4.1.2",
             "ACT"
           ]
         }
@@ -3989,52 +3761,10 @@
     },
     "object-alt": {
       "id": "object-alt",
-      "title": "`<object>` elements have alternate text",
+      "title": "`<object>` elements do not have alternate text",
       "description": "Screen readers cannot translate non-text content. Adding alternate text to `<object>` elements helps screen readers convey meaning to users. [Learn more about alt text for `object` elements](https://dequeuniversity.com/rules/axe/4.9/object-alt).",
-      "score": null,
-      "scoreDisplayMode": "notApplicable"
-    },
-    "select-name": {
-      "id": "select-name",
-      "title": "Select elements have associated label elements.",
-      "description": "Form elements without effective labels can create frustrating experiences for screen reader users. [Learn more about the `select` element](https://dequeuniversity.com/rules/axe/4.9/select-name).",
-      "score": null,
-      "scoreDisplayMode": "notApplicable"
-    },
-    "skip-link": {
-      "id": "skip-link",
-      "title": "Skip links are focusable.",
-      "description": "Including a skip link can help users skip to the main content to save time. [Learn more about skip links](https://dequeuniversity.com/rules/axe/4.9/skip-link).",
-      "score": null,
-      "scoreDisplayMode": "notApplicable"
-    },
-    "tabindex": {
-      "id": "tabindex",
-      "title": "No element has a `[tabindex]` value greater than 0",
-      "description": "A value greater than 0 implies an explicit navigation ordering. Although technically valid, this often creates frustrating experiences for users who rely on assistive technologies. [Learn more about the `tabindex` attribute](https://dequeuniversity.com/rules/axe/4.9/tabindex).",
-      "score": null,
-      "scoreDisplayMode": "notApplicable"
-    },
-    "table-duplicate-name": {
-      "id": "table-duplicate-name",
-      "title": "Tables have different content in the summary attribute and `<caption>`.",
-      "description": "The summary attribute should describe the table structure, while `<caption>` should have the onscreen title. Accurate table mark-up helps users of screen readers. [Learn more about summary and caption](https://dequeuniversity.com/rules/axe/4.9/table-duplicate-name).",
-      "score": null,
-      "scoreDisplayMode": "notApplicable"
-    },
-    "table-fake-caption": {
-      "id": "table-fake-caption",
-      "title": "Tables use `<caption>` instead of cells with the `[colspan]` attribute to indicate a caption.",
-      "description": "Screen readers have features to make navigating tables easier. Ensuring that tables use the actual caption element instead of cells with the `[colspan]` attribute may improve the experience for screen reader users. [Learn more about captions](https://dequeuniversity.com/rules/axe/4.9/table-fake-caption).",
-      "score": null,
-      "scoreDisplayMode": "notApplicable"
-    },
-    "target-size": {
-      "id": "target-size",
-      "title": "Touch targets have sufficient size and spacing.",
-      "description": "Touch targets with sufficient size and spacing help users who may have difficulty targeting small controls to activate the targets. [Learn more about touch targets](https://dequeuniversity.com/rules/axe/4.9/target-size).",
-      "score": 1,
-      "scoreDisplayMode": "informative",
+      "score": 0,
+      "scoreDisplayMode": "binary",
       "details": {
         "type": "table",
         "headings": [
@@ -4052,217 +3782,39 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-10-INPUT",
-              "path": "2,HTML,1,BODY,56,INPUT",
-              "selector": "body > input",
+              "lhId": "5-58-OBJECT",
+              "path": "3,HTML,1,BODY,4,OBJECT",
+              "selector": "body > object#5934a",
               "boundingRect": {
-                "top": 1198,
-                "bottom": 1220,
-                "left": 192,
-                "right": 339,
-                "width": 147,
-                "height": 22
-              },
-              "snippet": "<input type=\"password\" onpaste=\"event.preventDefault();\">",
-              "nodeLabel": "body > input",
-              "explanation": "Fix any of the following:\n  Target has insufficient size (147px by 21.5px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px."
-            },
-            "subItems": {
-              "type": "subitems",
-              "items": [
-                {
-                  "relatedNode": {
-                    "type": "node",
-                    "lhId": "1-15-A",
-                    "path": "2,HTML,1,BODY,34,A",
-                    "selector": "body > a",
-                    "boundingRect": {
-                      "top": 1106,
-                      "bottom": 1124,
-                      "left": 91,
-                      "right": 171,
-                      "width": 80,
-                      "height": 19
-                    },
-                    "snippet": "<a href=\"https://www.google.com/\" target=\"_blank\">",
-                    "nodeLabel": "external link"
-                  }
-                },
-                {
-                  "relatedNode": {
-                    "type": "node",
-                    "lhId": "1-16-A",
-                    "path": "2,HTML,1,BODY,44,A",
-                    "selector": "body > a",
-                    "boundingRect": {
-                      "top": 1161,
-                      "bottom": 1180,
-                      "left": 65,
-                      "right": 290,
-                      "width": 224,
-                      "height": 19
-                    },
-                    "snippet": "<a href=\"https://www.google.com/\" target=\"_blank\" rel=\"noopener\">",
-                    "nodeLabel": "external link that uses rel noopener"
-                  }
-                },
-                {
-                  "relatedNode": {
-                    "type": "node",
-                    "lhId": "1-17-A",
-                    "path": "2,HTML,1,BODY,48,A",
-                    "selector": "body > a",
-                    "boundingRect": {
-                      "top": 1180,
-                      "bottom": 1217,
-                      "left": 8,
-                      "right": 380,
-                      "width": 372,
-                      "height": 38
-                    },
-                    "snippet": "<a href=\"https://www.google.com/\" target=\"_blank\" rel=\"noopener noreferrer\">",
-                    "nodeLabel": "external link that uses rel noopener and noreferrer"
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "node": {
-              "type": "node",
-              "lhId": "1-11-INPUT",
-              "path": "2,HTML,1,BODY,58,INPUT",
-              "selector": "body > input",
-              "boundingRect": {
-                "top": 1221,
-                "bottom": 1242,
+                "top": 8,
+                "bottom": 158,
                 "left": 8,
-                "right": 155,
-                "width": 147,
-                "height": 22
+                "right": 308,
+                "width": 300,
+                "height": 150
               },
-              "snippet": "<input type=\"password\">",
-              "nodeLabel": "body > input",
-              "explanation": "Fix any of the following:\n  Target has insufficient size (147px by 21.5px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px."
-            },
-            "subItems": {
-              "type": "subitems",
-              "items": [
-                {
-                  "relatedNode": {
-                    "type": "node",
-                    "lhId": "1-15-A",
-                    "path": "2,HTML,1,BODY,34,A",
-                    "selector": "body > a",
-                    "boundingRect": {
-                      "top": 1106,
-                      "bottom": 1124,
-                      "left": 91,
-                      "right": 171,
-                      "width": 80,
-                      "height": 19
-                    },
-                    "snippet": "<a href=\"https://www.google.com/\" target=\"_blank\">",
-                    "nodeLabel": "external link"
-                  }
-                },
-                {
-                  "relatedNode": {
-                    "type": "node",
-                    "lhId": "1-16-A",
-                    "path": "2,HTML,1,BODY,44,A",
-                    "selector": "body > a",
-                    "boundingRect": {
-                      "top": 1161,
-                      "bottom": 1180,
-                      "left": 65,
-                      "right": 290,
-                      "width": 224,
-                      "height": 19
-                    },
-                    "snippet": "<a href=\"https://www.google.com/\" target=\"_blank\" rel=\"noopener\">",
-                    "nodeLabel": "external link that uses rel noopener"
-                  }
-                }
-              ]
+              "snippet": "<object id=\"5934a\">",
+              "nodeLabel": "body > object#5934a",
+              "explanation": "Fix any of the following:\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
             }
           },
           {
             "node": {
               "type": "node",
-              "lhId": "1-12-INPUT",
-              "path": "2,HTML,1,BODY,60,INPUT",
-              "selector": "body > input",
+              "lhId": "5-59-OBJECT",
+              "path": "3,HTML,1,BODY,5,OBJECT",
+              "selector": "body > object#5934b",
               "boundingRect": {
-                "top": 1221,
-                "bottom": 1242,
-                "left": 159,
-                "right": 306,
-                "width": 147,
-                "height": 22
+                "top": 162,
+                "bottom": 312,
+                "left": 8,
+                "right": 308,
+                "width": 300,
+                "height": 150
               },
-              "snippet": "<input type=\"password\" onpaste=\"return false;\">",
-              "nodeLabel": "body > input",
-              "explanation": "Fix any of the following:\n  Target has insufficient size (147px by 21.5px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 0px instead of at least 24px."
-            },
-            "subItems": {
-              "type": "subitems",
-              "items": [
-                {
-                  "relatedNode": {
-                    "type": "node",
-                    "lhId": "1-15-A",
-                    "path": "2,HTML,1,BODY,34,A",
-                    "selector": "body > a",
-                    "boundingRect": {
-                      "top": 1106,
-                      "bottom": 1124,
-                      "left": 91,
-                      "right": 171,
-                      "width": 80,
-                      "height": 19
-                    },
-                    "snippet": "<a href=\"https://www.google.com/\" target=\"_blank\">",
-                    "nodeLabel": "external link"
-                  }
-                },
-                {
-                  "relatedNode": {
-                    "type": "node",
-                    "lhId": "1-16-A",
-                    "path": "2,HTML,1,BODY,44,A",
-                    "selector": "body > a",
-                    "boundingRect": {
-                      "top": 1161,
-                      "bottom": 1180,
-                      "left": 65,
-                      "right": 290,
-                      "width": 224,
-                      "height": 19
-                    },
-                    "snippet": "<a href=\"https://www.google.com/\" target=\"_blank\" rel=\"noopener\">",
-                    "nodeLabel": "external link that uses rel noopener"
-                  }
-                },
-                {
-                  "relatedNode": {
-                    "type": "node",
-                    "lhId": "1-10-INPUT",
-                    "path": "2,HTML,1,BODY,56,INPUT",
-                    "selector": "body > input",
-                    "boundingRect": {
-                      "top": 1198,
-                      "bottom": 1220,
-                      "left": 192,
-                      "right": 339,
-                      "width": 147,
-                      "height": 22
-                    },
-                    "snippet": "<input type=\"password\" onpaste=\"event.preventDefault();\">",
-                    "nodeLabel": "body > input"
-                  }
-                }
-              ]
+              "snippet": "<object id=\"5934b\">",
+              "nodeLabel": "body > object#5934b",
+              "explanation": "Fix any of the following:\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
             }
           }
         ],
@@ -4270,19 +3822,83 @@
           "type": "debugdata",
           "impact": "serious",
           "tags": [
-            "cat.sensory-and-visual-cues",
-            "wcag22aa",
-            "wcag258"
+            "cat.text-alternatives",
+            "wcag2a",
+            "wcag111",
+            "section508",
+            "section508.22.a"
           ]
         }
       }
+    },
+    "select-name": {
+      "id": "select-name",
+      "title": "Select elements have associated label elements.",
+      "description": "Form elements without effective labels can create frustrating experiences for screen reader users. [Learn more about the `select` element](https://dequeuniversity.com/rules/axe/4.9/select-name).",
+      "score": null,
+      "scoreDisplayMode": "notApplicable"
+    },
+    "skip-link": {
+      "id": "skip-link",
+      "title": "Skip links are focusable.",
+      "description": "Including a skip link can help users skip to the main content to save time. [Learn more about skip links](https://dequeuniversity.com/rules/axe/4.9/skip-link).",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [],
+        "items": []
+      }
+    },
+    "tabindex": {
+      "id": "tabindex",
+      "title": "No element has a `[tabindex]` value greater than 0",
+      "description": "A value greater than 0 implies an explicit navigation ordering. Although technically valid, this often creates frustrating experiences for users who rely on assistive technologies. [Learn more about the `tabindex` attribute](https://dequeuniversity.com/rules/axe/4.9/tabindex).",
+      "score": null,
+      "scoreDisplayMode": "notApplicable"
+    },
+    "table-duplicate-name": {
+      "id": "table-duplicate-name",
+      "title": "Tables have different content in the summary attribute and `<caption>`.",
+      "description": "The summary attribute should describe the table structure, while `<caption>` should have the onscreen title. Accurate table mark-up helps users of screen readers. [Learn more about summary and caption](https://dequeuniversity.com/rules/axe/4.9/table-duplicate-name).",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [],
+        "items": []
+      }
+    },
+    "table-fake-caption": {
+      "id": "table-fake-caption",
+      "title": "Tables use `<caption>` instead of cells with the `[colspan]` attribute to indicate a caption.",
+      "description": "Screen readers have features to make navigating tables easier. Ensuring that tables use the actual caption element instead of cells with the `[colspan]` attribute may improve the experience for screen reader users. [Learn more about captions](https://dequeuniversity.com/rules/axe/4.9/table-fake-caption).",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [],
+        "items": []
+      }
+    },
+    "target-size": {
+      "id": "target-size",
+      "title": "Touch targets have sufficient size and spacing.",
+      "description": "Touch targets with sufficient size and spacing help users who may have difficulty targeting small controls to activate the targets. [Learn more about touch targets](https://dequeuniversity.com/rules/axe/4.9/target-size).",
+      "score": null,
+      "scoreDisplayMode": "notApplicable"
     },
     "td-has-header": {
       "id": "td-has-header",
       "title": "`<td>` elements in a large `<table>` have one or more table headers.",
       "description": "Screen readers have features to make navigating tables easier. Ensuring that `<td>` elements in a large table (3 or more cells in width and height) have an associated table header may improve the experience for screen reader users. [Learn more about table headers](https://dequeuniversity.com/rules/axe/4.9/td-has-header).",
-      "score": null,
-      "scoreDisplayMode": "notApplicable"
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "details": {
+        "type": "table",
+        "headings": [],
+        "items": []
+      }
     },
     "td-headers-attr": {
       "id": "td-headers-attr",
@@ -4706,32 +4322,32 @@
         "items": [
           {
             "url": "http://localhost:10200/dobetterweb/dbw_tester.css?delay=100",
-            "totalBytes": 665,
+            "totalBytes": 903,
             "wastedMs": 733
           },
           {
             "url": "http://localhost:10200/dobetterweb/unknown404.css?delay=200",
-            "totalBytes": 235,
+            "totalBytes": 209,
             "wastedMs": 883
           },
           {
             "url": "http://localhost:10200/dobetterweb/dbw_tester.css?delay=2200",
-            "totalBytes": 665,
+            "totalBytes": 903,
             "wastedMs": 883
           },
           {
             "url": "http://localhost:10200/dobetterweb/dbw_tester.css?delay=3000&capped",
-            "totalBytes": 665,
+            "totalBytes": 903,
             "wastedMs": 883
           },
           {
             "url": "http://localhost:10200/dobetterweb/dbw_tester.js",
-            "totalBytes": 486,
+            "totalBytes": 1052,
             "wastedMs": 883
           },
           {
             "url": "http://localhost:10200/dobetterweb/fcp-delayer.js?delay=5000",
-            "totalBytes": 249,
+            "totalBytes": 223,
             "wastedMs": 883
           }
         ],
@@ -4865,12 +4481,12 @@
       "description": "Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. [Learn how to reduce unused JavaScript](https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/).",
       "score": 0,
       "scoreDisplayMode": "metricSavings",
-      "numericValue": 820,
+      "numericValue": 300,
       "numericUnit": "millisecond",
-      "displayValue": "Potential savings of 92 KiB",
+      "displayValue": "Potential savings of 42 KiB",
       "metricSavings": {
         "FCP": 0,
-        "LCP": 800
+        "LCP": 300
       },
       "details": {
         "type": "opportunity",
@@ -4905,12 +4521,12 @@
           {
             "url": "http://localhost:10200/dobetterweb/third_party/aggressive-promise-polyfill.js",
             "totalBytes": 166320,
-            "wastedBytes": 94194,
-            "wastedPercent": 56.634199134199136
+            "wastedBytes": 43507,
+            "wastedPercent": 26.158609908609908
           }
         ],
-        "overallSavingsMs": 820,
-        "overallSavingsBytes": 94194,
+        "overallSavingsMs": 300,
+        "overallSavingsBytes": 43507,
         "sortedBy": [
           "wastedBytes"
         ],
@@ -4918,7 +4534,7 @@
           "type": "debugdata",
           "metricSavings": {
             "FCP": 0,
-            "LCP": 820
+            "LCP": 300
           }
         }
       },
@@ -4930,13 +4546,13 @@
       "description": "Image formats like WebP and AVIF often provide better compression than PNG or JPEG, which means faster downloads and less data consumption. [Learn more about modern image formats](https://developer.chrome.com/docs/lighthouse/performance/uses-webp-images/).",
       "score": 0,
       "scoreDisplayMode": "metricSavings",
-      "numericValue": 1650,
+      "numericValue": 150,
       "numericUnit": "millisecond",
-      "displayValue": "Potential savings of 312 KiB",
+      "displayValue": "Potential savings of 76 KiB",
       "warnings": [],
       "metricSavings": {
         "FCP": 0,
-        "LCP": 1650
+        "LCP": 150
       },
       "details": {
         "type": "opportunity",
@@ -4964,138 +4580,18 @@
         ],
         "items": [
           {
-            "node": {
-              "type": "node",
-              "lhId": "1-1-IMG",
-              "path": "2,HTML,1,BODY,14,IMG",
-              "selector": "body > img",
-              "boundingRect": {
-                "top": 621,
-                "bottom": 636,
-                "left": 8,
-                "right": 128,
-                "width": 120,
-                "height": 15
-              },
-              "snippet": "<img src=\"lighthouse-1024x680.jpg?iar1\" width=\"120\" height=\"15\">",
-              "nodeLabel": "body > img"
-            },
-            "url": "http://localhost:10200/dobetterweb/lighthouse-1024x680.jpg?iar1",
+            "url": "http://localhost:10200/dobetterweb/lighthouse-480x318.jpg?iar1",
             "fromProtocol": true,
             "isCrossOrigin": false,
-            "totalBytes": 112710,
-            "wastedBytes": 48972.65,
-            "wastedWebpBytes": 27176
-          },
-          {
-            "node": {
-              "type": "node",
-              "lhId": "1-4-IMG",
-              "path": "2,HTML,1,BODY,20,IMG",
-              "selector": "body > img",
-              "boundingRect": {
-                "top": 556,
-                "bottom": 636,
-                "left": 252,
-                "right": 372,
-                "width": 120,
-                "height": 80
-              },
-              "snippet": "<img src=\"lighthouse-1024x680.jpg?isr2\" width=\"120\" height=\"80\" style=\"position: absolute;\">",
-              "nodeLabel": "body > img"
-            },
-            "url": "http://localhost:10200/dobetterweb/lighthouse-1024x680.jpg?isr2",
-            "fromProtocol": true,
-            "isCrossOrigin": false,
-            "totalBytes": 112710,
-            "wastedBytes": 48972.65,
-            "wastedWebpBytes": 27176
-          },
-          {
-            "node": {
-              "type": "node",
-              "lhId": "1-5-IMG",
-              "path": "2,HTML,1,BODY,22,IMG",
-              "selector": "body > img",
-              "boundingRect": {
-                "top": 556,
-                "bottom": 796,
-                "left": 252,
-                "right": 612,
-                "width": 360,
-                "height": 240
-              },
-              "snippet": "<img src=\"lighthouse-1024x680.jpg?isr3\" width=\"360\" height=\"240\" style=\"image-rendering: pixelated; position: absolute;\">",
-              "nodeLabel": "body > img"
-            },
-            "url": "http://localhost:10200/dobetterweb/lighthouse-1024x680.jpg?isr3",
-            "fromProtocol": true,
-            "isCrossOrigin": false,
-            "totalBytes": 112710,
-            "wastedBytes": 48972.65,
-            "wastedWebpBytes": 27176
-          },
-          {
-            "node": {
-              "type": "node",
-              "lhId": "1-6-IMG",
-              "path": "2,HTML,1,BODY,24,IMG",
-              "selector": "body > img",
-              "boundingRect": {
-                "top": 556,
-                "bottom": 796,
-                "left": 252,
-                "right": 612,
-                "width": 360,
-                "height": 240
-              },
-              "snippet": "<img src=\"http://localhost:10200/dobetterweb/lighthouse-1024x680.jpg\" srcset=\"lighthouse-1024x680.jpg 2x\" width=\"360\" height=\"240\" style=\"position: absolute;\">",
-              "nodeLabel": "body > img"
-            },
-            "url": "http://localhost:10200/dobetterweb/lighthouse-1024x680.jpg",
-            "fromProtocol": true,
-            "isCrossOrigin": false,
-            "totalBytes": 112710,
-            "wastedBytes": 48972.65,
-            "wastedWebpBytes": 27176
-          },
-          {
-            "node": {
-              "type": "node",
-              "lhId": "1-2-IMG",
-              "path": "2,HTML,1,BODY,16,IMG",
-              "selector": "body > img",
-              "boundingRect": {
-                "top": 556,
-                "bottom": 636,
-                "left": 132,
-                "right": 252,
-                "width": 120,
-                "height": 80
-              },
-              "snippet": "<img loading=\"lazy\" src=\"lighthouse-1024x680.jpg?iar2\" width=\"120\" height=\"80\" fetchpriority=\"low\">",
-              "nodeLabel": "body > img"
-            },
-            "url": "http://localhost:10200/dobetterweb/lighthouse-1024x680.jpg?iar2",
-            "fromProtocol": true,
-            "isCrossOrigin": false,
-            "totalBytes": 112710,
-            "wastedBytes": 48972.65,
-            "wastedWebpBytes": 27176
-          },
-          {
-            "url": "http://localhost:10200/dobetterweb/lighthouse-1024x680.jpg?redirected-lcp",
-            "fromProtocol": true,
-            "isCrossOrigin": false,
-            "totalBytes": 112710,
-            "wastedBytes": 48972.65,
-            "wastedWebpBytes": 27176
+            "totalBytes": 24620,
+            "wastedBytes": 12979.05,
+            "wastedWebpBytes": 9002
           },
           {
             "node": {
               "type": "node",
               "lhId": "1-3-IMG",
-              "path": "2,HTML,1,BODY,18,IMG",
+              "path": "2,HTML,1,BODY,19,IMG",
               "selector": "body > img",
               "boundingRect": {
                 "top": 556,
@@ -5116,7 +4612,31 @@
             "wastedWebpBytes": 9002
           },
           {
-            "url": "http://localhost:10200/dobetterweb/lighthouse-480x318.jpg?async",
+            "url": "http://localhost:10200/dobetterweb/lighthouse-480x318.jpg?isr2",
+            "fromProtocol": true,
+            "isCrossOrigin": false,
+            "totalBytes": 24620,
+            "wastedBytes": 12979.05,
+            "wastedWebpBytes": 9002
+          },
+          {
+            "url": "http://localhost:10200/dobetterweb/lighthouse-480x318.jpg?isr3",
+            "fromProtocol": true,
+            "isCrossOrigin": false,
+            "totalBytes": 24620,
+            "wastedBytes": 12979.05,
+            "wastedWebpBytes": 9002
+          },
+          {
+            "url": "http://localhost:10200/dobetterweb/lighthouse-480x318.jpg",
+            "fromProtocol": true,
+            "isCrossOrigin": false,
+            "totalBytes": 24620,
+            "wastedBytes": 12979.05,
+            "wastedWebpBytes": 9002
+          },
+          {
+            "url": "http://localhost:10200/dobetterweb/lighthouse-480x318.jpg?iar2",
             "fromProtocol": true,
             "isCrossOrigin": false,
             "totalBytes": 24620,
@@ -5124,8 +4644,8 @@
             "wastedWebpBytes": 9002
           }
         ],
-        "overallSavingsMs": 1650,
-        "overallSavingsBytes": 319794,
+        "overallSavingsMs": 150,
+        "overallSavingsBytes": 77874.3,
         "sortedBy": [
           "wastedBytes"
         ],
@@ -5133,7 +4653,7 @@
           "type": "debugdata",
           "metricSavings": {
             "FCP": 0,
-            "LCP": 1650
+            "LCP": 150
           }
         }
       },
@@ -5212,12 +4732,12 @@
           },
           {
             "url": "http://localhost:10200/dobetterweb/dbw_tester.html",
-            "totalBytes": 17735,
-            "wastedBytes": 11929
+            "totalBytes": 17393,
+            "wastedBytes": 11647
           }
         ],
         "overallSavingsMs": 1420,
-        "overallSavingsBytes": 146760,
+        "overallSavingsBytes": 146478,
         "sortedBy": [
           "wastedBytes"
         ],
@@ -5237,12 +4757,12 @@
       "description": "Serve images that are appropriately-sized to save cellular data and improve load time. [Learn how to size images](https://developer.chrome.com/docs/lighthouse/performance/uses-responsive-images/).",
       "score": 0,
       "scoreDisplayMode": "metricSavings",
-      "numericValue": 2250,
+      "numericValue": 1500,
       "numericUnit": "millisecond",
-      "displayValue": "Potential savings of 456 KiB",
+      "displayValue": "Potential savings of 339 KiB",
       "metricSavings": {
         "FCP": 0,
-        "LCP": 2250
+        "LCP": 1500
       },
       "details": {
         "type": "opportunity",
@@ -5288,14 +4808,14 @@
             },
             "url": "http://localhost:10200/dobetterweb/lighthouse-1024x680.jpg?iar1",
             "totalBytes": 112710,
-            "wastedBytes": 111815,
-            "wastedPercent": 99.2060028346239
+            "wastedBytes": 110696,
+            "wastedPercent": 98.21350637790376
           },
           {
             "node": {
               "type": "node",
               "lhId": "1-2-IMG",
-              "path": "2,HTML,1,BODY,16,IMG",
+              "path": "2,HTML,1,BODY,17,IMG",
               "selector": "body > img",
               "boundingRect": {
                 "top": 556,
@@ -5310,14 +4830,14 @@
             },
             "url": "http://localhost:10200/dobetterweb/lighthouse-1024x680.jpg?iar2",
             "totalBytes": 112710,
-            "wastedBytes": 107937,
-            "wastedPercent": 95.76534845132744
+            "wastedBytes": 101971,
+            "wastedPercent": 90.47203401548673
           },
           {
             "node": {
               "type": "node",
               "lhId": "1-4-IMG",
-              "path": "2,HTML,1,BODY,20,IMG",
+              "path": "2,HTML,1,BODY,21,IMG",
               "selector": "body > img",
               "boundingRect": {
                 "top": 556,
@@ -5332,14 +4852,14 @@
             },
             "url": "http://localhost:10200/dobetterweb/lighthouse-1024x680.jpg?isr2",
             "totalBytes": 112710,
-            "wastedBytes": 107937,
-            "wastedPercent": 95.76534845132744
+            "wastedBytes": 101971,
+            "wastedPercent": 90.47203401548673
           },
           {
             "node": {
               "type": "node",
               "lhId": "1-5-IMG",
-              "path": "2,HTML,1,BODY,22,IMG",
+              "path": "2,HTML,1,BODY,23,IMG",
               "selector": "body > img",
               "boundingRect": {
                 "top": 556,
@@ -5354,14 +4874,14 @@
             },
             "url": "http://localhost:10200/dobetterweb/lighthouse-1024x680.jpg?isr3",
             "totalBytes": 112710,
-            "wastedBytes": 69754,
-            "wastedPercent": 61.888136061946895
+            "wastedBytes": 16059,
+            "wastedPercent": 14.248306139380528
           },
           {
             "node": {
               "type": "node",
               "lhId": "1-6-IMG",
-              "path": "2,HTML,1,BODY,24,IMG",
+              "path": "2,HTML,1,BODY,25,IMG",
               "selector": "body > img",
               "boundingRect": {
                 "top": 556,
@@ -5376,12 +4896,12 @@
             },
             "url": "http://localhost:10200/dobetterweb/lighthouse-1024x680.jpg",
             "totalBytes": 112710,
-            "wastedBytes": 69754,
-            "wastedPercent": 61.888136061946895
+            "wastedBytes": 16059,
+            "wastedPercent": 14.248306139380528
           }
         ],
-        "overallSavingsMs": 2250,
-        "overallSavingsBytes": 467197,
+        "overallSavingsMs": 1500,
+        "overallSavingsBytes": 346756,
         "sortedBy": [
           "wastedBytes"
         ],
@@ -5389,7 +4909,7 @@
           "type": "debugdata",
           "metricSavings": {
             "FCP": 0,
-            "LCP": 2250
+            "LCP": 1500
           }
         }
       },
@@ -5587,9 +5107,9 @@
       "description": "A large DOM will increase memory usage, cause longer [style calculations](https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations), and produce costly [layout reflows](https://developers.google.com/speed/articles/reflow). [Learn how to avoid an excessive DOM size](https://developer.chrome.com/docs/lighthouse/performance/dom-size/).",
       "score": 1,
       "scoreDisplayMode": "informative",
-      "numericValue": 151,
+      "numericValue": 153,
       "numericUnit": "element",
-      "displayValue": "151 elements",
+      "displayValue": "153 elements",
       "metricSavings": {
         "TBT": 0
       },
@@ -5618,14 +5138,14 @@
             "value": {
               "type": "numeric",
               "granularity": 1,
-              "value": 151
+              "value": 153
             }
           },
           {
             "node": {
               "type": "node",
-              "lhId": "1-25-title",
-              "path": "2,HTML,1,BODY,9,DIV,5,svg,0,title",
+              "lhId": "5-44-title",
+              "path": "3,HTML,1,BODY,9,DIV,3,svg,0,title",
               "selector": "body > div > svg.social-facebook > title#social-facebook-5",
               "boundingRect": {
                 "top": 0,
@@ -5648,15 +5168,15 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-26-DIV",
-              "path": "2,HTML,1,BODY,6,DIV",
+              "lhId": "5-45-DIV",
+              "path": "3,HTML,1,BODY,6,DIV",
               "selector": "body > div#shadow-root-container",
               "boundingRect": {
                 "top": 316,
                 "bottom": 316,
                 "left": 8,
-                "right": 404,
-                "width": 396,
+                "right": 352,
+                "width": 344,
                 "height": 0
               },
               "snippet": "<div id=\"shadow-root-container\">",
@@ -5694,7 +5214,7 @@
               "type": "source-location",
               "url": "http://localhost:10200/dobetterweb/dbw_tester.html",
               "urlProvider": "network",
-              "line": 346,
+              "line": 340,
               "column": 24
             }
           },
@@ -5703,7 +5223,7 @@
               "type": "source-location",
               "url": "http://localhost:10200/dobetterweb/dbw_tester.html",
               "urlProvider": "network",
-              "line": 350,
+              "line": 344,
               "column": 40
             }
           }
@@ -5743,7 +5263,7 @@
               "type": "source-location",
               "url": "http://localhost:10200/dobetterweb/dbw_tester.html",
               "urlProvider": "network",
-              "line": 284,
+              "line": 278,
               "column": 11
             }
           },
@@ -5752,7 +5272,7 @@
               "type": "source-location",
               "url": "http://localhost:10200/dobetterweb/dbw_tester.html",
               "urlProvider": "network",
-              "line": 285,
+              "line": 279,
               "column": 11
             }
           },
@@ -5761,7 +5281,7 @@
               "type": "source-location",
               "url": "http://localhost:10200/dobetterweb/dbw_tester.html",
               "urlProvider": "network",
-              "line": 286,
+              "line": 280,
               "column": 11
             }
           }
@@ -5837,7 +5357,7 @@
               "type": "source-location",
               "url": "http://localhost:10200/dobetterweb/dbw_tester.html",
               "urlProvider": "network",
-              "line": 356,
+              "line": 350,
               "column": 15
             }
           }
@@ -5864,11 +5384,11 @@
             "node": {
               "type": "node",
               "lhId": "1-10-INPUT",
-              "path": "2,HTML,1,BODY,56,INPUT",
+              "path": "2,HTML,1,BODY,61,INPUT",
               "selector": "body > input",
               "boundingRect": {
-                "top": 1198,
-                "bottom": 1220,
+                "top": 1278,
+                "bottom": 1300,
                 "left": 192,
                 "right": 339,
                 "width": 147,
@@ -5883,11 +5403,11 @@
             "node": {
               "type": "node",
               "lhId": "1-12-INPUT",
-              "path": "2,HTML,1,BODY,60,INPUT",
+              "path": "2,HTML,1,BODY,65,INPUT",
               "selector": "body > input",
               "boundingRect": {
-                "top": 1221,
-                "bottom": 1242,
+                "top": 1301,
+                "bottom": 1322,
                 "left": 159,
                 "right": 306,
                 "width": 147,
@@ -5942,7 +5462,7 @@
               "type": "source-location",
               "url": "http://localhost:10200/dobetterweb/dbw_tester.html",
               "urlProvider": "network",
-              "line": 317,
+              "line": 311,
               "column": 5
             }
           }
@@ -6039,16 +5559,16 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-19-A",
-              "path": "2,HTML,1,BODY,36,A",
+              "lhId": "5-1-A",
+              "path": "3,HTML,1,BODY,41,A",
               "selector": "body > a",
               "boundingRect": {
-                "top": 1106,
-                "bottom": 1124,
+                "top": 1166,
+                "bottom": 1184,
                 "left": 175,
                 "right": 255,
                 "width": 80,
-                "height": 19
+                "height": 18
               },
               "snippet": "<a target=\"_blank\">",
               "nodeLabel": "external link"
@@ -6057,16 +5577,16 @@
           {
             "node": {
               "type": "node",
-              "lhId": "1-13-A",
-              "path": "2,HTML,1,BODY,52,A",
+              "lhId": "5-9-A",
+              "path": "3,HTML,1,BODY,57,A",
               "selector": "body > a",
               "boundingRect": {
-                "top": 1199,
-                "bottom": 1217,
+                "top": 1275,
+                "bottom": 1293,
                 "left": 192,
                 "right": 192,
                 "width": 0,
-                "height": 19
+                "height": 18
               },
               "snippet": "<a href=\"javascript:void(0)\" target=\"_blank\">",
               "nodeLabel": "body > a"
@@ -6092,13 +5612,8 @@
       "id": "robots-txt",
       "title": "robots.txt is valid",
       "description": "If your robots.txt file is malformed, crawlers may not be able to understand how you want your website to be crawled or indexed. [Learn more about robots.txt](https://developer.chrome.com/docs/lighthouse/seo/invalid-robots-txt/).",
-      "score": 1,
-      "scoreDisplayMode": "binary",
-      "details": {
-        "type": "table",
-        "headings": [],
-        "items": []
-      }
+      "score": null,
+      "scoreDisplayMode": "notApplicable"
     },
     "hreflang": {
       "id": "hreflang",
@@ -6144,7 +5659,7 @@
       "description": "Many navigations are performed by going back to a previous page, or forwards again. The back/forward cache (bfcache) can speed up these return navigations. [Learn more about the bfcache](https://developer.chrome.com/docs/lighthouse/performance/bf-cache/)",
       "score": 0,
       "scoreDisplayMode": "binary",
-      "displayValue": "1 failure reason",
+      "displayValue": "2 failure reasons",
       "details": {
         "type": "table",
         "headings": [
@@ -6176,6 +5691,19 @@
               ]
             },
             "protocolReason": "UnloadHandlerExistsInMainFrame"
+          },
+          {
+            "reason": "Internal error.",
+            "failureType": "Not actionable",
+            "subItems": {
+              "type": "subitems",
+              "items": [
+                {
+                  "frameUrl": "http://localhost:10200/dobetterweb/dbw_tester.html"
+                }
+              ]
+            },
+            "protocolReason": "BrowsingInstanceNotSwapped"
           }
         ]
       },
@@ -6680,7 +6208,7 @@
         },
         {
           "id": "aria-dialog-name",
-          "weight": 0,
+          "weight": 7,
           "group": "a11y-aria"
         },
         {
@@ -6730,7 +6258,7 @@
         },
         {
           "id": "aria-text",
-          "weight": 0,
+          "weight": 7,
           "group": "a11y-aria"
         },
         {
@@ -6760,7 +6288,7 @@
         },
         {
           "id": "button-name",
-          "weight": 0,
+          "weight": 10,
           "group": "a11y-names-labels"
         },
         {
@@ -6820,7 +6348,7 @@
         },
         {
           "id": "html-xml-lang-mismatch",
-          "weight": 0,
+          "weight": 3,
           "group": "a11y-language"
         },
         {
@@ -6880,7 +6408,7 @@
         },
         {
           "id": "object-alt",
-          "weight": 0,
+          "weight": 7,
           "group": "a11y-names-labels"
         },
         {
@@ -6890,7 +6418,7 @@
         },
         {
           "id": "skip-link",
-          "weight": 0,
+          "weight": 3,
           "group": "a11y-names-labels"
         },
         {
@@ -6900,7 +6428,7 @@
         },
         {
           "id": "table-duplicate-name",
-          "weight": 0,
+          "weight": 1,
           "group": "a11y-tables-lists"
         },
         {
@@ -7000,7 +6528,7 @@
         }
       ],
       "id": "accessibility",
-      "score": 0.75
+      "score": 0.77
     },
     "best-practices": {
       "title": "Best Practices",
@@ -7087,7 +6615,7 @@
         }
       ],
       "id": "best-practices",
-      "score": 0.31
+      "score": 0.35
     },
     "seo": {
       "title": "SEO",
@@ -7135,7 +6663,7 @@
         },
         {
           "id": "robots-txt",
-          "weight": 1,
+          "weight": 0,
           "group": "seo-crawl"
         },
         {
@@ -7169,7 +6697,7 @@
         }
       ],
       "id": "seo",
-      "score": 0.75
+      "score": 0.73
     }
   },
   "categoryGroups": {
@@ -7286,13 +6814,100 @@
   ],
   "fullPageScreenshot": {
     "screenshot": {
-      "data": "data:image/webp;base64,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",
-      "width": 412,
-      "height": 1291
+      "data": "data:image/jpeg;base64,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",
+      "width": 360,
+      "height": 1365
     },
     "nodes": {
-      "page-0-OBJECT": {
-        "id": "5934a",
+      "page-0-IMG": {
+        "top": 639,
+        "bottom": 654,
+        "left": 8,
+        "right": 128,
+        "width": 120,
+        "height": 15
+      },
+      "page-1-IMG": {
+        "top": 574,
+        "bottom": 654,
+        "left": 132,
+        "right": 252,
+        "width": 120,
+        "height": 80
+      },
+      "page-2-IMG": {
+        "top": 574,
+        "bottom": 814,
+        "left": 252,
+        "right": 612,
+        "width": 360,
+        "height": 240
+      },
+      "page-3-IMG": {
+        "top": 574,
+        "bottom": 654,
+        "left": 252,
+        "right": 372,
+        "width": 120,
+        "height": 80
+      },
+      "page-4-IMG": {
+        "top": 574,
+        "bottom": 814,
+        "left": 252,
+        "right": 612,
+        "width": 360,
+        "height": 240
+      },
+      "page-5-IMG": {
+        "top": 574,
+        "bottom": 814,
+        "left": 252,
+        "right": 612,
+        "width": 360,
+        "height": 240
+      },
+      "page-6-IMG": {
+        "top": 658,
+        "bottom": 1120,
+        "left": 8,
+        "right": 819,
+        "width": 811,
+        "height": 462
+      },
+      "page-7-IMG": {
+        "top": 1295,
+        "bottom": 1311,
+        "left": 322,
+        "right": 338,
+        "width": 16,
+        "height": 16
+      },
+      "page-8-IMG": {
+        "top": 1337,
+        "bottom": 1353,
+        "left": 8,
+        "right": 24,
+        "width": 16,
+        "height": 16
+      },
+      "page-9-INPUT": {
+        "top": 1274,
+        "bottom": 1295,
+        "left": 192,
+        "right": 345,
+        "width": 153,
+        "height": 21
+      },
+      "page-10-INPUT": {
+        "top": 1296,
+        "bottom": 1317,
+        "left": 165,
+        "right": 318,
+        "width": 153,
+        "height": 21
+      },
+      "page-11-OBJECT": {
         "top": 8,
         "bottom": 158,
         "left": 8,
@@ -7300,8 +6915,7 @@
         "width": 300,
         "height": 150
       },
-      "page-1-OBJECT": {
-        "id": "5934b",
+      "page-12-OBJECT": {
         "top": 162,
         "bottom": 312,
         "left": 8,
@@ -7309,410 +6923,517 @@
         "width": 300,
         "height": 150
       },
-      "page-2-H2": {
-        "id": "toppy",
+      "page-13-H2": {
         "top": 336,
-        "bottom": 363,
+        "bottom": 364,
         "left": 8,
-        "right": 404,
-        "width": 396,
+        "right": 352,
+        "width": 344,
         "height": 28
       },
-      "page-3-DIV": {
-        "id": "",
+      "page-14-DIV": {
         "top": 336,
-        "bottom": 537,
+        "bottom": 556,
         "left": 8,
-        "right": 404,
-        "width": 396,
-        "height": 201
+        "right": 352,
+        "width": 344,
+        "height": 220
       },
-      "page-4-IMG": {
-        "id": "",
-        "top": 640,
-        "bottom": 1102,
-        "left": 8,
-        "right": 819,
-        "width": 811,
-        "height": 462
-      },
-      "page-5-IMG": {
-        "id": "",
+      "page-15-SECTION": {
         "top": 556,
-        "bottom": 916,
-        "left": 252,
-        "right": 652,
-        "width": 400,
-        "height": 360
-      },
-      "page-6-DIV": {
-        "id": "animated-boi",
-        "top": 1242,
-        "bottom": 1263,
+        "bottom": 574,
         "left": 8,
-        "right": 404,
-        "width": 396,
+        "right": 352,
+        "width": 344,
+        "height": 18
+      },
+      "page-16-DIV": {
+        "top": 1317,
+        "bottom": 1337,
+        "left": 8,
+        "right": 352,
+        "width": 344,
+        "height": 20
+      },
+      "5-0-A": {
+        "top": 1166,
+        "bottom": 1184,
+        "left": 91,
+        "right": 171,
+        "width": 80,
+        "height": 18
+      },
+      "5-1-A": {
+        "top": 1166,
+        "bottom": 1184,
+        "left": 175,
+        "right": 255,
+        "width": 80,
+        "height": 18
+      },
+      "5-2-A": {
+        "top": 1166,
+        "bottom": 1184,
+        "left": 259,
+        "right": 340,
+        "width": 80,
+        "height": 18
+      },
+      "5-3-A": {
+        "top": 1184,
+        "bottom": 1220,
+        "left": 8,
+        "right": 311,
+        "width": 303,
+        "height": 36
+      },
+      "5-4-A": {
+        "top": 1202,
+        "bottom": 1238,
+        "left": 8,
+        "right": 311,
+        "width": 303,
+        "height": 36
+      },
+      "5-5-A": {
+        "top": 1220,
+        "bottom": 1256,
+        "left": 8,
+        "right": 348,
+        "width": 340,
+        "height": 36
+      },
+      "5-6-A": {
+        "top": 1238,
+        "bottom": 1274,
+        "left": 8,
+        "right": 342,
+        "width": 334,
+        "height": 36
+      },
+      "5-7-A": {
+        "top": 1256,
+        "bottom": 1293,
+        "left": 8,
+        "right": 327,
+        "width": 319,
+        "height": 37
+      },
+      "5-8-A": {
+        "top": 1275,
+        "bottom": 1293,
+        "left": 76,
+        "right": 188,
+        "width": 112,
+        "height": 18
+      },
+      "5-9-A": {
+        "top": 1275,
+        "bottom": 1293,
+        "left": 192,
+        "right": 192,
+        "width": 0,
+        "height": 18
+      },
+      "5-10-A": {
+        "top": 1275,
+        "bottom": 1293,
+        "left": 192,
+        "right": 192,
+        "width": 0,
+        "height": 18
+      },
+      "5-11-LINK": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-12-LINK": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-13-LINK": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-14-LINK": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-15-LINK": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-16-LINK": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-17-LINK": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-18-LINK": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-19-LINK": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-20-META": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-21-META": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-22-META": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-23-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-24-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-25-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-26-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-27-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-28-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-29-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-30-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-31-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-32-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-33-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-34-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-35-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-36-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-37-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-38-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-39-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-40-SCRIPT": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-41-INPUT": {
+        "top": 1274,
+        "bottom": 1295,
+        "left": 192,
+        "right": 345,
+        "width": 153,
         "height": 21
       },
-      "1-0-HTML": {
-        "id": "",
-        "top": 0,
-        "bottom": 1291,
-        "left": 0,
-        "right": 412,
-        "width": 412,
-        "height": 1291
+      "5-42-INPUT": {
+        "top": 1296,
+        "bottom": 1317,
+        "left": 8,
+        "right": 161,
+        "width": 153,
+        "height": 21
       },
-      "1-1-IMG": {
-        "id": "",
-        "top": 621,
-        "bottom": 636,
+      "5-43-INPUT": {
+        "top": 1296,
+        "bottom": 1317,
+        "left": 165,
+        "right": 318,
+        "width": 153,
+        "height": 21
+      },
+      "5-44-title": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "width": 0,
+        "height": 0
+      },
+      "5-45-DIV": {
+        "top": 316,
+        "bottom": 316,
+        "left": 8,
+        "right": 352,
+        "width": 344,
+        "height": 0
+      },
+      "5-46-BUTTON": {
+        "top": 1124,
+        "bottom": 1145,
+        "left": 8,
+        "right": 208,
+        "width": 200,
+        "height": 21
+      },
+      "5-47-BUTTON": {
+        "top": 1145,
+        "bottom": 1166,
+        "left": 8,
+        "right": 208,
+        "width": 200,
+        "height": 21
+      },
+      "5-48-HTML": {
+        "top": 0,
+        "bottom": 1365,
+        "left": 0,
+        "right": 360,
+        "width": 360,
+        "height": 1365
+      },
+      "5-49-IMG": {
+        "top": 639,
+        "bottom": 654,
         "left": 8,
         "right": 128,
         "width": 120,
         "height": 15
       },
-      "1-2-IMG": {
-        "id": "",
-        "top": 556,
-        "bottom": 636,
+      "5-50-IMG": {
+        "top": 574,
+        "bottom": 654,
         "left": 132,
         "right": 252,
         "width": 120,
         "height": 80
       },
-      "1-3-IMG": {
-        "id": "",
-        "top": 556,
-        "bottom": 916,
+      "5-51-IMG": {
+        "top": 574,
+        "bottom": 814,
         "left": 252,
-        "right": 652,
-        "width": 400,
-        "height": 360
+        "right": 612,
+        "width": 360,
+        "height": 240
       },
-      "1-4-IMG": {
-        "id": "",
-        "top": 556,
-        "bottom": 636,
+      "5-52-IMG": {
+        "top": 574,
+        "bottom": 654,
         "left": 252,
         "right": 372,
         "width": 120,
         "height": 80
       },
-      "1-5-IMG": {
-        "id": "",
-        "top": 556,
-        "bottom": 796,
+      "5-53-IMG": {
+        "top": 574,
+        "bottom": 814,
         "left": 252,
         "right": 612,
         "width": 360,
         "height": 240
       },
-      "1-6-IMG": {
-        "id": "",
-        "top": 556,
-        "bottom": 796,
+      "5-54-IMG": {
+        "top": 574,
+        "bottom": 814,
         "left": 252,
         "right": 612,
         "width": 360,
         "height": 240
       },
-      "1-7-IMG": {
-        "id": "",
-        "top": 640,
-        "bottom": 1102,
+      "5-55-IMG": {
+        "top": 658,
+        "bottom": 1120,
         "left": 8,
         "right": 819,
         "width": 811,
         "height": 462
       },
-      "1-8-IMG": {
-        "id": "",
-        "top": 1220,
-        "bottom": 1236,
-        "left": 310,
-        "right": 326,
+      "5-56-IMG": {
+        "top": 1295,
+        "bottom": 1311,
+        "left": 322,
+        "right": 338,
         "width": 16,
         "height": 16
       },
-      "1-9-IMG": {
-        "id": "",
-        "top": 1263,
-        "bottom": 1279,
+      "5-57-IMG": {
+        "top": 1337,
+        "bottom": 1353,
         "left": 8,
         "right": 24,
         "width": 16,
         "height": 16
       },
-      "1-10-INPUT": {
-        "id": "",
-        "top": 1198,
-        "bottom": 1220,
-        "left": 192,
-        "right": 339,
-        "width": 147,
-        "height": 22
-      },
-      "1-11-INPUT": {
-        "id": "",
-        "top": 1221,
-        "bottom": 1242,
+      "5-58-OBJECT": {
+        "top": 8,
+        "bottom": 158,
         "left": 8,
-        "right": 155,
-        "width": 147,
-        "height": 22
+        "right": 308,
+        "width": 300,
+        "height": 150
       },
-      "1-12-INPUT": {
-        "id": "",
-        "top": 1221,
-        "bottom": 1242,
-        "left": 159,
-        "right": 306,
-        "width": 147,
-        "height": 22
-      },
-      "1-13-A": {
-        "id": "",
-        "top": 1199,
-        "bottom": 1217,
-        "left": 192,
-        "right": 192,
-        "width": 0,
-        "height": 19
-      },
-      "1-14-A": {
-        "id": "",
-        "top": 1199,
-        "bottom": 1217,
-        "left": 192,
-        "right": 192,
-        "width": 0,
-        "height": 19
-      },
-      "1-15-A": {
-        "id": "",
-        "top": 1106,
-        "bottom": 1124,
-        "left": 91,
-        "right": 171,
-        "width": 80,
-        "height": 19
-      },
-      "1-16-A": {
-        "id": "",
-        "top": 1161,
-        "bottom": 1180,
-        "left": 65,
-        "right": 290,
-        "width": 224,
-        "height": 19
-      },
-      "1-17-A": {
-        "id": "",
-        "top": 1180,
-        "bottom": 1217,
+      "5-59-OBJECT": {
+        "top": 162,
+        "bottom": 312,
         "left": 8,
-        "right": 380,
-        "width": 372,
-        "height": 38
-      },
-      "1-18-H2": {
-        "id": "toppy",
-        "top": 336,
-        "bottom": 363,
-        "left": 8,
-        "right": 404,
-        "width": 396,
-        "height": 28
-      },
-      "1-19-A": {
-        "id": "",
-        "top": 1106,
-        "bottom": 1124,
-        "left": 175,
-        "right": 255,
-        "width": 80,
-        "height": 19
-      },
-      "1-20-A": {
-        "id": "",
-        "top": 1106,
-        "bottom": 1124,
-        "left": 259,
-        "right": 340,
-        "width": 80,
-        "height": 19
-      },
-      "1-21-A": {
-        "id": "",
-        "top": 1106,
-        "bottom": 1143,
-        "left": 8,
-        "right": 398,
-        "width": 390,
-        "height": 37
-      },
-      "1-22-A": {
-        "id": "",
-        "top": 1143,
-        "bottom": 1180,
-        "left": 8,
-        "right": 400,
-        "width": 392,
-        "height": 37
-      },
-      "1-23-A": {
-        "id": "",
-        "top": 1161,
-        "bottom": 1198,
-        "left": 8,
-        "right": 402,
-        "width": 394,
-        "height": 37
-      },
-      "1-24-A": {
-        "id": "",
-        "top": 1199,
-        "bottom": 1217,
-        "left": 76,
-        "right": 188,
-        "width": 112,
-        "height": 19
-      },
-      "1-25-title": {
-        "id": "social-facebook-5",
-        "top": 0,
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "width": 0,
-        "height": 0
-      },
-      "1-26-DIV": {
-        "id": "shadow-root-container",
-        "top": 316,
-        "bottom": 316,
-        "left": 8,
-        "right": 404,
-        "width": 396,
-        "height": 0
-      },
-      "1-27-LINK": {
-        "id": "",
-        "top": 0,
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "width": 0,
-        "height": 0
-      },
-      "1-28-LINK": {
-        "id": "",
-        "top": 0,
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "width": 0,
-        "height": 0
-      },
-      "1-29-LINK": {
-        "id": "",
-        "top": 0,
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "width": 0,
-        "height": 0
-      },
-      "1-30-LINK": {
-        "id": "",
-        "top": 0,
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "width": 0,
-        "height": 0
-      },
-      "1-31-LINK": {
-        "id": "amp-style-link",
-        "top": 0,
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "width": 0,
-        "height": 0
-      },
-      "1-32-LINK": {
-        "id": "",
-        "top": 0,
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "width": 0,
-        "height": 0
-      },
-      "1-33-LINK": {
-        "id": "",
-        "top": 0,
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "width": 0,
-        "height": 0
-      },
-      "1-34-LINK": {
-        "id": "",
-        "top": 0,
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "width": 0,
-        "height": 0
-      },
-      "1-35-LINK": {
-        "id": "",
-        "top": 0,
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "width": 0,
-        "height": 0
-      },
-      "1-36-LINK": {
-        "id": "",
-        "top": 0,
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "width": 0,
-        "height": 0
-      },
-      "1-37-META": {
-        "id": "",
-        "top": 0,
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "width": 0,
-        "height": 0
-      },
-      "1-38-META": {
-        "id": "",
-        "top": 0,
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "width": 0,
-        "height": 0
-      },
-      "1-39-META": {
-        "id": "",
-        "top": 0,
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "width": 0,
-        "height": 0
+        "right": 308,
+        "width": 300,
+        "height": 150
       }
     }
   },
@@ -7727,6 +7448,12 @@
       {
         "startTime": 0,
         "name": "lh:config:resolveArtifactsToDefns",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
+        "name": "lh:config:resolveNavigationsToDefns",
         "duration": 100,
         "entryType": "measure"
       },
@@ -7768,6 +7495,18 @@
       },
       {
         "startTime": 0,
+        "name": "lh:driver:navigate",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
+        "name": "lh:prepare:navigation",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
         "name": "lh:storage:clearDataForOrigin",
         "duration": 100,
         "entryType": "measure"
@@ -7792,6 +7531,18 @@
       },
       {
         "startTime": 0,
+        "name": "lh:gather:getArtifact:DevtoolsLog",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
+        "name": "lh:gather:getArtifact:Trace",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
         "name": "lh:computed:NetworkRecords",
         "duration": 100,
         "entryType": "measure"
@@ -7805,24 +7556,6 @@
       {
         "startTime": 0,
         "name": "lh:gather:getArtifact:Trace",
-        "duration": 100,
-        "entryType": "measure"
-      },
-      {
-        "startTime": 0,
-        "name": "lh:gather:getArtifact:RootCauses",
-        "duration": 100,
-        "entryType": "measure"
-      },
-      {
-        "startTime": 0,
-        "name": "lh:computed:TraceEngineResult",
-        "duration": 100,
-        "entryType": "measure"
-      },
-      {
-        "startTime": 0,
-        "name": "lh:computed:ProcessedTrace",
         "duration": 100,
         "entryType": "measure"
       },
@@ -7882,7 +7615,25 @@
       },
       {
         "startTime": 0,
+        "name": "lh:gather:getArtifact:GlobalListeners",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
         "name": "lh:gather:getArtifact:ImageElements",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
+        "name": "lh:gather:getArtifact:InstallabilityErrors",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
+        "name": "lh:gather:getInstallabilityErrors",
         "duration": 100,
         "entryType": "measure"
       },
@@ -7948,6 +7699,12 @@
       },
       {
         "startTime": 0,
+        "name": "lh:gather:getArtifact:ServiceWorker",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
         "name": "lh:gather:getArtifact:Scripts",
         "duration": 100,
         "entryType": "measure"
@@ -7978,19 +7735,25 @@
       },
       {
         "startTime": 0,
+        "name": "lh:gather:getArtifact:TapTargets",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
         "name": "lh:gather:getArtifact:TraceElements",
         "duration": 100,
         "entryType": "measure"
       },
       {
         "startTime": 0,
-        "name": "lh:computed:ProcessedNavigation",
+        "name": "lh:computed:ProcessedTrace",
         "duration": 100,
         "entryType": "measure"
       },
       {
         "startTime": 0,
-        "name": "lh:computed:CumulativeLayoutShift",
+        "name": "lh:computed:ProcessedNavigation",
         "duration": 100,
         "entryType": "measure"
       },
@@ -8003,6 +7766,12 @@
       {
         "startTime": 0,
         "name": "lh:gather:getArtifact:ViewportDimensions",
+        "duration": 100,
+        "entryType": "measure"
+      },
+      {
+        "startTime": 0,
+        "name": "lh:gather:getArtifact:WebAppManifest",
         "duration": 100,
         "entryType": "measure"
       },
@@ -8555,18 +8324,6 @@
       {
         "startTime": 0,
         "name": "lh:computed:ModuleDuplication",
-        "duration": 100,
-        "entryType": "measure"
-      },
-      {
-        "startTime": 0,
-        "name": "lh:computed:UnusedJavascriptSummary",
-        "duration": 100,
-        "entryType": "measure"
-      },
-      {
-        "startTime": 0,
-        "name": "lh:computed:UnusedJavascriptSummary",
         "duration": 100,
         "entryType": "measure"
       },
@@ -9602,7 +9359,6 @@
       "core/lib/i18n/i18n.js | columnURL": [
         "audits[server-response-time].details.headings[0].label",
         "audits[image-aspect-ratio].details.headings[1].label",
-        "audits[image-size-responsive].details.headings[1].label",
         "audits[bootup-time].details.headings[0].label",
         "audits[network-rtt].details.headings[0].label",
         "audits[network-server-latency].details.headings[0].label",
@@ -9695,20 +9451,11 @@
       "core/audits/image-aspect-ratio.js | columnActual": [
         "audits[image-aspect-ratio].details.headings[3].label"
       ],
-      "core/audits/image-size-responsive.js | failureTitle": [
+      "core/audits/image-size-responsive.js | title": [
         "audits[image-size-responsive].title"
       ],
       "core/audits/image-size-responsive.js | description": [
         "audits[image-size-responsive].description"
-      ],
-      "core/audits/image-size-responsive.js | columnDisplayed": [
-        "audits[image-size-responsive].details.headings[2].label"
-      ],
-      "core/audits/image-size-responsive.js | columnActual": [
-        "audits[image-size-responsive].details.headings[3].label"
-      ],
-      "core/audits/image-size-responsive.js | columnExpected": [
-        "audits[image-size-responsive].details.headings[4].label"
       ],
       "core/audits/deprecations.js | failureTitle": [
         "audits.deprecations.title"
@@ -9726,9 +9473,6 @@
       ],
       "core/audits/deprecations.js | columnDeprecate": [
         "audits.deprecations.details.headings[0].label"
-      ],
-      "core/lib/deprecation-description.js | XMLHttpRequestSynchronousInNonWorkerOutsideBeforeUnload": [
-        "audits.deprecations.details.items[0].value"
       ],
       "core/audits/third-party-cookies.js | title": [
         "audits[third-party-cookies].title"
@@ -9853,7 +9597,8 @@
       ],
       "core/lib/i18n/i18n.js | otherResourceType": [
         "audits[performance-budget].details.items[3].label",
-        "audits[resource-summary].details.items[3].label"
+        "audits[resource-summary].details.items[3].label",
+        "audits[layout-shift-elements].details.items[0].node.value"
       ],
       "core/lib/i18n/i18n.js | documentResourceType": [
         "audits[performance-budget].details.items[4].label",
@@ -9986,9 +9731,6 @@
       ],
       "core/audits/layout-shifts.js | columnScore": [
         "audits[layout-shifts].details.headings[1].label"
-      ],
-      "core/audits/layout-shifts.js | rootCauseRenderBlockingRequest": [
-        "audits[layout-shifts].details.items[0].subItems.items[0].cause"
       ],
       "core/audits/long-tasks.js | title": [
         "audits[long-tasks].title"
@@ -10284,9 +10026,8 @@
         "audits[html-has-lang].details.headings[0].label",
         "audits[image-alt].details.headings[0].label",
         "audits.label.details.headings[0].label",
-        "audits[landmark-one-main].details.headings[0].label",
         "audits[link-name].details.headings[0].label",
-        "audits[target-size].details.headings[0].label",
+        "audits[object-alt].details.headings[0].label",
         "audits[paste-preventing-inputs].details.headings[0].label"
       ],
       "core/audits/accessibility/html-lang-valid.js | title": [
@@ -10385,7 +10126,7 @@
       "core/audits/accessibility/meta-viewport.js | description": [
         "audits[meta-viewport].description"
       ],
-      "core/audits/accessibility/object-alt.js | title": [
+      "core/audits/accessibility/object-alt.js | failureTitle": [
         "audits[object-alt].title"
       ],
       "core/audits/accessibility/object-alt.js | description": [
@@ -10521,25 +10262,25 @@
         },
         {
           "values": {
-            "wastedBytes": 94194
+            "wastedBytes": 43507
           },
           "path": "audits[unused-javascript].displayValue"
         },
         {
           "values": {
-            "wastedBytes": 319794
+            "wastedBytes": 77874.3
           },
           "path": "audits[modern-image-formats].displayValue"
         },
         {
           "values": {
-            "wastedBytes": 146760
+            "wastedBytes": 146478
           },
           "path": "audits[uses-text-compression].displayValue"
         },
         {
           "values": {
-            "wastedBytes": 467197
+            "wastedBytes": 346756
           },
           "path": "audits[uses-responsive-images].displayValue"
         },
@@ -10636,7 +10377,7 @@
       "core/audits/dobetterweb/dom-size.js | displayValue": [
         {
           "values": {
-            "itemCount": 151
+            "itemCount": 153
           },
           "path": "audits[dom-size].displayValue"
         }
@@ -10805,7 +10546,7 @@
       "core/audits/bf-cache.js | displayValue": [
         {
           "values": {
-            "itemCount": 1
+            "itemCount": 2
           },
           "path": "audits[bf-cache].displayValue"
         }
@@ -10821,6 +10562,12 @@
       ],
       "core/audits/bf-cache.js | actionableFailureType": [
         "audits[bf-cache].details.items[0].failureType"
+      ],
+      "core/lib/bf-cache-strings.js | internalError": [
+        "audits[bf-cache].details.items[1].reason"
+      ],
+      "core/audits/bf-cache.js | notActionableFailureType": [
+        "audits[bf-cache].details.items[1].failureType"
       ],
       "core/config/default-config.js | performanceCategoryTitle": [
         "categories.performance.title"

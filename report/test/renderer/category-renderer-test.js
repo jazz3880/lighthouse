@@ -304,7 +304,7 @@ describe('CategoryRenderer', () => {
       );
 
       const gauge = categoryDOM.querySelector('.lh-fraction__content');
-      assert.equal(gauge.textContent.trim(), '13/17', 'fraction is included');
+      assert.equal(gauge.textContent.trim(), '19/24', 'fraction is included');
 
       const score = categoryDOM.querySelector('.lh-category-header');
       const title = score.querySelector('.lh-fraction__label');
@@ -355,6 +355,7 @@ describe('CategoryRenderer', () => {
 
       const passedAuditGroups = categoryDOM.querySelectorAll('.lh-clump--passed .lh-audit-group');
       const passedAuditsElems = categoryDOM.querySelectorAll('.lh-clump--passed .lh-audit');
+
       assert.equal(passedAuditGroups.length, 0);
       assert.equal(passedAuditsElems.length, passedAudits.length);
     });
@@ -425,16 +426,13 @@ describe('CategoryRenderer', () => {
 
       const elem = renderer.render(categoryClone, sampleResults.categoryGroups);
       const passedAudits = elem.querySelectorAll('.lh-clump--passed .lh-audit');
-      // type
-      const passedAuditTitles =
-        elem.querySelectorAll('.lh-clump--passed .lh-audit .lh-audit__title');
       const failedAudits = elem.querySelectorAll('.lh-clump--failed .lh-audit');
       const warningAudits = elem.querySelectorAll('.lh-clump--warning .lh-audit');
       const manualAudits = elem.querySelectorAll('.lh-clump--manual .lh-audit');
       const naAudits = elem.querySelectorAll('.lh-clump--notapplicable .lh-audit');
 
       assert.equal(passedAudits.length, 6);
-      assert.equal(failedAudits.length, 4);
+      assert.equal(failedAudits.length, 3);
       assert.equal(warningAudits.length, 1);
       assert.equal(manualAudits.length, 1);
       assert.equal(naAudits.length, 3);
@@ -454,7 +452,7 @@ describe('CategoryRenderer', () => {
       const failedAudits = elem.querySelectorAll('.lh-clump--failed .lh-audit');
 
       assert.equal(passedAudits.length, 0);
-      assert.equal(failedAudits.length, 12);
+      assert.equal(failedAudits.length, 11);
     });
 
     it('expands warning audit group', () => {
