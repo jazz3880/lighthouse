@@ -697,6 +697,23 @@ describe('ReportUIFeatures', () => {
       assert.ok(container.querySelector('.lh-score100'), 'has fireworks treatment');
     });
 
+    it('should show fireworks for all 100s except plugins', () => {
+      const lhr = JSON.parse(JSON.stringify(sampleResults));
+      Object.values(lhr.categories).forEach(element => {
+        element.score = 1;
+      });
+
+      lhr.categories['lighthouse-plugin-someplugin'] = {
+        id: 'lighthouse-plugin-someplugin',
+        title: 'Some Plugin',
+        auditRefs: [],
+        score: 0,
+      };
+
+      const container = render(lhr);
+      assert.ok(container.querySelector('.lh-score100'), 'has fireworks treatment');
+    });
+
     it('should not render fireworks if all core categories are not present', () => {
       const lhr = JSON.parse(JSON.stringify(sampleResults));
       delete lhr.categories.performance;
