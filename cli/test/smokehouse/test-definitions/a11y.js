@@ -900,7 +900,7 @@ const expectations = {
         },
       },
       'target-size': {
-        score: 1,
+        score: 0,
         details: {
           items: [
             {

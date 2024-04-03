@@ -164,6 +164,28 @@ Object {
 
     expect(output).toMatchObject(expectation);
   });
+
+  it('sanitizes lone surrogates', () => {
+    // Don't care about Node 18 here. We just need this to work in Chrome, and it does.
+    if (!String.prototype.toWellFormed) {
+      return;
+    }
+
+    const input = {
+      'audits': {
+        'critical-request-chains': {
+          'details': {
+            'chains': {
+              '1': 'hello \uD83E',
+            },
+          },
+        },
+      },
+    };
+    const output = processForProto(input);
+
+    expect(output.audits['critical-request-chains'].details.chains[1]).toEqual('hello �');
+  });
 });
 
 describeIfProtoExists('round trip JSON comparison subsets', () => {

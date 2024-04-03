@@ -80,6 +80,7 @@ describe('Snapshot', function() {
       'document-title',
       'html-has-lang',
       'label',
+      'target-size',
       'meta-description',
     ]);
 
