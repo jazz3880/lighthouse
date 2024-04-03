@@ -7,6 +7,7 @@
 import a11y from './test-definitions/a11y.js';
 import byteEfficiency from './test-definitions/byte-efficiency.js';
 import byteGzip from './test-definitions/byte-gzip.js';
+import crash from './test-definitions/crash.js';
 import cspAllowAll from './test-definitions/csp-allow-all.js';
 import cspBlockAll from './test-definitions/csp-block-all.js';
 import dbw from './test-definitions/dobetterweb.js';
@@ -71,6 +72,7 @@ const smokeTests = [
   a11y,
   byteEfficiency,
   byteGzip,
+  crash,
   cspAllowAll,
   cspBlockAll,
   dbw,

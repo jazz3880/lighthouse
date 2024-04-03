@@ -8,10 +8,6 @@ import fs from 'fs';
 import assert from 'assert/strict';
 import path from 'path';
 
-import log from 'lighthouse-logger';
-
-// log.setLevel('verbose');
-
 import jestMock from 'jest-mock';
 import * as td from 'testdouble';
 
@@ -118,7 +114,6 @@ describe('Runner', () => {
   };
 
   const runGatherAndAudit = async (gatherFn, opts) => {
-    opts.fatalGatherPromise = driverMock.fatalRejection.promise;
     const artifacts = await Runner.gather(gatherFn, opts);
     return Runner.audit(artifacts, opts);
   };
@@ -406,9 +401,8 @@ describe('Runner', () => {
         'content-width',
       ],
     });
-    const fatalGatherPromise = driverMock.fatalRejection.promise;
-    const options1 = {resolvedConfig, driverMock, computedCache: new Map(), fatalGatherPromise};
-    const options2 = {resolvedConfig, driverMock, computedCache: new Map(), fatalGatherPromise};
+    const options1 = {resolvedConfig, driverMock, computedCache: new Map()};
+    const options2 = {resolvedConfig, driverMock, computedCache: new Map()};
 
     const artifacts1 = await Runner.gather(createGatherFn('https://example.com'), options1);
     const artifacts2 = await Runner.gather(createGatherFn('https://google.com'), options2);
@@ -732,58 +726,7 @@ describe('Runner', () => {
       });
   });
 
-
-  it.only('rejects if there\'s a targetCrashed event during gathering', async () => {
-    const url = 'https://example.com';
-    console.time('x');
-
-    const {resolvedConfig} = await initializeConfig('navigation', {
-      extends: 'lighthouse:default',
-      settings: {gatherMode: true},
-    });
-
-
-    // Instead of what's defined above,
-    // mockGatherImpl = jestMock.fn().mockImplementation(async (_) => {
-    //   await new Promise(resolve => setTimeout(resolve, 100));
-    // });
-
-    const oldSendCommand = driverMock.defaultSession.sendCommand;
-    driverMock.defaultSession.sendCommand = async (...args) => {
-      console.log(args);
-      await new Promise(resolve => setTimeout(resolve, 10));
-      return oldSendCommand(...args);
-    };
-
-    setTimeout(() => {
-      const mockOn = driverMock.defaultSession.on;
-
-      const listener = mockOn.getListeners('Inspector.targetCrashed').at(0);
-      // listener();
-      // console.log({listens});
-
-      // Reject just like `listenForCrashes`.
-      driverMock.fatalRejection.rej(new LighthouseError(LighthouseError.errors.TARGET_CRASHED));
-    } );
-
-
-    assert.throws(() => {
-      return runGatherAndAudit(createGatherFn(url), {resolvedConfig, driverMock});
-  }, /TARGET_CRASHED/);
-    // .then(_ => {
-    //   console.timeEnd('x');
-    //   console.log('RESOLVED without error');
-    //   // assert.ok(false, 'We expected a rejection.');
-
-    // }, err => {
-    //   console.timeEnd('x');
-    //   console.log('ITS AN ERROR', err);
-    //   // assert.ok(/No audits to evaluate/.test(err.message));
-    //   // done();
-    // });
-  });
-
-  it.only('returns data even if no config categories are provided', async () => {
+  it('returns data even if no config categories are provided', async () => {
     const url = 'https://example.com/';
     const {resolvedConfig} = await initializeConfig('navigation', {
       audits: [
