@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright 2023 Google LLC
+ * Copyright 2024 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -20,12 +20,16 @@ const config = {
 const expectations = {
   lhr: {
     requestedUrl: 'chrome://crash',
-    finalDisplayedUrl: /(chrome-error)/,
+    finalDisplayedUrl: 'about:blank',
     runtimeError: {code: 'TARGET_CRASHED'},
     runWarnings: [
+      'Browser tab has unexpectedly crashed.',
     ],
     audits: {
-
+      'first-contentful-paint': {
+        scoreDisplayMode: 'error',
+        errorMessage: 'Browser tab has unexpectedly crashed.',
+      },
     },
   },
 };
@@ -33,6 +37,5 @@ const expectations = {
 export default {
   id: 'crash',
   expectations,
-  runSerially: true,
   config,
 };
