@@ -211,7 +211,18 @@ class Runner {
 
       const gatherFnPromise = gatherFn({resolvedConfig: options.resolvedConfig});
       // If the fatalGatherPromise rejects, we'll end up in the catch below.
-      const artifacts = await Promise.race([gatherFnPromise, options.fatalGatherPromise]);
+      const recoverFromFatalP = options.fatalGatherPromise.catch(({err, baseArtifacts}) => {
+        log.error('runner', err);
+
+        return {
+          ...baseArtifacts,
+          PageLoadError: err,
+          devtoolsLogs: {},
+          traces: {},
+          URL: {},
+        };
+      });
+      const artifacts = await Promise.race([gatherFnPromise, recoverFromFatalP]);
       log.timeEnd(runnerStatus);
 
       // If `gather` is run multiple times before `audit`, the timing entries for each `gather` can pollute one another.

@@ -290,7 +290,7 @@ async function navigationGather(page, requestor, options = {}) {
 
 
     const driver = new Driver(page);
-    driver.fatalRejection.promise.catch(err => wrappedRej(err));
+    driver.fatalRejection.promise.catch(err => wrappedRej({err, baseArtifacts}));
     const context = {
       driver,
       lhBrowser,
