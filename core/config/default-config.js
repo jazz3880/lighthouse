@@ -154,7 +154,6 @@ const defaultConfig = {
     {id: 'TagsBlockingFirstPaint', gatherer: 'dobetterweb/tags-blocking-first-paint'},
     {id: 'TraceElements', gatherer: 'trace-elements'},
     {id: 'ViewportDimensions', gatherer: 'viewport-dimensions'},
-    {id: 'WebAppManifest', gatherer: 'web-app-manifest'},
 
     // Artifact copies are renamed for compatibility with legacy artifacts.
     {id: 'devtoolsLogs', gatherer: 'devtools-log-compat'},

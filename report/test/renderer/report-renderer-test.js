@@ -281,7 +281,7 @@ describe('ReportRenderer', () => {
       .map(url => url.searchParams.get('utm_medium'));
 
     console.log(utmChannels.length);
-    assert.ok(utmChannels.length >= 93);
+    assert.ok(utmChannels.length >= 75);
     for (const utmChannel of utmChannels) {
       assert.strictEqual(utmChannel, lhrChannel);
     }
