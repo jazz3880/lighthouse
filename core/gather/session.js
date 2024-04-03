@@ -125,11 +125,11 @@ class ProtocolSession extends CrdpEventEmitter {
    * @template {keyof LH.CrdpCommands} C
    * @param {C} method
    * @param {LH.CrdpCommands[C]['paramsType']} params
-   * @return {Promise<LH.CrdpCommands[C]['returnType']>}
+   * @return {Promise<void>}
    */
   sendCommandAndIgnore(method, ...params) {
     return this.sendCommand(method, ...params)
-      .catch(e => log.verbose('session', method, e.message));
+      .catch(e => log.verbose('session', method, e.message)).then(_ => void 0);
   }
 
   /**
