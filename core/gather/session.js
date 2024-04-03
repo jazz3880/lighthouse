@@ -121,6 +121,18 @@ class ProtocolSession extends CrdpEventEmitter {
   }
 
   /**
+   * Send and if there's an error response, do not reject.
+   * @template {keyof LH.CrdpCommands} C
+   * @param {C} method
+   * @param {LH.CrdpCommands[C]['paramsType']} params
+   * @return {Promise<LH.CrdpCommands[C]['returnType']>}
+   */
+  sendCommandAndIgnore(method, ...params) {
+    return this.sendCommand(method, ...params)
+      .catch(e => log.verbose('session', method, e.message));
+  }
+
+  /**
    * Disposes of a session so that it can no longer talk to Chrome.
    * @return {Promise<void>}
    */

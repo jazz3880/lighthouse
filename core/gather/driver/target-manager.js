@@ -180,7 +180,7 @@ class TargetManager extends ProtocolEventEmitter {
       throw err;
     } finally {
       // Resume the target if it was paused, but if it's unnecessary, we don't care about the error.
-      await newSession.sendCommand('Runtime.runIfWaitingForDebugger').catch(() => {});
+      await newSession.sendCommandAndIgnore('Runtime.runIfWaitingForDebugger');
     }
   }
 

@@ -498,9 +498,8 @@ async function waitForFullyLoaded(session, networkMonitor, options) {
       if (await isPageHung(session)) {
         log.warn('waitFor', 'Page appears to be hung, killing JavaScript...');
         // We don't await these, as we want to exit with PAGE_HUNG
-        void session.sendCommand('Emulation.setScriptExecutionDisabled', {value: true})
-          .catch(_ => {});
-        void session.sendCommand('Runtime.terminateExecution').catch(_ => {});
+        void session.sendCommandAndIgnore('Emulation.setScriptExecutionDisabled', {value: true});
+        void session.sendCommandAndIgnore('Runtime.terminateExecution');
         throw new LighthouseError(LighthouseError.errors.PAGE_HUNG);
       }
 
