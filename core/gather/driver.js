@@ -27,6 +27,7 @@ const throwingSession = {
   once: throwNotConnectedFn,
   off: throwNotConnectedFn,
   sendCommand: throwNotConnectedFn,
+  sendCommandAndIgnore: throwNotConnectedFn,
   dispose: throwNotConnectedFn,
 };
 

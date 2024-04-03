@@ -27,6 +27,7 @@ function createMockSession() {
   return {
     setTargetInfo: fnAny(),
     sendCommand: createMockSendCommandFn(),
+    sendCommandAndIgnore: createMockSendCommandFn(),
     setNextProtocolTimeout: fnAny(),
     hasNextProtocolTimeout: fnAny(),
     getNextProtocolTimeout: fnAny(),
