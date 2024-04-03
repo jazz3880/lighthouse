@@ -51,7 +51,8 @@ const expectations = {
               {url: 'http://localhost:10200/simple-script.js', resourceType: 'Script', sessionTargetType: 'page'},
               {url: 'http://localhost:10200/simple-script.js', resourceType: 'Fetch', sessionTargetType: 'page'},
               {url: 'http://localhost:10200/simple-worker.js', sessionTargetType: 'page'},
-              {url: 'http://localhost:10200/simple-worker.mjs', sessionTargetType: 'page'},
+              // This target type can vary depending on if Chrome's field trial config is being used
+              {url: 'http://localhost:10200/simple-worker.mjs', sessionTargetType: /(page|worker)/},
               // From in-process iframe -> simple-worker.js
               {url: 'http://localhost:10200/simple-script.js?importScripts', resourceType: 'Other', sessionTargetType: 'worker'},
               // From in-process iframe -> simple-worker.mjs
@@ -61,7 +62,8 @@ const expectations = {
               {url: 'http://localhost:10503/simple-script.js', resourceType: 'Script', sessionTargetType: 'iframe'},
               {url: 'http://localhost:10503/simple-script.js', resourceType: 'Fetch', sessionTargetType: 'iframe'},
               {url: 'http://localhost:10503/simple-worker.js', sessionTargetType: 'iframe'},
-              {url: 'http://localhost:10503/simple-worker.mjs', sessionTargetType: 'iframe'},
+              // This target type can vary depending on if Chrome's field trial config is being used
+              {url: 'http://localhost:10503/simple-worker.mjs', sessionTargetType: /(iframe|worker)/},
               // From OOPIF -> simple-worker.js
               {url: 'http://localhost:10503/simple-script.js?importScripts', resourceType: 'Other', sessionTargetType: 'worker'},
               // From OOPIF -> simple-worker.mjs
