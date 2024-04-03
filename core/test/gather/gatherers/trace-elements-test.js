@@ -175,6 +175,13 @@ describe('Trace Elements gatherer - GetTopLayoutShiftElements', () => {
       {nodeId: 15}, // score: 0.1
     ]);
   });
+
+  describe('getBiggestImpactForShiftEvent', () => {
+    it('is non fatal if impactedNodes is not iterable', () => {
+      const result = TraceElementsGatherer.getBiggestImpactNodeForShiftEvent(1, new Map());
+      expect(result).toBeUndefined();
+    });
+  });
 });
 
 describe('Trace Elements gatherer - Animated Elements', () => {
