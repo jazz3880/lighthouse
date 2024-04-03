@@ -241,13 +241,13 @@ describe('PerfCategoryRenderer', () => {
       const url = new URL(href);
       expect(url.hash.split('&')).toMatchInlineSnapshot(`
 Array [
-  "#FCP=6819",
-  "LCP=10953",
-  "TBT=2118",
+  "#FCP=6844",
+  "LCP=13320",
+  "TBT=1221",
   "CLS=0",
-  "SI=8416",
-  "TTI=8094",
-  "FMP=6819",
+  "SI=8114",
+  "TTI=8191",
+  "FMP=6844",
 ]
 `);
     });
@@ -262,13 +262,13 @@ Array [
       try {
         expect(url.hash.split('&')).toMatchInlineSnapshot(`
 Array [
-  "#FCP=6819",
-  "LCP=10953",
-  "TBT=2118",
-  "CLS=0.1",
-  "SI=8416",
-  "TTI=8094",
-  "FMP=6819",
+  "#FCP=6844",
+  "LCP=13320",
+  "TBT=1221",
+  "CLS=0.14",
+  "SI=8114",
+  "TTI=8191",
+  "FMP=6844",
   "device=mobile",
   "version=6.0.0",
 ]
