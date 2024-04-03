@@ -199,7 +199,6 @@ class Runner {
         data: sentryContext,
       });
 
-      // /** @type {LH.Artifacts} */
       if (settings.auditMode && !settings.gatherMode) {
         // No browser required, just load the artifacts from disk.
         const path = this._getDataSavePath(settings);

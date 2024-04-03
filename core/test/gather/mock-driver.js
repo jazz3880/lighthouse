@@ -157,8 +157,9 @@ function createMockDriver() {
   const context = createMockExecutionContext();
   const targetManager = createMockTargetManager(session);
 
-  // our `fatalRejection`
-  let rej;
+  // The `fatalRejection`
+  /** @param {any} _ */
+  let rej = _ => {};
   const promise = new Promise((_, theRej) => {
     rej = theRej;
   });
@@ -177,8 +178,8 @@ function createMockDriver() {
       fetchResource: fnAny(),
     },
     networkMonitor: new NetworkMonitor(targetManager.asTargetManager()),
-    listenForCrashes: session.on('Inspector.targetCrashed', _ => {
-      rej(new Error('TARGETCRAHSZHZD'));
+    listenForCrashes: session.on('Inspector.targetCrashed', () => {
+      rej(new Error('TARGET_CRASHED'));
     }),
     fatalRejection: {promise, rej},
 

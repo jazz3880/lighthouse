@@ -104,6 +104,7 @@ describe('ProtocolSession', () => {
   describe('.dispose', () => {
     it('should detach from the session', async () => {
       const detach = fnAny();
+      detach.mockResolvedValue(undefined);
       class MockCdpSession extends EventEmitter {
         constructor() {
           super();

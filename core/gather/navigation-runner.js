@@ -92,7 +92,9 @@ async function _navigate(navigationContext) {
     return {requestedUrl, mainDocumentUrl, navigationError: undefined};
   } catch (err) {
     if (!(err instanceof LighthouseError)) throw err;
-    if (err.code !== 'NO_FCP' && err.code !== 'PAGE_HUNG' && err.code !== 'TARGET_CRASHED') throw err;
+    if (err.code !== 'NO_FCP' && err.code !== 'PAGE_HUNG' && err.code !== 'TARGET_CRASHED') {
+      throw err;
+    }
     if (typeof requestor !== 'string') throw err;
 
     // TODO: Make the urls optional here so we don't need to throw an error with a callback requestor.
