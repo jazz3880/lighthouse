@@ -42,30 +42,30 @@ const expectations = {
       'network-requests': {
         details: {
           items: {
-            // Multiple session attach handling fixed in M105
-            // https://chromiumdash.appspot.com/commit/f42337f1d623ec913397610ccf01b5526e9e919d
-            _minChromiumVersion: '105',
             _includes: [
-              {url: 'http://localhost:10200/oopif-scripts.html'},
-              {url: 'http://localhost:10200/oopif-simple-page.html'},
-              {url: 'http://localhost:10503/oopif-simple-page.html'},
-              // simple-script.js is included many times
-              // 2 * (1 from <script>, 1 from fetch) = 4
-              // Note, the network records from the workers are _not_ captured! If they
-              // were, then we would see 8 simple-script.js
-              {url: 'http://localhost:10200/simple-script.js', resourceType: 'Script'},
-              {url: 'http://localhost:10503/simple-script.js', resourceType: 'Script'},
-              {url: 'http://localhost:10200/simple-script.js', resourceType: 'Fetch'},
-              {url: 'http://localhost:10503/simple-script.js', resourceType: 'Fetch'},
-              {url: 'http://localhost:10200/simple-worker.js'},
-              {url: 'http://localhost:10503/simple-worker.js'},
-              {url: 'http://localhost:10200/simple-worker.mjs'},
-              {url: 'http://localhost:10503/simple-worker.mjs'},
-              // Requests from worker targets
-              {url: 'http://localhost:10200/simple-script.js?esm', resourceType: 'Script'},
-              {url: 'http://localhost:10503/simple-script.js?esm', resourceType: 'Script'},
-              {url: 'http://localhost:10200/simple-script.js?importScripts', resourceType: 'Other'},
-              {url: 'http://localhost:10503/simple-script.js?importScripts', resourceType: 'Other'},
+              {url: 'http://localhost:10200/oopif-scripts.html', sessionTargetType: 'page'},
+              {url: 'http://localhost:10200/oopif-simple-page.html', sessionTargetType: 'page'},
+              {url: 'http://localhost:10503/oopif-simple-page.html', sessionTargetType: 'iframe'},
+
+              // From in-process iframe
+              {url: 'http://localhost:10200/simple-script.js', resourceType: 'Script', sessionTargetType: 'page'},
+              {url: 'http://localhost:10200/simple-script.js', resourceType: 'Fetch', sessionTargetType: 'page'},
+              {url: 'http://localhost:10200/simple-worker.js', sessionTargetType: 'page'},
+              {url: 'http://localhost:10200/simple-worker.mjs', sessionTargetType: 'page'},
+              // From in-process iframe -> simple-worker.js
+              {url: 'http://localhost:10200/simple-script.js?importScripts', resourceType: 'Other', sessionTargetType: 'worker'},
+              // From in-process iframe -> simple-worker.mjs
+              {url: 'http://localhost:10200/simple-script.js?esm', resourceType: 'Script', sessionTargetType: 'worker'},
+
+              // From OOPIF
+              {url: 'http://localhost:10503/simple-script.js', resourceType: 'Script', sessionTargetType: 'iframe'},
+              {url: 'http://localhost:10503/simple-script.js', resourceType: 'Fetch', sessionTargetType: 'iframe'},
+              {url: 'http://localhost:10503/simple-worker.js', sessionTargetType: 'iframe'},
+              {url: 'http://localhost:10503/simple-worker.mjs', sessionTargetType: 'iframe'},
+              // From OOPIF -> simple-worker.js
+              {url: 'http://localhost:10503/simple-script.js?importScripts', resourceType: 'Other', sessionTargetType: 'worker'},
+              // From OOPIF -> simple-worker.mjs
+              {url: 'http://localhost:10503/simple-script.js?esm', resourceType: 'Script', sessionTargetType: 'worker'},
             ],
             // Ensure the above is exhaustive (except for favicon, which won't be fetched in devtools/LR).
             _excludes: [

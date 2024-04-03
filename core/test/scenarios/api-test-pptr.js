@@ -162,9 +162,8 @@ describe('Individual modes API', function() {
       expect(erroredAudits).toHaveLength(0);
     });
 
-    // TODO: unskip https://github.com/GoogleChrome/lighthouse/issues/15654
     // eslint-disable-next-line max-len
-    it.skip('should know target type of network requests from frames created before timespan', async () => {
+    it('should know target type of network requests from frames created before timespan', async () => {
       const spy = jestMock.spyOn(TargetManager.prototype, '_onExecutionContextCreated');
       state.server.baseDir = `${LH_ROOT}/cli/test/fixtures`;
       const {page, serverBaseUrl} = state;
@@ -190,6 +189,11 @@ describe('Individual modes API', function() {
         .map((r) => ({url: r.url, sessionTargetType: r.sessionTargetType}))
         // @ts-expect-error
         .sort((a, b) => a.url.localeCompare(b.url));
+
+      // These results will differ slightly from `yarn smoke oopif-scripts`
+      // The main worker requests will be assigned to the worker instead of the worker's parent
+      // This is because this test launches Chrome using puppeteer instead of Chrome launcher,
+      // and Puppeteer uses the flag `--disable-field-trial-config`
       expect(networkRequests).toMatchInlineSnapshot(`
 Array [
   Object {
@@ -209,7 +213,7 @@ Array [
     "url": "http://localhost:10200/simple-worker.js",
   },
   Object {
-    "sessionTargetType": "page",
+    "sessionTargetType": "worker",
     "url": "http://localhost:10200/simple-worker.mjs",
   },
   Object {
@@ -229,7 +233,7 @@ Array [
     "url": "http://localhost:10503/simple-worker.js",
   },
   Object {
-    "sessionTargetType": "iframe",
+    "sessionTargetType": "worker",
     "url": "http://localhost:10503/simple-worker.mjs",
   },
 ]
