@@ -122,13 +122,25 @@ class ProtocolSession extends CrdpEventEmitter {
   }
 
   /**
+   * Send and if there's an error response, do not reject.
+   * @template {keyof LH.CrdpCommands} C
+   * @param {C} method
+   * @param {LH.CrdpCommands[C]['paramsType']} params
+   * @return {Promise<LH.CrdpCommands[C]['returnType']>}
+   */
+  sendCommandAndIgnore(method, ...params) {
+    return this.sendCommand(method, ...params)
+      .catch(e => log.verbose('session', method, e.message));
+  }
+
+  /**
    * Disposes of a session so that it can no longer talk to Chrome.
    * @return {Promise<void>}
    */
   async dispose() {
     // @ts-expect-error Puppeteer expects the handler params to be type `unknown`
     this._cdpSession.off('*', this._handleProtocolEvent);
-    await this._cdpSession.detach().catch(_ => {});
+    await this._cdpSession.detach().catch(e => log.verbose('session', 'detach failed', e.message));
   }
 }
 

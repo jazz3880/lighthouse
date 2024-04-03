@@ -180,7 +180,7 @@ class TargetManager extends ProtocolEventEmitter {
       throw err;
     } finally {
       // Resume the target if it was paused, but if it's unnecessary, we don't care about the error.
-      await newSession.sendCommand('Runtime.runIfWaitingForDebugger').catch(() => {});
+      await newSession.sendCommandAndIgnore('Runtime.runIfWaitingForDebugger');
     }
   }
 
@@ -266,6 +266,7 @@ class TargetManager extends ProtocolEventEmitter {
       cdpSession.off('sessionattached', this._onSessionAttached);
     }
 
+    // Ignore failures on these in case the tab has crashed.
     await this._rootCdpSession.send('Page.disable').catch(_ => {});
     await this._rootCdpSession.send('Runtime.disable').catch(_ => {});
 
