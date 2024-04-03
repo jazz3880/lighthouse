@@ -150,6 +150,9 @@ function getPageLoadError(navigationError, context) {
   let finalRecord;
   if (mainRecord) {
     finalRecord = NetworkAnalyzer.resolveRedirects(mainRecord);
+  } else {
+    // We have no network requests to process, use the navError
+    return navigationError;
   }
 
   if (finalRecord?.mimeType === XHTML_MIME_TYPE) {

@@ -103,6 +103,14 @@ async function gotoURL(driver, requestor, options) {
     waitForNavigationTriggered = requestor();
   }
 
+  // driver.fatalRejection.catch(err => {
+  //   return {
+  //     requestedUrl,
+  //     mainDocumentUrl: requestedUrl,
+  //     warnings: [],
+  //   };
+  // });
+
   const waitForNavigated = options.waitUntil.includes('navigated');
   const waitForLoad = options.waitUntil.includes('load');
   const waitForFcp = options.waitUntil.includes('fcp');
@@ -122,8 +130,13 @@ async function gotoURL(driver, requestor, options) {
     throw new Error('Cannot wait for FCP without waiting for page load');
   }
 
-  const waitConditions = await Promise.all(waitConditionPromises);
-  const timedOut = waitConditions.some(condition => condition.timedOut);
+  let timedOut;
+    const waitConditions = await Promise.race([
+      driver.fatalRejection.promise,
+      Promise.all(waitConditionPromises),
+    ]);
+    timedOut = waitConditions.some(condition => condition.timedOut);
+
   const navigationUrls = await networkMonitor.getNavigationUrls();
 
   let requestedUrl = navigationUrls.requestedUrl;

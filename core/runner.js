@@ -210,7 +210,7 @@ class Runner {
       log.time(runnerStatus, 'verbose');
 
       const gatherFnPromise = gatherFn({resolvedConfig: options.resolvedConfig});
-      const artifacts = await Promise.race([gatherFnPromise, options.fatalGatherPromise]);
+      const artifacts = await gatherFnPromise; // Promise.race([gatherFnPromise, options.fatalGatherPromise]);
       log.timeEnd(runnerStatus);
 
       // If `gather` is run multiple times before `audit`, the timing entries for each `gather` can pollute one another.

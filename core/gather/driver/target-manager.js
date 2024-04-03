@@ -266,8 +266,8 @@ class TargetManager extends ProtocolEventEmitter {
       cdpSession.off('sessionattached', this._onSessionAttached);
     }
 
-    await this._rootCdpSession.send('Page.disable');
-    await this._rootCdpSession.send('Runtime.disable');
+    await this._rootCdpSession.send('Page.disable').catch(_ => {});
+    await this._rootCdpSession.send('Runtime.disable').catch(_ => {});
 
     this._enabled = false;
     this._targetIdToTargets = new Map();

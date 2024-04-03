@@ -92,7 +92,7 @@ async function _navigate(navigationContext) {
     return {requestedUrl, mainDocumentUrl, navigationError: undefined};
   } catch (err) {
     if (!(err instanceof LighthouseError)) throw err;
-    if (err.code !== 'NO_FCP' && err.code !== 'PAGE_HUNG') throw err;
+    if (err.code !== 'NO_FCP' && err.code !== 'PAGE_HUNG' && err.code !== 'TARGET_CRASHED') throw err;
     if (typeof requestor !== 'string') throw err;
 
     // TODO: Make the urls optional here so we don't need to throw an error with a callback requestor.
@@ -290,20 +290,20 @@ async function navigationGather(page, requestor, options = {}) {
 
 
     const driver = new Driver(page);
-    driver.fatalRejection.promise.catch(err => {
-      const url = typeof requestor === 'string' ? requestor : 'chrome://unknown';
-      /** @type {LH.ContextualBaseArtifacts} */
-      const psuedoArtifacts = {
-        PageLoadError: err,
-        URL: {
-          requestedUrl: url,
-          finalDisplayedUrl: url,
-          mainDocumentUrl: url,
-        },
-      };
-      const arts = finalizeArtifacts({...baseArtifacts, ...psuedoArtifacts}, {});
-      wrappedRes(arts);
-    });
+    // driver.fatalRejection.promise.catch(err => {
+    //   const url = typeof requestor === 'string' ? requestor : 'chrome://unknown';
+    //   /** @type {LH.ContextualBaseArtifacts} */
+    //   const psuedoArtifacts = {
+    //     PageLoadError: err,
+    //     URL: {
+    //       requestedUrl: url,
+    //       finalDisplayedUrl: url,
+    //       mainDocumentUrl: url,
+    //     },
+    //   };
+    //   const arts = finalizeArtifacts({...baseArtifacts, ...psuedoArtifacts}, {});
+    //   wrappedRes(arts);
+    // });
 
     const context = {
       driver,

@@ -128,7 +128,7 @@ class ProtocolSession extends CrdpEventEmitter {
   async dispose() {
     // @ts-expect-error Puppeteer expects the handler params to be type `unknown`
     this._cdpSession.off('*', this._handleProtocolEvent);
-    await this._cdpSession.detach();
+    await this._cdpSession.detach().catch(_ => {});
   }
 }
 

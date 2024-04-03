@@ -128,7 +128,8 @@ function enableNetworkThrottling(session, throttlingSettings) {
  * @return {Promise<void>}
  */
 function clearNetworkThrottling(session) {
-  return session.sendCommand('Network.emulateNetworkConditions', NO_THROTTLING_METRICS);
+  return session.sendCommand('Network.emulateNetworkConditions', NO_THROTTLING_METRICS)
+    .catch(_ => {});
 }
 
 /**
@@ -146,7 +147,8 @@ function enableCPUThrottling(session, throttlingSettings) {
  * @return {Promise<void>}
  */
 function clearCPUThrottling(session) {
-  return session.sendCommand('Emulation.setCPUThrottlingRate', NO_CPU_THROTTLE_METRICS);
+  return session.sendCommand('Emulation.setCPUThrottlingRate', NO_CPU_THROTTLE_METRICS)
+    .catch(_ => {});
 }
 
 export {
