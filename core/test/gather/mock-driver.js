@@ -159,7 +159,7 @@ function createMockDriver() {
   const targetManager = createMockTargetManager(session);
 
   // The `fatalRejection`
-  /** @param {any} _ */
+  /** @param {Error} _ */
   let rej = _ => {};
   const promise = new Promise((_, theRej) => {
     rej = theRej;
