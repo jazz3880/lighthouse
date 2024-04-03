@@ -36,6 +36,7 @@ export import Puppeteer = Puppeteer_;
 export import Artifacts = Artifacts_.Artifacts;
 export import BaseArtifacts = Artifacts_.BaseArtifacts;
 export import GathererArtifacts = Artifacts_.GathererArtifacts;
+export import ContextualBaseArtifacts = Artifacts_.ContextualBaseArtifacts;
 export import DevtoolsLog = Artifacts_.DevtoolsLog;
 export import Trace = Artifacts_.Trace;
 export import TraceCpuProfile = Artifacts_.TraceCpuProfile;

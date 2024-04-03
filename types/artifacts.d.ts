@@ -64,7 +64,7 @@ interface UniversalBaseArtifacts {
 /**
  * The set of base artifacts whose semantics differ or may be valueless in certain Lighthouse gather modes.
  */
-interface ContextualBaseArtifacts {
+export interface ContextualBaseArtifacts {
   /** The URL initially requested and the post-redirects URL that was actually loaded. */
   URL: Artifacts.URL;
   /** If loading the page failed, value is the error that caused it. Otherwise null. */

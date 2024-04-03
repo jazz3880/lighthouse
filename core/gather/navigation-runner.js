@@ -267,8 +267,8 @@ async function navigationGather(page, requestor, options = {}) {
   // As Driver is instantiated within gatherFn, we don't have access to `driver.fatalRejection`
   // until after the race starts. This new promise acts as a proxy for it.
   /** @param {any} _ */
-  let wrappedRej = _ => {};
-  const wrappedFatalPromise = /** @type {Promise<never>} */ (new Promise((_, r) => wrappedRej = r));
+  let wrappedRes = _ => {};
+  const wrappedFatalPromise = /** @type {Promise<never>} */ (new Promise((r) => wrappedRes = r));
 
   const runnerOptions = {resolvedConfig, computedCache, fatalGatherPromise: wrappedFatalPromise};
   const gatherFn = async () => {
@@ -290,7 +290,21 @@ async function navigationGather(page, requestor, options = {}) {
 
 
     const driver = new Driver(page);
-    driver.fatalRejection.promise.catch(err => wrappedRej({err, baseArtifacts}));
+    driver.fatalRejection.promise.catch(err => {
+      const url = typeof requestor === 'string' ? requestor : 'chrome://unknown';
+      /** @type {LH.ContextualBaseArtifacts} */
+      const psuedoArtifacts = {
+        PageLoadError: err,
+        URL: {
+          requestedUrl: url,
+          finalDisplayedUrl: url,
+          mainDocumentUrl: url,
+        },
+      };
+      const arts = finalizeArtifacts({...baseArtifacts, ...psuedoArtifacts}, {});
+      wrappedRes(arts);
+    });
+
     const context = {
       driver,
       lhBrowser,
