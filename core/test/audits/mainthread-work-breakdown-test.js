@@ -120,7 +120,7 @@ Object {
     expect(Math.round(output.numericValue)).toMatchInlineSnapshot(`979`);
     assert.equal(output.details.items.length, 7);
     assert.equal(output.score, 1);
-    expect(output.metricSavings.TBT).toBeCloseTo(353.5, 0.1);
+    expect(output.metricSavings.TBT).toBeCloseTo(171.95, 0.1);
   });
 
   it('should compute the correct values for the load trace (legacy)', async () => {

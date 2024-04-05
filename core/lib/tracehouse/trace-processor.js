@@ -403,6 +403,9 @@ class TraceProcessor {
    */
   static getMainThreadTopLevelEvents(trace, startTime = 0, endTime = Infinity) {
     const topLevelEvents = [];
+    /** @type {ToplevelEvent|undefined} */
+    let prevToplevel = undefined;
+
     // note: mainThreadEvents is already sorted by event start
     for (const event of trace.mainThreadEvents) {
       if (!this.isScheduleableTask(event) || !event.dur) continue;
@@ -411,11 +414,21 @@ class TraceProcessor {
       const end = (event.ts + event.dur - trace.timeOriginEvt.ts) / 1000;
       if (start > endTime || end < startTime) continue;
 
-      topLevelEvents.push({
+      // Temporary fix for a Chrome bug where some RunTask events can be overlapping.
+      // We correct that here be ensuring each RunTask ends at least 1 microsecond before the next
+      // https://github.com/GoogleChrome/lighthouse/issues/15896
+      // https://issues.chromium.org/issues/329678173
+      if (prevToplevel && start < prevToplevel.end) {
+        prevToplevel.end = start - 0.001;
+      }
+
+      prevToplevel = {
         start,
         end,
         duration: event.dur / 1000,
-      });
+      };
+
+      topLevelEvents.push(prevToplevel);
     }
 
     return topLevelEvents;

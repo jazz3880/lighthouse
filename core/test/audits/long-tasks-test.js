@@ -304,7 +304,7 @@ describe('Long tasks audit', () => {
         }],
       },
     });
-    expect(result.metricSavings.TBT).toBeApproximately(353.53);
+    expect(result.metricSavings.TBT).toBeApproximately(171.95);
 
     const debugData = result.details.debugData;
     expect(debugData).toStrictEqual({

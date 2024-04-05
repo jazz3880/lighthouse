@@ -331,6 +331,47 @@ describe('TraceProcessor', () => {
       assert.equal(ret[1].end, 2000);
       assert.equal(ret[1].duration, 1000);
     });
+
+    it('corrects overlapping tasks', () => {
+      const baseTime = 20_000_000;
+      const name = 'RunTask';
+      const processedTrace = {
+        timeOriginEvt: {ts: baseTime},
+        mainThreadEvents: [
+          // 10ms to 100ms
+          {ts: baseTime + 10_000, dur: 90_000, name},
+          // 40ms to 60ms
+          {ts: baseTime + 40_000, dur: 20_000, name},
+          // 70ms to 90ms
+          {ts: baseTime + 70_000, dur: 20_000, name},
+          // 100ms to 120ms
+          {ts: baseTime + 100_000, dur: 20_000, name},
+        ],
+      };
+
+      const ret = TraceProcessor.getMainThreadTopLevelEvents(
+        processedTrace,
+        0,
+        2000
+      );
+      assert.equal(ret.length, 4);
+
+      assert.equal(ret[0].start, 10);
+      assert.equal(ret[0].end, 39.999);
+      assert.equal(ret[0].duration, 90);
+
+      assert.equal(ret[1].start, 40);
+      assert.equal(ret[1].end, 60);
+      assert.equal(ret[1].duration, 20);
+
+      assert.equal(ret[2].start, 70);
+      assert.equal(ret[2].end, 90);
+      assert.equal(ret[2].duration, 20);
+
+      assert.equal(ret[3].start, 100);
+      assert.equal(ret[3].end, 120);
+      assert.equal(ret[3].duration, 20);
+    });
   });
 
   describe('getMainThreadTopLevelEventDurations', () => {
